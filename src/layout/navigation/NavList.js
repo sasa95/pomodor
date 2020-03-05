@@ -1,13 +1,13 @@
 import React from 'react'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import TimerIcon from '@material-ui/icons/Timer'
+import ShowChartIcon from '@material-ui/icons/ShowChart'
+import SettingsIcon from '@material-ui/icons/Settings'
+import { useTheme } from '@material-ui/core'
 import styled from 'styled-components'
-import {
-  List,
-  ListItemIcon,
-  ListItem,
-  ListItemText,
-  useTheme,
-} from '@material-ui/core'
-import { Timer, ShowChart, Settings } from '@material-ui/icons'
 
 const MatNavList = styled(List)`
   display: flex;
@@ -41,7 +41,6 @@ const NavItemIcon = styled(ListItemIcon)`
 const NavListItem = styled(ListItem)`
   display: flex;
   flex-direction: column;
-  ${({ active }) => active && 'border-bottom: 2px solid #fff;'}
 
   ${NavItemIcon} {
     color: ${({ active }) => (active ? '#fff' : 'rgba(255,255,255,.5)')};
@@ -67,21 +66,21 @@ const NavList = () => {
     >
       <NavListItem button active="true">
         <NavItemIcon>
-          <Timer />
+          <TimerIcon />
         </NavItemIcon>
         <ListItemText primary="Timer" />
       </NavListItem>
 
       <NavListItem button>
         <NavItemIcon>
-          <ShowChart />
+          <ShowChartIcon />
         </NavItemIcon>
         <ListItemText primary="Stats" />
       </NavListItem>
 
       <NavListItem button>
         <NavItemIcon>
-          <Settings />
+          <SettingsIcon />
         </NavItemIcon>
         <ListItemText primary="Settings" />
       </NavListItem>
