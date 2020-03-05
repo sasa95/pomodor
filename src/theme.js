@@ -1,14 +1,14 @@
 import { createMuiTheme } from '@material-ui/core/styles'
-import teal from '@material-ui/core/colors/teal'
-import cyan from '@material-ui/core/colors/cyan'
+import indigo from '@material-ui/core/colors/indigo'
+import pink from '@material-ui/core/colors/pink'
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: teal[500],
+      main: indigo[500],
     },
     secondary: {
-      main: cyan[300],
+      main: pink[300],
     },
   },
 })
