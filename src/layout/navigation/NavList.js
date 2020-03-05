@@ -19,7 +19,7 @@ const MatNavList = styled(List)`
 
   ${({ theme }) => theme.breakpoints.up('sm')} {
     flex-direction: column;
-    align-self: flex-start;
+    top: 40px;
     width: 92px;
 
     & > * {
