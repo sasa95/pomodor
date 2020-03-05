@@ -41,6 +41,7 @@ const NavItemIcon = styled(ListItemIcon)`
 const NavListItem = styled(ListItem)`
   display: flex;
   flex-direction: column;
+  ${({ active }) => active && 'border-bottom: 2px solid #fff;'}
 
   ${NavItemIcon} {
     color: ${({ active }) => (active ? '#fff' : 'rgba(255,255,255,.5)')};
@@ -48,6 +49,9 @@ const NavListItem = styled(ListItem)`
 
   .MuiListItemText-primary {
     color: ${({ active }) => (active ? '#fff' : 'rgba(255,255,255,.5)')};
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 500;
   }
 `
 
