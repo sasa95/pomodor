@@ -1,8 +1,10 @@
 import React from 'react'
+import { AppBar } from './layout/AppBar'
 
-function App() {
+const App = () => {
   return (
     <div>
+      <AppBar />
       <p>Hello, world!</p>
     </div>
   )
