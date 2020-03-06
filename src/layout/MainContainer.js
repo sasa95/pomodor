@@ -25,6 +25,7 @@ const FrontLayer = styled.main`
     right: 0;
     z-index: 1100;
     border-top-left-radius: 33px;
+    border-top-right-radius: 0;
     width: calc(100% - 92px);
     min-height: calc(100vh - 64px);
     background: #fff;
