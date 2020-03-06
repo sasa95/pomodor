@@ -1,6 +1,8 @@
 import React from 'react'
-import { Toolbar as MatToolbar } from '@material-ui/core'
+import MatToolbar from '@material-ui/core/Toolbar'
+import Box from '@material-ui/core/Box'
 import styled from 'styled-components'
+import { SignIn } from './SignIn'
 
 const Logotype = styled.span`
   font-size: 1.2rem;
@@ -10,7 +12,15 @@ const Logotype = styled.span`
 
 const Toolbar = () => (
   <MatToolbar>
-    <Logotype>POMODOR</Logotype>
+    <Box
+      width="100%"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Logotype>POMODOR</Logotype>
+      <SignIn />
+    </Box>
   </MatToolbar>
 )
 
