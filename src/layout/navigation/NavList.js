@@ -8,9 +8,11 @@ import ShowChartIcon from '@material-ui/icons/ShowChart'
 import SettingsIcon from '@material-ui/icons/Settings'
 import { useTheme } from '@material-ui/core'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const MatNavList = styled(List)`
   display: flex;
+  justify-content: space-between;
   padding: 0;
 
   .MuiListItemText-primary {
@@ -32,25 +34,35 @@ const MatNavList = styled(List)`
   }
 `
 
+const NavListItem = styled(ListItem)`
+  display: flex;
+  flex-direction: column;
+
+  .MuiListItemText-primary {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+`
+
 const NavItemIcon = styled(ListItemIcon)`
   color: rgba(255, 255, 255, 0.5);
   display: flex;
   justify-content: center;
 `
 
-const NavListItem = styled(ListItem)`
-  display: flex;
-  flex-direction: column;
+const Link = styled(NavLink)`
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
 
-  ${NavItemIcon} {
-    color: ${({ active }) => (active ? '#fff' : 'rgba(255,255,255,.5)')};
+  &.active ${NavItemIcon} {
+    color: #fff;
   }
 
-  .MuiListItemText-primary {
-    color: ${({ active }) => (active ? '#fff' : 'rgba(255,255,255,.5)')};
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    font-weight: 500;
+  &.active .MuiListItemText-primary {
+    color: #fff;
   }
 `
 
@@ -64,26 +76,32 @@ const NavList = () => {
       aria-label="Main navigation"
       theme={theme}
     >
-      <NavListItem button active="true">
-        <NavItemIcon>
-          <TimerIcon />
-        </NavItemIcon>
-        <ListItemText primary="Timer" />
-      </NavListItem>
+      <Link to="/" exact={true}>
+        <NavListItem button>
+          <NavItemIcon>
+            <TimerIcon />
+          </NavItemIcon>
+          <ListItemText primary="Timer" />
+        </NavListItem>
+      </Link>
 
-      <NavListItem button>
-        <NavItemIcon>
-          <ShowChartIcon />
-        </NavItemIcon>
-        <ListItemText primary="Stats" />
-      </NavListItem>
+      <Link to="/stats">
+        <NavListItem button>
+          <NavItemIcon>
+            <ShowChartIcon />
+          </NavItemIcon>
+          <ListItemText primary="Stats" />
+        </NavListItem>
+      </Link>
 
-      <NavListItem button>
-        <NavItemIcon>
-          <SettingsIcon />
-        </NavItemIcon>
-        <ListItemText primary="Settings" />
-      </NavListItem>
+      <Link to="/settings">
+        <NavListItem button>
+          <NavItemIcon>
+            <SettingsIcon />
+          </NavItemIcon>
+          <ListItemText primary="Settings" />
+        </NavListItem>
+      </Link>
     </MatNavList>
   )
 }
