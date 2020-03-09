@@ -6,6 +6,7 @@ import 'typeface-roboto'
 import * as serviceWorker from './serviceWorker'
 import App from './App'
 import theme from './theme'
+import { firebase } from './firebase/firebase'
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
