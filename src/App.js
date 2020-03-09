@@ -1,8 +1,11 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
+import { ThemeProvider } from '@material-ui/core/styles'
+import { CssBaseline } from '@material-ui/core'
+import theme from './theme'
 import { AppBar } from './layout/navigation/AppBar'
 import { MainContainer } from './layout/MainContainer'
-import { BrowserRouter } from 'react-router-dom'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -12,11 +15,14 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <GlobalStyle />
-      <AppBar />
-      <MainContainer />
-    </BrowserRouter>
+      <BrowserRouter>
+        <AppBar />
+        <MainContainer />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
