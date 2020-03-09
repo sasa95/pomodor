@@ -7,6 +7,10 @@ import theme from './theme'
 import { AppBar } from './layout/navigation/AppBar'
 import { MainContainer } from './layout/MainContainer'
 import { firebase } from './firebase/firebase'
+import configureStore from './store'
+import { Provider } from 'react-redux'
+
+const store = configureStore()
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -17,8 +21,6 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      // eslint-disable-next-line no-console
-      console.dir(user)
     } else {
       firebase.auth().signInAnonymously()
     }
@@ -28,10 +30,12 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyle />
-      <BrowserRouter>
-        <AppBar />
-        <MainContainer />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <AppBar />
+          <MainContainer />
+        </BrowserRouter>
+      </Provider>
     </ThemeProvider>
   )
 }
