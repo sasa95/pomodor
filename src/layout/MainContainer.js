@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import { useTheme } from '@material-ui/core'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { Timer } from '../scenes/Timer/Timer'
+import { Stats } from '../scenes/Stats/Stats'
+import { Settings } from '../scenes/Settings/Settings'
 
 const BackLayer = styled.div`
   height: 100vh;
@@ -44,18 +47,10 @@ const MainContainer = () => {
             <Route exact path="/">
               <Redirect to="/timer" />
             </Route>
-
-            <Route path="/timer">
-              <div>Timer</div>
-            </Route>
-
-            <Route path="/stats">
-              <div>Stats</div>
-            </Route>
+            <Route path="/timer" component={Timer} />
+            <Route path="/stats" component={Stats} />
+            <Route path="/settings" component={Settings} />
           </Switch>
-          <Route path="/settings">
-            <div>Settings</div>
-          </Route>
         </Container>
       </FrontLayer>
     </BackLayer>
