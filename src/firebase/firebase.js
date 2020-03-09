@@ -17,9 +17,4 @@ firebase.initializeApp(firebaseConfig)
 const fs = firebase.firestore()
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
-// test connection
-fs.collection('testCollection')
-  .add({ title: 'test' })
-  .then()
-
 export { firebase, googleAuthProvider, fs as default }
