@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -6,10 +7,11 @@ import FaceIcon from '@material-ui/icons/Face'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import SvgIcon from '@material-ui/core/SvgIcon'
-import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
+import styled from 'styled-components'
 import { GoogleIcon } from './GoogleIcon'
-import { firebase, googleAuthProvider } from '../../firebase/firebase'
+import { linkAccount } from '../../data/auth/actions'
+import { googleAuthProvider } from '../../firebase/firebase'
 
 const TriggerButton = styled(Button)`
   color: ${({ theme }) => theme.palette.secondary.light};
@@ -17,6 +19,7 @@ const TriggerButton = styled(Button)`
 
 const SignIn = () => {
   const [anchorEl, setAnchorEl] = useState(null)
+  const dispatch = useDispatch()
   const theme = useTheme()
 
   const openMenu = event => {
@@ -28,13 +31,7 @@ const SignIn = () => {
   }
 
   const googleAuth = async () => {
-    const res = await firebase
-      .auth()
-      .currentUser.linkWithPopup(googleAuthProvider)
-
-    // eslint-disable-next-line no-console
-    console.log('upgraded account', res)
-
+    dispatch(linkAccount(googleAuthProvider))
     handleClose()
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { CssBaseline } from '@material-ui/core'
@@ -7,10 +8,7 @@ import theme from './theme'
 import { AppBar } from './layout/navigation/AppBar'
 import { MainContainer } from './layout/MainContainer'
 import { firebase } from './firebase/firebase'
-import configureStore from './store'
-import { Provider } from 'react-redux'
-
-const store = configureStore()
+import { setUserInfo } from './data/auth/actions'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -19,8 +17,18 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
+  const dispatch = useDispatch()
+
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
+      const userInfo = { uid: user.uid }
+
+      if (user.providerData && user.providerData.length) {
+        userInfo.name = user.providerData[0].displayName
+        userInfo.photo = user.providerData[0].photoURL
+      }
+
+      dispatch(setUserInfo(userInfo))
     } else {
       firebase.auth().signInAnonymously()
     }
@@ -30,12 +38,10 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyle />
-      <Provider store={store}>
-        <BrowserRouter>
-          <AppBar />
-          <MainContainer />
-        </BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+        <AppBar />
+        <MainContainer />
+      </BrowserRouter>
     </ThemeProvider>
   )
 }
