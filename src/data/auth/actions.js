@@ -7,16 +7,23 @@ export const setUserInfo = userInfo => ({
 
 export const linkAccount = authProvider => {
   return async dispatch => {
-    const user = (await firebase.auth().currentUser.linkWithPopup(authProvider))
-      .user
+    try {
+      const res = await firebase.auth().currentUser.linkWithPopup(authProvider)
 
-    const userInfo = { uid: user.uid }
+      const user = res.user
 
-    if (user.providerData && user.providerData.length) {
-      userInfo.name = user.providerData[0].displayName
-      userInfo.photo = user.providerData[0].photoURL
+      const userInfo = { uid: user.uid }
+
+      if (user.providerData && user.providerData.length) {
+        userInfo.name = user.providerData[0].displayName
+        userInfo.photo = user.providerData[0].photoURL
+      }
+
+      dispatch(setUserInfo(userInfo))
+    } catch (e) {
+      if (e.code === 'auth/credential-already-in-use') {
+        await firebase.auth().signInWithCredential(e.credential)
+      }
     }
-
-    dispatch(setUserInfo(userInfo))
   }
 }
