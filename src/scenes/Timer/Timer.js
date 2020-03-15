@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import styled from 'styled-components'
-import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import PlayArrowIcon from '@material-ui/icons/PlayArrow'
+import PauseIcon from '@material-ui/icons/Pause'
+import StopIcon from '@material-ui/icons/Stop'
 
 // Timer duration in minutes
-const DURATION = 1
+const DURATION = 25
 
 const Container = styled.div`
   position: relative;
@@ -25,6 +28,10 @@ const Time = styled.span`
   transform: translate(-50%, -50%);
   font-size: 3rem;
   white-space: pre;
+`
+
+const ActionIcon = styled(IconButton)`
+  border: 1px solid #bababa;
 `
 
 const Timer = () => {
@@ -54,11 +61,12 @@ const Timer = () => {
   }
 
   const startTimer = () => {
+    if (int) return
     const endTime = new Date(
       new Date().getTime() + timeLeft.minutes * 60000 + timeLeft.seconds * 1000
     )
 
-    const int = setInterval(() => {
+    const interval = setInterval(() => {
       const calculatedTime = calculateTimeLeft(endTime)
       const calculatedProgress = calculateProgress(calculatedTime)
 
@@ -66,17 +74,19 @@ const Timer = () => {
       setProgress(calculatedProgress)
     }, 200)
 
-    setInt(int)
+    setInt(interval)
   }
 
   const stopTimer = () => {
     clearInterval(int)
+    setInt(null)
     setTimeLeft({ minutes: DURATION, seconds: 0 })
     setProgress(100)
   }
 
   const pauseTimer = () => {
     clearInterval(int)
+    setInt(null)
   }
 
   return (
@@ -92,21 +102,21 @@ const Timer = () => {
         )}
       </Container>
 
-      <Button variant="contained" onClick={startTimer}>
-        Start
-      </Button>
+      <ActionIcon aria-label="delete" onClick={startTimer}>
+        <PlayArrowIcon />
+      </ActionIcon>
 
-      <Button variant="contained" onClick={stopTimer}>
-        Stop
-      </Button>
+      <ActionIcon aria-label="delete" onClick={stopTimer}>
+        <StopIcon />
+      </ActionIcon>
 
-      <Button variant="contained" onClick={pauseTimer}>
-        Pause
-      </Button>
+      <ActionIcon aria-label="delete" onClick={pauseTimer}>
+        <PauseIcon />
+      </ActionIcon>
 
-      <Button variant="contained" onClick={startTimer}>
-        Resume
-      </Button>
+      <ActionIcon aria-label="delete" onClick={startTimer}>
+        <PlayArrowIcon />
+      </ActionIcon>
     </div>
   )
 }
