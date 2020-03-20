@@ -4,17 +4,22 @@ import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
-import StopIcon from '@material-ui/icons/Stop'
+import ReplayIcon from '@material-ui/icons/Replay'
 import SkipNext from '@material-ui/icons/SkipNext'
 import Box from '@material-ui/core/Box'
 
-// Timer duration in minutes
-const DURATION = 25
+const ROUNDS_NUMBER = 4
 
 const STATUSES = {
-  initial: 'INITIAL',
+  onHold: 'ON_HOLD',
   running: 'RUNNING',
   paused: 'PAUSED',
+}
+
+const TIMER_TYPES = {
+  work: { id: 'w', duration: 25 },
+  shortBreak: { id: 'sb', duration: 5 },
+  longBreak: { id: 'lb', duration: 20 },
 }
 
 const CircleContainer = styled.div`
@@ -42,15 +47,25 @@ const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
 `
 
+const CounterLabel = styled.span`
+  font-weight: bold;
+`
+
 const Timer = () => {
   const [progress, setProgress] = useState(100)
-  const [timeLeft, setTimeLeft] = useState({ minutes: DURATION, seconds: 0 })
+  const [timeLeft, setTimeLeft] = useState({
+    minutes: TIMER_TYPES.work.duration,
+    seconds: 0,
+  })
   const [int, setInt] = useState()
-  const [status, setStatus] = useState(STATUSES.initial)
+  const [status, setStatus] = useState(STATUSES.onHold)
+  const [type, setType] = useState(TIMER_TYPES.work.id)
+  const [duration, setDuration] = useState(TIMER_TYPES.work.duration)
+  const [currentRound, setCurrentRound] = useState(1)
 
   const calculateTimeLeft = endTime => {
     const difference = +endTime - +new Date()
-    let timeLeft = {}
+    let timeLeft = { minutes: 0, seconds: 0 }
 
     if (difference > 0) {
       timeLeft = {
@@ -63,7 +78,7 @@ const Timer = () => {
   }
 
   const calculateProgress = timeLeft => {
-    const secondsTotal = DURATION * 60
+    const secondsTotal = duration * 60
     const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
 
     return 100 / (secondsTotal / secondsLeft)
@@ -84,16 +99,61 @@ const Timer = () => {
 
       setTimeLeft(calculatedTime)
       setProgress(calculatedProgress)
+
+      if (!calculatedProgress) {
+        setTimeout(() => {
+          setupNextTimer(interval)
+        }, 1000)
+      }
     }, 200)
 
     setInt(interval)
   }
 
-  const stopTimer = () => {
+  const setupNextTimer = interval => {
+    setProgress(100)
+    clearInterval(interval)
+    setInt(null)
+    setStatus(STATUSES.onHold)
+
+    if (currentRound < ROUNDS_NUMBER) {
+      if (type === TIMER_TYPES.work.id) {
+        const { id, duration } = TIMER_TYPES.shortBreak
+
+        setType(id)
+        setTimeLeft({ minutes: duration, seconds: 0 })
+        setDuration(TIMER_TYPES.shortBreak.duration)
+      } else {
+        const { id, duration } = TIMER_TYPES.work
+
+        setType(id)
+        setTimeLeft({ minutes: duration, seconds: 0 })
+        setDuration(duration)
+        setCurrentRound(currentRound + 1)
+      }
+    } else {
+      if (type === TIMER_TYPES.work.id) {
+        const { id, duration } = TIMER_TYPES.longBreak
+
+        setType(id)
+        setTimeLeft({ minutes: duration, seconds: 0 })
+        setDuration(duration)
+      } else {
+        const { id, duration } = TIMER_TYPES.work
+
+        setTimeLeft({ minutes: duration, seconds: 0 })
+        setType(id)
+        setDuration(duration)
+        setCurrentRound(1)
+      }
+    }
+  }
+
+  const resetTimer = () => {
     clearInterval(int)
     setInt(null)
-    setTimeLeft({ minutes: DURATION, seconds: 0 })
-    setStatus(STATUSES.initial)
+    setTimeLeft({ minutes: duration, seconds: 0 })
+    setStatus(STATUSES.onHold)
     setProgress(100)
   }
 
@@ -136,13 +196,20 @@ const Timer = () => {
         alignItems="center"
         mt={2}
       >
-        <span>1/4</span>
+        <CounterLabel>
+          {currentRound}/{ROUNDS_NUMBER}
+        </CounterLabel>
 
         <Box display="flex">
-          <IconButton aria-label="Stop timer" onClick={stopTimer}>
-            <StopIcon />
+          <IconButton aria-label="Reset timer" onClick={resetTimer}>
+            <ReplayIcon />
           </IconButton>
-          <IconButton aria-label="Skip current timer" onClick={() => {}}>
+          <IconButton
+            aria-label="Skip current timer"
+            onClick={() => {
+              setupNextTimer(int)
+            }}
+          >
             <SkipNext />
           </IconButton>
         </Box>
