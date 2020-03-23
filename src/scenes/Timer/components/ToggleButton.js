@@ -14,6 +14,7 @@ import {
   pauseTimer,
   saveInterval,
 } from '../actions'
+import chime from '../assets/chime.mp3'
 
 const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
@@ -66,6 +67,8 @@ const ToggleButton = () => {
       if (!calculatedProgress) {
         setTimeout(() => {
           dispatch(setNextTimer())
+          const audio = new Audio(chime)
+          audio.play()
         }, 1000)
 
         clearInterval(interval)
