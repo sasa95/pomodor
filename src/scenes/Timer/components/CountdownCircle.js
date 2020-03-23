@@ -33,7 +33,7 @@ const CountdownCircle = () => {
       <Circle variant="static" value={progress} size={200} />
       {timeLeft && (
         <Time>
-          {timeLeft.minutes}:
+          {timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes}:
           {timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds}
         </Time>
       )}

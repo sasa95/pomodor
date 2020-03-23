@@ -12,6 +12,22 @@ export const TYPES = {
   longBreak: { id: 'LONG_BREAK', duration: 20 },
 }
 
+export const setTitle = (type, timeLeft) => {
+  let emoji
+
+  if (type === TYPES.work.id) {
+    emoji = '👨‍💻'
+  } else {
+    emoji = '☕️'
+  }
+
+  document.title = `${
+    timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes
+  }:${
+    timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds
+  } ${emoji}`
+}
+
 const initialState = {
   status: STATUSES.onHold,
   type: TYPES.work.id,

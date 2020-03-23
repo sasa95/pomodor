@@ -6,8 +6,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNextTimer } from '../actions'
-
-import { STATUSES } from '../reducer'
+import { STATUSES, setTitle } from '../reducer'
 import {
   setStatus,
   setTimeLeft,
@@ -21,7 +20,7 @@ const ActionIcon = styled(IconButton)`
 `
 
 const ToggleButton = () => {
-  const { status, timeLeft, duration } = useSelector(state => state.timer)
+  const { status, timeLeft, duration, type } = useSelector(state => state.timer)
 
   const dispatch = useDispatch()
 
@@ -61,6 +60,8 @@ const ToggleButton = () => {
 
       dispatch(setTimeLeft(calculatedTimeLeft))
       dispatch(setProgress(calculatedProgress))
+
+      setTitle(type, calculatedTimeLeft)
 
       if (!calculatedProgress) {
         setTimeout(() => {
