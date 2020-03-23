@@ -25,7 +25,7 @@ export const setTitle = (type, timeLeft) => {
     timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes
   }:${
     timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds
-  } ${emoji}`
+  } ${emoji} | Pomodor`
 }
 
 const initialState = {
