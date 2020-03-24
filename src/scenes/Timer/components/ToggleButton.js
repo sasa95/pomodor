@@ -6,7 +6,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNextTimer } from '../actions'
-import { STATUSES, setTitle } from '../reducer'
+import { STATUSES, TYPES, setTitle } from '../reducer'
 import {
   setStatus,
   setTimeLeft,
@@ -15,6 +15,7 @@ import {
   saveInterval,
 } from '../actions'
 import chime from '../assets/chime.mp3'
+import icon from '../assets/alarm.svg'
 
 const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
@@ -51,6 +52,10 @@ const ToggleButton = () => {
   const startTimer = () => {
     if (status === STATUSES.running) return
 
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission()
+    }
+
     dispatch(setStatus(STATUSES.running))
 
     const endTime = new Date(
@@ -70,6 +75,19 @@ const ToggleButton = () => {
         setTimeout(() => {
           dispatch(setNextTimer())
           audio.play()
+
+          if (
+            'Notification' in window &&
+            Notification.permission === 'granted'
+          ) {
+            const msg =
+              type === TYPES.work.id ? 'Take a break ☕️' : 'Start working 👨‍💻'
+
+            new Notification(msg, {
+              icon,
+              vibrate: [100, 50, 100],
+            })
+          }
         }, 1000)
 
         clearInterval(interval)
