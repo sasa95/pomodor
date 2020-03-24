@@ -15,7 +15,9 @@ import {
   saveInterval,
 } from '../actions'
 import chime from '../assets/chime.mp3'
-import icon from '../assets/alarm.svg'
+import work from '../assets/work.png'
+import alarm from '../assets/alarm.png'
+import coffee from '../assets/coffee.png'
 
 const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
@@ -72,7 +74,7 @@ const ToggleButton = () => {
       setTitle(type, calculatedTimeLeft)
 
       if (!calculatedProgress) {
-        setTimeout(() => {
+        setTimeout(async () => {
           dispatch(setNextTimer())
           audio.play()
 
@@ -83,9 +85,14 @@ const ToggleButton = () => {
             const msg =
               type === TYPES.work.id ? 'Take a break ☕️' : 'Start working 👨‍💻'
 
-            new Notification(msg, {
-              icon,
+            const icon = type === TYPES.work.id ? coffee : work
+
+            const registration = await navigator.serviceWorker.ready
+
+            registration.showNotification(msg, {
               vibrate: [100, 50, 100],
+              badge: alarm,
+              icon,
             })
           }
         }, 1000)
