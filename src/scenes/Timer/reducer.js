@@ -8,7 +8,7 @@ export const STATUSES = {
 
 export const TYPES = {
   work: { id: 'WORK', duration: 25 },
-  shortBreak: { id: 'SHORT_BREAK', duration: 5 },
+  shortBreak: { id: 'SHORT_BREAK', duration: 0.1 },
   longBreak: { id: 'LONG_BREAK', duration: 20 },
 }
 
