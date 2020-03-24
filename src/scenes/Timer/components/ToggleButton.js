@@ -25,6 +25,8 @@ const ToggleButton = () => {
 
   const dispatch = useDispatch()
 
+  const audio = new Audio(chime)
+
   const calculateTimeLeft = endTime => {
     const difference = +endTime - +new Date()
     let timeLeft = { minutes: 0, seconds: 0 }
@@ -67,7 +69,6 @@ const ToggleButton = () => {
       if (!calculatedProgress) {
         setTimeout(() => {
           dispatch(setNextTimer())
-          const audio = new Audio(chime)
           audio.play()
         }, 1000)
 
