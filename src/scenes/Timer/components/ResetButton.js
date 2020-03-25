@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 const ResetButton = () => {
   const dispatch = useDispatch()
-  const { type, duration, status } = useSelector(state => state.timer)
+  const { type, duration, status } = useSelector((state) => state.timer)
 
   useEffect(() => {
     setTitle(type, { minutes: duration, seconds: 0 })

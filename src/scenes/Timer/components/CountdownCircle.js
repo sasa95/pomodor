@@ -25,7 +25,7 @@ const Time = styled.span`
 `
 
 const CountdownCircle = () => {
-  const { timeLeft, progress } = useSelector(state => state.timer)
+  const { timeLeft, progress } = useSelector((state) => state.timer)
 
   return (
     <CircleContainer>

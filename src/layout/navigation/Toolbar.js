@@ -13,7 +13,7 @@ const Logotype = styled.span`
 `
 
 const Toolbar = () => {
-  const isUserPerm = useSelector(state => state.auth.name)
+  const isUserPerm = useSelector((state) => state.auth.name)
 
   return (
     <MatToolbar>

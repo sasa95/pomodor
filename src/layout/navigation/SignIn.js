@@ -22,7 +22,7 @@ const SignIn = () => {
   const dispatch = useDispatch()
   const theme = useTheme()
 
-  const openMenu = event => {
+  const openMenu = (event) => {
     setAnchorEl(event.currentTarget)
   }
 

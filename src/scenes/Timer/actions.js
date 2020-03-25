@@ -1,19 +1,19 @@
-export const setStatus = status => ({
+export const setStatus = (status) => ({
   type: 'SET_STATUS',
   status,
 })
 
-export const setProgress = progress => ({
+export const setProgress = (progress) => ({
   type: 'SET_PROGRESS',
   progress,
 })
 
-export const setTimeLeft = timeLeft => ({
+export const setTimeLeft = (timeLeft) => ({
   type: 'SET_TIME_LEFT',
   timeLeft,
 })
 
-export const saveInterval = interval => ({
+export const saveInterval = (interval) => ({
   type: 'SAVE_INTERVAL',
   interval,
 })

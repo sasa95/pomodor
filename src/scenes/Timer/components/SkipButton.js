@@ -7,7 +7,7 @@ import { setTitle } from '../reducer'
 
 const SkipButton = () => {
   const dispatch = useDispatch()
-  const { duration, type } = useSelector(state => state.timer)
+  const { duration, type } = useSelector((state) => state.timer)
 
   useEffect(() => {
     setTitle(type, { minutes: duration, seconds: 0 })

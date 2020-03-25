@@ -1,12 +1,12 @@
 import { firebase } from '../../firebase/firebase'
 
-export const setUserInfo = userInfo => ({
+export const setUserInfo = (userInfo) => ({
   type: 'SET_USER_INFO',
   userInfo,
 })
 
-export const linkAccount = authProvider => {
-  return async dispatch => {
+export const linkAccount = (authProvider) => {
+  return async (dispatch) => {
     try {
       const res = await firebase.auth().currentUser.linkWithPopup(authProvider)
 

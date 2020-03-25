@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const dispatch = useDispatch()
 
-  firebase.auth().onAuthStateChanged(user => {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       const userInfo = { uid: user.uid }
 

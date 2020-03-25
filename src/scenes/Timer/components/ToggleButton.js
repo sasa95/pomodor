@@ -24,13 +24,15 @@ const ActionIcon = styled(IconButton)`
 `
 
 const ToggleButton = () => {
-  const { status, timeLeft, duration, type } = useSelector(state => state.timer)
+  const { status, timeLeft, duration, type } = useSelector(
+    (state) => state.timer
+  )
 
   const dispatch = useDispatch()
 
   const audio = new Audio(chime)
 
-  const calculateTimeLeft = endTime => {
+  const calculateTimeLeft = (endTime) => {
     const difference = +endTime - +new Date()
     let timeLeft = { minutes: 0, seconds: 0 }
 
@@ -44,7 +46,7 @@ const ToggleButton = () => {
     return timeLeft
   }
 
-  const calculateProgress = timeLeft => {
+  const calculateProgress = (timeLeft) => {
     const secondsTotal = duration * 60
     const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
 
