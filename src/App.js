@@ -9,6 +9,7 @@ import { AppBar } from './layout/navigation/AppBar'
 import { MainContainer } from './layout/MainContainer'
 import { firebase } from './firebase/firebase'
 import { setUserInfo } from './data/auth/actions'
+import { startSetSettings } from './data/settings/actions'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -29,6 +30,7 @@ const App = () => {
       }
 
       dispatch(setUserInfo(userInfo))
+      dispatch(startSetSettings())
     } else {
       firebase.auth().signInAnonymously()
     }

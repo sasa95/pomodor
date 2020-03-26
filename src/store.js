@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { reducer as authReducer } from './data/auth/reducer'
-import { reducer as settingsReducer } from './scenes/Settings/reducer'
+import { reducer as settingsReducer } from './data/settings/reducer'
 import { reducer as timerReducer } from './scenes/Timer/reducer'
 import { reducer as statsReducer } from './scenes/Stats/reducer'
 

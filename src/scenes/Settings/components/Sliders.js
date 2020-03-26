@@ -1,7 +1,21 @@
 import React from 'react'
 import { Slider } from './components/Slider'
+import {
+  startSetWorkDuration,
+  startSetShortBreakDuration,
+  startSetLongBreakDuration,
+  startSetRounds,
+} from '../../../data/settings/actions'
+import { useSelector } from 'react-redux'
 
 const Sliders = () => {
+  const {
+    workDuration,
+    shortBreakDuration,
+    longBreakDuration,
+    rounds,
+  } = useSelector((state) => state.settings)
+
   const workMarks = [
     {
       value: 5,
@@ -62,42 +76,54 @@ const Sliders = () => {
     <>
       <Slider
         name="Work duration"
+        field="workDuration"
         defaultValue={25}
         marks={workMarks}
         step={5}
         min={5}
         max={60}
         unit="minutes"
+        action={startSetWorkDuration}
+        value={workDuration}
       />
 
       <Slider
         name="Short break duration"
+        field="shortBreakDuration"
         defaultValue={5}
         marks={shortBreakMarks}
         step={5}
         min={5}
         max={30}
         unit="minutes"
+        action={startSetShortBreakDuration}
+        value={shortBreakDuration}
       />
 
       <Slider
         name="Long break duration"
+        field="longBreakDuration"
         defaultValue={20}
         marks={longBreakMarks}
         step={5}
         min={5}
         max={45}
         unit="minutes"
+        action={startSetLongBreakDuration}
+        value={longBreakDuration}
       />
 
       <Slider
-        name="Rounds number"
+        name="Rounds"
+        field="rounds"
         defaultValue={4}
         marks={roundsMarks}
         step={1}
         min={2}
         max={15}
         unit="rounds"
+        action={startSetRounds}
+        value={rounds}
       />
     </>
   )
