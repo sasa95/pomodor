@@ -1,29 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
 import MatSlider from '@material-ui/core/Slider'
 import Box from '@material-ui/core/Box'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-const Slider = ({
-  name,
-  field,
-  defaultValue,
-  step,
-  marks,
-  min,
-  max,
-  unit,
-  action,
-  value,
-}) => {
-  const currentValue = useSelector((state) => state.settings[field])
+const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
+  const [sliderValue, setSliderValue] = useState(value)
+
+  useEffect(() => {
+    setSliderValue(value)
+  }, [value])
 
   const dispatch = useDispatch()
 
-  const handleChange = (value) => {
-    if (currentValue !== value) {
-      dispatch(action(value))
+  const handleChangeCommitted = (event, newValue) => {
+    if (newValue !== value) {
+      dispatch(action(newValue))
     }
+  }
+
+  const handleChange = (event, newValue) => {
+    setSliderValue(newValue)
   }
 
   const valueText = (value) => {
@@ -36,7 +33,6 @@ const Slider = ({
         {name}
       </Typography>
       <MatSlider
-        defaultValue={defaultValue}
         getAriaValueText={valueText}
         aria-labelledby={`${name}-slider`}
         valueLabelDisplay="auto"
@@ -44,8 +40,9 @@ const Slider = ({
         marks={marks}
         min={min}
         max={max}
-        onChangeCommitted={(event, value) => handleChange(value)}
-        value={value}
+        onChangeCommitted={handleChangeCommitted}
+        onChange={handleChange}
+        value={sliderValue}
       />
     </Box>
   )
