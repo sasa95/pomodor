@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -52,6 +53,7 @@ const CountdownCircle = () => {
     if (
       status === STATUSES.onHold &&
       type === TYPES.shortBreak &&
+      timeLeft &&
       timeLeft.minutes !== shortBreakDuration
     ) {
       dispatch(setTimeLeft({ minutes: shortBreakDuration, seconds: 0 }))
@@ -62,6 +64,7 @@ const CountdownCircle = () => {
     if (
       status === STATUSES.onHold &&
       type === TYPES.longBreak &&
+      timeLeft &&
       timeLeft.minutes !== longBreakDuration
     ) {
       dispatch(setTimeLeft({ minutes: longBreakDuration, seconds: 0 }))

@@ -1,7 +1,6 @@
 {
   "extends": ["react-app", "plugin:prettier/recommended"],
   "rules": {
-    "no-console": "warn",
-    "react-hooks/exhaustive-deps": 0
+    "no-console": "warn"
   }
 }
