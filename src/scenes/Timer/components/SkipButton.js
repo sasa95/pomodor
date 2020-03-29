@@ -6,10 +6,12 @@ import { setNextTimer } from '../actions'
 
 const SkipButton = () => {
   const dispatch = useDispatch()
+  const { timeLeft } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
 
   return (
     <IconButton
+      disabled={!timeLeft}
       aria-label="Skip current timer"
       onClick={() => dispatch(setNextTimer(settings))}
     >

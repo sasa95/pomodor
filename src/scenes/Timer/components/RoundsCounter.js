@@ -9,11 +9,11 @@ const CounterLabel = styled.span`
 `
 
 const RoundsCounter = () => {
-  const { currentRound } = useSelector((state) => state.timer)
+  const { currentRound, timeLeft } = useSelector((state) => state.timer)
 
   return (
     <CounterLabel>
-      {currentRound}/{ROUNDS_NUMBER}
+      {timeLeft && currentRound}/{timeLeft && ROUNDS_NUMBER}
     </CounterLabel>
   )
 }

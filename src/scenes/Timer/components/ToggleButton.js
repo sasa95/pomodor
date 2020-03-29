@@ -110,7 +110,11 @@ const ToggleButton = () => {
   return (
     <Box display="flex" justifyContent="center" mt={2}>
       {status !== STATUSES.running && (
-        <ActionIcon aria-label="start timer" onClick={startTimer}>
+        <ActionIcon
+          disabled={!timeLeft}
+          aria-label="start timer"
+          onClick={startTimer}
+        >
           <PlayArrowIcon />
         </ActionIcon>
       )}

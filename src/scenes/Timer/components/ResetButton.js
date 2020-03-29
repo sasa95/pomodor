@@ -7,7 +7,7 @@ import { TYPES } from '../reducer'
 
 const ResetButton = () => {
   const dispatch = useDispatch()
-  const { type } = useSelector((state) => state.timer)
+  const { type, timeLeft } = useSelector((state) => state.timer)
   const { workDuration, shortBreakDuration, longBreakDuration } = useSelector(
     (state) => state.settings
   )
@@ -32,7 +32,11 @@ const ResetButton = () => {
   }
 
   return (
-    <IconButton aria-label="Reset timer" onClick={handleClick}>
+    <IconButton
+      disabled={!timeLeft}
+      aria-label="Reset timer"
+      onClick={handleClick}
+    >
       <ReplayIcon />
     </IconButton>
   )
