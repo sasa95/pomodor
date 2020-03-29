@@ -24,9 +24,8 @@ const ActionIcon = styled(IconButton)`
 `
 
 const ToggleButton = () => {
-  const { status, timeLeft, duration, type } = useSelector(
-    (state) => state.timer
-  )
+  const { status, timeLeft, type } = useSelector((state) => state.timer)
+  const settings = useSelector((state) => state.settings)
 
   const dispatch = useDispatch()
 
@@ -46,7 +45,7 @@ const ToggleButton = () => {
     return timeLeft
   }
 
-  const calculateProgress = (timeLeft) => {
+  const calculateProgress = (duration, timeLeft) => {
     const secondsTotal = duration * 60
     const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
 
@@ -66,9 +65,11 @@ const ToggleButton = () => {
       new Date().getTime() + timeLeft.minutes * 60000 + timeLeft.seconds * 1000
     )
 
+    const duration = timeLeft.minutes
+
     const interval = setInterval(() => {
       const calculatedTimeLeft = calculateTimeLeft(endTime)
-      const calculatedProgress = calculateProgress(calculatedTimeLeft)
+      const calculatedProgress = calculateProgress(duration, calculatedTimeLeft)
 
       dispatch(setTimeLeft(calculatedTimeLeft))
       dispatch(setProgress(calculatedProgress))
@@ -77,7 +78,7 @@ const ToggleButton = () => {
 
       if (!calculatedProgress) {
         setTimeout(async () => {
-          dispatch(setNextTimer())
+          dispatch(setNextTimer(settings))
           audio.play()
 
           if (

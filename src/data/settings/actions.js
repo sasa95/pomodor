@@ -76,10 +76,12 @@ export const startSetSettings = () => {
     const uid = getState().auth.uid
 
     const docRef = await fs.doc(`users/${uid}`).get()
+    let data
 
     if (docRef.exists) {
-      const data = docRef.data().settings
-      dispatch(setSettings(data))
+      data = docRef.data().settings
     }
+
+    dispatch(setSettings(data))
   }
 }

@@ -1,8 +1,15 @@
-const initialState = {
+const defaultState = {
   workDuration: 25,
   shortBreakDuration: 5,
   longBreakDuration: 20,
   rounds: 4,
+}
+
+const initialState = {
+  workDuration: null,
+  shortBreakDuration: null,
+  longBreakDuration: null,
+  rounds: null,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -29,9 +36,10 @@ export const reducer = (state = initialState, action) => {
       }
     case 'SET_SETTINGS':
       return {
-        ...state,
+        ...defaultState,
         ...action.settings,
       }
+
     default:
       return state
   }

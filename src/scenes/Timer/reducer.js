@@ -1,5 +1,3 @@
-const ROUNDS_NUMBER = 4
-
 export const STATUSES = {
   onHold: 'ON_HOLD',
   running: 'RUNNING',
@@ -7,33 +5,16 @@ export const STATUSES = {
 }
 
 export const TYPES = {
-  work: { id: 'WORK', duration: 25 },
-  shortBreak: { id: 'SHORT_BREAK', duration: 0.1 },
-  longBreak: { id: 'LONG_BREAK', duration: 20 },
-}
-
-export const setTitle = (type, timeLeft) => {
-  let emoji
-
-  if (type === TYPES.work.id) {
-    emoji = '👨‍💻'
-  } else {
-    emoji = '☕️'
-  }
-
-  document.title = `${
-    timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes
-  }:${
-    timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds
-  } ${emoji} | Pomodor`
+  work: 'WORK',
+  shortBreak: 'SHORT_BREAK',
+  longBreak: 'LONG_BREAK',
 }
 
 const initialState = {
   status: STATUSES.onHold,
-  type: TYPES.work.id,
+  type: TYPES.work,
   progress: 100,
-  timeLeft: { minutes: TYPES.work.duration, seconds: 0 },
-  duration: TYPES.work.duration,
+  timeLeft: null,
   currentRound: 1,
   interval: null,
 }
@@ -76,53 +57,51 @@ export const reducer = (state = initialState, action) => {
       }
     case 'RESET_TIMER':
       clearInterval(state.interval)
+      const timeLeft = { minutes: action.duration, seconds: 0 }
+      setTitle(state.type, timeLeft)
 
       return {
         ...state,
         status: STATUSES.onHold,
         interval: null,
-        timeLeft: { minutes: state.duration, seconds: 0 },
+        timeLeft,
         progress: 100,
       }
     case 'SET_NEXT_TIMER':
       clearInterval(state.interval)
 
-      let newType,
-        newTimeLeft,
-        newDuration,
-        newCurrentRound = state.currentRound
+      const {
+        workDuration,
+        shortBreakDuration,
+        longBreakDuration,
+        rounds,
+      } = action.settings
 
-      if (state.currentRound < ROUNDS_NUMBER) {
-        if (state.type === TYPES.work.id) {
-          const { id, duration } = TYPES.shortBreak
+      let newType
+      let newTimeLeft
+      let newCurrentRound = state.currentRound
 
-          newType = id
-          newTimeLeft = { minutes: duration, seconds: 0 }
-          newDuration = duration
+      if (state.currentRound < rounds) {
+        if (state.type === TYPES.work) {
+          newType = TYPES.shortBreak
+          newTimeLeft = { minutes: shortBreakDuration, seconds: 0 }
         } else {
-          const { id, duration } = TYPES.work
-
-          newType = id
-          newTimeLeft = { minutes: duration, seconds: 0 }
-          newDuration = duration
+          newType = TYPES.work
+          newTimeLeft = { minutes: workDuration, seconds: 0 }
           newCurrentRound = state.currentRound + 1
         }
       } else {
-        if (state.type === TYPES.work.id) {
-          const { id, duration } = TYPES.longBreak
-
-          newType = id
-          newTimeLeft = { minutes: duration, seconds: 0 }
-          newDuration = duration
+        if (state.type === TYPES.work) {
+          newType = TYPES.longBreak
+          newTimeLeft = { minutes: longBreakDuration, seconds: 0 }
         } else {
-          const { id, duration } = TYPES.work
-
-          newType = id
-          newTimeLeft = { minutes: duration, seconds: 0 }
-          newDuration = duration
+          newType = TYPES.work
+          newTimeLeft = { minutes: workDuration, seconds: 0 }
           newCurrentRound = 1
         }
       }
+
+      setTitle(newType, newTimeLeft)
 
       return {
         ...state,
@@ -131,10 +110,25 @@ export const reducer = (state = initialState, action) => {
         interval: null,
         type: newType,
         timeLeft: newTimeLeft,
-        duration: newDuration,
         currentRound: newCurrentRound,
       }
     default:
       return state
   }
+}
+
+export const setTitle = (type, timeLeft) => {
+  let emoji
+
+  if (type === TYPES.work) {
+    emoji = '👨‍💻'
+  } else {
+    emoji = '☕️'
+  }
+
+  document.title = `${
+    timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes
+  }:${
+    timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds
+  } ${emoji} | Pomodor`
 }

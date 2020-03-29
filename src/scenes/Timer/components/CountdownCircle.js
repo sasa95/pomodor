@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setTimeLeft } from '../actions'
+import { STATUSES, TYPES } from '../reducer'
 
 const CircleContainer = styled.div`
   position: relative;
@@ -25,12 +27,55 @@ const Time = styled.span`
 `
 
 const CountdownCircle = () => {
-  const { timeLeft, progress } = useSelector((state) => state.timer)
+  const { timeLeft, progress, status, type } = useSelector(
+    (state) => state.timer
+  )
+
+  const { workDuration, shortBreakDuration, longBreakDuration } = useSelector(
+    (state) => state.settings
+  )
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (
+      status === STATUSES.onHold &&
+      type === TYPES.work &&
+      workDuration &&
+      (!timeLeft || timeLeft.minutes !== workDuration)
+    ) {
+      dispatch(setTimeLeft({ minutes: workDuration, seconds: 0 }))
+    }
+  }, [workDuration])
+
+  useEffect(() => {
+    if (
+      status === STATUSES.onHold &&
+      type === TYPES.shortBreak &&
+      timeLeft.minutes !== shortBreakDuration
+    ) {
+      dispatch(setTimeLeft({ minutes: shortBreakDuration, seconds: 0 }))
+    }
+  }, [shortBreakDuration])
+
+  useEffect(() => {
+    if (
+      status === STATUSES.onHold &&
+      type === TYPES.longBreak &&
+      timeLeft.minutes !== longBreakDuration
+    ) {
+      dispatch(setTimeLeft({ minutes: longBreakDuration, seconds: 0 }))
+    }
+  }, [longBreakDuration])
 
   return (
     <CircleContainer>
       <Circle variant="static" value={100} size={200} color="secondary" />
-      <Circle variant="static" value={progress} size={200} />
+      <Circle
+        variant={timeLeft ? 'static' : 'indeterminate'}
+        value={progress}
+        size={200}
+      />
       {timeLeft && (
         <Time>
           {timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes}:

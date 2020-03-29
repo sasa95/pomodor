@@ -3,24 +3,36 @@ import IconButton from '@material-ui/core/IconButton'
 import ReplayIcon from '@material-ui/icons/Replay'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetTimer } from '../actions'
-import { setTitle } from '../reducer'
-import { useEffect } from 'react'
+import { TYPES } from '../reducer'
 
 const ResetButton = () => {
   const dispatch = useDispatch()
-  const { type, duration, status } = useSelector((state) => state.timer)
+  const { type } = useSelector((state) => state.timer)
+  const { workDuration, shortBreakDuration, longBreakDuration } = useSelector(
+    (state) => state.settings
+  )
 
-  useEffect(() => {
-    setTitle(type, { minutes: duration, seconds: 0 })
-  }, [duration, status, type])
+  const handleClick = () => {
+    let duration
+
+    switch (type) {
+      case TYPES.work:
+        duration = workDuration
+        break
+      case TYPES.shortBreak:
+        duration = shortBreakDuration
+        break
+      case TYPES.longBreak:
+        duration = longBreakDuration
+        break
+      default:
+        break
+    }
+    dispatch(resetTimer(duration))
+  }
 
   return (
-    <IconButton
-      aria-label="Reset timer"
-      onClick={() => {
-        dispatch(resetTimer())
-      }}
-    >
+    <IconButton aria-label="Reset timer" onClick={handleClick}>
       <ReplayIcon />
     </IconButton>
   )

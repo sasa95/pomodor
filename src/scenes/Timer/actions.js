@@ -22,10 +22,12 @@ export const pauseTimer = () => ({
   type: 'PAUSE_TIMER',
 })
 
-export const resetTimer = () => ({
+export const resetTimer = (duration) => ({
   type: 'RESET_TIMER',
+  duration,
 })
 
-export const setNextTimer = () => ({
+export const setNextTimer = (settings) => ({
   type: 'SET_NEXT_TIMER',
+  settings,
 })
