@@ -2,6 +2,7 @@ import React from 'react'
 import { Sliders } from './components/Sliders'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
+import { Switches } from './components/Switches'
 
 const Container = styled.div`
   width: 300px;
@@ -21,6 +22,7 @@ const Settings = () => {
   return (
     <Container theme={theme}>
       <Sliders />
+      <Switches />
     </Container>
   )
 }

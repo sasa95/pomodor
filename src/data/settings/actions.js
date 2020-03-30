@@ -66,6 +66,40 @@ export const startSetRounds = (rounds) => {
   }
 }
 
+export const setShowTimerInTitle = (showTimerInTitle) => ({
+  type: 'SET_SHOW_TIMER_IN_TITLE',
+  showTimerInTitle,
+})
+
+export const startSetShowTimerInTitle = (showTimerInTitle) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { showTimerInTitle } }, { merge: true })
+
+    dispatch(setShowTimerInTitle(showTimerInTitle))
+  }
+}
+
+export const setShowNotifications = (showNotifications) => ({
+  type: 'SET_SHOW_NOTIFICATIONS',
+  showNotifications,
+})
+
+export const startSetShowNotifications = (showNotifications) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { showNotifications } }, { merge: true })
+
+    dispatch(setShowNotifications(showNotifications))
+  }
+}
+
 export const setSettings = (settings) => ({
   type: 'SET_SETTINGS',
   settings,

@@ -3,6 +3,8 @@ const defaultState = {
   shortBreakDuration: 5,
   longBreakDuration: 20,
   rounds: 4,
+  showTimerInTitle: true,
+  showNotifications: true,
 }
 
 const initialState = {
@@ -10,6 +12,8 @@ const initialState = {
   shortBreakDuration: null,
   longBreakDuration: null,
   rounds: null,
+  showTimerInTitle: null,
+  showNotifications: null,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -33,6 +37,16 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         rounds: action.rounds,
+      }
+    case 'SET_SHOW_TIMER_IN_TITLE':
+      return {
+        ...state,
+        showTimerInTitle: action.showTimerInTitle,
+      }
+    case 'SET_SHOW_NOTIFICATIONS':
+      return {
+        ...state,
+        showNotifications: action.showNotifications,
       }
     case 'SET_SETTINGS':
       return {

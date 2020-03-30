@@ -55,7 +55,7 @@ const ToggleButton = () => {
   const startTimer = () => {
     if (status === STATUSES.running) return
 
-    if ('Notification' in window && Notification.permission === 'default') {
+    if (settings.showNotifications && 'Notification' in window) {
       Notification.requestPermission()
     }
 
@@ -74,7 +74,9 @@ const ToggleButton = () => {
       dispatch(setTimeLeft(calculatedTimeLeft))
       dispatch(setProgress(calculatedProgress))
 
-      setTitle(type, calculatedTimeLeft)
+      if (settings.showTimerInTitle) {
+        setTitle(type, calculatedTimeLeft)
+      }
 
       if (!calculatedProgress) {
         setTimeout(async () => {
@@ -82,6 +84,7 @@ const ToggleButton = () => {
           audio.play()
 
           if (
+            settings.showNotifications &&
             'Notification' in window &&
             Notification.permission === 'granted'
           ) {

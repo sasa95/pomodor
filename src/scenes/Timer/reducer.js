@@ -58,7 +58,10 @@ export const reducer = (state = initialState, action) => {
     case 'RESET_TIMER':
       clearInterval(state.interval)
       const timeLeft = { minutes: action.duration, seconds: 0 }
-      setTitle(state.type, timeLeft)
+
+      if (action.showTimerInTitle) {
+        setTitle(state.type, timeLeft)
+      }
 
       return {
         ...state,
@@ -75,6 +78,7 @@ export const reducer = (state = initialState, action) => {
         shortBreakDuration,
         longBreakDuration,
         rounds,
+        showTimerInTitle,
       } = action.settings
 
       let newType
@@ -101,7 +105,9 @@ export const reducer = (state = initialState, action) => {
         }
       }
 
-      setTitle(newType, newTimeLeft)
+      if (showTimerInTitle) {
+        setTitle(newType, newTimeLeft)
+      }
 
       return {
         ...state,

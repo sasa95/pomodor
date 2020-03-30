@@ -8,9 +8,12 @@ import { TYPES } from '../reducer'
 const ResetButton = () => {
   const dispatch = useDispatch()
   const { type, timeLeft } = useSelector((state) => state.timer)
-  const { workDuration, shortBreakDuration, longBreakDuration } = useSelector(
-    (state) => state.settings
-  )
+  const {
+    workDuration,
+    shortBreakDuration,
+    longBreakDuration,
+    showTimerInTitle,
+  } = useSelector((state) => state.settings)
 
   const handleClick = () => {
     let duration
@@ -28,7 +31,7 @@ const ResetButton = () => {
       default:
         break
     }
-    dispatch(resetTimer(duration))
+    dispatch(resetTimer({ duration, showTimerInTitle }))
   }
 
   return (
