@@ -6,9 +6,12 @@ import ListItemText from '@material-ui/core/ListItemText'
 import TimerIcon from '@material-ui/icons/Timer'
 import ShowChartIcon from '@material-ui/icons/ShowChart'
 import SettingsIcon from '@material-ui/icons/Settings'
-import { useTheme } from '@material-ui/core'
+import { useTheme, Tooltip } from '@material-ui/core'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { STATUSES } from '../../scenes/Timer/reducer'
 
 const MatNavList = styled(List)`
   display: flex;
@@ -57,7 +60,7 @@ const Link = styled(NavLink)`
   text-align: center;
   text-decoration: none;
 
-  &.active ${NavItemIcon} {
+  &.active:not([data-disabled='true']) ${NavItemIcon} {
     color: #fff;
   }
 
@@ -68,6 +71,11 @@ const Link = styled(NavLink)`
 
 const NavList = () => {
   const theme = useTheme()
+  const isTablet = useMediaQuery(theme.breakpoints.up('sm'))
+
+  const timerRunning = useSelector(
+    (state) => state.timer.status !== STATUSES.onHold
+  )
 
   return (
     <MatNavList
@@ -85,23 +93,45 @@ const NavList = () => {
         </NavListItem>
       </Link>
 
-      <Link to="/stats">
-        <NavListItem button>
-          <NavItemIcon>
-            <ShowChartIcon />
-          </NavItemIcon>
-          <ListItemText primary="Stats" />
-        </NavListItem>
-      </Link>
+      <Tooltip
+        title="Reset timer to access the stats"
+        disableHoverListener={!timerRunning}
+        disableTouchListener
+        disableFocusListener
+        placement={isTablet ? 'right' : 'bottom'}
+      >
+        <Link
+          to={timerRunning ? '#' : '/stats'}
+          data-disabled={timerRunning && 'true'}
+        >
+          <NavListItem button disabled={timerRunning}>
+            <NavItemIcon>
+              <ShowChartIcon />
+            </NavItemIcon>
+            <ListItemText primary="Stats" />
+          </NavListItem>
+        </Link>
+      </Tooltip>
 
-      <Link to="/settings">
-        <NavListItem button>
-          <NavItemIcon>
-            <SettingsIcon />
-          </NavItemIcon>
-          <ListItemText primary="Settings" />
-        </NavListItem>
-      </Link>
+      <Tooltip
+        title="Reset timer to access the settings"
+        disableHoverListener={!timerRunning}
+        disableTouchListener
+        disableFocusListener
+        placement={isTablet ? 'right' : 'bottom'}
+      >
+        <Link
+          to={timerRunning ? '#' : '/settings'}
+          data-disabled={timerRunning && 'true'}
+        >
+          <NavListItem button disabled={timerRunning}>
+            <NavItemIcon>
+              <SettingsIcon />
+            </NavItemIcon>
+            <ListItemText primary="Settings" />
+          </NavListItem>
+        </Link>
+      </Tooltip>
     </MatNavList>
   )
 }
