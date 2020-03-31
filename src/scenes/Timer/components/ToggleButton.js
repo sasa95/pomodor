@@ -89,9 +89,9 @@ const ToggleButton = () => {
             Notification.permission === 'granted'
           ) {
             const msg =
-              type === TYPES.work.id ? 'Take a break ☕️' : 'Start working 👨‍💻'
+              type === TYPES.work ? 'Take a break ☕️' : 'Start working 👨‍💻'
 
-            const icon = type === TYPES.work.id ? coffee : work
+            const icon = type === TYPES.work ? coffee : work
 
             const registration = await navigator.serviceWorker.ready
 
