@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux'
 import {
   startSetShowTimerInTitle,
   startSetShowNotifications,
+  startSetDarkMode,
 } from '../../../data/settings/actions'
 
 const Switches = () => {
-  const { showTimerInTitle, showNotifications } = useSelector(
+  const { showTimerInTitle, showNotifications, darkMode } = useSelector(
     (state) => state.settings
   )
 
@@ -29,6 +30,7 @@ const Switches = () => {
         action={startSetShowNotifications}
         checked={showNotifications}
       />
+      <Switch name="Dark mode" action={startSetDarkMode} checked={darkMode} />
     </div>
   )
 }

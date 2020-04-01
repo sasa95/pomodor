@@ -2,14 +2,13 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
-import { ThemeProvider } from '@material-ui/core/styles'
 import { CssBaseline } from '@material-ui/core'
-import theme from './theme'
 import { AppBar } from './layout/navigation/AppBar'
 import { MainContainer } from './layout/MainContainer'
 import { firebase } from './firebase/firebase'
 import { setUserInfo } from './data/auth/actions'
 import { startSetSettings } from './data/settings/actions'
+import { ThemeConfig } from './ThemeConfig'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -37,14 +36,15 @@ const App = () => {
   })
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeConfig>
       <CssBaseline />
       <GlobalStyle />
       <BrowserRouter>
         <AppBar />
+        <ThemeConfig />
         <MainContainer />
       </BrowserRouter>
-    </ThemeProvider>
+    </ThemeConfig>
   )
 }
 

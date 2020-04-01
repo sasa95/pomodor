@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
 import MatSlider from '@material-ui/core/Slider'
 import Box from '@material-ui/core/Box'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTheme } from '@material-ui/core'
+import styled from 'styled-components'
+
+const SettingSlider = styled(MatSlider)`
+  color: ${({ theme, dark }) =>
+    dark ? theme.palette.secondary.light : theme.palette.secondary.main};
+`
 
 const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
   const [sliderValue, setSliderValue] = useState(value)
@@ -27,12 +34,16 @@ const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
     return `${value} ${unit}`
   }
 
+  const theme = useTheme()
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = JSON.parse(localStorage.getItem('darkMode'))
+
   return (
     <Box mt={2}>
       <Typography id={`${name}-slider`} gutterBottom>
         {name}
       </Typography>
-      <MatSlider
+      <SettingSlider
         getAriaValueText={valueText}
         aria-labelledby={`${name}-slider`}
         valueLabelDisplay="auto"
@@ -43,6 +54,8 @@ const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
         onChangeCommitted={handleChangeCommitted}
         onChange={handleChange}
         value={sliderValue}
+        theme={theme}
+        dark={darkMode || darkModeCached}
       />
     </Box>
   )

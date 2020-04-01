@@ -100,6 +100,25 @@ export const startSetShowNotifications = (showNotifications) => {
   }
 }
 
+export const setDarkMode = (darkMode) => ({
+  type: 'SET_DARK_MODE',
+  darkMode,
+})
+
+export const startSetDarkMode = (darkMode) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    localStorage.setItem('darkMode', darkMode)
+
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { darkMode } }, { merge: true })
+
+    dispatch(setDarkMode(darkMode))
+  }
+}
+
 export const setSettings = (settings) => ({
   type: 'SET_SETTINGS',
   settings,

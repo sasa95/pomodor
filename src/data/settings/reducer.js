@@ -5,6 +5,7 @@ const defaultState = {
   rounds: 4,
   showTimerInTitle: true,
   showNotifications: true,
+  darkMode: false,
 }
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   rounds: null,
   showTimerInTitle: null,
   showNotifications: null,
+  darkMode: null,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -47,6 +49,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         showNotifications: action.showNotifications,
+      }
+    case 'SET_DARK_MODE':
+      return {
+        ...state,
+        darkMode: action.darkMode,
       }
     case 'SET_SETTINGS':
       return {

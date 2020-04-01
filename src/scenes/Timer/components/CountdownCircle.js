@@ -5,6 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { useSelector, useDispatch } from 'react-redux'
 import { setTimeLeft } from '../actions'
 import { STATUSES, TYPES } from '../reducer'
+import { useTheme } from '@material-ui/core'
 
 const CircleContainer = styled.div`
   position: relative;
@@ -16,6 +17,8 @@ const CircleContainer = styled.div`
 const Circle = styled(CircularProgress)`
   position: absolute;
   top: 0;
+  color: ${({ theme, dark, type }) =>
+    dark ? theme.palette[type].dark : theme.palette[type].main};
 `
 
 const Time = styled.span`
@@ -32,9 +35,12 @@ const CountdownCircle = () => {
     (state) => state.timer
   )
 
-  const { workDuration, shortBreakDuration, longBreakDuration } = useSelector(
-    (state) => state.settings
-  )
+  const {
+    workDuration,
+    shortBreakDuration,
+    longBreakDuration,
+    darkMode,
+  } = useSelector((state) => state.settings)
 
   const dispatch = useDispatch()
 
@@ -71,13 +77,25 @@ const CountdownCircle = () => {
     }
   }, [longBreakDuration])
 
+  const theme = useTheme()
+
   return (
     <CircleContainer>
-      <Circle variant="static" value={100} size={200} color="secondary" />
+      <Circle
+        variant="static"
+        value={100}
+        size={200}
+        dark={darkMode ? 1 : 0}
+        type="secondary"
+        theme={theme}
+      />
       <Circle
         variant={timeLeft ? 'static' : 'indeterminate'}
         value={progress}
         size={200}
+        dark={darkMode ? 1 : 0}
+        type="primary"
+        theme={theme}
       />
       {timeLeft && (
         <Time>
