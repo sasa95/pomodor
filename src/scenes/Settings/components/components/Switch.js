@@ -35,7 +35,7 @@ const Switch = ({ name, action, checked }) => {
 
   const theme = useTheme()
   const darkMode = useSelector((state) => +state.settings.darkMode)
-  const darkModeCached = JSON.parse(localStorage.getItem('darkMode'))
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
 
   useEffect(() => {
     if (checked !== null && checked !== undefined) {

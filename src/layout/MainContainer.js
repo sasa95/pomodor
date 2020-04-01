@@ -39,8 +39,8 @@ const FrontLayer = styled.main`
 
 const MainContainer = () => {
   const theme = useTheme()
-  const darkMode = useSelector((state) => state.settings.darkMode)
-  const darkModeCached = JSON.parse(localStorage.getItem('darkMode'))
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
 
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>

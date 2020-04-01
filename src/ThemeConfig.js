@@ -25,9 +25,9 @@ const ThemeConfig = ({ children }) => {
     })
   }
 
-  const darkModeCached = JSON.parse(localStorage.getItem('darkMode'))
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
   const [themeSelected, setThemeSelected] = useState(getTheme(darkModeCached))
-  const darkMode = useSelector((state) => state.settings.darkMode)
+  const darkMode = useSelector((state) => +state.settings.darkMode)
 
   const isMounted = useMounted()
 

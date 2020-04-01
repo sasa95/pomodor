@@ -36,7 +36,7 @@ const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
 
   const theme = useTheme()
   const darkMode = useSelector((state) => +state.settings.darkMode)
-  const darkModeCached = JSON.parse(localStorage.getItem('darkMode'))
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
 
   return (
     <Box mt={2}>
