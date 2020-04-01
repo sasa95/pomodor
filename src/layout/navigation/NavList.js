@@ -84,7 +84,7 @@ const NavList = () => {
       aria-label="Main navigation"
       theme={theme}
     >
-      <Link to="/" exact={true}>
+      <Link to="/timer">
         <NavListItem button>
           <NavItemIcon>
             <TimerIcon />
