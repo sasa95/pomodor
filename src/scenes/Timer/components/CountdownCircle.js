@@ -38,7 +38,7 @@ const LabelIndicator = styled.div`
   background: red;
 `
 
-const CountdownCircle = () => {
+export const CountdownCircle = () => {
   const { timeLeft, progress, status, type } = useSelector(
     (state) => state.timer
   )
@@ -101,5 +101,3 @@ const CountdownCircle = () => {
     </CircleContainer>
   )
 }
-
-export { CountdownCircle }

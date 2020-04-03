@@ -11,7 +11,16 @@ const SettingSlider = styled(MatSlider)`
     dark ? theme.palette.secondary.light : theme.palette.secondary.main};
 `
 
-const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
+export const Slider = ({
+  name,
+  step,
+  marks,
+  min,
+  max,
+  unit,
+  action,
+  value,
+}) => {
   const [sliderValue, setSliderValue] = useState(value)
 
   useEffect(() => {
@@ -60,5 +69,3 @@ const Slider = ({ name, step, marks, min, max, unit, action, value }) => {
     </Box>
   )
 }
-
-export { Slider }

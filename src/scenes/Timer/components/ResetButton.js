@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { resetTimer } from '../actions'
 import { TYPES } from '../reducer'
 
-const ResetButton = () => {
+export const ResetButton = () => {
   const dispatch = useDispatch()
   const { type, timeLeft } = useSelector((state) => state.timer)
   const {
@@ -44,5 +44,3 @@ const ResetButton = () => {
     </IconButton>
   )
 }
-
-export { ResetButton }

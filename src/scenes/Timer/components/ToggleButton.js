@@ -23,7 +23,7 @@ const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
 `
 
-const ToggleButton = () => {
+export const ToggleButton = () => {
   const { status, timeLeft, type } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
 
@@ -135,5 +135,3 @@ const ToggleButton = () => {
     </Box>
   )
 }
-
-export { ToggleButton }

@@ -4,7 +4,7 @@ import SkipNext from '@material-ui/icons/SkipNext'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNextTimer } from '../actions'
 
-const SkipButton = () => {
+export const SkipButton = () => {
   const dispatch = useDispatch()
   const { timeLeft } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
@@ -19,5 +19,3 @@ const SkipButton = () => {
     </IconButton>
   )
 }
-
-export { SkipButton }

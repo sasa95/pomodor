@@ -16,7 +16,7 @@ const Backdrop = styled(MatAppBar)`
   }
 `
 
-const AppBar = () => {
+export const AppBar = () => {
   const theme = useTheme()
   const darkMode = useSelector((state) => +state.settings.darkMode)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
@@ -28,5 +28,3 @@ const AppBar = () => {
     </Backdrop>
   )
 }
-
-export { AppBar }

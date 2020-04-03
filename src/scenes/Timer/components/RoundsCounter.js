@@ -6,7 +6,7 @@ const CounterLabel = styled.span`
   font-weight: bold;
 `
 
-const RoundsCounter = () => {
+export const RoundsCounter = () => {
   const { currentRound, timeLeft } = useSelector((state) => state.timer)
   const { rounds } = useSelector((state) => state.settings)
 
@@ -16,5 +16,3 @@ const RoundsCounter = () => {
     </CounterLabel>
   )
 }
-
-export { RoundsCounter }

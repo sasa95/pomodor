@@ -7,7 +7,7 @@ import {
   startSetDarkMode,
 } from '../../../data/settings/actions'
 
-const Switches = () => {
+export const Switches = () => {
   const { showTimerInTitle, showNotifications, darkMode } = useSelector(
     (state) => state.settings
   )
@@ -34,5 +34,3 @@ const Switches = () => {
     </div>
   )
 }
-
-export { Switches }

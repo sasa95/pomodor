@@ -37,7 +37,7 @@ const FrontLayer = styled.main`
   }
 `
 
-const MainContainer = () => {
+export const MainContainer = () => {
   const theme = useTheme()
   const darkMode = useSelector((state) => +state.settings.darkMode)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
@@ -59,5 +59,3 @@ const MainContainer = () => {
     </BackLayer>
   )
 }
-
-export { MainContainer }

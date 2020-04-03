@@ -8,7 +8,7 @@ import {
 } from '../../../data/settings/actions'
 import { useSelector } from 'react-redux'
 
-const Sliders = () => {
+export const Sliders = () => {
   const {
     workDuration,
     shortBreakDuration,
@@ -120,5 +120,3 @@ const Sliders = () => {
     </>
   )
 }
-
-export { Sliders }

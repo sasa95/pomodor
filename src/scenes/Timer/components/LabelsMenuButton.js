@@ -37,7 +37,7 @@ const LabelMenuItem = styled(MenuItem)`
   }
 `
 
-const LabelsMenuButton = () => {
+export const LabelsMenuButton = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [labelSelected, setLabelSelected] = useState(null)
   const { timeLeft } = useSelector((state) => state.timer)
@@ -83,5 +83,3 @@ const LabelsMenuButton = () => {
     </>
   )
 }
-
-export { LabelsMenuButton }

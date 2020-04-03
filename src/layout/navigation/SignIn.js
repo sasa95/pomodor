@@ -17,7 +17,7 @@ const TriggerButton = styled(Button)`
   color: ${({ theme }) => theme.palette.secondary.light};
 `
 
-const SignIn = () => {
+export const SignIn = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const dispatch = useDispatch()
   const theme = useTheme()
@@ -65,5 +65,3 @@ const SignIn = () => {
     </>
   )
 }
-
-export { SignIn }

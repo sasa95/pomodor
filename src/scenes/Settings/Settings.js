@@ -16,7 +16,7 @@ const Container = styled.div`
   }
 `
 
-const Settings = () => {
+export const Settings = () => {
   const theme = useTheme()
 
   return (
@@ -26,5 +26,3 @@ const Settings = () => {
     </Container>
   )
 }
-
-export { Settings }

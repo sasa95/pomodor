@@ -22,7 +22,7 @@ const SettingSwitch = styled(MatSwitch)`
   }
 `
 
-const Switch = ({ name, action, checked }) => {
+export const Switch = ({ name, action, checked }) => {
   const [state, setState] = useState(false)
 
   const handleChange = (event) => {
@@ -62,5 +62,3 @@ const Switch = ({ name, action, checked }) => {
     </Box>
   )
 }
-
-export { Switch }

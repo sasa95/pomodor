@@ -12,7 +12,7 @@ const Logotype = styled.span`
   font-weight: 900;
 `
 
-const Toolbar = () => {
+export const Toolbar = () => {
   const isUserPerm = useSelector((state) => state.auth.name)
 
   return (
@@ -29,5 +29,3 @@ const Toolbar = () => {
     </MatToolbar>
   )
 }
-
-export { Toolbar }

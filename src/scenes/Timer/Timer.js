@@ -7,7 +7,7 @@ import { ResetButton } from './components/ResetButton'
 import { SkipButton } from './components/SkipButton'
 import { LabelsMenuButton } from './components/LabelsMenuButton'
 
-const Timer = () => {
+export const Timer = () => {
   return (
     <Box width={300} m="auto">
       <CountdownCircle />
@@ -30,5 +30,3 @@ const Timer = () => {
     </Box>
   )
 }
-
-export { Timer }

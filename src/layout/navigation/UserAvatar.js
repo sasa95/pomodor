@@ -14,11 +14,9 @@ const Avatar = styled(MatAvatar)`
   }
 `
 
-const UserAvatar = () => {
+export const UserAvatar = () => {
   const { name, photo } = useSelector((state) => state.auth)
   const theme = useTheme()
 
   return <Avatar alt={name} src={photo} theme={theme} />
 }
-
-export { UserAvatar }

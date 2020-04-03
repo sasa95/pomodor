@@ -1,7 +1,5 @@
 import React from 'react'
 
-const Stats = () => {
+export const Stats = () => {
   return <div>Stats works</div>
 }
-
-export { Stats }

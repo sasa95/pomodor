@@ -18,7 +18,7 @@ const EditButton = styled(IconButton)`
   color: ${grey[400]};
 `
 
-const TimerLabel = ({ name, color }) => {
+export const TimerLabel = ({ name, color }) => {
   const handleClick = () => {
     console.log('edit clicked!')
   }
@@ -40,5 +40,3 @@ const TimerLabel = ({ name, color }) => {
     </Box>
   )
 }
-
-export { TimerLabel }

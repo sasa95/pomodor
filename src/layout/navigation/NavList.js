@@ -69,7 +69,7 @@ const Link = styled(NavLink)`
   }
 `
 
-const NavList = () => {
+export const NavList = () => {
   const theme = useTheme()
   const isTablet = useMediaQuery(theme.breakpoints.up('sm'))
 
@@ -135,5 +135,3 @@ const NavList = () => {
     </MatNavList>
   )
 }
-
-export { NavList }

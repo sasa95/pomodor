@@ -7,7 +7,7 @@ import pink from '@material-ui/core/colors/pink'
 
 import useMounted from './helpers/useMounted'
 
-const ThemeConfig = ({ children }) => {
+export const ThemeConfig = ({ children }) => {
   const getTheme = (dark) => {
     return createMuiTheme({
       palette: {
@@ -42,5 +42,3 @@ const ThemeConfig = ({ children }) => {
     <ThemeProvider theme={themeSelected}>{children || <></>}</ThemeProvider>
   )
 }
-
-export { ThemeConfig }
