@@ -5,6 +5,7 @@ import { ToggleButton } from './components/ToggleButton'
 import { RoundsCounter } from './components/RoundsCounter'
 import { ResetButton } from './components/ResetButton'
 import { SkipButton } from './components/SkipButton'
+import { LabelsMenuButton } from './components/LabelsMenuButton'
 
 const Timer = () => {
   return (
@@ -23,6 +24,7 @@ const Timer = () => {
         <Box display="flex">
           <ResetButton />
           <SkipButton />
+          <LabelsMenuButton />
         </Box>
       </Box>
     </Box>

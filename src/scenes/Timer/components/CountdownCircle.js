@@ -27,6 +27,17 @@ const Time = styled.span`
   white-space: pre;
 `
 
+const LabelIndicator = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 5px;
+  border-radius: 5px;
+  background: red;
+`
+
 const CountdownCircle = () => {
   const { timeLeft, progress, status, type } = useSelector(
     (state) => state.timer
@@ -84,6 +95,7 @@ const CountdownCircle = () => {
         <Time>
           {timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes}:
           {timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds}
+          {/* <LabelIndicator /> */}
         </Time>
       )}
     </CircleContainer>
