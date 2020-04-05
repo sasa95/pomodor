@@ -4,6 +4,8 @@ import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 import grey from '@material-ui/core/colors/grey'
+import { useDispatch } from 'react-redux'
+import { setDialogOpened, setLabelToEdit } from '../data/labels/actions'
 
 const ColorIndicator = styled.span`
   background: ${({ color }) => color};
@@ -18,9 +20,12 @@ const EditButton = styled(IconButton)`
   color: ${grey[400]};
 `
 
-export const TimerLabel = ({ name, color }) => {
-  const handleClick = () => {
-    console.log('edit clicked!')
+export const TimerLabel = ({ label }) => {
+  const dispatch = useDispatch()
+
+  const handleEdit = () => {
+    dispatch(setDialogOpened(true))
+    dispatch(setLabelToEdit(label))
   }
 
   return (
@@ -30,11 +35,11 @@ export const TimerLabel = ({ name, color }) => {
       justifyContent="space-between"
       width="100%"
     >
-      <Box display="flex">
-        <ColorIndicator color={color}></ColorIndicator>
-        <span>{name}</span>
+      <Box display="flex" alignItems="center">
+        <ColorIndicator color={label.color}></ColorIndicator>
+        <span>{label.name}</span>
       </Box>
-      <EditButton aria-label="Edit label" onClick={handleClick}>
+      <EditButton aria-label="Edit label" onClick={handleEdit}>
         <EditIcon />
       </EditButton>
     </Box>

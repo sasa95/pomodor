@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import ListIcon from '@material-ui/icons/List'
+import AddIcon from '@material-ui/icons/Add'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
 import { TimerLabel } from '../../../components/TimerLabel'
 
 import red from '@material-ui/core/colors/red'
@@ -14,7 +17,7 @@ import teal from '@material-ui/core/colors/teal'
 import green from '@material-ui/core/colors/green'
 import yellow from '@material-ui/core/colors/yellow'
 import deepOrange from '@material-ui/core/colors/deepOrange'
-import styled from 'styled-components'
+import { setDialogOpened } from '../../../data/labels/actions'
 
 const LABELS = [
   { name: 'Job', color: red[500], id: '111' },
@@ -29,18 +32,25 @@ const LABELS = [
 
 const LabelMenuItem = styled(MenuItem)`
   .MuiIconButton-root {
-    visibility: ${({ touchscreen }) => (touchscreen ? 'visible' : 'hidden')};
+    visibility: ${({ touchscreen }) => (touchscreen ? 'unset' : 'hidden')};
   }
 
   &:hover .MuiIconButton-root {
-    visibility: visible;
+    visibility: ${({ touchscreen }) => (touchscreen ? 'unset' : 'visible')};
   }
+`
+
+const AddLabelIcon = styled(AddIcon)`
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
 `
 
 export const LabelsMenuButton = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [labelSelected, setLabelSelected] = useState(null)
   const { timeLeft } = useSelector((state) => state.timer)
+  const dispatch = useDispatch()
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -52,6 +62,11 @@ export const LabelsMenuButton = () => {
     if (label && label.id && label.name && label.color) {
       setLabelSelected(label)
     }
+  }
+
+  const handleAdd = () => {
+    setAnchorEl(null)
+    dispatch(setDialogOpened(true))
   }
   return (
     <>
@@ -68,6 +83,7 @@ export const LabelsMenuButton = () => {
         keepMounted
         open={!!anchorEl}
         onClose={handleClose}
+        margin="dense"
       >
         {LABELS.map((label) => (
           <LabelMenuItem
@@ -76,9 +92,13 @@ export const LabelsMenuButton = () => {
             px={0}
             touchscreen={'ontouchstart' in document.documentElement ? 1 : 0}
           >
-            <TimerLabel name={label.name} color={label.color} />
+            <TimerLabel label={label} />
           </LabelMenuItem>
         ))}
+        <MenuItem onClick={handleAdd}>
+          <AddLabelIcon />
+          Add new label
+        </MenuItem>
       </Menu>
     </>
   )
