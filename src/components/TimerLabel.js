@@ -5,7 +5,11 @@ import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 import grey from '@material-ui/core/colors/grey'
 import { useDispatch } from 'react-redux'
-import { setDialogOpened, setLabelToEdit } from '../data/labels/actions'
+import {
+  setDialogOpened,
+  setLabelToEdit,
+  setFormValue,
+} from '../data/labels/actions'
 
 const ColorIndicator = styled.span`
   background: ${({ color }) => color};
@@ -26,6 +30,7 @@ export const TimerLabel = ({ label }) => {
   const handleEdit = () => {
     dispatch(setDialogOpened(true))
     dispatch(setLabelToEdit(label))
+    dispatch(setFormValue({ name: label.name, color: label.color }))
   }
 
   return (

@@ -15,7 +15,11 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Slide from '@material-ui/core/Slide'
-import { setDialogOpened, setLabelToEdit } from '../data/labels/actions'
+import {
+  setDialogOpened,
+  setLabelToEdit,
+  setFormValue,
+} from '../data/labels/actions'
 import { TimerLabelForm } from './TimerLabelForm'
 import { useState } from 'react'
 
@@ -33,19 +37,23 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 })
 
 export const TimerLabelDialog = () => {
-  const [alertOpened, setAlertOpened] = useState(false)
-  const { dialogOpened, labelToEdit } = useSelector((state) => state.labels)
   const { formValue } = useSelector((state) => state.labels)
+
+  const { dialogOpened, labelToEdit } = useSelector((state) => state.labels)
+  const [alertOpened, setAlertOpened] = useState(false)
 
   const dispatch = useDispatch()
 
   const handleClose = () => {
     dispatch(setDialogOpened(false))
     dispatch(setLabelToEdit(null))
+    dispatch(setFormValue(null))
   }
 
   const handleSave = () => {
     dispatch(setDialogOpened(false))
+    dispatch(setLabelToEdit(null))
+    dispatch(setFormValue(null))
 
     if (!!labelToEdit) {
       console.log('update existing label')
@@ -55,6 +63,8 @@ export const TimerLabelDialog = () => {
   }
 
   const handleDelete = () => {
+    dispatch(setLabelToEdit(null))
+    dispatch(setFormValue(null))
     setAlertOpened(false)
     setTimeout(() => {
       handleClose()
@@ -98,18 +108,10 @@ export const TimerLabelDialog = () => {
               color="inherit"
               aria-label="save label"
               onClick={handleSave}
-              disabled={!formValue.name || !formValue.color}
+              disabled={!formValue || !formValue.name || !formValue.color}
             >
               <CheckIcon />
             </IconButton>
-
-            {/* <Button
-            disabled={!formValue.name || !formValue.color}
-            color="inherit"
-            onClick={handleSave}
-          >
-            save
-          </Button> */}
           </Toolbar>
         </LabelDialogAppBar>
         <DialogContent>

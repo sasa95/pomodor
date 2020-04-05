@@ -1,10 +1,7 @@
 const initialState = {
   dialogOpened: false,
   labelToEdit: null,
-  formValue: {
-    name: null,
-    color: null,
-  },
+  formValue: null,
 }
 
 export const reducer = (state = initialState, action) => {
