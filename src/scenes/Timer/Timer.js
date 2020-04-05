@@ -6,7 +6,7 @@ import { RoundsCounter } from './components/RoundsCounter'
 import { ResetButton } from './components/ResetButton'
 import { SkipButton } from './components/SkipButton'
 import { LabelsMenuButton } from './components/LabelsMenuButton'
-import { TimerLabelDialog } from '../../components/TimerLabelDialog'
+import { TimerLabelDialog } from './components/Labels/TimerLabelDialog'
 
 export const Timer = () => {
   return (

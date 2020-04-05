@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { STATUSES } from '../../scenes/Timer/reducer'
+import { STATUSES } from '../../scenes/Timer/data/timer/reducer'
 
 const MatNavList = styled(List)`
   display: flex;

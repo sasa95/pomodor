@@ -3,8 +3,8 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { reducer as authReducer } from './data/auth/reducer'
 import { reducer as settingsReducer } from './data/settings/reducer'
-import { reducer as labelsReducer } from './data/labels/reducer'
-import { reducer as timerReducer } from './scenes/Timer/reducer'
+import { reducer as labelsReducer } from './scenes/Timer/data/labels/reducer'
+import { reducer as timerReducer } from './scenes/Timer/data/timer/reducer'
 import { reducer as statsReducer } from './scenes/Stats/reducer'
 
 const appReducer = combineReducers({

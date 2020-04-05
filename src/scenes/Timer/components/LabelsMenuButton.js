@@ -7,7 +7,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { TimerLabel } from '../../../components/TimerLabel'
+import { TimerLabel } from './Labels/TimerLabel'
 
 import red from '@material-ui/core/colors/red'
 import deepPurple from '@material-ui/core/colors/deepPurple'
@@ -17,7 +17,7 @@ import teal from '@material-ui/core/colors/teal'
 import green from '@material-ui/core/colors/green'
 import yellow from '@material-ui/core/colors/yellow'
 import deepOrange from '@material-ui/core/colors/deepOrange'
-import { setDialogOpened } from '../../../data/labels/actions'
+import { setDialogOpened } from '../data/labels/actions'
 
 const LABELS = [
   { name: 'Job', color: red[500], id: '111' },

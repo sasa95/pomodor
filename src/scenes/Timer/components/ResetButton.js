@@ -2,8 +2,8 @@ import React from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import ReplayIcon from '@material-ui/icons/Replay'
 import { useDispatch, useSelector } from 'react-redux'
-import { resetTimer } from '../actions'
-import { TYPES } from '../reducer'
+import { resetTimer } from '../data/timer/actions'
+import { TYPES } from '../data/timer/reducer'
 
 export const ResetButton = () => {
   const dispatch = useDispatch()

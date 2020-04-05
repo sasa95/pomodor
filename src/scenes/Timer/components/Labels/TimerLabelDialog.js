@@ -19,7 +19,7 @@ import {
   setDialogOpened,
   setLabelToEdit,
   setFormValue,
-} from '../data/labels/actions'
+} from '../../data/labels/actions'
 import { TimerLabelForm } from './TimerLabelForm'
 import { useState } from 'react'
 

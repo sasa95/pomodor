@@ -5,15 +5,15 @@ import styled from 'styled-components'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
 import { useDispatch, useSelector } from 'react-redux'
-import { setNextTimer } from '../actions'
-import { STATUSES, TYPES, setTitle } from '../reducer'
 import {
+  setNextTimer,
   setStatus,
   setTimeLeft,
   setProgress,
   pauseTimer,
   saveInterval,
-} from '../actions'
+} from '../data/timer/actions'
+import { STATUSES, TYPES, setTitle } from '../data/timer/reducer'
 import chime from '../assets/chime.mp3'
 import work from '../assets/work.png'
 import alarm from '../assets/alarm.png'

@@ -9,7 +9,7 @@ import {
   setDialogOpened,
   setLabelToEdit,
   setFormValue,
-} from '../data/labels/actions'
+} from '../../data/labels/actions.js'
 
 const ColorIndicator = styled.span`
   background: ${({ color }) => color};

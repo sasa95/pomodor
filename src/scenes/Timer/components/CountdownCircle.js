@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import { useSelector, useDispatch } from 'react-redux'
-import { setTimeLeft } from '../actions'
-import { STATUSES, TYPES } from '../reducer'
+import { setTimeLeft } from '../data/timer/actions'
+import { STATUSES, TYPES } from '../data/timer/reducer'
 
 const CircleContainer = styled.div`
   position: relative;
