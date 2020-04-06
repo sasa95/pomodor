@@ -1,5 +1,6 @@
 const initialState = {
   dialogOpened: false,
+  alertOpened: false,
   labelToEdit: null,
   formValue: null,
 }
@@ -10,6 +11,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         dialogOpened: action.dialogOpened,
+      }
+    case 'SET_ALERT_OPENED':
+      return {
+        ...state,
+        alertOpened: action.alertOpened,
       }
     case 'SET_LABEL_TO_EDIT':
       return {

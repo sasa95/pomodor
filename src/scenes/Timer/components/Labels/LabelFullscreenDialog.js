@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Dialog from '@material-ui/core/Dialog'
@@ -19,9 +19,10 @@ import {
   setDialogOpened,
   setLabelToEdit,
   setFormValue,
+  setAlertOpened,
 } from '../../data/labels/actions'
-import { TimerLabelForm } from './TimerLabelForm'
-import { useState } from 'react'
+import { LabelForm } from './LabelForm'
+import { LabelDeleteAlert } from './LabelDeleteAlert'
 
 const LabelDialogAppBar = styled(AppBar)`
   position: relative;
@@ -36,11 +37,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-export const TimerLabelDialog = () => {
+export const LabelFullscreenDialog = () => {
   const { formValue } = useSelector((state) => state.labels)
 
   const { dialogOpened, labelToEdit } = useSelector((state) => state.labels)
-  const [alertOpened, setAlertOpened] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -51,24 +51,13 @@ export const TimerLabelDialog = () => {
   }
 
   const handleSave = () => {
-    dispatch(setDialogOpened(false))
-    dispatch(setLabelToEdit(null))
-    dispatch(setFormValue(null))
-
     if (!!labelToEdit) {
       console.log('update existing label')
     } else {
       console.log('create new label')
     }
-  }
 
-  const handleDelete = () => {
-    dispatch(setLabelToEdit(null))
-    dispatch(setFormValue(null))
-    setAlertOpened(false)
-    setTimeout(() => {
-      handleClose()
-    }, 200)
+    handleClose()
   }
 
   return (
@@ -97,7 +86,7 @@ export const TimerLabelDialog = () => {
             {!!labelToEdit && (
               <IconButton
                 color="inherit"
-                onClick={() => setAlertOpened(true)}
+                onClick={() => dispatch(setAlertOpened(true))}
                 aria-label="delete label"
               >
                 <DeleteIcon />
@@ -115,32 +104,11 @@ export const TimerLabelDialog = () => {
           </Toolbar>
         </LabelDialogAppBar>
         <DialogContent>
-          <TimerLabelForm />
+          <LabelForm />
         </DialogContent>
       </Dialog>
 
-      <Dialog
-        open={alertOpened}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">Delete this label?</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            This action will also delete all the data and statistics related to
-            this label.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setAlertOpened(false)} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleDelete} color="secondary">
-            Delete
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <LabelDeleteAlert />
     </>
   )
 }

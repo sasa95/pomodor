@@ -3,6 +3,11 @@ export const setDialogOpened = (dialogOpened) => ({
   dialogOpened,
 })
 
+export const setAlertOpened = (alertOpened) => ({
+  type: 'SET_ALERT_OPENED',
+  alertOpened,
+})
+
 export const setLabelToEdit = (labelToEdit) => ({
   type: 'SET_LABEL_TO_EDIT',
   labelToEdit,

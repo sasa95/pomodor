@@ -41,7 +41,7 @@ const ColorIndicator = styled.span`
   margin-right: 20px;
 `
 
-export const TimerLabelForm = () => {
+export const LabelForm = () => {
   const { labelToEdit } = useSelector((state) => state.labels)
 
   const [name, setName] = useState(labelToEdit ? labelToEdit.name : '')

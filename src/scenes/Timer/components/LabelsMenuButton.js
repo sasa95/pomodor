@@ -7,7 +7,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { TimerLabel } from './Labels/TimerLabel'
+import { Label } from './Labels/Label'
 
 import red from '@material-ui/core/colors/red'
 import deepPurple from '@material-ui/core/colors/deepPurple'
@@ -92,7 +92,7 @@ export const LabelsMenuButton = () => {
             px={0}
             touchscreen={'ontouchstart' in document.documentElement ? 1 : 0}
           >
-            <TimerLabel label={label} />
+            <Label label={label} />
           </LabelMenuItem>
         ))}
         <MenuItem onClick={handleAdd}>

@@ -6,7 +6,7 @@ import { RoundsCounter } from './components/RoundsCounter'
 import { ResetButton } from './components/ResetButton'
 import { SkipButton } from './components/SkipButton'
 import { LabelsMenuButton } from './components/LabelsMenuButton'
-import { TimerLabelDialog } from './components/Labels/TimerLabelDialog'
+import { LabelFullscreenDialog } from './components/Labels/LabelFullscreenDialog'
 
 export const Timer = () => {
   return (
@@ -28,7 +28,7 @@ export const Timer = () => {
           <LabelsMenuButton />
         </Box>
       </Box>
-      <TimerLabelDialog />
+      <LabelFullscreenDialog />
     </Box>
   )
 }

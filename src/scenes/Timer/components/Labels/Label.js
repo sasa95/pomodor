@@ -24,7 +24,7 @@ const EditButton = styled(IconButton)`
   color: ${grey[400]};
 `
 
-export const TimerLabel = ({ label }) => {
+export const Label = ({ label }) => {
   const dispatch = useDispatch()
 
   const handleEdit = () => {
