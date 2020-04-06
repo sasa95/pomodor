@@ -19,7 +19,7 @@ import {
   setDialogOpened,
   setLabelToEdit,
   setFormValue,
-  setAlertOpened,
+  setDeleteAlert,
 } from '../../data/labels/actions'
 import { LabelForm } from './LabelForm'
 import { LabelDeleteAlert } from './LabelDeleteAlert'
@@ -86,7 +86,11 @@ export const LabelFullscreenDialog = () => {
             {!!labelToEdit && (
               <IconButton
                 color="inherit"
-                onClick={() => dispatch(setAlertOpened(true))}
+                onClick={() =>
+                  dispatch(
+                    setDeleteAlert({ opened: true, labelToDelete: labelToEdit })
+                  )
+                }
                 aria-label="delete label"
               >
                 <DeleteIcon />

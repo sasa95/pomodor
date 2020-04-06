@@ -1,6 +1,10 @@
 const initialState = {
   dialogOpened: false,
-  alertOpened: false,
+  formDialogOpened: false,
+  deleteAlert: {
+    opened: false,
+    labelToDelete: null,
+  },
   labelToEdit: null,
   formValue: null,
 }
@@ -12,10 +16,20 @@ export const reducer = (state = initialState, action) => {
         ...state,
         dialogOpened: action.dialogOpened,
       }
-    case 'SET_ALERT_OPENED':
+    case 'SET_FORM_DIALOG':
       return {
         ...state,
-        alertOpened: action.alertOpened,
+        formDialogOpened: action.formDialogOpened,
+      }
+    case 'SET_DELETE_ALERT':
+      const { opened, labelToDelete } = action.deleteAlert
+
+      return {
+        ...state,
+        deleteAlert: {
+          opened,
+          labelToDelete,
+        },
       }
     case 'SET_LABEL_TO_EDIT':
       return {

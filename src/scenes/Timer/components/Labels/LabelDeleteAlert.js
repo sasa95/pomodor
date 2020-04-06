@@ -10,32 +10,47 @@ import {
   setLabelToEdit,
   setFormValue,
   setDialogOpened,
-  setAlertOpened,
+  setDeleteAlert,
 } from '../../data/labels/actions'
+import styled from 'styled-components'
+
+const LabelName = styled.span`
+  color: ${({ color }) => color};
+`
 
 export const LabelDeleteAlert = () => {
-  const { alertOpened } = useSelector((state) => state.labels)
+  const { opened, labelToDelete } = useSelector(
+    (state) => state.labels.deleteAlert
+  )
+
   const dispatch = useDispatch()
 
   const handleDelete = () => {
-    dispatch(setAlertOpened(false))
+    dispatch(setDeleteAlert({ opened: false, labelToDelete: null }))
     dispatch(setDialogOpened(false))
     dispatch(setLabelToEdit(null))
     dispatch(setFormValue(null))
   }
 
   const closeAlert = () => {
-    dispatch(setAlertOpened(false))
+    dispatch(setDeleteAlert({ opened: false, labelToDelete: null }))
   }
 
   return (
     <Dialog
-      open={alertOpened}
+      open={opened}
       onClose={closeAlert}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">Delete this label?</DialogTitle>
+      <DialogTitle id="alert-dialog-title">
+        Delete
+        <LabelName color={labelToDelete && labelToDelete.color}>
+          {' '}
+          {labelToDelete && labelToDelete.name}
+        </LabelName>{' '}
+        label?
+      </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
           This action will also delete all the data and statistics related to

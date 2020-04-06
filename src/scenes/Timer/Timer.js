@@ -7,6 +7,7 @@ import { ResetButton } from './components/ResetButton'
 import { SkipButton } from './components/SkipButton'
 import { LabelsMenuButton } from './components/LabelsMenuButton'
 import { LabelFullscreenDialog } from './components/Labels/LabelFullscreenDialog'
+import { LabelFormDialog } from './components/Labels/LabelFormDialog'
 
 export const Timer = () => {
   return (
@@ -28,7 +29,9 @@ export const Timer = () => {
           <LabelsMenuButton />
         </Box>
       </Box>
+
       <LabelFullscreenDialog />
+      <LabelFormDialog />
     </Box>
   )
 }

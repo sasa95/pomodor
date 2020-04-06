@@ -3,9 +3,14 @@ export const setDialogOpened = (dialogOpened) => ({
   dialogOpened,
 })
 
-export const setAlertOpened = (alertOpened) => ({
-  type: 'SET_ALERT_OPENED',
-  alertOpened,
+export const setFormDialog = (formDialogOpened) => ({
+  type: 'SET_FORM_DIALOG',
+  formDialogOpened,
+})
+
+export const setDeleteAlert = (deleteAlert) => ({
+  type: 'SET_DELETE_ALERT',
+  deleteAlert,
 })
 
 export const setLabelToEdit = (labelToEdit) => ({
