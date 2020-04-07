@@ -1,11 +1,11 @@
-export const setDialogOpened = (dialogOpened) => ({
-  type: 'SET_DIALOG_OPENED',
-  dialogOpened,
+export const setFullscreenDialog = (fullscreenDialog) => ({
+  type: 'SET_FULLSCREEN_DIALOG',
+  fullscreenDialog,
 })
 
-export const setFormDialog = (formDialogOpened) => ({
-  type: 'SET_FORM_DIALOG',
-  formDialogOpened,
+export const setDesktopDialog = (desktopDialog) => ({
+  type: 'SET_DESKTOP_DIALOG',
+  desktopDialog,
 })
 
 export const setDeleteAlert = (deleteAlert) => ({
@@ -13,9 +13,9 @@ export const setDeleteAlert = (deleteAlert) => ({
   deleteAlert,
 })
 
-export const setLabelToEdit = (labelToEdit) => ({
-  type: 'SET_LABEL_TO_EDIT',
-  labelToEdit,
+export const setLabelEditting = (labelEditting) => ({
+  type: 'SET_LABEL_EDITTING',
+  labelEditting,
 })
 
 export const setFormValue = (formValue) => ({

@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -15,14 +11,14 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Slide from '@material-ui/core/Slide'
+import { LabelForm } from './LabelForm'
+import { DeleteAlert } from './DeleteAlert'
 import {
-  setDialogOpened,
-  setLabelToEdit,
+  setFullscreenDialog,
+  setLabelEditting,
   setFormValue,
   setDeleteAlert,
 } from '../../data/labels/actions'
-import { LabelForm } from './LabelForm'
-import { LabelDeleteAlert } from './LabelDeleteAlert'
 
 const LabelDialogAppBar = styled(AppBar)`
   position: relative;
@@ -37,21 +33,23 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />
 })
 
-export const LabelFullscreenDialog = () => {
+export const FullscreenDialog = () => {
   const { formValue } = useSelector((state) => state.labels)
 
-  const { dialogOpened, labelToEdit } = useSelector((state) => state.labels)
+  const { fullscreenDialog, labelEditting } = useSelector(
+    (state) => state.labels
+  )
 
   const dispatch = useDispatch()
 
   const handleClose = () => {
-    dispatch(setDialogOpened(false))
-    dispatch(setLabelToEdit(null))
+    dispatch(setFullscreenDialog(false))
+    dispatch(setLabelEditting(null))
     dispatch(setFormValue(null))
   }
 
   const handleSave = () => {
-    if (!!labelToEdit) {
+    if (!!labelEditting) {
       console.log('update existing label')
     } else {
       console.log('create new label')
@@ -64,7 +62,7 @@ export const LabelFullscreenDialog = () => {
     <>
       <Dialog
         fullScreen
-        open={dialogOpened}
+        open={fullscreenDialog}
         onClose={handleClose}
         TransitionComponent={Transition}
         aria-describedby="alert-dialog-description"
@@ -80,15 +78,18 @@ export const LabelFullscreenDialog = () => {
               <CloseIcon />
             </IconButton>
             <LabelDialogTitle variant="h6">
-              {!!labelToEdit ? 'Edit' : 'Create'} Label
+              {!!labelEditting ? 'Edit' : 'Create'} Label
             </LabelDialogTitle>
 
-            {!!labelToEdit && (
+            {!!labelEditting && (
               <IconButton
                 color="inherit"
                 onClick={() =>
                   dispatch(
-                    setDeleteAlert({ opened: true, labelToDelete: labelToEdit })
+                    setDeleteAlert({
+                      opened: true,
+                      labelToDelete: labelEditting,
+                    })
                   )
                 }
                 aria-label="delete label"
@@ -112,7 +113,7 @@ export const LabelFullscreenDialog = () => {
         </DialogContent>
       </Dialog>
 
-      <LabelDeleteAlert />
+      <DeleteAlert />
     </>
   )
 }

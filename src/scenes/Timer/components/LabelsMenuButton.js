@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import ListIcon from '@material-ui/icons/List'
 import AddIcon from '@material-ui/icons/Add'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import { useSelector, useDispatch } from 'react-redux'
-
 import { Label } from './Labels/Label'
+import { setFullscreenDialog } from '../data/labels/actions'
 
 import red from '@material-ui/core/colors/red'
 import deepPurple from '@material-ui/core/colors/deepPurple'
@@ -17,7 +17,6 @@ import teal from '@material-ui/core/colors/teal'
 import green from '@material-ui/core/colors/green'
 import yellow from '@material-ui/core/colors/yellow'
 import deepOrange from '@material-ui/core/colors/deepOrange'
-import { setDialogOpened } from '../data/labels/actions'
 
 const LABELS = [
   { name: 'Job', color: red[500], id: '111' },
@@ -66,7 +65,7 @@ export const LabelsMenuButton = () => {
 
   const handleAdd = () => {
     setAnchorEl(null)
-    dispatch(setDialogOpened(true))
+    dispatch(setFullscreenDialog(true))
   }
   return (
     <>

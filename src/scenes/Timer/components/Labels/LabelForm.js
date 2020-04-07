@@ -42,13 +42,13 @@ const ColorIndicator = styled.span`
 `
 
 export const LabelForm = () => {
-  const { labelToEdit } = useSelector((state) => state.labels)
+  const { labelEditting } = useSelector((state) => state.labels)
 
-  const [name, setName] = useState(labelToEdit ? labelToEdit.name : '')
+  const [name, setName] = useState(labelEditting ? labelEditting.name : '')
   const [nameValid, setNameValid] = useState(true)
   const nameHelperText = 'Fill in label name'
 
-  const [color, setColor] = useState(labelToEdit ? labelToEdit.color : '')
+  const [color, setColor] = useState(labelEditting ? labelEditting.color : '')
 
   const dispatch = useDispatch()
 

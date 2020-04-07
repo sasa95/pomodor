@@ -1,19 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { useMediaQuery, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
 import grey from '@material-ui/core/colors/grey'
-import { useDispatch } from 'react-redux'
 import {
-  setDialogOpened,
-  setLabelToEdit,
+  setFullscreenDialog,
+  setLabelEditting,
   setFormValue,
   setDeleteAlert,
-  setFormDialog,
+  setDesktopDialog,
 } from '../../data/labels/actions.js'
-import { useMediaQuery, useTheme } from '@material-ui/core'
 
 const ColorIndicator = styled.span`
   background: ${({ color }) => color};
@@ -37,16 +37,16 @@ export const Label = ({ label }) => {
   const dispatch = useDispatch()
 
   const handleEdit = () => {
-    dispatch(setLabelToEdit(label))
+    dispatch(setLabelEditting(label))
     dispatch(setFormValue({ name: label.name, color: label.color }))
 
     if (isMediumScreen) {
       console.log('mali dialog')
 
-      dispatch(setFormDialog(true))
+      dispatch(setDesktopDialog(true))
     } else {
       console.log('full dialog')
-      dispatch(setDialogOpened(true))
+      dispatch(setFullscreenDialog(true))
     }
   }
 

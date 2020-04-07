@@ -7,9 +7,9 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogActions from '@material-ui/core/DialogActions'
 import Button from '@material-ui/core/Button'
 import {
-  setLabelToEdit,
+  setLabelEditting,
   setFormValue,
-  setDialogOpened,
+  setFullscreenDialog,
   setDeleteAlert,
 } from '../../data/labels/actions'
 import styled from 'styled-components'
@@ -18,36 +18,34 @@ const LabelName = styled.span`
   color: ${({ color }) => color};
 `
 
-export const LabelDeleteAlert = () => {
-  const { opened, labelToDelete } = useSelector(
-    (state) => state.labels.deleteAlert
-  )
+export const DeleteAlert = () => {
+  const { deleteAlert, labelEditting } = useSelector((state) => state.labels)
 
   const dispatch = useDispatch()
 
   const handleDelete = () => {
-    dispatch(setDeleteAlert({ opened: false, labelToDelete: null }))
-    dispatch(setDialogOpened(false))
-    dispatch(setLabelToEdit(null))
+    dispatch(setDeleteAlert(false))
+    dispatch(setFullscreenDialog(false))
+    dispatch(setLabelEditting(null))
     dispatch(setFormValue(null))
   }
 
   const closeAlert = () => {
-    dispatch(setDeleteAlert({ opened: false, labelToDelete: null }))
+    dispatch(setDeleteAlert(false))
   }
 
   return (
     <Dialog
-      open={opened}
+      open={deleteAlert}
       onClose={closeAlert}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
         Delete
-        <LabelName color={labelToDelete && labelToDelete.color}>
+        <LabelName color={labelEditting && labelEditting.color}>
           {' '}
-          {labelToDelete && labelToDelete.name}
+          {labelEditting && labelEditting.name}
         </LabelName>{' '}
         label?
       </DialogTitle>

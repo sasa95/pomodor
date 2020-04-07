@@ -1,40 +1,32 @@
 const initialState = {
-  dialogOpened: false,
-  formDialogOpened: false,
-  deleteAlert: {
-    opened: false,
-    labelToDelete: null,
-  },
-  labelToEdit: null,
+  fullscreenDialog: false,
+  desktopDialog: false,
+  deleteAlert: false,
+  labelEditting: null,
   formValue: null,
 }
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_DIALOG_OPENED':
+    case 'SET_FULLSCREEN_DIALOG':
       return {
         ...state,
-        dialogOpened: action.dialogOpened,
+        fullscreenDialog: action.fullscreenDialog,
       }
-    case 'SET_FORM_DIALOG':
+    case 'SET_DESKTOP_DIALOG':
       return {
         ...state,
-        formDialogOpened: action.formDialogOpened,
+        desktopDialog: action.desktopDialog,
       }
     case 'SET_DELETE_ALERT':
-      const { opened, labelToDelete } = action.deleteAlert
-
       return {
         ...state,
-        deleteAlert: {
-          opened,
-          labelToDelete,
-        },
+        deleteAlert: action.deleteAlert,
       }
-    case 'SET_LABEL_TO_EDIT':
+    case 'SET_LABEL_EDITTING':
       return {
         ...state,
-        labelToEdit: action.labelToEdit,
+        labelEditting: action.labelEditting,
       }
     case 'SET_FORM_VALUE':
       return {
