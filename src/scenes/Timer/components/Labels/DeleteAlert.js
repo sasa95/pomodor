@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
 import Dialog from '@material-ui/core/Dialog'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -11,8 +12,8 @@ import {
   setFormValue,
   setFullscreenDialog,
   setDeleteAlert,
+  startDeleteLabel,
 } from '../../data/labels/actions'
-import styled from 'styled-components'
 
 const LabelName = styled.span`
   color: ${({ color }) => color};
@@ -24,6 +25,8 @@ export const DeleteAlert = () => {
   const dispatch = useDispatch()
 
   const handleDelete = () => {
+    dispatch(startDeleteLabel(labelEditting.id))
+
     dispatch(setDeleteAlert(false))
     dispatch(setFullscreenDialog(false))
     dispatch(setLabelEditting(null))

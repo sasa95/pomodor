@@ -6,28 +6,9 @@ import ListIcon from '@material-ui/icons/List'
 import AddIcon from '@material-ui/icons/Add'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import { useTheme, useMediaQuery } from '@material-ui/core'
 import { Label } from './Labels/Label'
-import { setFullscreenDialog } from '../data/labels/actions'
-
-import red from '@material-ui/core/colors/red'
-import deepPurple from '@material-ui/core/colors/deepPurple'
-import blue from '@material-ui/core/colors/blue'
-import cyan from '@material-ui/core/colors/cyan'
-import teal from '@material-ui/core/colors/teal'
-import green from '@material-ui/core/colors/green'
-import yellow from '@material-ui/core/colors/yellow'
-import deepOrange from '@material-ui/core/colors/deepOrange'
-
-const LABELS = [
-  { name: 'Job', color: red[500], id: '111' },
-  { name: 'Learning Spanish', color: deepPurple[500], id: '222' },
-  { name: 'Playing Guitar', color: blue[500], id: '333' },
-  { name: 'Exams', color: cyan[500], id: '444' },
-  { name: 'Drawing', color: teal[500], id: '555' },
-  { name: 'Building My Website', color: deepOrange[500], id: '666' },
-  { name: 'Reading', color: green[500], id: '777' },
-  { name: 'Video Editing', color: yellow[500], id: '888' },
-]
+import { setFullscreenDialog, setDesktopDialog } from '../data/labels/actions'
 
 const LabelMenuItem = styled(MenuItem)`
   .MuiIconButton-root {
@@ -49,7 +30,11 @@ export const LabelsMenuButton = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [labelSelected, setLabelSelected] = useState(null)
   const { timeLeft } = useSelector((state) => state.timer)
+  const { data } = useSelector((state) => state.labels)
   const dispatch = useDispatch()
+
+  const theme = useTheme()
+  const isMediumScreen = useMediaQuery(theme.breakpoints.up('md'))
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -65,7 +50,12 @@ export const LabelsMenuButton = () => {
 
   const handleAdd = () => {
     setAnchorEl(null)
-    dispatch(setFullscreenDialog(true))
+
+    if (isMediumScreen) {
+      dispatch(setDesktopDialog(true))
+    } else {
+      dispatch(setFullscreenDialog(true))
+    }
   }
   return (
     <>
@@ -84,7 +74,7 @@ export const LabelsMenuButton = () => {
         onClose={handleClose}
         margin="dense"
       >
-        {LABELS.map((label) => (
+        {data.map((label) => (
           <LabelMenuItem
             key={label.id}
             onClick={(e) => handleClose(e, label)}

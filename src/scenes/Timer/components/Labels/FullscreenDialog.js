@@ -18,6 +18,8 @@ import {
   setLabelEditting,
   setFormValue,
   setDeleteAlert,
+  startEditLabel,
+  startAddLabel,
 } from '../../data/labels/actions'
 
 const LabelDialogAppBar = styled(AppBar)`
@@ -49,13 +51,17 @@ export const FullscreenDialog = () => {
   }
 
   const handleSave = () => {
-    if (!!labelEditting) {
-      console.log('update existing label')
+    if (labelEditting) {
+      dispatch(startEditLabel(labelEditting.id, formValue))
     } else {
-      console.log('create new label')
+      dispatch(startAddLabel(formValue))
     }
 
     handleClose()
+  }
+
+  const openDeleteAlert = () => {
+    dispatch(setDeleteAlert(true))
   }
 
   return (
@@ -84,14 +90,7 @@ export const FullscreenDialog = () => {
             {!!labelEditting && (
               <IconButton
                 color="inherit"
-                onClick={() =>
-                  dispatch(
-                    setDeleteAlert({
-                      opened: true,
-                      labelToDelete: labelEditting,
-                    })
-                  )
-                }
+                onClick={openDeleteAlert}
                 aria-label="delete label"
               >
                 <DeleteIcon />

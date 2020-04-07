@@ -41,17 +41,15 @@ export const Label = ({ label }) => {
     dispatch(setFormValue({ name: label.name, color: label.color }))
 
     if (isMediumScreen) {
-      console.log('mali dialog')
-
       dispatch(setDesktopDialog(true))
     } else {
-      console.log('full dialog')
       dispatch(setFullscreenDialog(true))
     }
   }
 
   const handleDelete = () => {
-    dispatch(setDeleteAlert({ opened: true, labelToDelete: label }))
+    dispatch(setLabelEditting(label))
+    dispatch(setDeleteAlert(true))
   }
 
   return (

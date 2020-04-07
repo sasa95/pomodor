@@ -6,15 +6,31 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { LabelForm } from './LabelForm'
-import { setDesktopDialog } from '../../data/labels/actions'
+import {
+  setDesktopDialog,
+  startAddLabel,
+  startEditLabel,
+} from '../../data/labels/actions'
 
 export const DesktopDialog = () => {
-  const { desktopDialog, formValue } = useSelector((state) => state.labels)
+  const { desktopDialog, formValue, labelEditting } = useSelector(
+    (state) => state.labels
+  )
 
   const dispatch = useDispatch()
 
   const handleClose = () => {
     dispatch(setDesktopDialog(false))
+  }
+
+  const handleConfirm = () => {
+    if (labelEditting) {
+      dispatch(startEditLabel(labelEditting.id, formValue))
+    } else {
+      dispatch(startAddLabel(formValue))
+    }
+
+    handleClose()
   }
 
   return (
@@ -23,6 +39,8 @@ export const DesktopDialog = () => {
         open={desktopDialog}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+        maxWidth="xs"
+        fullWidth={true}
       >
         <DialogTitle id="form-dialog-title">Edit Label</DialogTitle>
         <DialogContent>
@@ -34,7 +52,7 @@ export const DesktopDialog = () => {
           </Button>
           <Button
             disabled={!formValue || !formValue.name || !formValue.color}
-            onClick={handleClose}
+            onClick={handleConfirm}
             color="primary"
           >
             Confirm

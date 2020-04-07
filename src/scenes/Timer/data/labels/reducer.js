@@ -4,6 +4,7 @@ const initialState = {
   deleteAlert: false,
   labelEditting: null,
   formValue: null,
+  data: [],
 }
 
 export const reducer = (state = initialState, action) => {
@@ -32,6 +33,33 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         formValue: action.formValue,
+      }
+    case 'ADD_LABEL':
+      return {
+        ...state,
+        data: [...state.data, action.label],
+      }
+    case 'EDIT_LABEL':
+      const updatedLabels = state.data.map((label) => {
+        if (label.id === action.id) {
+          return {
+            ...label,
+            ...action.updates,
+          }
+        } else {
+          return label
+        }
+      })
+      return { ...state, data: updatedLabels }
+    case 'DELETE_LABEL':
+      return {
+        ...state,
+        data: state.data.filter(({ id }) => id !== action.id),
+      }
+    case 'SET_LABELS':
+      return {
+        ...state,
+        data: action.labels,
       }
     default:
       return state
