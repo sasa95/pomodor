@@ -36,7 +36,9 @@ export const Label = ({ label }) => {
 
   const dispatch = useDispatch()
 
-  const handleEdit = () => {
+  const handleEdit = (e) => {
+    e.stopPropagation()
+
     dispatch(setLabelEditting(label))
     dispatch(setFormValue({ name: label.name, color: label.color }))
 
@@ -47,7 +49,9 @@ export const Label = ({ label }) => {
     }
   }
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.stopPropagation()
+
     dispatch(setLabelEditting(label))
     dispatch(setDeleteAlert(true))
   }

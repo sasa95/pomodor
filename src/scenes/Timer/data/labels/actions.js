@@ -15,14 +15,24 @@ export const setDeleteAlert = (deleteAlert) => ({
   deleteAlert,
 })
 
-export const setLabelEditting = (labelEditting) => ({
-  type: 'SET_LABEL_EDITTING',
-  labelEditting,
+export const setMenuOpened = (menuOpened) => ({
+  type: 'SET_MENU_OPENED',
+  menuOpened,
 })
 
 export const setFormValue = (formValue) => ({
   type: 'SET_FORM_VALUE',
   formValue,
+})
+
+export const setLabelEditting = (labelEditting) => ({
+  type: 'SET_LABEL_EDITTING',
+  labelEditting,
+})
+
+export const setLabelSelected = (labelSelected) => ({
+  type: 'SET_LABEL_SELECTED',
+  labelSelected,
 })
 
 export const addLabel = (label) => ({

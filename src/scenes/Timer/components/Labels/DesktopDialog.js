@@ -10,6 +10,8 @@ import {
   setDesktopDialog,
   startAddLabel,
   startEditLabel,
+  setFormValue,
+  setLabelEditting,
 } from '../../data/labels/actions'
 
 export const DesktopDialog = () => {
@@ -21,6 +23,8 @@ export const DesktopDialog = () => {
 
   const handleClose = () => {
     dispatch(setDesktopDialog(false))
+    dispatch(setLabelEditting(null))
+    dispatch(setFormValue(null))
   }
 
   const handleConfirm = () => {

@@ -5,13 +5,14 @@ import { ToggleButton } from './components/ToggleButton'
 import { RoundsCounter } from './components/RoundsCounter'
 import { ResetButton } from './components/ResetButton'
 import { SkipButton } from './components/SkipButton'
-import { LabelsMenuButton } from './components/LabelsMenuButton'
 import { FullscreenDialog } from './components/Labels/FullscreenDialog'
 import { DesktopDialog } from './components/Labels/DesktopDialog'
+import { AddLabelButton } from './components/Labels/AddLabelButton'
 
 export const Timer = () => {
   return (
-    <Box width={300} m="auto">
+    <Box width={300} m="auto" pt={3}>
+      <AddLabelButton />
       <CountdownCircle />
       <ToggleButton />
 
@@ -26,7 +27,6 @@ export const Timer = () => {
         <Box display="flex">
           <ResetButton />
           <SkipButton />
-          <LabelsMenuButton />
         </Box>
       </Box>
 

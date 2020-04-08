@@ -118,6 +118,7 @@ export const reducer = (state = initialState, action) => {
         timeLeft: newTimeLeft,
         currentRound: newCurrentRound,
       }
+
     default:
       return state
   }
