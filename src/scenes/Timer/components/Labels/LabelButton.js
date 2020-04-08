@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { useTheme, useMediaQuery } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
+import MatButton from '@material-ui/core/Button'
 import LabelIcon from '@material-ui/icons/Label'
 import {
   setFullscreenDialog,
@@ -12,11 +12,11 @@ import {
 } from '../../data/labels/actions'
 import { LabelsMenu } from './LabelsMenu'
 
-const LabelButton = styled(Button)`
+const Button = styled(MatButton)`
   color: ${({ labelcolor }) => labelcolor};
 `
 
-export const AddLabelButton = () => {
+export const LabelButton = () => {
   const { labelSelected, data } = useSelector((state) => state.labels)
   const { timeLeft } = useSelector((state) => state.timer)
 
@@ -57,7 +57,7 @@ export const AddLabelButton = () => {
 
   return (
     <Box display="flex" justifyContent="center">
-      <LabelButton
+      <Button
         disabled={!timeLeft}
         labelcolor={
           labelSelected ? labelSelected.color : theme.palette.secondary.main
@@ -68,7 +68,7 @@ export const AddLabelButton = () => {
         ref={buttonRef}
       >
         {getButtonText()}
-      </LabelButton>
+      </Button>
 
       <LabelsMenu anchor={buttonRef.current} />
     </Box>
