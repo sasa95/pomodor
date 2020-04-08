@@ -69,7 +69,7 @@ export const Label = ({ label }) => {
       </Box>
 
       <Box display="flex">
-        <ActionButton aria-label="Edit label" onClick={handleEdit}>
+        <ActionButton aria-label="Edit label" onClick={handleEdit} size="small">
           <EditIcon />
         </ActionButton>
 
@@ -77,6 +77,7 @@ export const Label = ({ label }) => {
           hide={!isMediumScreen ? 1 : 0}
           aria-label="Delete label"
           onClick={handleDelete}
+          size="small"
         >
           <DeleteIcon />
         </ActionButton>
