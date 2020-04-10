@@ -40,7 +40,7 @@ export const addLabel = (label) => ({
   label,
 })
 
-export const startAddLabel = (label = {}) => {
+export const startAddLabel = (label) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
@@ -75,7 +75,7 @@ export const startEditLabel = (id, updates) => {
   }
 }
 
-export const deleteLabel = ({ id } = {}) => ({
+export const deleteLabel = (id) => ({
   type: 'DELETE_LABEL',
   id,
 })
@@ -85,7 +85,7 @@ export const startDeleteLabel = (id) => {
     const uid = getState().auth.uid
     await fs.doc(`users/${uid}/labels/${id}`).delete()
 
-    dispatch(deleteLabel({ id }))
+    dispatch(deleteLabel(id))
   }
 }
 
