@@ -59,9 +59,7 @@ export const DeleteAlert = () => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={closeAlert} color="primary">
-          Cancel
-        </Button>
+        <Button onClick={closeAlert}>Cancel</Button>
         <Button onClick={handleDelete} color="secondary">
           Delete
         </Button>
