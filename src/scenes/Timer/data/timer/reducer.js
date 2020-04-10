@@ -17,6 +17,7 @@ const initialState = {
   timeLeft: null,
   currentRound: 1,
   interval: null,
+  saveSessionAlert: false,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -119,6 +120,11 @@ export const reducer = (state = initialState, action) => {
         currentRound: newCurrentRound,
       }
 
+    case 'SET_SAVE_SESSION_ALERT':
+      return {
+        ...state,
+        saveSessionAlert: action.saveSessionAlert,
+      }
     default:
       return state
   }

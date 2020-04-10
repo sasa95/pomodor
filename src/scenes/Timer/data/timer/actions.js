@@ -32,3 +32,8 @@ export const setNextTimer = (settings) => ({
   type: 'SET_NEXT_TIMER',
   settings,
 })
+
+export const setSaveSessionAlert = (saveSessionAlert) => ({
+  type: 'SET_SAVE_SESSION_ALERT',
+  saveSessionAlert,
+})

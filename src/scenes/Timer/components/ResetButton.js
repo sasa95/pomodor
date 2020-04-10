@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import ReplayIcon from '@material-ui/icons/Replay'
 import { useDispatch, useSelector } from 'react-redux'
-import { resetTimer } from '../data/timer/actions'
-import { TYPES } from '../data/timer/reducer'
+import { resetTimer, setSaveSessionAlert } from '../data/timer/actions'
+import { TYPES, STATUSES } from '../data/timer/reducer'
+import { SaveSessionAlert } from './SaveSessionAlert'
 
 export const ResetButton = () => {
-  const dispatch = useDispatch()
-  const { type, timeLeft } = useSelector((state) => state.timer)
+  const { type, timeLeft, status } = useSelector((state) => state.timer)
   const {
     workDuration,
     shortBreakDuration,
@@ -15,7 +15,27 @@ export const ResetButton = () => {
     showTimerInTitle,
   } = useSelector((state) => state.settings)
 
+  const [timeToSave, setTimeToSave] = useState({ minutes: 0, seconds: 0 })
+
+  const dispatch = useDispatch()
+
   const handleClick = () => {
+    const secondsTotal = workDuration * 60
+    const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
+    const secondsDiff = secondsTotal - secondsLeft
+
+    const minutesToSave = Math.floor(secondsDiff / 60)
+    const secondsToSave = secondsDiff % 60
+
+    if (minutesToSave) {
+      setTimeToSave({
+        minutes: minutesToSave,
+        seconds: secondsToSave,
+      })
+
+      dispatch(setSaveSessionAlert(true))
+    }
+
     let duration
 
     switch (type) {
@@ -35,12 +55,15 @@ export const ResetButton = () => {
   }
 
   return (
-    <IconButton
-      disabled={!timeLeft}
-      aria-label="Reset timer"
-      onClick={handleClick}
-    >
-      <ReplayIcon />
-    </IconButton>
+    <>
+      <IconButton
+        disabled={status === STATUSES.onHold}
+        aria-label="Reset timer"
+        onClick={handleClick}
+      >
+        <ReplayIcon />
+      </IconButton>
+      <SaveSessionAlert time={timeToSave} />
+    </>
   )
 }
