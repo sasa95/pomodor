@@ -18,6 +18,7 @@ import chime from '../assets/chime.mp3'
 import work from '../assets/work.png'
 import alarm from '../assets/alarm.png'
 import coffee from '../assets/coffee.png'
+import { startAddSession } from '../../../data/sessions/actions'
 
 const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
@@ -26,6 +27,7 @@ const ActionIcon = styled(IconButton)`
 export const ToggleButton = () => {
   const { status, timeLeft, type } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
+  const label = useSelector((state) => state.labels.labelSelected)
 
   const dispatch = useDispatch()
 
@@ -79,6 +81,13 @@ export const ToggleButton = () => {
       }
 
       if (!calculatedProgress) {
+        dispatch(
+          startAddSession({
+            label: label ? label.id : null,
+            duration: { minutes: settings.workDuration, seconds: 0 },
+          })
+        )
+
         setTimeout(async () => {
           dispatch(setNextTimer(settings))
           audio.play()

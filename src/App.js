@@ -10,6 +10,7 @@ import { setUserInfo } from './data/auth/actions'
 import { startSetSettings } from './data/settings/actions'
 import { ThemeConfig } from './ThemeConfig'
 import { startSetLabels } from './scenes/Timer/data/labels/actions'
+import { startSetSessions } from './data/sessions/actions'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -32,6 +33,7 @@ const App = () => {
       dispatch(setUserInfo(userInfo))
       dispatch(startSetSettings())
       dispatch(startSetLabels())
+      dispatch(startSetSessions())
     } else {
       firebase.auth().signInAnonymously()
     }
