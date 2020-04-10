@@ -11,6 +11,7 @@ import {
   setMenuOpened,
 } from '../../data/labels/actions'
 import { LabelsMenu } from './LabelsMenu'
+import { STATUSES } from '../../data/timer/reducer'
 
 const Button = styled(MatButton)`
   color: ${({ labelcolor }) => labelcolor};
@@ -18,7 +19,7 @@ const Button = styled(MatButton)`
 
 export const LabelButton = () => {
   const { labelSelected, data } = useSelector((state) => state.labels)
-  const { timeLeft } = useSelector((state) => state.timer)
+  const { status } = useSelector((state) => state.timer)
 
   const theme = useTheme()
   const isMediumScreen = useMediaQuery(theme.breakpoints.up('md'))
@@ -58,7 +59,7 @@ export const LabelButton = () => {
   return (
     <Box display="flex" justifyContent="center">
       <Button
-        disabled={!timeLeft}
+        disabled={status !== STATUSES.onHold}
         labelcolor={
           labelSelected ? labelSelected.color : theme.palette.secondary.main
         }
