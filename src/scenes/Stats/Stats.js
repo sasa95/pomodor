@@ -1,5 +1,10 @@
 import React from 'react'
+import { Overview } from './components/Overview'
 
 export const Stats = () => {
-  return <div>Stats works</div>
+  return (
+    <div>
+      <Overview />
+    </div>
+  )
 }

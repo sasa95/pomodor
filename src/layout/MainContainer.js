@@ -17,8 +17,8 @@ const BackLayer = styled.div`
 const FrontLayer = styled.main`
   position: relative;
   top: 127px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
   height: calc(100% - 127px);
   background: ${({ theme }) => theme.palette.background.default};
   overflow: auto;
