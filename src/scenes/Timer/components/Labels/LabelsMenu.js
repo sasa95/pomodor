@@ -10,8 +10,8 @@ import {
   setFullscreenDialog,
   setDesktopDialog,
   setMenuOpened,
-} from '../../data/labels/actions'
-import { setLabelSelected } from '../../data/labels/actions'
+  setLabelSelected,
+} from '../../../../data/labels/actions'
 
 const LabelMenuItem = styled(MenuItem)`
   .MuiIconButton-root {

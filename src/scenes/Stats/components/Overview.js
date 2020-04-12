@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
-import MatCard from '@material-ui/core/Card'
 import Box from '@material-ui/core/Box'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import Chip from '@material-ui/core/Chip'
+import MatCard from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import MatCardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
-import Typography from '@material-ui/core/Typography'
+import CardActions from '@material-ui/core/CardActions'
+import Chip from '@material-ui/core/Chip'
 
 const Card = styled(MatCard)`
   margin: 10px auto auto;
@@ -21,6 +21,10 @@ const Card = styled(MatCard)`
   ${({ theme }) => theme.breakpoints.up('md')} {
     max-width: 550px;
   }
+`
+
+const CardContent = styled(MatCardContent)`
+  padding-top: 0;
 `
 
 const Sum = styled.span`
@@ -56,11 +60,8 @@ export const Overview = () => {
 
   return (
     <Card theme={theme}>
+      <CardHeader title="Overview"></CardHeader>
       <CardContent>
-        <Typography color="textSecondary" gutterBottom>
-          Overview
-        </Typography>
-
         <Grid container spacing={1}>
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">

@@ -9,7 +9,7 @@ import { firebase } from './firebase/firebase'
 import { setUserInfo } from './data/auth/actions'
 import { startSetSettings } from './data/settings/actions'
 import { ThemeConfig } from './ThemeConfig'
-import { startSetLabels } from './scenes/Timer/data/labels/actions'
+import { startSetLabels } from './data/labels/actions'
 import { startSetSessions } from './data/sessions/actions'
 
 const GlobalStyle = createGlobalStyle`

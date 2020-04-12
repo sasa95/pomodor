@@ -9,7 +9,7 @@ import {
   setFullscreenDialog,
   setDesktopDialog,
   setMenuOpened,
-} from '../../data/labels/actions'
+} from '../../../../data/labels/actions'
 import { LabelsMenu } from './LabelsMenu'
 import { STATUSES } from '../../data/timer/reducer'
 

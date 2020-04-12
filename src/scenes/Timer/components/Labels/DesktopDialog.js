@@ -12,7 +12,7 @@ import {
   startEditLabel,
   setFormValue,
   setLabelEditting,
-} from '../../data/labels/actions'
+} from '../../../../data/labels/actions'
 
 export const DesktopDialog = () => {
   const { desktopDialog, formValue, labelEditting } = useSelector(

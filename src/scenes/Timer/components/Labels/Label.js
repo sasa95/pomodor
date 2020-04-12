@@ -13,7 +13,7 @@ import {
   setFormValue,
   setDeleteAlert,
   setDesktopDialog,
-} from '../../data/labels/actions.js'
+} from '../../../../data/labels/actions.js'
 
 const ColorIndicator = styled.span`
   background: ${({ color }) => color};

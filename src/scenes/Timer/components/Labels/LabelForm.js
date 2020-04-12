@@ -12,7 +12,7 @@ import green from '@material-ui/core/colors/green'
 import yellow from '@material-ui/core/colors/yellow'
 import deepOrange from '@material-ui/core/colors/deepOrange'
 import { useDispatch, useSelector } from 'react-redux'
-import { setFormValue } from '../../data/labels/actions'
+import { setFormValue } from '../../../../data/labels/actions'
 
 const COLORS = [
   { name: 'Red', hex: red[500], id: '111' },

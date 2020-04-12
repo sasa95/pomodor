@@ -13,7 +13,7 @@ import {
   setFullscreenDialog,
   setDeleteAlert,
   startDeleteLabel,
-} from '../../data/labels/actions'
+} from '../../../../data/labels/actions'
 
 const LabelName = styled.span`
   color: ${({ color }) => color};

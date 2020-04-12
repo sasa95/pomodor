@@ -20,7 +20,7 @@ import {
   setDeleteAlert,
   startEditLabel,
   startAddLabel,
-} from '../../data/labels/actions'
+} from '../../../../data/labels/actions'
 
 const LabelDialogAppBar = styled(AppBar)`
   position: relative;
