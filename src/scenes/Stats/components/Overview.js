@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -9,6 +9,15 @@ import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
+import { useSelector } from 'react-redux'
+import * as dayjs from 'dayjs'
+import isToday from 'dayjs/plugin/isToday'
+import weekOfYear from 'dayjs/plugin/weekOfYear'
+require('dayjs/locale/uk')
+
+dayjs.locale('uk')
+dayjs.extend(isToday)
+dayjs.extend(weekOfYear)
 
 const Card = styled(MatCard)`
   margin: 10px auto auto;
@@ -49,6 +58,31 @@ const Avg = styled.span`
 
 export const Overview = () => {
   const [dataType, setDataType] = useState('time')
+  const [todayStats, setTodayStats] = useState()
+  const [weekStats, setWeekStats] = useState()
+  const [monthStats, setMonthStats] = useState()
+  const [totalStats, setTotalStats] = useState()
+
+  const sessions = useSelector((state) => state.sessions)
+
+  const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
+
+  const formatStats = ({ time, sessions }) => {
+    const hours = Math.floor(time / 3600)
+    const minutes = Math.floor((time % 3600) / 60)
+
+    return {
+      time: `${hours}h ${minutes}m`,
+      sessions,
+    }
+  }
+
+  const updateStats = (period, time) => {
+    return {
+      time: period.time + time,
+      sessions: period.sessions + 1,
+    }
+  }
 
   const onChipClicked = (typeSelected) => {
     if (typeSelected === dataType) return
@@ -58,6 +92,38 @@ export const Overview = () => {
 
   const theme = useTheme()
 
+  useEffect(() => {
+    if (sessions && sessions.length) {
+      let today = { time: 0, sessions: 0 }
+      let week = { time: 0, sessions: 0 }
+      let month = { time: 0, sessions: 0 }
+      let total = { time: 0, sessions: 0 }
+
+      sessions.forEach(({ duration, createdAt }) => {
+        const secondsCalculated = getSeconds(duration)
+
+        total = updateStats(total, secondsCalculated)
+
+        if (dayjs(createdAt).month() === dayjs().month()) {
+          month = updateStats(month, secondsCalculated)
+
+          if (dayjs(createdAt).week() === dayjs().week()) {
+            week = updateStats(week, secondsCalculated)
+
+            if (dayjs(createdAt).isToday()) {
+              today = updateStats(today, secondsCalculated)
+            }
+          }
+        }
+      })
+
+      setTodayStats(formatStats(today))
+      setWeekStats(formatStats(week))
+      setMonthStats(formatStats(month))
+      setTotalStats(formatStats(total))
+    }
+  }, [sessions])
+
   return (
     <Card theme={theme}>
       <CardHeader title="Overview"></CardHeader>
@@ -65,7 +131,9 @@ export const Overview = () => {
         <Grid container spacing={1}>
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>1h 42m</Sum>
+              <Sum color={theme.palette.primary.main}>
+                {todayStats && todayStats.time ? todayStats.time : '-'}
+              </Sum>
               <Label>Today</Label>
               <Avg color={theme.palette.text.secondary}>1h 51m avg</Avg>
             </Box>
@@ -73,7 +141,9 @@ export const Overview = () => {
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>13h 6m</Sum>
+              <Sum color={theme.palette.primary.main}>
+                {weekStats && weekStats.time ? weekStats.time : '-'}
+              </Sum>
               <Label>Week</Label>
               <Avg color={theme.palette.text.secondary}>11h 12m avg</Avg>
             </Box>
@@ -81,7 +151,9 @@ export const Overview = () => {
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>16h 11m</Sum>
+              <Sum color={theme.palette.primary.main}>
+                {monthStats && monthStats.time ? monthStats.time : '-'}
+              </Sum>
               <Label>Month</Label>
               <Avg color={theme.palette.text.secondary}>22h 3m avg</Avg>
             </Box>
@@ -89,7 +161,9 @@ export const Overview = () => {
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>43h 44m</Sum>
+              <Sum color={theme.palette.primary.main}>
+                {totalStats && totalStats.time ? totalStats.time : '-'}
+              </Sum>
               <Label>Total</Label>
             </Box>
           </Grid>

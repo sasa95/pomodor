@@ -9,6 +9,7 @@
     "@testing-library/react": "^10.0.2",
     "@testing-library/user-event": "^10.0.1",
     "chart.js": "^2.9.3",
+    "dayjs": "^1.8.24",
     "firebase": "^7.13.2",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",

@@ -85,6 +85,7 @@ export const ToggleButton = () => {
           startAddSession({
             label: label ? label.id : null,
             duration: { minutes: settings.workDuration, seconds: 0 },
+            createdAt: Date.now(),
           })
         )
 
