@@ -30,10 +30,20 @@ export const addSession = (session) => ({
 export const startAddSession = (session) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
+    const { duration, label = null, createdAt } = session
 
-    const ref = await fs.collection(`users/${uid}/sessions`).add(session)
+    const ref = await fs.collection(`users/${uid}/sessions`).add({
+      duration,
+      label,
+      createdAt,
+    })
 
-    dispatch(addSession(session))
+    dispatch(
+      addSession({
+        id: ref.id,
+        ...session,
+      })
+    )
 
     return ref
   }

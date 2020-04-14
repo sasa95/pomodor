@@ -17,6 +17,7 @@ const Time = styled.span`
 
 export const SaveSessionAlert = ({ time }) => {
   const { saveSessionAlert } = useSelector((state) => state.timer)
+  const label = useSelector((state) => state.labels.labelSelected)
 
   const theme = useTheme()
 
@@ -27,7 +28,13 @@ export const SaveSessionAlert = ({ time }) => {
   }
 
   const saveSession = () => {
-    dispatch(startAddSession(time))
+    dispatch(
+      startAddSession({
+        duration: time,
+        label: label ? label.id : null,
+        createdAt: Date.now(),
+      })
+    )
     closeAlert()
   }
 
