@@ -14,6 +14,8 @@ export const linkAccount = (authProvider) => {
 
       const userInfo = { uid: user.uid }
 
+      userInfo.creationTime = user.metadata.creationTime
+
       if (user.providerData && user.providerData.length) {
         userInfo.name = user.providerData[0].displayName
         userInfo.photo = user.providerData[0].photoURL
@@ -27,3 +29,8 @@ export const linkAccount = (authProvider) => {
     }
   }
 }
+
+export const setCreationTime = (creationTime) => ({
+  type: 'SET_CREATION_TIME',
+  creationTime,
+})

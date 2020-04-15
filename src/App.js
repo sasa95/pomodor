@@ -25,6 +25,8 @@ const App = () => {
     if (user) {
       const userInfo = { uid: user.uid }
 
+      userInfo.creationTime = user.metadata.creationTime
+
       if (user.providerData && user.providerData.length) {
         userInfo.name = user.providerData[0].displayName
         userInfo.photo = user.providerData[0].photoURL

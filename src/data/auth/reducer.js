@@ -2,6 +2,7 @@ const initialState = {
   uid: null,
   name: null,
   photo: null,
+  creationTime: null,
 }
 
 export const reducer = (state = initialState, action) => {
