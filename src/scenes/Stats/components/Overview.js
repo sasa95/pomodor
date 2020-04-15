@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -13,9 +13,9 @@ import { useSelector } from 'react-redux'
 import * as dayjs from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
-require('dayjs/locale/uk')
+require('dayjs/locale/en-gb')
 
-dayjs.locale('uk')
+dayjs.locale('en-gb')
 dayjs.extend(isToday)
 dayjs.extend(weekOfYear)
 
@@ -58,24 +58,50 @@ const Avg = styled.span`
 
 export const Overview = () => {
   const [dataType, setDataType] = useState('time')
-  const [todayStats, setTodayStats] = useState()
-  const [weekStats, setWeekStats] = useState()
-  const [monthStats, setMonthStats] = useState()
-  const [totalStats, setTotalStats] = useState()
+  const [todayStats, setTodayStats] = useState({
+    time: null,
+    sessions: null,
+    avgTime: null,
+    avgSessions: null,
+  })
+  const [weekStats, setWeekStats] = useState({
+    time: null,
+    sessions: null,
+    avgTime: null,
+    avgSessions: null,
+  })
+  const [monthStats, setMonthStats] = useState({
+    time: null,
+    sessions: null,
+    avgTime: null,
+    avgSessions: null,
+  })
+
+  const [totalStats, setTotalStats] = useState({ time: null, sessions: null })
 
   const sessions = useSelector((state) => state.sessions)
+  const userCreationTime = useSelector((state) => state.auth.creationTime)
 
   const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
-  const formatStats = ({ time, sessions }) => {
+  const calculateTime = (time) => {
     const hours = Math.floor(time / 3600)
     const minutes = Math.floor((time % 3600) / 60)
 
-    return {
-      time: `${hours}h ${minutes}m`,
-      sessions,
-    }
+    return `${hours}h ${minutes}m`
   }
+
+  const calculateAvgSessions = (total, divider) => {
+    if (divider === 0) return total
+    return Math.round((total / divider + Number.EPSILON) * 10) / 10
+  }
+
+  const calculateAvgTime = useCallback((total, divider) => {
+    if (divider === 0) return total
+
+    const seconds = Math.round((total / divider + Number.EPSILON) * 10) / 10
+    return calculateTime(seconds)
+  }, [])
 
   const updateStats = (period, time) => {
     return {
@@ -94,9 +120,9 @@ export const Overview = () => {
 
   useEffect(() => {
     if (sessions && sessions.length) {
-      let today = { time: 0, sessions: 0 }
-      let week = { time: 0, sessions: 0 }
-      let month = { time: 0, sessions: 0 }
+      let today = { time: 0, sessions: 0, avgTime: 0, avgSessions: 0 }
+      let week = { time: 0, sessions: 0, avgTime: 0, avgSessions: 0 }
+      let month = { time: 0, sessions: 0, avgTime: 0, avgSessions: 0 }
       let total = { time: 0, sessions: 0 }
 
       sessions.forEach(({ duration, createdAt }) => {
@@ -117,12 +143,37 @@ export const Overview = () => {
         }
       })
 
-      setTodayStats(formatStats(today))
-      setWeekStats(formatStats(week))
-      setMonthStats(formatStats(month))
-      setTotalStats(formatStats(total))
+      const now = dayjs()
+      const creationTime = dayjs(userCreationTime)
+      const daysDiff = now.diff(creationTime, 'd')
+
+      setTodayStats({
+        time: calculateTime(today.time),
+        sessions: today.sessions,
+        avgSessions: calculateAvgSessions(total.sessions, daysDiff),
+        avgTime: calculateAvgTime(total.time, daysDiff),
+      })
+
+      setWeekStats({
+        time: calculateTime(week.time),
+        sessions: week.sessions,
+        avgSessions: calculateAvgSessions(total.sessions, daysDiff / 7),
+        avgTime: calculateAvgTime(total.time, daysDiff / 7),
+      })
+
+      setMonthStats({
+        time: calculateTime(month.time),
+        sessions: month.sessions,
+        avgSessions: calculateAvgSessions(total.sessions, daysDiff / 30),
+        avgTime: calculateAvgTime(total.time, daysDiff / 30),
+      })
+
+      setTotalStats({
+        time: calculateTime(total.time),
+        sessions: total.sessions,
+      })
     }
-  }, [sessions])
+  }, [calculateAvgTime, sessions, todayStats.avgTime, userCreationTime])
 
   return (
     <Card theme={theme}>
@@ -132,38 +183,68 @@ export const Overview = () => {
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
               <Sum color={theme.palette.primary.main}>
-                {todayStats && todayStats.time ? todayStats.time : '-'}
+                {dataType === 'time'
+                  ? todayStats.time || '-'
+                  : todayStats.sessions || '-'}
               </Sum>
+
               <Label>Today</Label>
-              <Avg color={theme.palette.text.secondary}>1h 51m avg</Avg>
+
+              <Avg color={theme.palette.text.secondary}>
+                {dataType === 'time'
+                  ? todayStats.avgTime || '-'
+                  : todayStats.avgSessions || '-'}{' '}
+                avg
+              </Avg>
             </Box>
           </Grid>
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
               <Sum color={theme.palette.primary.main}>
-                {weekStats && weekStats.time ? weekStats.time : '-'}
+                {dataType === 'time'
+                  ? weekStats.time || '-'
+                  : weekStats.sessions || '-'}
               </Sum>
-              <Label>Week</Label>
-              <Avg color={theme.palette.text.secondary}>11h 12m avg</Avg>
+
+              <Label>Week {dayjs().week()}</Label>
+
+              <Avg color={theme.palette.text.secondary}>
+                {dataType === 'time'
+                  ? weekStats.avgTime || '-'
+                  : weekStats.avgSessions || '-'}{' '}
+                avg
+              </Avg>
             </Box>
           </Grid>
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
               <Sum color={theme.palette.primary.main}>
-                {monthStats && monthStats.time ? monthStats.time : '-'}
+                {dataType === 'time'
+                  ? monthStats.time || '-'
+                  : monthStats.sessions || '-'}
               </Sum>
-              <Label>Month</Label>
-              <Avg color={theme.palette.text.secondary}>22h 3m avg</Avg>
+
+              <Label>{dayjs().format('MMMM')}</Label>
+
+              <Avg color={theme.palette.text.secondary}>
+                {dataType === 'time'
+                  ? monthStats.avgTime || '-'
+                  : monthStats.avgSessions || '-'}{' '}
+                avg
+              </Avg>
             </Box>
           </Grid>
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
               <Sum color={theme.palette.primary.main}>
-                {totalStats && totalStats.time ? totalStats.time : '-'}
+                {dataType === 'time'
+                  ? totalStats.time || '-'
+                  : totalStats.sessions || '-'}
               </Sum>
+
               <Label>Total</Label>
             </Box>
           </Grid>
