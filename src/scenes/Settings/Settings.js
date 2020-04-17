@@ -1,8 +1,9 @@
 import React from 'react'
-import { Sliders } from './components/Sliders'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
+import { Sliders } from './components/Sliders'
 import { Switches } from './components/Switches'
+import { DaySelect } from './components/DaySelect'
 
 const Container = styled.div`
   width: 300px;
@@ -22,6 +23,7 @@ export const Settings = () => {
   return (
     <Container theme={theme}>
       <Sliders />
+      <DaySelect />
       <Switches />
     </Container>
   )

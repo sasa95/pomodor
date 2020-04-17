@@ -119,6 +119,23 @@ export const startSetDarkMode = (darkMode) => {
   }
 }
 
+export const setFirstDayOfTheWeek = (firstDayOfTheWeek) => ({
+  type: 'SET_FIRST_DAY_OF_THE_WEEK',
+  firstDayOfTheWeek,
+})
+
+export const startSetFirstDayOfTheWeek = (firstDayOfTheWeek) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { firstDayOfTheWeek } }, { merge: true })
+
+    dispatch(setFirstDayOfTheWeek(firstDayOfTheWeek))
+  }
+}
+
 export const setSettings = (settings) => ({
   type: 'SET_SETTINGS',
   settings,

@@ -6,6 +6,7 @@ const defaultState = {
   showTimerInTitle: true,
   showNotifications: true,
   darkMode: false,
+  firstDayOfTheWeek: 'Monday',
 }
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   showTimerInTitle: null,
   showNotifications: null,
   darkMode: null,
+  firstDayOfTheWeek: null,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -54,6 +56,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         darkMode: action.darkMode,
+      }
+    case 'SET_FIRST_DAY_OF_THE_WEEK':
+      return {
+        ...state,
+        firstDayOfTheWeek: action.firstDayOfTheWeek,
       }
     case 'SET_SETTINGS':
       return {
