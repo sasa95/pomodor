@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
@@ -8,6 +8,7 @@ import { useTheme } from '@material-ui/core'
 import { Timer } from '../scenes/Timer/Timer'
 import { Stats } from '../scenes/Stats/Stats'
 import { Settings } from '../scenes/Settings/Settings'
+import { ScrollToTop } from '../ScrollToTop'
 
 const BackLayer = styled.div`
   height: 100vh;
@@ -42,10 +43,12 @@ export const MainContainer = () => {
   const theme = useTheme()
   const darkMode = useSelector((state) => +state.settings.darkMode)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
+  const mainRef = useRef()
 
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
-      <FrontLayer theme={theme}>
+      <FrontLayer theme={theme} ref={mainRef}>
+        <ScrollToTop container={mainRef} />
         <Container>
           <Box pb={2}>
             <Switch>
