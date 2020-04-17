@@ -14,8 +14,8 @@ import * as dayjs from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 require('dayjs/locale/en-gb')
+require('dayjs/locale/en')
 
-dayjs.locale('en-gb')
 dayjs.extend(isToday)
 dayjs.extend(weekOfYear)
 
@@ -81,6 +81,9 @@ export const Overview = () => {
 
   const sessions = useSelector((state) => state.sessions)
   const userCreationTime = useSelector((state) => state.auth.creationTime)
+  const firstDayOfTheWeek = useSelector(
+    (state) => state.settings.firstDayOfTheWeek
+  )
 
   const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
@@ -120,6 +123,12 @@ export const Overview = () => {
 
   useEffect(() => {
     if (sessions && sessions.length) {
+      if (firstDayOfTheWeek === 'Monday') {
+        dayjs.locale('en-gb')
+      } else {
+        dayjs.locale('en')
+      }
+
       let today = { time: 0, sessions: 0, avgTime: 0, avgSessions: 0 }
       let week = { time: 0, sessions: 0, avgTime: 0, avgSessions: 0 }
       let month = { time: 0, sessions: 0, avgTime: 0, avgSessions: 0 }
@@ -173,7 +182,7 @@ export const Overview = () => {
         sessions: total.sessions,
       })
     }
-  }, [calculateAvgTime, sessions, todayStats.avgTime, userCreationTime])
+  }, [calculateAvgTime, firstDayOfTheWeek, sessions, userCreationTime])
 
   return (
     <Card theme={theme}>
