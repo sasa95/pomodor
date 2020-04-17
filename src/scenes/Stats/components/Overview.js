@@ -122,7 +122,7 @@ export const Overview = () => {
   const theme = useTheme()
 
   useEffect(() => {
-    if (sessions && sessions.length) {
+    if (sessions && sessions.length && firstDayOfTheWeek) {
       if (firstDayOfTheWeek === 'Monday') {
         dayjs.locale('en-gb')
       } else {
