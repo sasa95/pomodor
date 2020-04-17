@@ -1,12 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
 import { useTheme } from '@material-ui/core'
-import { Switch, Route, Redirect } from 'react-router-dom'
 import { Timer } from '../scenes/Timer/Timer'
 import { Stats } from '../scenes/Stats/Stats'
 import { Settings } from '../scenes/Settings/Settings'
-import { useSelector } from 'react-redux'
 
 const BackLayer = styled.div`
   height: 100vh;
@@ -46,14 +47,16 @@ export const MainContainer = () => {
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
       <FrontLayer theme={theme}>
         <Container>
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/timer" />
-            </Route>
-            <Route path="/timer" component={Timer} />
-            <Route path="/stats" component={Stats} />
-            <Route path="/settings" component={Settings} />
-          </Switch>
+          <Box pb={2}>
+            <Switch>
+              <Route exact path="/">
+                <Redirect to="/timer" />
+              </Route>
+              <Route path="/timer" component={Timer} />
+              <Route path="/stats" component={Stats} />
+              <Route path="/settings" component={Settings} />
+            </Switch>
+          </Box>
         </Container>
       </FrontLayer>
     </BackLayer>
