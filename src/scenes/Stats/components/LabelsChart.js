@@ -15,7 +15,7 @@ import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
 import { Doughnut } from 'react-chartjs-2'
-import filters from '../data/filters'
+import { filters } from '../data/filters'
 
 const Card = styled(MatCard)`
   margin: 10px auto auto;

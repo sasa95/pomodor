@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -14,15 +15,30 @@ import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
 import { Doughnut } from 'react-chartjs-2'
-import filters from '../data/filters'
+import { daysOfWeek, colors } from '../data/constants'
+import {
+  generateChartTitle,
+  generateChartTimeLabel,
+  generateChartSessionsLabel,
+} from '../data/chartFunctions'
+import {
+  filters,
+  isThisWeek,
+  isThisMonth,
+  isThisYear,
+  isLast7Days,
+  isLast30Days,
+  isLast3Months,
+  isLast6Months,
+  isLastYear,
+} from '../data/filters'
 
-import red from '@material-ui/core/colors/red'
-import deepPurple from '@material-ui/core/colors/deepPurple'
-import blue from '@material-ui/core/colors/blue'
-import cyan from '@material-ui/core/colors/cyan'
-import green from '@material-ui/core/colors/green'
-import yellow from '@material-ui/core/colors/yellow'
-import deepOrange from '@material-ui/core/colors/deepOrange'
+import * as dayjs from 'dayjs'
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
+
+dayjs.extend(isSameOrAfter)
+require('dayjs/locale/en-gb')
+require('dayjs/locale/en')
 
 const Card = styled(MatCard)`
   margin: 10px auto auto;
@@ -45,55 +61,128 @@ const ChartContainer = styled.div`
   height: 250px;
 `
 
-const data = {
-  labels: [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ],
-  datasets: [
-    {
-      data: [11, 5, 10, 24, 15, 8, 5],
-      backgroundColor: [
-        red[500],
-        green[500],
-        deepPurple[500],
-        cyan[500],
-        deepOrange[500],
-        blue[500],
-        yellow[500],
-      ],
-    },
-  ],
-}
-
-const options = {
-  maintainAspectRatio: false,
-  tooltips: {
-    callbacks: {
-      label: function (tooltipItem, data) {
-        var dataset = data.datasets[tooltipItem.datasetIndex]
-        var meta = dataset._meta[Object.keys(dataset._meta)[0]]
-        var total = meta.total
-        var currentValue = dataset.data[tooltipItem.index]
-        var percentage = parseFloat(((currentValue / total) * 100).toFixed(1))
-        return currentValue + ' (' + percentage + '%)'
-      },
-      title: function (tooltipItem, data) {
-        return data.labels[tooltipItem[0].index]
-      },
-    },
-  },
-}
-
 export const DaysChart = () => {
+  const sessions = useSelector((state) => state.sessions)
+
+  const firstDayOfTheWeek = useSelector(
+    (state) => state.settings.firstDayOfTheWeek
+  )
+
+  const [chartData, setChartData] = useState({
+    labels: daysOfWeek,
+    datasets: [{ data: Array(7).fill(1), backgroundColor: colors }],
+  })
+
+  const [chartOptions, setChartOptions] = useState({
+    maintainAspectRatio: false,
+    tooltips: {
+      callbacks: {
+        title: generateChartTitle,
+        label: generateChartTimeLabel,
+      },
+    },
+  })
+
+  const [calculatedData, setCalculatedData] = useState()
   const [dataType, setDataType] = useState('time')
   const [anchorEl, setAnchorEl] = useState(null)
   const [filter, setFilter] = useState(filters.find((f) => f.default))
+
+  useEffect(() => {
+    if (sessions && sessions.length && firstDayOfTheWeek) {
+      let week = [...daysOfWeek]
+
+      if (firstDayOfTheWeek === 'Monday') {
+        dayjs.locale('en-gb')
+      } else {
+        week = daysOfWeek.slice(1, daysOfWeek.length - 1)
+
+        week.unshift('Sunday')
+        week.push('Monday')
+        dayjs.locale('en')
+      }
+
+      let filterFn
+
+      switch (filter.value) {
+        case 'THIS_WEEK':
+          filterFn = isThisWeek
+          break
+        case 'THIS_MONTH':
+          filterFn = isThisMonth
+          break
+        case 'THIS_YEAR':
+          filterFn = isThisYear
+          break
+        case '7_DAYS':
+          filterFn = isLast7Days
+          break
+        case '30_DAYS':
+          filterFn = isLast30Days
+          break
+        case '3_MONTHS':
+          filterFn = isLast3Months
+          break
+        case '6_MONTHS':
+          filterFn = isLast6Months
+          break
+        case '1_YEAR':
+          filterFn = isLastYear
+          break
+
+        default:
+          break
+      }
+
+      const data = Array(7)
+        .fill()
+        .map(() => ({ sessions: 0, time: 0 }))
+
+      sessions.forEach(({ createdAt, duration }) => {
+        if (filterFn(createdAt, dayjs)) {
+          const dayIndex = dayjs(createdAt).day()
+
+          data[dayIndex] = {
+            sessions: data[dayIndex].sessions + 1,
+            time: data[dayIndex].time + getSeconds(duration),
+          }
+        }
+      })
+
+      setCalculatedData(data)
+
+      setChartData((prev) => {
+        const newData = { ...prev }
+        newData.datasets[0].data = data.map((d) => d[dataType])
+        return newData
+      })
+    }
+  }, [sessions, firstDayOfTheWeek, filter, dataType])
+
+  const onChipClicked = (typeSelected) => {
+    if (typeSelected === dataType) return
+
+    setDataType(typeSelected)
+
+    setChartData((prev) => {
+      const newData = { ...prev }
+      newData.datasets[0].data = calculatedData.map(
+        (data) => data[typeSelected]
+      )
+      return newData
+    })
+
+    setChartOptions((prev) => {
+      const newOptions = { ...prev }
+
+      newOptions.tooltips.callbacks.label =
+        typeSelected === 'time'
+          ? generateChartTimeLabel
+          : generateChartSessionsLabel
+
+      return newOptions
+    })
+  }
 
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget)
@@ -108,11 +197,7 @@ export const DaysChart = () => {
     closeMenu()
   }
 
-  const onChipClicked = (typeSelected) => {
-    if (typeSelected === dataType) return
-
-    setDataType(typeSelected)
-  }
+  const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
   const theme = useTheme()
 
@@ -151,7 +236,7 @@ export const DaysChart = () => {
         </Typography>
 
         <ChartContainer>
-          <Doughnut data={data} options={options} />
+          <Doughnut data={chartData} options={chartOptions} />
         </ChartContainer>
       </CardContent>
 
