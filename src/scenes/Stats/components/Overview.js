@@ -100,9 +100,8 @@ export const Overview = () => {
   }
 
   const calculateAvgTime = useCallback((total, divider) => {
-    if (divider === 0) return total
-
-    const seconds = Math.round((total / divider + Number.EPSILON) * 10) / 10
+    const d = divider || 1
+    const seconds = Math.round((total / d + Number.EPSILON) * 10) / 10
     return calculateTime(seconds)
   }, [])
 
