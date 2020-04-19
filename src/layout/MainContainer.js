@@ -9,6 +9,7 @@ import { Timer } from '../scenes/Timer/Timer'
 import { Stats } from '../scenes/Stats/Stats'
 import { Settings } from '../scenes/Settings/Settings'
 import { ScrollToTop } from '../ScrollToTop'
+import { Page404 } from '../Page404'
 
 const BackLayer = styled.div`
   height: 100vh;
@@ -58,6 +59,7 @@ export const MainContainer = () => {
               <Route path="/timer" component={Timer} />
               <Route path="/stats" component={Stats} />
               <Route path="/settings" component={Settings} />
+              <Route component={Page404} />
             </Switch>
           </Box>
         </Container>
