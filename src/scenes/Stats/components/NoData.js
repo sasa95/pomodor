@@ -23,12 +23,13 @@ export const NoData = () => {
 
   return (
     <Box
-      maxHeight="80vh"
       display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
       alignSelf="center"
+      width="90%"
+      maxWidth="600px"
     >
       <img src={illustration} alt="" />
       <Typography align="center">
