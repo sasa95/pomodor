@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
@@ -15,7 +15,19 @@ import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
 import { Doughnut } from 'react-chartjs-2'
-import { filters } from '../data/filters'
+import { filters, getFilterFn } from '../data/filters'
+import {
+  generateChartTitle,
+  generateChartTimeLabel,
+  generateChartSessionsLabel,
+} from '../data/chartFunctions'
+import * as dayjs from 'dayjs'
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
+import grey from '@material-ui/core/colors/grey'
+
+dayjs.extend(isSameOrAfter)
+require('dayjs/locale/en-gb')
+require('dayjs/locale/en')
 
 const Card = styled(MatCard)`
   margin: 10px auto auto;
@@ -39,10 +51,109 @@ const ChartContainer = styled.div`
 `
 
 export const LabelsChart = () => {
+  const labels = useSelector((state) => state.labels.data)
+
+  const sessions = useSelector((state) => state.sessions)
+
+  const firstDayOfTheWeek = useSelector(
+    (state) => state.settings.firstDayOfTheWeek
+  )
+
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [{ data: [], backgroundColor: [] }],
+  })
+
+  const [chartOptions, setChartOptions] = useState({
+    maintainAspectRatio: false,
+    tooltips: {
+      callbacks: {
+        title: generateChartTitle,
+        label: generateChartTimeLabel,
+      },
+    },
+  })
+
+  const [calculatedData, setCalculatedData] = useState()
   const [dataType, setDataType] = useState('time')
   const [anchorEl, setAnchorEl] = useState(null)
   const [filter, setFilter] = useState(filters.find((f) => f.default))
-  const labels = useSelector((state) => state.labels.data)
+
+  useEffect(() => {
+    if (sessions && sessions.length && firstDayOfTheWeek) {
+      if (firstDayOfTheWeek === 'Monday') {
+        dayjs.locale('en-gb')
+      } else {
+        dayjs.locale('en')
+      }
+
+      const labelsData = labels.map((label) => {
+        return {
+          ...label,
+          sessions: 0,
+          time: 0,
+        }
+      })
+
+      labelsData.push({
+        id: null,
+        color: grey[500],
+        name: 'Unlabeled',
+        sessions: 0,
+        time: 0,
+      })
+
+      const filterFn = getFilterFn(filter)
+
+      sessions.forEach(({ createdAt, duration, label }) => {
+        if (filterFn(createdAt, dayjs)) {
+          const index = labelsData.findIndex((l) => l.id === label)
+
+          labelsData[index] = {
+            ...labelsData[index],
+            sessions: labelsData[index].sessions + 1,
+            time: labelsData[index].time + getSeconds(duration),
+          }
+        }
+      })
+
+      setCalculatedData(labelsData)
+
+      setChartData((prev) => {
+        const newData = { ...prev }
+        newData.datasets[0].data = labelsData.map((d) => d[dataType])
+        newData.datasets[0].backgroundColor = labelsData.map((l) => l.color)
+        newData.labels = labelsData.map((l) => l.name)
+
+        return newData
+      })
+    }
+  }, [sessions, firstDayOfTheWeek, filter, dataType, labels])
+
+  const onChipClicked = (typeSelected) => {
+    if (typeSelected === dataType) return
+
+    setDataType(typeSelected)
+
+    setChartData((prev) => {
+      const newData = { ...prev }
+      newData.datasets[0].data = calculatedData.map(
+        (data) => data[typeSelected]
+      )
+      return newData
+    })
+
+    setChartOptions((prev) => {
+      const newOptions = { ...prev }
+
+      newOptions.tooltips.callbacks.label =
+        typeSelected === 'time'
+          ? generateChartTimeLabel
+          : generateChartSessionsLabel
+
+      return newOptions
+    })
+  }
 
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget)
@@ -57,42 +168,9 @@ export const LabelsChart = () => {
     closeMenu()
   }
 
-  const onChipClicked = (typeSelected) => {
-    if (typeSelected === dataType) return
-
-    setDataType(typeSelected)
-  }
+  const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
   const theme = useTheme()
-
-  const chartData = {
-    labels: labels.map((l) => l.name),
-    datasets: [
-      {
-        data: [11, 4],
-        backgroundColor: labels.map((l) => l.color),
-      },
-    ],
-  }
-
-  const chartOptions = {
-    maintainAspectRatio: false,
-    tooltips: {
-      callbacks: {
-        label: function (tooltipItem, data) {
-          var dataset = data.datasets[tooltipItem.datasetIndex]
-          var meta = dataset._meta[Object.keys(dataset._meta)[0]]
-          var total = meta.total
-          var currentValue = dataset.data[tooltipItem.index]
-          var percentage = parseFloat(((currentValue / total) * 100).toFixed(1))
-          return currentValue + ' (' + percentage + '%)'
-        },
-        title: function (tooltipItem, data) {
-          return data.labels[tooltipItem[0].index]
-        },
-      },
-    },
-  }
 
   return (
     <Card theme={theme}>

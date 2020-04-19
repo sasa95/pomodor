@@ -21,17 +21,7 @@ import {
   generateChartTimeLabel,
   generateChartSessionsLabel,
 } from '../data/chartFunctions'
-import {
-  filters,
-  isThisWeek,
-  isThisMonth,
-  isThisYear,
-  isLast7Days,
-  isLast30Days,
-  isLast3Months,
-  isLast6Months,
-  isLastYear,
-} from '../data/filters'
+import { filters, getFilterFn } from '../data/filters'
 
 import * as dayjs from 'dayjs'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
@@ -102,37 +92,7 @@ export const DaysChart = () => {
         dayjs.locale('en')
       }
 
-      let filterFn
-
-      switch (filter.value) {
-        case 'THIS_WEEK':
-          filterFn = isThisWeek
-          break
-        case 'THIS_MONTH':
-          filterFn = isThisMonth
-          break
-        case 'THIS_YEAR':
-          filterFn = isThisYear
-          break
-        case '7_DAYS':
-          filterFn = isLast7Days
-          break
-        case '30_DAYS':
-          filterFn = isLast30Days
-          break
-        case '3_MONTHS':
-          filterFn = isLast3Months
-          break
-        case '6_MONTHS':
-          filterFn = isLast6Months
-          break
-        case '1_YEAR':
-          filterFn = isLastYear
-          break
-
-        default:
-          break
-      }
+      const filterFn = getFilterFn(filter)
 
       const data = Array(7)
         .fill()

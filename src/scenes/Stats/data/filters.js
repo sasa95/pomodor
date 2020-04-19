@@ -14,32 +14,68 @@ export const filters = [
   { name: '1 year', displayName: 'Last year', value: '1_YEAR' },
 ]
 
-export const isThisWeek = (day, dayjs) => {
+export const getFilterFn = (filter) => {
+  let filterFn
+
+  switch (filter.value) {
+    case 'THIS_WEEK':
+      filterFn = isThisWeek
+      break
+    case 'THIS_MONTH':
+      filterFn = isThisMonth
+      break
+    case 'THIS_YEAR':
+      filterFn = isThisYear
+      break
+    case '7_DAYS':
+      filterFn = isLast7Days
+      break
+    case '30_DAYS':
+      filterFn = isLast30Days
+      break
+    case '3_MONTHS':
+      filterFn = isLast3Months
+      break
+    case '6_MONTHS':
+      filterFn = isLast6Months
+      break
+    case '1_YEAR':
+      filterFn = isLastYear
+      break
+
+    default:
+      break
+  }
+
+  return filterFn
+}
+
+const isThisWeek = (day, dayjs) => {
   return dayjs().week() === dayjs(day).week()
 }
 
-export const isThisMonth = (day, dayjs) => {
+const isThisMonth = (day, dayjs) => {
   return dayjs().month() === dayjs(day).month()
 }
 
-export const isThisYear = (day, dayjs) => {
+const isThisYear = (day, dayjs) => {
   return dayjs().year() === dayjs(day).year()
 }
 
-export const isLast7Days = (day, dayjs) => {
+const isLast7Days = (day, dayjs) => {
   return dayjs(day).isSameOrAfter(dayjs().subtract(7, 'd'))
 }
-export const isLast30Days = (day, dayjs) => {
+const isLast30Days = (day, dayjs) => {
   return dayjs(day).isSameOrAfter(dayjs().subtract(30, 'd'))
 }
 
-export const isLast3Months = (day, dayjs) => {
+const isLast3Months = (day, dayjs) => {
   return dayjs(day).isSameOrAfter(dayjs().subtract(3, 'M'))
 }
 
-export const isLast6Months = (day, dayjs) => {
+const isLast6Months = (day, dayjs) => {
   return dayjs(day).isSameOrAfter(dayjs().subtract(6, 'M'))
 }
-export const isLastYear = (day, dayjs) => {
+const isLastYear = (day, dayjs) => {
   return dayjs(day).isSameOrAfter(dayjs().subtract(1, 'y'))
 }
