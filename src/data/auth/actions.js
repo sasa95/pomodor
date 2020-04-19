@@ -34,3 +34,14 @@ export const setCreationTime = (creationTime) => ({
   type: 'SET_CREATION_TIME',
   creationTime,
 })
+
+export const signOut = () => ({
+  type: 'SIGN_OUT',
+})
+
+export const startSignOut = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut()
+    dispatch(signOut())
+  }
+}

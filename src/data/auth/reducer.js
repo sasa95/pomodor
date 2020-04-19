@@ -12,6 +12,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         ...action.userInfo,
       }
+
+    case 'SIGN_OUT':
+      return {
+        ...initialState,
+      }
     default:
       return state
   }
