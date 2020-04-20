@@ -15,10 +15,12 @@ const appReducer = combineReducers({
   sessions: sessionsReducer,
 })
 
+const composeEnhancers = composeWithDevTools({ trace: true, traceLimit: 25 })
+
 export default () => {
   const store = createStore(
     appReducer,
-    composeWithDevTools(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk))
   )
   return store
 }
