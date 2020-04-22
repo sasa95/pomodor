@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
@@ -11,6 +11,7 @@ import { startSetSettings } from './data/settings/actions'
 import { ThemeConfig } from './ThemeConfig'
 import { startSetLabels } from './data/labels/actions'
 import { startSetSessions } from './data/sessions/actions'
+import { setProgressVisibility } from './data/progress/actions'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -21,25 +22,33 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const dispatch = useDispatch()
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      const userInfo = { uid: user.uid }
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      dispatch(setProgressVisibility(true))
 
-      userInfo.creationTime = user.metadata.creationTime
+      if (user) {
+        const userInfo = { uid: user.uid }
+        userInfo.creationTime = user.metadata.creationTime
 
-      if (user.providerData && user.providerData.length) {
-        userInfo.name = user.providerData[0].displayName
-        userInfo.photo = user.providerData[0].photoURL
+        if (user.providerData && user.providerData.length) {
+          userInfo.name = user.providerData[0].displayName
+          userInfo.photo = user.providerData[0].photoURL
+        }
+
+        dispatch(setUserInfo(userInfo))
+
+        await Promise.all([
+          dispatch(startSetSettings()),
+          dispatch(startSetLabels()),
+          dispatch(startSetSessions()),
+        ])
+
+        dispatch(setProgressVisibility(false))
+      } else {
+        firebase.auth().signInAnonymously()
       }
-
-      dispatch(setUserInfo(userInfo))
-      dispatch(startSetSettings())
-      dispatch(startSetLabels())
-      dispatch(startSetSessions())
-    } else {
-      firebase.auth().signInAnonymously()
-    }
-  })
+    })
+  }, [dispatch])
 
   return (
     <ThemeConfig>

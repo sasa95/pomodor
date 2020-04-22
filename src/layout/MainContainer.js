@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
+import MatLinearProgress from '@material-ui/core/LinearProgress'
 import { useTheme } from '@material-ui/core'
 import { Timer } from '../scenes/Timer/Timer'
 import { Stats } from '../scenes/Stats/Stats'
@@ -40,15 +41,23 @@ const FrontLayer = styled.main`
   }
 `
 
+const LinearProgress = styled(MatLinearProgress)`
+  position: absolute;
+  top: 0;
+  width: 100%;
+`
+
 export const MainContainer = () => {
   const theme = useTheme()
   const darkMode = useSelector((state) => +state.settings.darkMode)
+  const progress = useSelector((state) => state.progress)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
   const mainRef = useRef()
 
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
       <FrontLayer theme={theme} ref={mainRef}>
+        {progress && <LinearProgress color="secondary" />}
         <ScrollToTop container={mainRef} />
         <Container>
           <Box pb={2}>

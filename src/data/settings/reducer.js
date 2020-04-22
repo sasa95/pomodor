@@ -1,4 +1,4 @@
-const defaultState = {
+const initialState = {
   workDuration: 25,
   shortBreakDuration: 5,
   longBreakDuration: 20,
@@ -7,17 +7,6 @@ const defaultState = {
   showNotifications: true,
   darkMode: false,
   firstDayOfTheWeek: 'Monday',
-}
-
-const initialState = {
-  workDuration: null,
-  shortBreakDuration: null,
-  longBreakDuration: null,
-  rounds: null,
-  showTimerInTitle: null,
-  showNotifications: null,
-  darkMode: null,
-  firstDayOfTheWeek: null,
 }
 
 export const reducer = (state = initialState, action) => {
@@ -64,7 +53,7 @@ export const reducer = (state = initialState, action) => {
       }
     case 'SET_SETTINGS':
       return {
-        ...defaultState,
+        ...state,
         ...action.settings,
       }
 
