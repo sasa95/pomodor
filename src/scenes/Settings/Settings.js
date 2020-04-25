@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
-import { useTheme } from '@material-ui/core'
+import styled, { css } from 'styled-components'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { Sliders } from './components/Sliders'
 import { Switches } from './components/Switches'
 import { DaySelect } from './components/DaySelect'
@@ -12,16 +12,18 @@ const Container = styled.div`
   padding-left: 29px;
   padding-right: 32px;
 
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    width: 400px;
-  }
+  ${({ sidenav }) =>
+    sidenav &&
+    css`
+      width: 400px;
+    `}
 `
 
 export const Settings = () => {
-  const theme = useTheme()
+  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
 
   return (
-    <Container theme={theme}>
+    <Container sidenav={sidenav}>
       <Sliders />
       <DaySelect />
       <Switches />

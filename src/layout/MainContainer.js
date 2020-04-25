@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import MatLinearProgress from '@material-ui/core/LinearProgress'
@@ -29,16 +30,18 @@ const FrontLayer = styled.main`
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
     rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
 
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    z-index: 1100;
-    border-top-left-radius: 33px;
-    border-top-right-radius: 0;
-    width: calc(100% - 92px);
-    min-height: calc(100vh - 64px);
-  }
+  ${({ sidenav }) =>
+    sidenav &&
+    css`
+      position: absolute;
+      top: 64px;
+      right: 0;
+      z-index: 1100;
+      border-top-left-radius: 33px;
+      border-top-right-radius: 0;
+      width: calc(100% - 92px);
+      min-height: calc(100vh - 64px);
+    `}
 `
 
 const LinearProgress = styled(MatLinearProgress)`
@@ -53,10 +56,11 @@ export const MainContainer = () => {
   const progress = useSelector((state) => state.progress)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
   const mainRef = useRef()
+  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
 
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
-      <FrontLayer theme={theme} ref={mainRef}>
+      <FrontLayer sidenav={sidenav} theme={theme} ref={mainRef}>
         {progress && <LinearProgress color="secondary" />}
         <ScrollToTop container={mainRef} />
         <Container>

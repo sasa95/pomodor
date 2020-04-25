@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MatAvatar from '@material-ui/core/Avatar'
-import { useTheme } from '@material-ui/core'
 import { startSignOut } from '../../data/auth/actions'
 
 const Avatar = styled(MatAvatar)`
@@ -12,10 +12,12 @@ const Avatar = styled(MatAvatar)`
   height: 30px;
   cursor: pointer;
 
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    width: 35px;
-    height: 35px;
-  }
+  ${({ sidenav }) =>
+    sidenav &&
+    css`
+      width: 35px;
+      height: 35px;
+    `}
 `
 
 export const UserAvatar = () => {
@@ -35,11 +37,12 @@ export const UserAvatar = () => {
     dispatch(startSignOut())
     handleClose()
   }
-  const theme = useTheme()
+
+  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
 
   return (
     <>
-      <Avatar alt={name} src={photo} theme={theme} onClick={openMenu} />
+      <Avatar sidenav={sidenav} alt={name} src={photo} onClick={openMenu} />
       <Menu
         id="sign-in-menu"
         anchorEl={anchorEl}

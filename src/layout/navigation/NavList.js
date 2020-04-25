@@ -1,4 +1,6 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -6,11 +8,10 @@ import ListItemText from '@material-ui/core/ListItemText'
 import TimerIcon from '@material-ui/icons/Timer'
 import ShowChartIcon from '@material-ui/icons/ShowChart'
 import SettingsIcon from '@material-ui/icons/Settings'
-import { useTheme, Tooltip } from '@material-ui/core'
-import styled from 'styled-components'
+import { useTheme } from '@material-ui/core'
+import Tooltip from '@material-ui/core/Tooltip'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { STATUSES } from '../../scenes/Timer/data/timer/reducer'
 
 const MatNavList = styled(List)`
@@ -22,19 +23,21 @@ const MatNavList = styled(List)`
     text-transform: uppercase;
   }
 
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    flex-direction: column;
-    top: 40px;
-    width: 92px;
+  ${({ sidenav }) =>
+    sidenav &&
+    css`
+      flex-direction: column;
+      top: 40px;
+      width: 92px;
 
-    & > * {
-      margin: 10px 0;
-    }
+      & > * {
+        margin: 10px 0;
+      }
 
-    .MuiListItemText-primary {
-      text-transform: capitalize;
-    }
-  }
+      .MuiListItemText-primary {
+        text-transform: capitalize;
+      }
+    `}
 `
 
 const NavListItem = styled(ListItem)`
@@ -72,6 +75,7 @@ const Link = styled(NavLink)`
 export const NavList = () => {
   const theme = useTheme()
   const isTablet = useMediaQuery(theme.breakpoints.up('sm'))
+  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
 
   const timerRunning = useSelector(
     (state) => state.timer.status !== STATUSES.onHold
@@ -83,6 +87,7 @@ export const NavList = () => {
       className="NavList"
       aria-label="Main navigation"
       theme={theme}
+      sidenav={sidenav}
     >
       <Link to="/timer">
         <NavListItem button>
