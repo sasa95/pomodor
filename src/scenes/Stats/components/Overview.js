@@ -190,7 +190,7 @@ export const Overview = () => {
         <Grid container spacing={1}>
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>
+              <Sum color={theme.palette.secondary.main}>
                 {dataType === 'time'
                   ? todayStats.time || '-'
                   : todayStats.sessions || '-'}
@@ -209,7 +209,7 @@ export const Overview = () => {
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>
+              <Sum color={theme.palette.secondary.main}>
                 {dataType === 'time'
                   ? weekStats.time || '-'
                   : weekStats.sessions || '-'}
@@ -228,7 +228,7 @@ export const Overview = () => {
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>
+              <Sum color={theme.palette.secondary.main}>
                 {dataType === 'time'
                   ? monthStats.time || '-'
                   : monthStats.sessions || '-'}
@@ -247,7 +247,7 @@ export const Overview = () => {
 
           <Grid item xs={3}>
             <Box display="flex" flexDirection="column">
-              <Sum color={theme.palette.primary.main}>
+              <Sum color={theme.palette.secondary.main}>
                 {dataType === 'time'
                   ? totalStats.time || '-'
                   : totalStats.sessions || '-'}
@@ -267,7 +267,7 @@ export const Overview = () => {
             <Chip
               onClick={() => onChipClicked('time')}
               label="Time"
-              color={dataType === 'time' ? 'primary' : 'default'}
+              color={dataType === 'time' ? 'secondary' : 'default'}
               clickable
             />
           </Box>
@@ -275,7 +275,7 @@ export const Overview = () => {
           <Chip
             onClick={() => onChipClicked('sessions')}
             label="Sessions"
-            color={dataType === 'sessions' ? 'primary' : 'default'}
+            color={dataType === 'sessions' ? 'secondary' : 'default'}
             clickable
           />
         </div>

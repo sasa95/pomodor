@@ -4,7 +4,6 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core'
 import indigo from '@material-ui/core/colors/indigo'
 import pink from '@material-ui/core/colors/pink'
-
 import useMounted from './helpers/useMounted'
 
 export const ThemeConfig = ({ children }) => {
@@ -34,9 +33,8 @@ export const ThemeConfig = ({ children }) => {
   useEffect(() => {
     if (!isMounted) return
 
-    setThemeSelected(getTheme(darkMode))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [darkMode])
+    setThemeSelected(getTheme(darkModeCached))
+  }, [darkMode, darkModeCached, isMounted])
 
   return (
     <ThemeProvider theme={themeSelected}>{children || <></>}</ThemeProvider>

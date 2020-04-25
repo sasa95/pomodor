@@ -63,8 +63,15 @@ export const DaysChart = () => {
     datasets: [{ data: Array(7).fill(1), backgroundColor: colors }],
   })
 
+  const theme = useTheme()
+
   const [chartOptions, setChartOptions] = useState({
     maintainAspectRatio: false,
+    legend: {
+      labels: {
+        fontColor: theme.palette.text.secondary,
+      },
+    },
     tooltips: {
       callbacks: {
         title: generateChartTitle,
@@ -159,8 +166,6 @@ export const DaysChart = () => {
 
   const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
-  const theme = useTheme()
-
   return (
     <Card theme={theme}>
       <CardHeader
@@ -208,7 +213,7 @@ export const DaysChart = () => {
             <Chip
               onClick={() => onChipClicked('time')}
               label="Time"
-              color={dataType === 'time' ? 'primary' : 'default'}
+              color={dataType === 'time' ? 'secondary' : 'default'}
               clickable
             />
           </Box>
@@ -216,7 +221,7 @@ export const DaysChart = () => {
           <Chip
             onClick={() => onChipClicked('sessions')}
             label="Sessions"
-            color={dataType === 'sessions' ? 'primary' : 'default'}
+            color={dataType === 'sessions' ? 'secondary' : 'default'}
             clickable
           />
         </div>

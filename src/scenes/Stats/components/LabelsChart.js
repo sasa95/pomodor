@@ -64,8 +64,15 @@ export const LabelsChart = () => {
     datasets: [{ data: [], backgroundColor: [] }],
   })
 
+  const theme = useTheme()
+
   const [chartOptions, setChartOptions] = useState({
     maintainAspectRatio: false,
+    legend: {
+      labels: {
+        fontColor: theme.palette.text.secondary,
+      },
+    },
     tooltips: {
       callbacks: {
         title: generateChartTitle,
@@ -170,8 +177,6 @@ export const LabelsChart = () => {
 
   const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
-  const theme = useTheme()
-
   return (
     <Card theme={theme}>
       <CardHeader
@@ -219,7 +224,7 @@ export const LabelsChart = () => {
             <Chip
               onClick={() => onChipClicked('time')}
               label="Time"
-              color={dataType === 'time' ? 'primary' : 'default'}
+              color={dataType === 'time' ? 'secondary' : 'default'}
               clickable
             />
           </Box>
@@ -227,7 +232,7 @@ export const LabelsChart = () => {
           <Chip
             onClick={() => onChipClicked('sessions')}
             label="Sessions"
-            color={dataType === 'sessions' ? 'primary' : 'default'}
+            color={dataType === 'sessions' ? 'secondary' : 'default'}
             clickable
           />
         </div>
