@@ -5,6 +5,8 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { useSelector, useDispatch } from 'react-redux'
 import { setTimeLeft } from '../data/timer/actions'
 import { STATUSES, TYPES } from '../data/timer/reducer'
+import { Typography } from '@material-ui/core'
+import Box from '@material-ui/core/Box'
 
 const CircleContainer = styled.div`
   position: relative;
@@ -25,6 +27,16 @@ const Time = styled.span`
   transform: translate(-50%, -50%);
   font-size: 3rem;
   white-space: pre;
+`
+const TimerTypeContainer = styled(Box)`
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+`
+
+const TimerType = styled(Typography)`
+  letter-spacing: 1px;
 `
 
 export const CountdownCircle = () => {
@@ -86,6 +98,12 @@ export const CountdownCircle = () => {
           {timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds}
         </Time>
       )}
+
+      <TimerTypeContainer>
+        <TimerType variant="subtitle2" color="textSecondary">
+          {type === 'WORK' ? 'FOCUS' : 'BREAK'}
+        </TimerType>
+      </TimerTypeContainer>
     </CircleContainer>
   )
 }
