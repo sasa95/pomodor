@@ -13,6 +13,8 @@ import { startSetLabels } from './data/labels/actions'
 import { startSetSessions } from './data/sessions/actions'
 import { setProgressVisibility } from './data/progress/actions'
 
+firebase.firestore().enablePersistence()
+
 const App = () => {
   const dispatch = useDispatch()
 
