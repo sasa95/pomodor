@@ -21,12 +21,6 @@ export const DesktopDialog = () => {
 
   const dispatch = useDispatch()
 
-  const handleClose = () => {
-    dispatch(setDesktopDialog(false))
-    dispatch(setLabelEditting(null))
-    dispatch(setFormValue(null))
-  }
-
   const handleConfirm = () => {
     if (labelEditting) {
       dispatch(startEditLabel(labelEditting.id, formValue))
@@ -35,6 +29,12 @@ export const DesktopDialog = () => {
     }
 
     handleClose()
+  }
+
+  const handleClose = () => {
+    dispatch(setDesktopDialog(false))
+    dispatch(setLabelEditting(null))
+    dispatch(setFormValue(null))
   }
 
   return (

@@ -8,37 +8,6 @@ import { STATUSES, TYPES } from '../data/timer/reducer'
 import { Typography } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 
-const CircleContainer = styled.div`
-  position: relative;
-  margin: 20px auto 0;
-  height: 200px;
-  width: 200px;
-`
-
-const Circle = styled(CircularProgress)`
-  position: absolute;
-  top: 0;
-`
-
-const Time = styled.span`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  white-space: pre;
-`
-const TimerTypeContainer = styled(Box)`
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-`
-
-const TimerType = styled(Typography)`
-  letter-spacing: 1px;
-`
-
 export const CountdownCircle = () => {
   const { timeLeft, progress, status, type } = useSelector(
     (state) => state.timer
@@ -107,3 +76,34 @@ export const CountdownCircle = () => {
     </CircleContainer>
   )
 }
+
+const CircleContainer = styled.div`
+  position: relative;
+  margin: 20px auto 0;
+  height: 200px;
+  width: 200px;
+`
+
+const Circle = styled(CircularProgress)`
+  position: absolute;
+  top: 0;
+`
+
+const Time = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  white-space: pre;
+`
+const TimerTypeContainer = styled(Box)`
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+`
+
+const TimerType = styled(Typography)`
+  letter-spacing: 1px;
+`

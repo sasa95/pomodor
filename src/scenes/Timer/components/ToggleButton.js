@@ -20,10 +20,6 @@ import alarm from '../assets/alarm.png'
 import coffee from '../assets/coffee.png'
 import { startAddSession } from '../../../data/sessions/actions'
 
-const ActionIcon = styled(IconButton)`
-  border: 1px solid #bababa;
-`
-
 export const ToggleButton = () => {
   const { status, timeLeft, type } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
@@ -32,27 +28,6 @@ export const ToggleButton = () => {
   const dispatch = useDispatch()
 
   const audio = new Audio(chime)
-
-  const calculateTimeLeft = (endTime) => {
-    const difference = +endTime - +new Date()
-    let timeLeft = { minutes: 0, seconds: 0 }
-
-    if (difference > 0) {
-      timeLeft = {
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      }
-    }
-
-    return timeLeft
-  }
-
-  const calculateProgress = (duration, timeLeft) => {
-    const secondsTotal = duration * 60
-    const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
-
-    return 100 / (secondsTotal / secondsLeft)
-  }
 
   const startTimer = () => {
     if (status === STATUSES.running) return
@@ -120,6 +95,27 @@ export const ToggleButton = () => {
     dispatch(saveInterval(interval))
   }
 
+  const calculateTimeLeft = (endTime) => {
+    const difference = +endTime - +new Date()
+    let timeLeft = { minutes: 0, seconds: 0 }
+
+    if (difference > 0) {
+      timeLeft = {
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      }
+    }
+
+    return timeLeft
+  }
+
+  const calculateProgress = (duration, timeLeft) => {
+    const secondsTotal = duration * 60
+    const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
+
+    return 100 / (secondsTotal / secondsLeft)
+  }
+
   return (
     <Box display="flex" justifyContent="center" mt={2}>
       {status !== STATUSES.running && (
@@ -145,3 +141,7 @@ export const ToggleButton = () => {
     </Box>
   )
 }
+
+const ActionIcon = styled(IconButton)`
+  border: 1px solid #bababa;
+`

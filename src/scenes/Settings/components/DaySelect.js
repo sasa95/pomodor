@@ -8,10 +8,6 @@ import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import { startSetFirstDayOfTheWeek } from '../../../data/settings/actions'
 
-const FormControl = styled(MatFormControl)`
-  width: 100%;
-`
-
 export const DaySelect = () => {
   const [day, setDay] = useState('')
 
@@ -51,3 +47,7 @@ export const DaySelect = () => {
     </Box>
   )
 }
+
+const FormControl = styled(MatFormControl)`
+  width: 100%;
+`

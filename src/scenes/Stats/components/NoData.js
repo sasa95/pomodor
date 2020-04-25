@@ -6,18 +6,6 @@ import MatBox from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import illustration from '../no-data.svg'
 
-const Box = styled(MatBox)`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
-`
-
-const LinkStyled = styled(Link)`
-  text-decoration: none;
-  color: ${({ color }) => color};
-`
-
 export const NoData = () => {
   const theme = useTheme()
 
@@ -42,3 +30,15 @@ export const NoData = () => {
     </Box>
   )
 }
+
+const Box = styled(MatBox)`
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+`
+
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: ${({ color }) => color};
+`

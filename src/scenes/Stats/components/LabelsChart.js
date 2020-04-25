@@ -29,27 +29,6 @@ dayjs.extend(isSameOrAfter)
 require('dayjs/locale/en-gb')
 require('dayjs/locale/en')
 
-const Card = styled(MatCard)`
-  margin: 10px auto auto;
-  max-width: 350px;
-
-  @media (min-width: 768px) {
-    max-width: 450px;
-  }
-
-  ${({ theme }) => theme.breakpoints.up('md')} {
-    max-width: 550px;
-  }
-`
-
-const CardContent = styled(MatCardContent)`
-  padding-top: 0;
-`
-
-const ChartContainer = styled.div`
-  height: 250px;
-`
-
 export const LabelsChart = () => {
   const labels = useSelector((state) => state.labels.data)
 
@@ -240,3 +219,24 @@ export const LabelsChart = () => {
     </Card>
   )
 }
+
+const Card = styled(MatCard)`
+  margin: 10px auto auto;
+  max-width: 350px;
+
+  @media (min-width: 768px) {
+    max-width: 450px;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('md')} {
+    max-width: 550px;
+  }
+`
+
+const CardContent = styled(MatCardContent)`
+  padding-top: 0;
+`
+
+const ChartContainer = styled.div`
+  height: 250px;
+`

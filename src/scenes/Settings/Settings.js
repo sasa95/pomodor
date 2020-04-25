@@ -5,6 +5,18 @@ import { Sliders } from './components/Sliders'
 import { Switches } from './components/Switches'
 import { DaySelect } from './components/DaySelect'
 
+export const Settings = () => {
+  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
+
+  return (
+    <Container sidenav={sidenav}>
+      <Sliders />
+      <DaySelect />
+      <Switches />
+    </Container>
+  )
+}
+
 const Container = styled.div`
   width: 300px;
   margin: auto;
@@ -18,15 +30,3 @@ const Container = styled.div`
       width: 400px;
     `}
 `
-
-export const Settings = () => {
-  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
-
-  return (
-    <Container sidenav={sidenav}>
-      <Sliders />
-      <DaySelect />
-      <Switches />
-    </Container>
-  )
-}

@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import Typography from '@material-ui/core/Typography'
 import MatSlider from '@material-ui/core/Slider'
 import Box from '@material-ui/core/Box'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTheme } from '@material-ui/core'
-import styled from 'styled-components'
-
-const SettingSlider = styled(MatSlider)`
-  color: ${({ theme, dark }) =>
-    dark ? theme.palette.secondary.light : theme.palette.secondary.main};
-`
 
 export const Slider = ({
   name,
@@ -69,3 +64,8 @@ export const Slider = ({
     </Box>
   )
 }
+
+const SettingSlider = styled(MatSlider)`
+  color: ${({ theme, dark }) =>
+    dark ? theme.palette.secondary.light : theme.palette.secondary.main};
+`

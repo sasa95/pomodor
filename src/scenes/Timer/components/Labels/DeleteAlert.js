@@ -15,10 +15,6 @@ import {
   startDeleteLabel,
 } from '../../../../data/labels/actions'
 
-const LabelName = styled.span`
-  color: ${({ color }) => color};
-`
-
 export const DeleteAlert = () => {
   const { deleteAlert, labelEditting } = useSelector((state) => state.labels)
 
@@ -67,3 +63,7 @@ export const DeleteAlert = () => {
     </Dialog>
   )
 }
+
+const LabelName = styled.span`
+  color: ${({ color }) => color};
+`

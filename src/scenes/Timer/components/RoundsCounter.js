@@ -2,10 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 
-const CounterLabel = styled.span`
-  font-weight: bold;
-`
-
 export const RoundsCounter = () => {
   const { currentRound, timeLeft } = useSelector((state) => state.timer)
   const { rounds } = useSelector((state) => state.settings)
@@ -16,3 +12,7 @@ export const RoundsCounter = () => {
     </CounterLabel>
   )
 }
+
+const CounterLabel = styled.span`
+  font-weight: bold;
+`

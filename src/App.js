@@ -13,12 +13,6 @@ import { startSetLabels } from './data/labels/actions'
 import { startSetSessions } from './data/sessions/actions'
 import { setProgressVisibility } from './data/progress/actions'
 
-const GlobalStyle = createGlobalStyle`
-  html {
-    overflow: hidden;
-  }
-`
-
 const App = () => {
   const dispatch = useDispatch()
 
@@ -64,3 +58,9 @@ const App = () => {
 }
 
 export default App
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    overflow: hidden;
+  }
+`

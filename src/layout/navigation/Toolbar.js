@@ -1,16 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components'
 import MatToolbar from '@material-ui/core/Toolbar'
 import Box from '@material-ui/core/Box'
-import styled from 'styled-components'
 import { SignIn } from './SignIn'
 import { UserAvatar } from './UserAvatar'
-
-const Logotype = styled.span`
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  font-weight: 900;
-`
 
 export const Toolbar = () => {
   const isUserPerm = useSelector((state) => state.auth.name)
@@ -29,3 +23,9 @@ export const Toolbar = () => {
     </MatToolbar>
   )
 }
+
+const Logotype = styled.span`
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: 900;
+`

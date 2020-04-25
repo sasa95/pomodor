@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
@@ -9,7 +10,6 @@ import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
-import { useSelector } from 'react-redux'
 import * as dayjs from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
@@ -18,43 +18,6 @@ require('dayjs/locale/en')
 
 dayjs.extend(isToday)
 dayjs.extend(weekOfYear)
-
-const Card = styled(MatCard)`
-  margin: 10px auto auto;
-  max-width: 350px;
-
-  @media (min-width: 768px) {
-    max-width: 450px;
-  }
-
-  ${({ theme }) => theme.breakpoints.up('md')} {
-    max-width: 550px;
-  }
-`
-
-const CardContent = styled(MatCardContent)`
-  padding-top: 0;
-`
-
-const Sum = styled.span`
-  display: inline-block;
-  text-align: center;
-  color: ${({ color }) => color};
-  font-weight: bold;
-`
-
-const Label = styled.span`
-  display: inline-block;
-  text-align: center;
-  margin: 2px 0;
-`
-
-const Avg = styled.span`
-  display: inline-block;
-  text-align: center;
-  font-size: 0.7rem;
-  color: ${({ color }) => color};
-`
 
 export const Overview = () => {
   const [dataType, setDataType] = useState('time')
@@ -85,40 +48,21 @@ export const Overview = () => {
     (state) => state.settings.firstDayOfTheWeek
   )
 
-  const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
-
-  const calculateTime = (time) => {
-    const hours = Math.floor(time / 3600)
-    const minutes = Math.floor((time % 3600) / 60)
-
-    return `${hours}h ${minutes}m`
-  }
-
-  const calculateAvgSessions = (total, divider) => {
-    if (divider === 0) return total
-    return Math.round((total / divider + Number.EPSILON) * 10) / 10
-  }
-
-  const calculateAvgTime = useCallback((total, divider) => {
-    const d = divider || 1
-    const seconds = Math.round((total / d + Number.EPSILON) * 10) / 10
-    return calculateTime(seconds)
-  }, [])
-
-  const updateStats = (period, time) => {
-    return {
-      time: period.time + time,
-      sessions: period.sessions + 1,
-    }
-  }
-
   const onChipClicked = (typeSelected) => {
     if (typeSelected === dataType) return
 
     setDataType(typeSelected)
   }
 
+  const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
+
   const theme = useTheme()
+
+  const calculateAvgTime = useCallback((total, divider) => {
+    const d = divider || 1
+    const seconds = Math.round((total / d + Number.EPSILON) * 10) / 10
+    return calculateTime(seconds)
+  }, [])
 
   useEffect(() => {
     if (sessions && sessions.length && firstDayOfTheWeek) {
@@ -182,6 +126,25 @@ export const Overview = () => {
       })
     }
   }, [calculateAvgTime, firstDayOfTheWeek, sessions, userCreationTime])
+
+  const calculateTime = (time) => {
+    const hours = Math.floor(time / 3600)
+    const minutes = Math.floor((time % 3600) / 60)
+
+    return `${hours}h ${minutes}m`
+  }
+
+  const calculateAvgSessions = (total, divider) => {
+    if (divider === 0) return total
+    return Math.round((total / divider + Number.EPSILON) * 10) / 10
+  }
+
+  const updateStats = (period, time) => {
+    return {
+      time: period.time + time,
+      sessions: period.sessions + 1,
+    }
+  }
 
   return (
     <Card theme={theme}>
@@ -283,3 +246,40 @@ export const Overview = () => {
     </Card>
   )
 }
+
+const Card = styled(MatCard)`
+  margin: 10px auto auto;
+  max-width: 350px;
+
+  @media (min-width: 768px) {
+    max-width: 450px;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('md')} {
+    max-width: 550px;
+  }
+`
+
+const CardContent = styled(MatCardContent)`
+  padding-top: 0;
+`
+
+const Sum = styled.span`
+  display: inline-block;
+  text-align: center;
+  color: ${({ color }) => color};
+  font-weight: bold;
+`
+
+const Label = styled.span`
+  display: inline-block;
+  text-align: center;
+  margin: 2px 0;
+`
+
+const Avg = styled.span`
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7rem;
+  color: ${({ color }) => color};
+`

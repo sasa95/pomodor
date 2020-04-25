@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setNextTimer } from '../data/timer/actions'
 
 export const SkipButton = () => {
-  const dispatch = useDispatch()
   const { timeLeft } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
+  const dispatch = useDispatch()
 
   return (
     <IconButton

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -8,19 +9,19 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import SvgIcon from '@material-ui/core/SvgIcon'
 import { useTheme } from '@material-ui/core'
-import styled from 'styled-components'
 import { GoogleIcon } from './GoogleIcon'
 import { linkAccount } from '../../data/auth/actions'
 import { googleAuthProvider } from '../../firebase/firebase'
-
-const TriggerButton = styled(Button)`
-  color: ${({ theme }) => theme.palette.secondary.light};
-`
 
 export const SignIn = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const dispatch = useDispatch()
   const theme = useTheme()
+
+  const googleAuth = async () => {
+    dispatch(linkAccount(googleAuthProvider))
+    handleClose()
+  }
 
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget)
@@ -28,11 +29,6 @@ export const SignIn = () => {
 
   const handleClose = () => {
     setAnchorEl(null)
-  }
-
-  const googleAuth = async () => {
-    dispatch(linkAccount(googleAuthProvider))
-    handleClose()
   }
 
   return (
@@ -65,3 +61,7 @@ export const SignIn = () => {
     </>
   )
 }
+
+const TriggerButton = styled(Button)`
+  color: ${({ theme }) => theme.palette.secondary.light};
+`

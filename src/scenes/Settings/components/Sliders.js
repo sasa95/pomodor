@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Slider } from './components/Slider'
 import {
   startSetWorkDuration,
@@ -6,7 +7,6 @@ import {
   startSetLongBreakDuration,
   startSetRounds,
 } from '../../../data/settings/actions'
-import { useSelector } from 'react-redux'
 
 export const Sliders = () => {
   const {
@@ -15,62 +15,6 @@ export const Sliders = () => {
     longBreakDuration,
     rounds,
   } = useSelector((state) => state.settings)
-
-  const workMarks = [
-    {
-      value: 5,
-      label: '5 min',
-    },
-    {
-      value: 25,
-      label: '25 min',
-    },
-    {
-      value: 60,
-      label: '60 min',
-    },
-  ]
-
-  const shortBreakMarks = [
-    {
-      value: 5,
-      label: '5 min',
-    },
-    {
-      value: 30,
-      label: '30 min',
-    },
-  ]
-
-  const longBreakMarks = [
-    {
-      value: 5,
-      label: '5 min',
-    },
-    {
-      value: 20,
-      label: '20 min',
-    },
-    {
-      value: 45,
-      label: '45 min',
-    },
-  ]
-
-  const roundsMarks = [
-    {
-      value: 2,
-      label: '2',
-    },
-    {
-      value: 4,
-      label: '4',
-    },
-    {
-      value: 15,
-      label: '15',
-    },
-  ]
 
   return (
     <>
@@ -120,3 +64,59 @@ export const Sliders = () => {
     </>
   )
 }
+
+const workMarks = [
+  {
+    value: 5,
+    label: '5 min',
+  },
+  {
+    value: 25,
+    label: '25 min',
+  },
+  {
+    value: 60,
+    label: '60 min',
+  },
+]
+
+const shortBreakMarks = [
+  {
+    value: 5,
+    label: '5 min',
+  },
+  {
+    value: 30,
+    label: '30 min',
+  },
+]
+
+const longBreakMarks = [
+  {
+    value: 5,
+    label: '5 min',
+  },
+  {
+    value: 20,
+    label: '20 min',
+  },
+  {
+    value: 45,
+    label: '45 min',
+  },
+]
+
+const roundsMarks = [
+  {
+    value: 2,
+    label: '2',
+  },
+  {
+    value: 4,
+    label: '4',
+  },
+  {
+    value: 15,
+    label: '15',
+  },
+]

@@ -22,19 +22,6 @@ import {
   startAddLabel,
 } from '../../../../data/labels/actions'
 
-const LabelDialogAppBar = styled(AppBar)`
-  position: relative;
-`
-
-const LabelDialogTitle = styled(Typography)`
-  margin-left: 16px;
-  flex: 1;
-`
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />
-})
-
 export const FullscreenDialog = () => {
   const { formValue } = useSelector((state) => state.labels)
 
@@ -44,12 +31,6 @@ export const FullscreenDialog = () => {
 
   const dispatch = useDispatch()
 
-  const handleClose = () => {
-    dispatch(setFullscreenDialog(false))
-    dispatch(setLabelEditting(null))
-    dispatch(setFormValue(null))
-  }
-
   const handleSave = () => {
     if (labelEditting) {
       dispatch(startEditLabel(labelEditting.id, formValue))
@@ -58,6 +39,12 @@ export const FullscreenDialog = () => {
     }
 
     handleClose()
+  }
+
+  const handleClose = () => {
+    dispatch(setFullscreenDialog(false))
+    dispatch(setLabelEditting(null))
+    dispatch(setFormValue(null))
   }
 
   const openDeleteAlert = () => {
@@ -116,3 +103,16 @@ export const FullscreenDialog = () => {
     </>
   )
 }
+
+const LabelDialogAppBar = styled(AppBar)`
+  position: relative;
+`
+
+const LabelDialogTitle = styled(Typography)`
+  margin-left: 16px;
+  flex: 1;
+`
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />
+})

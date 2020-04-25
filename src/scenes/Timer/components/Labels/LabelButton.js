@@ -13,20 +13,16 @@ import {
 import { LabelsMenu } from './LabelsMenu'
 import { STATUSES } from '../../data/timer/reducer'
 
-const Button = styled(MatButton)`
-  color: ${({ labelcolor }) => labelcolor};
-`
-
 export const LabelButton = () => {
   const { labelSelected, data } = useSelector((state) => state.labels)
   const { status } = useSelector((state) => state.timer)
 
-  const theme = useTheme()
-  const isMediumScreen = useMediaQuery(theme.breakpoints.up('md'))
-
   const dispatch = useDispatch()
 
   const buttonRef = useRef(null)
+
+  const theme = useTheme()
+  const isMediumScreen = useMediaQuery(theme.breakpoints.up('md'))
 
   const openDialog = () => {
     if (isMediumScreen) {
@@ -75,3 +71,7 @@ export const LabelButton = () => {
     </Box>
   )
 }
+
+const Button = styled(MatButton)`
+  color: ${({ labelcolor }) => labelcolor};
+`

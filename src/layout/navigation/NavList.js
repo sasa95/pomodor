@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import styled, { css } from 'styled-components'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import List from '@material-ui/core/List'
@@ -10,67 +12,7 @@ import ShowChartIcon from '@material-ui/icons/ShowChart'
 import SettingsIcon from '@material-ui/icons/Settings'
 import { useTheme } from '@material-ui/core'
 import Tooltip from '@material-ui/core/Tooltip'
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { STATUSES } from '../../scenes/Timer/data/timer/reducer'
-
-const MatNavList = styled(List)`
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-
-  .MuiListItemText-primary {
-    text-transform: uppercase;
-  }
-
-  ${({ sidenav }) =>
-    sidenav &&
-    css`
-      flex-direction: column;
-      top: 40px;
-      width: 92px;
-
-      & > * {
-        margin: 10px 0;
-      }
-
-      .MuiListItemText-primary {
-        text-transform: capitalize;
-      }
-    `}
-`
-
-const NavListItem = styled(ListItem)`
-  display: flex;
-  flex-direction: column;
-
-  .MuiListItemText-primary {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    font-weight: 500;
-  }
-`
-
-const NavItemIcon = styled(ListItemIcon)`
-  color: rgba(255, 255, 255, 0.5);
-  display: flex;
-  justify-content: center;
-`
-
-const Link = styled(NavLink)`
-  flex: 1;
-  text-align: center;
-  text-decoration: none;
-
-  &.active:not([data-disabled='true']) ${NavItemIcon} {
-    color: #fff;
-  }
-
-  &.active .MuiListItemText-primary {
-    color: #fff;
-  }
-`
 
 export const NavList = () => {
   const theme = useTheme()
@@ -140,3 +82,61 @@ export const NavList = () => {
     </MatNavList>
   )
 }
+
+const MatNavList = styled(List)`
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+
+  .MuiListItemText-primary {
+    text-transform: uppercase;
+  }
+
+  ${({ sidenav }) =>
+    sidenav &&
+    css`
+      flex-direction: column;
+      top: 40px;
+      width: 92px;
+
+      & > * {
+        margin: 10px 0;
+      }
+
+      .MuiListItemText-primary {
+        text-transform: capitalize;
+      }
+    `}
+`
+
+const NavListItem = styled(ListItem)`
+  display: flex;
+  flex-direction: column;
+
+  .MuiListItemText-primary {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+`
+
+const NavItemIcon = styled(ListItemIcon)`
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+`
+
+const Link = styled(NavLink)`
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+
+  &.active:not([data-disabled='true']) ${NavItemIcon} {
+    color: #fff;
+  }
+
+  &.active .MuiListItemText-primary {
+    color: #fff;
+  }
+`

@@ -7,23 +7,15 @@ import MenuItem from '@material-ui/core/MenuItem'
 import MatAvatar from '@material-ui/core/Avatar'
 import { startSignOut } from '../../data/auth/actions'
 
-const Avatar = styled(MatAvatar)`
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-
-  ${({ sidenav }) =>
-    sidenav &&
-    css`
-      width: 35px;
-      height: 35px;
-    `}
-`
-
 export const UserAvatar = () => {
   const { name, photo } = useSelector((state) => state.auth)
   const [anchorEl, setAnchorEl] = useState(null)
   const dispatch = useDispatch()
+
+  const signOut = () => {
+    dispatch(startSignOut())
+    handleClose()
+  }
 
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget)
@@ -31,11 +23,6 @@ export const UserAvatar = () => {
 
   const handleClose = () => {
     setAnchorEl(null)
-  }
-
-  const signOut = () => {
-    dispatch(startSignOut())
-    handleClose()
   }
 
   const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
@@ -55,3 +42,16 @@ export const UserAvatar = () => {
     </>
   )
 }
+
+const Avatar = styled(MatAvatar)`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  ${({ sidenav }) =>
+    sidenav &&
+    css`
+      width: 35px;
+      height: 35px;
+    `}
+`

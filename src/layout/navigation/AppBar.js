@@ -7,6 +7,20 @@ import { Toolbar } from './Toolbar'
 import { NavList } from './NavList'
 import { useSelector } from 'react-redux'
 
+export const AppBar = () => {
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
+  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
+  const theme = useTheme()
+
+  return (
+    <Backdrop sidenav={sidenav} theme={theme} dark={darkMode || darkModeCached}>
+      <Toolbar />
+      <NavList />
+    </Backdrop>
+  )
+}
+
 const Backdrop = styled(MatAppBar)`
   box-shadow: none;
   background: ${({ theme, dark }) =>
@@ -18,17 +32,3 @@ const Backdrop = styled(MatAppBar)`
       height: 100%;
     `}
 `
-
-export const AppBar = () => {
-  const theme = useTheme()
-  const darkMode = useSelector((state) => +state.settings.darkMode)
-  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
-  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
-
-  return (
-    <Backdrop sidenav={sidenav} theme={theme} dark={darkMode || darkModeCached}>
-      <Toolbar />
-      <NavList />
-    </Backdrop>
-  )
-}

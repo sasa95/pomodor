@@ -6,18 +6,6 @@ import MatBox from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import illustration from './assets/404.svg'
 
-const Box = styled(MatBox)`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
-`
-
-const LinkStyled = styled(Link)`
-  text-decoration: none;
-  color: ${({ color }) => color};
-`
-
 export const Page404 = () => {
   const theme = useTheme()
 
@@ -42,3 +30,15 @@ export const Page404 = () => {
     </Box>
   )
 }
+
+const Box = styled(MatBox)`
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+`
+
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: ${({ color }) => color};
+`
