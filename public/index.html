@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" id="favicon" href="%PUBLIC_URL%/favicon-blue.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#3f51b5" />
     <meta
@@ -10,10 +10,44 @@
       content="Web site created using create-react-app"
     />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      id="appleIcon"
+      href="%PUBLIC_URL%/logo192-blue.png"
+    />
+    <link
+      rel="manifest"
+      id="manifest"
+      href="%PUBLIC_URL%/manifest-light.json"
+    />
 
     <title>Pomodor</title>
+
+    <script>
+      const usesDarkMode =
+        window.matchMedia('(prefers-color-scheme: dark)').matches || false
+
+      const favicon = document.getElementById('favicon')
+      const appleIcon = document.getElementById('appleIcon')
+      const manifest = document.getElementById('manifest')
+
+      const switchIcon = (usesDarkMode) => {
+        if (usesDarkMode) {
+          favicon.href = '%PUBLIC_URL%/favicon-white.ico'
+          manifest.href = '%PUBLIC_URL%/manifest-dark.json'
+          appleIcon.href = '%PUBLIC_URL%/manifest-dark.json'
+        } else {
+          favicon.href = '%PUBLIC_URL%/favicon-blue.ico'
+          manifest.href = '%PUBLIC_URL%/manifest-light.json'
+          appleIcon.href = '%PUBLIC_URL%/manifest-light.json'
+        }
+      }
+
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => switchIcon(e.matches))
+      switchIcon(usesDarkMode)
+    </script>
   </head>
 
   <body>
