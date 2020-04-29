@@ -6,6 +6,8 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MatAvatar from '@material-ui/core/Avatar'
 import { startSignOut } from '../../data/auth/actions'
+import { setSettings } from '../../data/settings/actions'
+import { initialState } from '../../data/settings/reducer'
 
 export const UserAvatar = () => {
   const { name, photo } = useSelector((state) => state.auth)
@@ -14,6 +16,7 @@ export const UserAvatar = () => {
 
   const signOut = () => {
     dispatch(startSignOut())
+    dispatch(setSettings(initialState))
     handleClose()
   }
 

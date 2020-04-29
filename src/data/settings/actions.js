@@ -9,11 +9,12 @@ export const startSetWorkDuration = (duration) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { workDuration: duration } }, { merge: true })
-
     dispatch(setWorkDuration(duration))
+
+    fs.doc(`users/${uid}`).set(
+      { settings: { workDuration: duration } },
+      { merge: true }
+    )
   }
 }
 
@@ -26,11 +27,12 @@ export const startSetShortBreakDuration = (duration) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { shortBreakDuration: duration } }, { merge: true })
-
     dispatch(setShortBreakDuration(duration))
+
+    fs.doc(`users/${uid}`).set(
+      { settings: { shortBreakDuration: duration } },
+      { merge: true }
+    )
   }
 }
 
@@ -43,11 +45,12 @@ export const startSetLongBreakDuration = (duration) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { longBreakDuration: duration } }, { merge: true })
-
     dispatch(setLongBreakDuration(duration))
+
+    fs.doc(`users/${uid}`).set(
+      { settings: { longBreakDuration: duration } },
+      { merge: true }
+    )
   }
 }
 
@@ -60,9 +63,9 @@ export const startSetRounds = (rounds) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs.doc(`users/${uid}`).set({ settings: { rounds } }, { merge: true })
-
     dispatch(setRounds(rounds))
+
+    fs.doc(`users/${uid}`).set({ settings: { rounds } }, { merge: true })
   }
 }
 
@@ -75,11 +78,12 @@ export const startSetShowTimerInTitle = (showTimerInTitle) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { showTimerInTitle } }, { merge: true })
-
     dispatch(setShowTimerInTitle(showTimerInTitle))
+
+    fs.doc(`users/${uid}`).set(
+      { settings: { showTimerInTitle } },
+      { merge: true }
+    )
   }
 }
 
@@ -92,11 +96,12 @@ export const startSetShowNotifications = (showNotifications) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { showNotifications } }, { merge: true })
-
     dispatch(setShowNotifications(showNotifications))
+
+    fs.doc(`users/${uid}`).set(
+      { settings: { showNotifications } },
+      { merge: true }
+    )
   }
 }
 
@@ -111,11 +116,9 @@ export const startSetDarkMode = (darkMode) => {
 
     localStorage.setItem('darkMode', darkMode)
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { darkMode } }, { merge: true })
-
     dispatch(setDarkMode(darkMode))
+
+    fs.doc(`users/${uid}`).set({ settings: { darkMode } }, { merge: true })
   }
 }
 
@@ -128,11 +131,12 @@ export const startSetFirstDayOfTheWeek = (firstDayOfTheWeek) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs
-      .doc(`users/${uid}`)
-      .set({ settings: { firstDayOfTheWeek } }, { merge: true })
-
     dispatch(setFirstDayOfTheWeek(firstDayOfTheWeek))
+
+    fs.doc(`users/${uid}`).set(
+      { settings: { firstDayOfTheWeek } },
+      { merge: true }
+    )
   }
 }
 
@@ -145,13 +149,17 @@ export const startSetSettings = () => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    const docRef = await fs.doc(`users/${uid}`).get()
-    let data
+    try {
+      const docRef = await fs.doc(`users/${uid}`).get()
+      let data = {}
 
-    if (docRef.exists) {
-      data = docRef.data().settings
+      if (docRef.exists) {
+        data = docRef.data().settings
+      }
+
+      dispatch(setSettings(data))
+    } catch (e) {
+      dispatch(setSettings({}))
     }
-
-    dispatch(setSettings(data))
   }
 }

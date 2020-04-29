@@ -44,16 +44,17 @@ export const startAddLabel = (label) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    const ref = await fs.collection(`users/${uid}/labels`).add(label)
+    const newLabelRef = fs.collection(`users/${uid}/labels`).doc()
+    newLabelRef.set({ ...label })
 
     dispatch(
       addLabel({
-        id: ref.id,
+        id: newLabelRef.id,
         ...label,
       })
     )
 
-    return ref
+    return newLabelRef
   }
 }
 
@@ -67,11 +68,11 @@ export const startEditLabel = (id, updates) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    await fs.doc(`users/${uid}/labels/${id}`).update({
+    dispatch(editLabel(id, updates))
+
+    fs.doc(`users/${uid}/labels/${id}`).update({
       ...updates,
     })
-
-    dispatch(editLabel(id, updates))
   }
 }
 
@@ -83,9 +84,10 @@ export const deleteLabel = (id) => ({
 export const startDeleteLabel = (id) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
-    await fs.doc(`users/${uid}/labels/${id}`).delete()
 
     dispatch(deleteLabel(id))
+
+    fs.doc(`users/${uid}/labels/${id}`).delete()
   }
 }
 
@@ -98,15 +100,19 @@ export const startSetLabels = () => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    const labelsRef = await fs.collection(`users/${uid}/labels`).get()
+    try {
+      const labelsRef = await fs.collection(`users/${uid}/labels`).get()
 
-    const labels = labelsRef.docs.map((label) => ({
-      id: label.id,
-      ...label.data(),
-    }))
+      const labels = labelsRef.docs.map((label) => ({
+        id: label.id,
+        ...label.data(),
+      }))
 
-    dispatch(setLabels(labels))
+      dispatch(setLabels(labels))
 
-    return labelsRef
+      return labelsRef
+    } catch (e) {
+      dispatch(setLabels([]))
+    }
   }
 }

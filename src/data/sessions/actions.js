@@ -9,16 +9,19 @@ export const startSetSessions = () => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    const sessionsRef = await fs.collection(`users/${uid}/sessions`).get()
+    try {
+      const sessionsRef = await fs.collection(`users/${uid}/sessions`).get()
 
-    const sessions = sessionsRef.docs.map((session) => ({
-      id: session.id,
-      ...session.data(),
-    }))
+      const sessions = sessionsRef.docs.map((session) => ({
+        id: session.id,
+        ...session.data(),
+      }))
 
-    dispatch(setSessions(sessions))
-
-    return sessionsRef
+      dispatch(setSessions(sessions))
+      return sessionsRef
+    } catch (e) {
+      dispatch(setSessions([]))
+    }
   }
 }
 
@@ -32,7 +35,8 @@ export const startAddSession = (session) => {
     const uid = getState().auth.uid
     const { duration, label = null, createdAt } = session
 
-    const ref = await fs.collection(`users/${uid}/sessions`).add({
+    const newSessionRef = fs.collection(`users/${uid}/sessions`).doc()
+    newSessionRef.set({
       duration,
       label,
       createdAt,
@@ -40,11 +44,11 @@ export const startAddSession = (session) => {
 
     dispatch(
       addSession({
-        id: ref.id,
+        id: newSessionRef.id,
         ...session,
       })
     )
 
-    return ref
+    return newSessionRef
   }
 }

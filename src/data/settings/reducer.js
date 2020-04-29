@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   workDuration: 25,
   shortBreakDuration: 5,
   longBreakDuration: 20,
