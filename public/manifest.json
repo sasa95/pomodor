@@ -3,17 +3,17 @@
   "name": "Pomodor",
   "icons": [
     {
-      "src": "favicon-white.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192-white.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512-white.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -21,5 +21,5 @@
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#3f51b5",
-  "background_color": "#212121"
+  "background_color": "#fff"
 }
