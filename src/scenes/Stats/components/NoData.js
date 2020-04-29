@@ -19,7 +19,7 @@ export const NoData = () => {
       width="90%"
       maxWidth="600px"
     >
-      <img src={illustration} alt="" />
+      <img src={illustration} alt="Statistics and charts" />
       <Typography align="center">
         Nothing to show here. Come back after you{' '}
         <LinkStyled to="/timer" color={theme.palette.secondary.main}>

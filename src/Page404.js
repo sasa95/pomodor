@@ -19,7 +19,7 @@ export const Page404 = () => {
       width="90%"
       maxWidth="600px"
     >
-      <img src={illustration} alt="" />
+      <img src={illustration} alt="Page not found" />
       <Typography align="center">
         How did you get here?! You should{' '}
         <LinkStyled to="/timer" color={theme.palette.secondary.main}>
