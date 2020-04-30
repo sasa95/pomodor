@@ -8,7 +8,6 @@ import FaceIcon from '@material-ui/icons/Face'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import SvgIcon from '@material-ui/core/SvgIcon'
-import { useTheme } from '@material-ui/core'
 import { GoogleIcon } from './GoogleIcon'
 import { linkAccount } from '../../data/auth/actions'
 import { googleAuthProvider } from '../../firebase/firebase'
@@ -16,7 +15,6 @@ import { googleAuthProvider } from '../../firebase/firebase'
 export const SignIn = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const dispatch = useDispatch()
-  const theme = useTheme()
 
   const googleAuth = async () => {
     dispatch(linkAccount(googleAuthProvider))
@@ -34,7 +32,6 @@ export const SignIn = () => {
   return (
     <>
       <TriggerButton
-        theme={theme}
         aria-controls="sign-in-menu"
         aria-haspopup="true"
         onClick={openMenu}
@@ -63,5 +60,5 @@ export const SignIn = () => {
 }
 
 const TriggerButton = styled(Button)`
-  color: ${({ theme }) => theme.palette.secondary.light};
+  color: #fff;
 `

@@ -114,7 +114,7 @@ const NavListItem = styled(ListItem)`
   flex-direction: column;
 
   .MuiListItemText-primary {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.85rem;
     letter-spacing: 1px;
     font-weight: 500;
@@ -122,7 +122,7 @@ const NavListItem = styled(ListItem)`
 `
 
 const NavItemIcon = styled(ListItemIcon)`
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
   display: flex;
   justify-content: center;
 `
