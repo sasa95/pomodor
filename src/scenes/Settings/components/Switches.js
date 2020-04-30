@@ -14,7 +14,7 @@ export const Switches = () => {
 
   useEffect(() => {
     if (!showTimerInTitle) {
-      document.title = 'Pomodor'
+      document.title = 'Pomodor | Productivity Timer'
     }
   }, [showTimerInTitle])
 
