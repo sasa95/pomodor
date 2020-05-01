@@ -11,14 +11,17 @@ import SvgIcon from '@material-ui/core/SvgIcon'
 import { GoogleIcon } from './GoogleIcon'
 import { linkAccount } from '../../data/auth/actions'
 import { googleAuthProvider } from '../../firebase/firebase'
+import { setProgressVisibility } from '../../data/progress/actions'
 
 export const SignIn = () => {
   const [anchorEl, setAnchorEl] = useState(null)
   const dispatch = useDispatch()
 
   const googleAuth = async () => {
-    dispatch(linkAccount(googleAuthProvider))
+    dispatch(setProgressVisibility(true))
     handleClose()
+    await dispatch(linkAccount(googleAuthProvider))
+    dispatch(setProgressVisibility(false))
   }
 
   const openMenu = (event) => {

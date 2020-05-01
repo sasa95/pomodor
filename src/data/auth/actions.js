@@ -22,9 +22,10 @@ export const linkAccount = (authProvider) => {
       }
 
       dispatch(setUserInfo(userInfo))
+      return res
     } catch (e) {
       if (e.code === 'auth/credential-already-in-use') {
-        await firebase.auth().signInWithCredential(e.credential)
+        return firebase.auth().signInWithCredential(e.credential)
       }
     }
   }
