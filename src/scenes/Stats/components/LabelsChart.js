@@ -81,6 +81,8 @@ export const LabelsChart = () => {
         }
       })
 
+      if (!labelsData.length) return
+
       labelsData.push({
         id: null,
         color: grey[500],
