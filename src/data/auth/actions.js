@@ -31,11 +31,6 @@ export const linkAccount = (authProvider) => {
   }
 }
 
-export const setCreationTime = (creationTime) => ({
-  type: 'SET_CREATION_TIME',
-  creationTime,
-})
-
 export const signOut = () => ({
   type: 'SIGN_OUT',
 })
