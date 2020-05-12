@@ -30,15 +30,13 @@ test('should generate action object for setProgress', () => {
 })
 
 test('should generate action object for saveInterval', () => {
-  const interval = setInterval(() => {}, 1000)
+  const interval = 123
   const action = saveInterval(interval)
 
   expect(action).toEqual({
     type: 'SAVE_INTERVAL',
     interval,
   })
-
-  clearInterval(interval)
 })
 
 test('should generate action object for pauseTimer', () => {

@@ -10,7 +10,7 @@ export const TYPES = {
   longBreak: 'LONG_BREAK',
 }
 
-const initialState = {
+export const initialState = {
   status: STATUSES.onHold,
   type: TYPES.work,
   progress: 100,

@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   fullscreenDialog: false,
   desktopDialog: false,
   deleteAlert: false,

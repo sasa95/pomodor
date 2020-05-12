@@ -11,24 +11,7 @@ import {
   deleteLabel,
   setLabels,
 } from '../actions'
-
-const labels = [
-  {
-    id: '1',
-    color: '#f00',
-    name: 'Coding',
-  },
-  {
-    id: '2',
-    color: '#0f0',
-    name: 'Reading',
-  },
-  {
-    id: '3',
-    color: '#00f',
-    name: 'Playing a guitar',
-  },
-]
+import labels from './fixtures/labels'
 
 test('should generate action object for setFullscreenDialog', () => {
   const fullscreenDialog = true

@@ -9,6 +9,7 @@ import {
   setFirstDayOfTheWeek,
   setSettings,
 } from '../actions'
+import settings from './fixtures/settings'
 
 test('should generate action object for setWorkDuration', () => {
   const duration = 30
@@ -91,16 +92,6 @@ test('should generate action object for setFirstDayOfTheWeek  ', () => {
 })
 
 test('should generate action object for setSettings  ', () => {
-  const settings = {
-    workDuration: 25,
-    shortBreakDuration: 5,
-    longBreakDuration: 20,
-    rounds: 4,
-    showTimerInTitle: true,
-    showNotifications: true,
-    darkMode: false,
-    firstDayOfTheWeek: 'Monday',
-  }
   const action = setSettings(settings)
 
   expect(action).toEqual({
