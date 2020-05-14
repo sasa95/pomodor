@@ -45,7 +45,6 @@ export const startAddLabel = (label) => {
     const uid = getState().auth.uid
 
     const newLabelRef = fs.collection(`users/${uid}/labels`).doc()
-    newLabelRef.set({ ...label })
 
     dispatch(
       addLabel({
@@ -53,8 +52,7 @@ export const startAddLabel = (label) => {
         ...label,
       })
     )
-
-    return newLabelRef
+    await newLabelRef.set({ ...label })
   }
 }
 
@@ -70,7 +68,7 @@ export const startEditLabel = (id, updates) => {
 
     dispatch(editLabel(id, updates))
 
-    fs.doc(`users/${uid}/labels/${id}`).update({
+    await fs.doc(`users/${uid}/labels/${id}`).update({
       ...updates,
     })
   }
@@ -87,7 +85,7 @@ export const startDeleteLabel = (id) => {
 
     dispatch(deleteLabel(id))
 
-    fs.doc(`users/${uid}/labels/${id}`).delete()
+    await fs.doc(`users/${uid}/labels/${id}`).delete()
   }
 }
 

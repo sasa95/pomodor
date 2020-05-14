@@ -1,5 +1,4 @@
 import { reducer, initialState } from '../reducer'
-import settings from './fixtures/settings'
 
 test('should setup default settings state', () => {
   const state = reducer(undefined, { type: '@@INIT' })
@@ -97,8 +96,8 @@ test('should set sunday as the first day of the week', () => {
 test('should set settings', () => {
   const state = reducer(initialState, {
     type: 'SET_SETTINGS',
-    settings,
+    settings: initialState,
   })
 
-  expect(state).toEqual(settings)
+  expect(state).toEqual(initialState)
 })

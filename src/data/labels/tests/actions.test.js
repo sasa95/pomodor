@@ -1,3 +1,5 @@
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import {
   setFullscreenDialog,
   setDesktopDialog,
@@ -10,8 +12,35 @@ import {
   editLabel,
   deleteLabel,
   setLabels,
+  startAddLabel,
+  startEditLabel,
+  startDeleteLabel,
+  startSetLabels,
 } from '../actions'
 import labels from './fixtures/labels'
+import fs from '../../../firebase/firebase'
+
+const uid = 'asdf1234'
+const defaultAuthState = { auth: { uid } }
+const createMockStore = configureMockStore([thunk])
+
+beforeEach(async (done) => {
+  const batch = fs.batch()
+
+  const labelsRef = await fs.collection(`users/${uid}/labels`).get()
+
+  labelsRef.docs.forEach(({ id }) => {
+    batch.delete(fs.doc(`users/${uid}/labels/${id}`))
+  })
+
+  labels.forEach(({ id, name, color }) => {
+    const ref = fs.collection(`users/${uid}/labels`).doc(id)
+    batch.set(ref, { name, color })
+  })
+
+  await batch.commit()
+  done()
+})
 
 test('should generate action object for setFullscreenDialog', () => {
   const fullscreenDialog = true
@@ -102,6 +131,37 @@ test('should generate action object for addLabel', () => {
   })
 })
 
+test('should add label to database and store', async (done) => {
+  const store = createMockStore(defaultAuthState)
+  const labelData = {
+    name: 'Coding',
+    color: '#f00',
+  }
+
+  await store.dispatch(startAddLabel(labelData))
+
+  const actions = store.getActions()
+
+  expect(actions[0]).toEqual({
+    type: 'ADD_LABEL',
+    label: {
+      id: expect.any(String),
+      ...labelData,
+    },
+  })
+
+  const label = await fs.doc(`users/${uid}/labels/${actions[0].label.id}`).get()
+
+  expect({
+    ...label.data(),
+  }).toEqual({
+    color: actions[0].label.color,
+    name: actions[0].label.name,
+  })
+
+  done()
+})
+
 test('should generate action object for editLabel', () => {
   const id = labels[1].id
   const updates = {
@@ -118,6 +178,36 @@ test('should generate action object for editLabel', () => {
   })
 })
 
+test('should update label in store and database', async (done) => {
+  const store = createMockStore(defaultAuthState)
+  const id = labels[1].id
+  const updates = {
+    name: 'Reading poetry',
+    color: '#ff0',
+  }
+  await store.dispatch(startEditLabel(id, updates))
+
+  const actions = store.getActions()
+
+  expect(actions[0]).toEqual({
+    type: 'EDIT_LABEL',
+    id,
+    updates,
+  })
+
+  const label = await fs.doc(`users/${uid}/labels/${id}`).get()
+
+  expect({
+    id: label.id,
+    ...label.data(),
+  }).toEqual({
+    id,
+    ...updates,
+  })
+
+  done()
+})
+
 test('should generate action object for deleteLabel', () => {
   const id = labels[1].id
   const action = deleteLabel(id)
@@ -128,6 +218,26 @@ test('should generate action object for deleteLabel', () => {
   })
 })
 
+test('should delete label from database', async (done) => {
+  const store = createMockStore(defaultAuthState)
+  const id = labels[0].id
+
+  await store.dispatch(startDeleteLabel(id))
+
+  const actions = store.getActions()
+
+  expect(actions[0]).toEqual({
+    type: 'DELETE_LABEL',
+    id,
+  })
+
+  const doc = await fs.doc(`users/${uid}/labels/${id}`).get()
+
+  expect(doc.exists).toBe(false)
+
+  done()
+})
+
 test('should generate action object for setLabels', () => {
   const action = setLabels(labels)
 
@@ -135,4 +245,19 @@ test('should generate action object for setLabels', () => {
     type: 'SET_LABELS',
     labels,
   })
+})
+
+test('should fetch the labels from database', async (done) => {
+  const store = createMockStore(defaultAuthState)
+
+  await store.dispatch(startSetLabels())
+
+  const actions = store.getActions()
+
+  expect(actions[0]).toEqual({
+    type: 'SET_LABELS',
+    labels,
+  })
+
+  done()
 })

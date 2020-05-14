@@ -36,11 +36,6 @@ export const startAddSession = (session) => {
     const { duration, label = null, createdAt } = session
 
     const newSessionRef = fs.collection(`users/${uid}/sessions`).doc()
-    newSessionRef.set({
-      duration,
-      label,
-      createdAt,
-    })
 
     dispatch(
       addSession({
@@ -48,6 +43,12 @@ export const startAddSession = (session) => {
         ...session,
       })
     )
+
+    await newSessionRef.set({
+      duration,
+      label,
+      createdAt,
+    })
 
     return newSessionRef
   }

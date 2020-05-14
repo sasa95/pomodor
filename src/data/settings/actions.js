@@ -11,10 +11,9 @@ export const startSetWorkDuration = (duration) => {
 
     dispatch(setWorkDuration(duration))
 
-    fs.doc(`users/${uid}`).set(
-      { settings: { workDuration: duration } },
-      { merge: true }
-    )
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { workDuration: duration } }, { merge: true })
   }
 }
 
@@ -29,10 +28,9 @@ export const startSetShortBreakDuration = (duration) => {
 
     dispatch(setShortBreakDuration(duration))
 
-    fs.doc(`users/${uid}`).set(
-      { settings: { shortBreakDuration: duration } },
-      { merge: true }
-    )
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { shortBreakDuration: duration } }, { merge: true })
   }
 }
 
@@ -47,10 +45,9 @@ export const startSetLongBreakDuration = (duration) => {
 
     dispatch(setLongBreakDuration(duration))
 
-    fs.doc(`users/${uid}`).set(
-      { settings: { longBreakDuration: duration } },
-      { merge: true }
-    )
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { longBreakDuration: duration } }, { merge: true })
   }
 }
 
@@ -65,7 +62,7 @@ export const startSetRounds = (rounds) => {
 
     dispatch(setRounds(rounds))
 
-    fs.doc(`users/${uid}`).set({ settings: { rounds } }, { merge: true })
+    await fs.doc(`users/${uid}`).set({ settings: { rounds } }, { merge: true })
   }
 }
 
@@ -80,10 +77,9 @@ export const startSetShowTimerInTitle = (showTimerInTitle) => {
 
     dispatch(setShowTimerInTitle(showTimerInTitle))
 
-    fs.doc(`users/${uid}`).set(
-      { settings: { showTimerInTitle } },
-      { merge: true }
-    )
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { showTimerInTitle } }, { merge: true })
   }
 }
 
@@ -98,10 +94,9 @@ export const startSetShowNotifications = (showNotifications) => {
 
     dispatch(setShowNotifications(showNotifications))
 
-    fs.doc(`users/${uid}`).set(
-      { settings: { showNotifications } },
-      { merge: true }
-    )
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { showNotifications } }, { merge: true })
   }
 }
 
@@ -118,7 +113,9 @@ export const startSetDarkMode = (darkMode) => {
 
     dispatch(setDarkMode(darkMode))
 
-    fs.doc(`users/${uid}`).set({ settings: { darkMode } }, { merge: true })
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { darkMode } }, { merge: true })
   }
 }
 
@@ -133,10 +130,9 @@ export const startSetFirstDayOfTheWeek = (firstDayOfTheWeek) => {
 
     dispatch(setFirstDayOfTheWeek(firstDayOfTheWeek))
 
-    fs.doc(`users/${uid}`).set(
-      { settings: { firstDayOfTheWeek } },
-      { merge: true }
-    )
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { firstDayOfTheWeek } }, { merge: true })
   }
 }
 
