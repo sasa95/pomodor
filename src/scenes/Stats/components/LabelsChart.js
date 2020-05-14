@@ -31,9 +31,7 @@ require('dayjs/locale/en')
 
 export const LabelsChart = () => {
   const labels = useSelector((state) => state.labels.data)
-
   const sessions = useSelector((state) => state.sessions)
-
   const firstDayOfTheWeek = useSelector(
     (state) => state.settings.firstDayOfTheWeek
   )
@@ -81,8 +79,6 @@ export const LabelsChart = () => {
         }
       })
 
-      if (!labelsData.length) return
-
       labelsData.push({
         id: null,
         color: grey[500],
@@ -96,6 +92,8 @@ export const LabelsChart = () => {
       sessions.forEach(({ createdAt, duration, label }) => {
         if (filterFn(createdAt, dayjs)) {
           const index = labelsData.findIndex((l) => l.id === label)
+
+          if (index < 0) return
 
           labelsData[index] = {
             ...labelsData[index],
