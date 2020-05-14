@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Page404 /> should render Page 404 correctly 1`] = `
+<Styled(Styled(MuiBox))
+  alignItems="center"
+  alignSelf="center"
+  display="flex"
+  flexDirection="column"
+  justifyContent="center"
+  maxWidth="600px"
+  width="90%"
+>
+  <img
+    alt="Page not found"
+    src="404.svg"
+  />
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+  >
+    How did you get here?! You should
+     
+    <Styled(Link)
+      color="#f50057"
+      to="/timer"
+    >
+      go back to work
+    </Styled(Link)>
+    !
+  </WithStyles(ForwardRef(Typography))>
+</Styled(Styled(MuiBox))>
+`;
