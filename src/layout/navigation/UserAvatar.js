@@ -34,7 +34,7 @@ export const UserAvatar = () => {
     <>
       <Avatar sidenav={sidenav} alt={name} src={photo} onClick={openMenu} />
       <Menu
-        id="sign-in-menu"
+        id="user-menu"
         anchorEl={anchorEl}
         keepMounted
         open={!!anchorEl}
