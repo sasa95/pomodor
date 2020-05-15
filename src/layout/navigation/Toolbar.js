@@ -42,7 +42,15 @@ export const Toolbar = () => {
       >
         <Logo mdscreen={mdScreen} src={logo} alt="Pomodor logo" />
 
-        {isOnline ? isUserPerm ? <UserAvatar /> : <SignIn /> : <OflineIcon />}
+        {isOnline ? (
+          isUserPerm ? (
+            <UserAvatar />
+          ) : (
+            <SignIn />
+          )
+        ) : (
+          <OflineIcon data-role="offline-icon" />
+        )}
       </Box>
     </MatToolbar>
   )

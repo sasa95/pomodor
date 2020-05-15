@@ -61,7 +61,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
     </Styled(WithStyles(ForwardRef(Avatar)))>
     <WithStyles(ForwardRef(Menu))
       anchorEl={null}
-      id="sign-in-menu"
+      id="user-menu"
       keepMounted={true}
       onClose={[Function]}
       open={false}
@@ -74,7 +74,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
             "paper": "MuiMenu-paper",
           }
         }
-        id="sign-in-menu"
+        id="user-menu"
         keepMounted={true}
         onClose={[Function]}
         open={false}
@@ -95,7 +95,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
             }
           }
           getContentAnchorEl={[Function]}
-          id="sign-in-menu"
+          id="user-menu"
           keepMounted={true}
           onClose={[Function]}
           onEntering={[Function]}
@@ -130,7 +130,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
               }
             }
             getContentAnchorEl={[Function]}
-            id="sign-in-menu"
+            id="user-menu"
             keepMounted={true}
             onClose={[Function]}
             onEntering={[Function]}
@@ -150,7 +150,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                 }
               }
               className="MuiPopover-root"
-              id="sign-in-menu"
+              id="user-menu"
               keepMounted={true}
               onClose={[Function]}
               open={false}
@@ -179,7 +179,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="MuiPopover-root"
-                        id="sign-in-menu"
+                        id="user-menu"
                         role="presentation"
                         style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
                       >
@@ -200,7 +200,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                             <li
                               aria-disabled="false"
                               class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-                              id="sign-out-menu-item"
                               role="menuitem"
                               tabindex="0"
                             >
@@ -221,7 +220,7 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                 >
                   <div
                     className="MuiPopover-root"
-                    id="sign-in-menu"
+                    id="user-menu"
                     onKeyDown={[Function]}
                     role="presentation"
                     style={
@@ -392,7 +391,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                         tabIndex={-1}
                                       >
                                         <WithStyles(ForwardRef(MenuItem))
-                                          id="sign-out-menu-item"
                                           key=".$.0"
                                           onClick={[Function]}
                                           tabIndex={0}
@@ -406,7 +404,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                                 "selected": "Mui-selected",
                                               }
                                             }
-                                            id="sign-out-menu-item"
                                             onClick={[Function]}
                                             tabIndex={0}
                                           >
@@ -420,7 +417,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                               }
                                               component="li"
                                               disableGutters={false}
-                                              id="sign-out-menu-item"
                                               onClick={[Function]}
                                               role="menuitem"
                                               tabIndex={0}
@@ -445,7 +441,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                                 }
                                                 component="li"
                                                 disableGutters={false}
-                                                id="sign-out-menu-item"
                                                 onClick={[Function]}
                                                 role="menuitem"
                                                 tabIndex={0}
@@ -455,7 +450,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                                   component="li"
                                                   disabled={false}
                                                   focusVisibleClassName="Mui-focusVisible"
-                                                  id="sign-out-menu-item"
                                                   onClick={[Function]}
                                                   role="menuitem"
                                                   tabIndex={0}
@@ -472,7 +466,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                                     component="li"
                                                     disabled={false}
                                                     focusVisibleClassName="Mui-focusVisible"
-                                                    id="sign-out-menu-item"
                                                     onClick={[Function]}
                                                     role="menuitem"
                                                     tabIndex={0}
@@ -480,7 +473,6 @@ exports[`<UserAvatar /> should render <UserAvatar /> correctly 1`] = `
                                                     <li
                                                       aria-disabled={false}
                                                       className="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
-                                                      id="sign-out-menu-item"
                                                       onBlur={[Function]}
                                                       onClick={[Function]}
                                                       onDragLeave={[Function]}

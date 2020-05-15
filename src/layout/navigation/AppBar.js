@@ -1,11 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import styled, { css } from 'styled-components'
 import MatAppBar from '@material-ui/core/AppBar'
 import { useTheme } from '@material-ui/core'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import styled, { css } from 'styled-components'
 import { Toolbar } from './Toolbar'
 import { NavList } from './NavList'
-import { useSelector } from 'react-redux'
 
 export const AppBar = () => {
   const darkMode = useSelector((state) => +state.settings.darkMode)
