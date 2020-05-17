@@ -3,18 +3,15 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
-import { Toolbar } from '../Toolbar'
+import OfflineIcon from '@material-ui/icons/WifiOff'
+import { Toolbar, Logo } from '../Toolbar'
 import { UserAvatar } from '../UserAvatar'
 import { SignIn } from '../SignIn'
 
-const mockStore = configureMockStore([thunk])
-
 describe('<Toolbar />', () => {
+  const mockStore = configureMockStore([thunk])
   let mount
   let wrapper
-  const logoSelector = 'img[alt="Pomodor logo"]'
-  const offlineIconSelector =
-    'WithStyles(ForwardRef(SvgIcon))[data-role="offline-icon"]'
 
   beforeAll(() => {
     mount = createMount()
@@ -38,7 +35,7 @@ describe('<Toolbar />', () => {
     jest.spyOn(navigator, 'onLine', 'get').mockReturnValue(true)
 
     expect(wrapper('Sasha').find(UserAvatar)).toHaveLength(1)
-    expect(wrapper('Sasha').find(offlineIconSelector)).toHaveLength(0)
+    expect(wrapper('Sasha').find(OfflineIcon)).toHaveLength(0)
     expect(wrapper('Sasha').find(SignIn)).toHaveLength(0)
   })
 
@@ -46,7 +43,7 @@ describe('<Toolbar />', () => {
     jest.spyOn(navigator, 'onLine', 'get').mockReturnValue(true)
 
     expect(wrapper().find(SignIn)).toHaveLength(1)
-    expect(wrapper().find(offlineIconSelector)).toHaveLength(0)
+    expect(wrapper().find(OfflineIcon)).toHaveLength(0)
     expect(wrapper().find(UserAvatar)).toHaveLength(0)
   })
 
@@ -59,12 +56,12 @@ describe('<Toolbar />', () => {
   test('should render offline icon when the user is offline', () => {
     jest.spyOn(navigator, 'onLine', 'get').mockReturnValue(false)
 
-    expect(wrapper().find(offlineIconSelector)).toHaveLength(1)
+    expect(wrapper().find(OfflineIcon)).toHaveLength(1)
     expect(wrapper().find(UserAvatar)).toHaveLength(0)
     expect(wrapper().find(SignIn)).toHaveLength(0)
   })
 
   test('should render Pomodor logo', () => {
-    expect(wrapper().find(logoSelector)).toHaveLength(1)
+    expect(wrapper().find(Logo)).toHaveLength(1)
   })
 })

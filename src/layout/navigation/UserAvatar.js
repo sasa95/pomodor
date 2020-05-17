@@ -46,7 +46,7 @@ export const UserAvatar = () => {
   )
 }
 
-const Avatar = styled(MatAvatar)`
+export const Avatar = styled(MatAvatar)`
   width: 30px;
   height: 30px;
   cursor: pointer;

@@ -6,7 +6,7 @@ import MatToolbar from '@material-ui/core/Toolbar'
 import Box from '@material-ui/core/Box'
 import { SignIn } from './SignIn'
 import { UserAvatar } from './UserAvatar'
-import OflineIcon from '@material-ui/icons/WifiOff'
+import OfflineIcon from '@material-ui/icons/WifiOff'
 import logo from './assets/logo.svg'
 
 export const Toolbar = () => {
@@ -49,14 +49,14 @@ export const Toolbar = () => {
             <SignIn />
           )
         ) : (
-          <OflineIcon data-role="offline-icon" />
+          <OfflineIcon data-role="offline-icon" />
         )}
       </Box>
     </MatToolbar>
   )
 }
 
-const Logo = styled.img`
+export const Logo = styled.img`
   height: 26px;
 
   ${({ mdscreen }) =>

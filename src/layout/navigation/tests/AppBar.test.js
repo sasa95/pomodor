@@ -7,19 +7,20 @@ import { AppBar } from '../AppBar'
 import { STATUSES } from '../../../scenes/Timer/data/timer/reducer'
 import { BrowserRouter } from 'react-router-dom'
 
-const mockStore = configureMockStore([thunk])
-
 describe('<AppBar />', () => {
+  const mockStore = configureMockStore([thunk])
+  const storedData = {
+    settings: { darkMode: false },
+    timer: { status: STATUSES.onHold },
+    auth: { name: 'Sasha' },
+  }
+
   let store
   let mount
   let wrapper
 
   beforeAll(() => {
-    store = mockStore({
-      settings: { darkMode: false },
-      timer: { status: STATUSES.onHold },
-      auth: { name: 'Sasha' },
-    })
+    store = mockStore(storedData)
 
     mount = createMount({ dive: true })
 

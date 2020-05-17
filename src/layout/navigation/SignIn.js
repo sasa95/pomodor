@@ -62,6 +62,6 @@ export const SignIn = () => {
   )
 }
 
-const TriggerButton = styled(Button)`
+export const TriggerButton = styled(Button)`
   color: #fff;
 `

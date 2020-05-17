@@ -1,26 +1,26 @@
 import React from 'react'
-import { createMount } from '@material-ui/core/test-utils'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { UserAvatar } from '../UserAvatar'
-
-const mockStore = configureMockStore([thunk])
+import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store'
+import { createMount } from '@material-ui/core/test-utils'
+import Menu from '@material-ui/core/Menu'
+import { UserAvatar, Avatar } from '../UserAvatar'
 
 describe('<UserAvatar />', () => {
+  const mockStore = configureMockStore([thunk])
+  const storeData = {
+    auth: {
+      name: 'Alex',
+      photo: 'https://via.placeholder.com/100',
+    },
+  }
+
   let store
   let mount
   let wrapper
-  const avatarSelector = 'Styled(WithStyles(ForwardRef(Avatar)))'
-  const menuSelector = 'WithStyles(ForwardRef(Menu))'
 
   beforeAll(() => {
-    store = mockStore({
-      auth: {
-        name: 'Alex',
-        photo: 'https://via.placeholder.com/100',
-      },
-    })
+    store = mockStore(storeData)
 
     mount = createMount()
 
@@ -38,18 +38,18 @@ describe('<UserAvatar />', () => {
   test('should render user image with correct alt attribute', () => {
     const { name, photo } = store.getState().auth
 
-    expect(wrapper.find(avatarSelector).props()).toMatchObject({
+    expect(wrapper.find(Avatar).props()).toMatchObject({
       src: photo,
       alt: name,
     })
   })
 
   test('menu should be closed initially', () => {
-    expect(wrapper.find(menuSelector).props().open).toBe(false)
+    expect(wrapper.find(Menu).props().open).toBe(false)
   })
 
   test('should open menu on avatar click', () => {
-    wrapper.find(avatarSelector).simulate('click')
-    expect(wrapper.find(menuSelector).props().open).toBe(true)
+    wrapper.find(Avatar).simulate('click')
+    expect(wrapper.find(Menu).props().open).toBe(true)
   })
 })

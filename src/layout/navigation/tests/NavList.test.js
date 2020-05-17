@@ -1,18 +1,17 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
-import { NavList } from '../NavList'
+import { NavList, NavListItem } from '../NavList'
 import { STATUSES } from '../../../scenes/Timer/data/timer/reducer'
-import { BrowserRouter } from 'react-router-dom'
-
-const mockStore = configureMockStore([thunk])
 
 describe('<NavList />', () => {
+  const mockStore = configureMockStore([thunk])
+
   let mount
   let wrapper
-  const itemsSelector = 'Styled(WithStyles(ForwardRef(ListItem)))'
 
   beforeAll(() => {
     mount = createMount()
@@ -34,17 +33,17 @@ describe('<NavList />', () => {
     expect(wrapper()).toMatchSnapshot()
   })
 
-  test('should container 3 Nav List Items', () => {
-    expect(wrapper().find(itemsSelector)).toHaveLength(3)
+  test('should render 3 Nav List Items', () => {
+    expect(wrapper().find(NavListItem)).toHaveLength(3)
   })
 
   test('Second and third menu items should be disabled if the timer is running', () => {
     expect(
-      wrapper(STATUSES.running).find(itemsSelector).at(1).prop('disabled')
+      wrapper(STATUSES.running).find(NavListItem).at(1).prop('disabled')
     ).toBeTruthy()
 
     expect(
-      wrapper(STATUSES).find(itemsSelector).at(2).prop('disabled')
+      wrapper(STATUSES).find(NavListItem).at(2).prop('disabled')
     ).toBeTruthy()
   })
 })

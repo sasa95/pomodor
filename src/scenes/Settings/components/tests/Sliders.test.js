@@ -3,42 +3,40 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
-import Menu from '@material-ui/core/Menu'
-import { SignIn, TriggerButton } from '../SignIn'
+import { Sliders } from '../Sliders'
+import { Slider } from '../components/Slider'
 
-describe('<SignIn />', () => {
+describe('<Sliders />', () => {
   const mockStore = configureMockStore([thunk])
-
   const storeData = {
-    auth: { uid: null },
+    settings: {
+      workDuration: 25,
+      shortBreakDuration: 5,
+      longBreakDuration: 20,
+      rounds: 4,
+    },
   }
 
   let store
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     store = mockStore(storeData)
-
     mount = createMount()
 
     wrapper = mount(
       <Provider store={store}>
-        <SignIn />
+        <Sliders />
       </Provider>
     )
   })
 
-  test('should render <SignIn /> correctly', () => {
+  test('should render <Sliders /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  test('menu should be closed initially', () => {
-    expect(wrapper.find(Menu).props().open).toBe(false)
-  })
-
-  test('should open menu on avatar click', () => {
-    wrapper.find(TriggerButton).simulate('click')
-    expect(wrapper.find(Menu).props().open).toBe(true)
+  test('should render 4 sliders', () => {
+    expect(wrapper.find(Slider).length).toBe(4)
   })
 })

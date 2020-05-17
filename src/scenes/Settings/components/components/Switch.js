@@ -6,22 +6,6 @@ import styled from 'styled-components'
 import Box from '@material-ui/core/Box'
 import { useTheme } from '@material-ui/core'
 
-const Label = styled(FormControlLabel)`
-  margin: 0;
-`
-
-const SettingSwitch = styled(MatSwitch)`
-  .Mui-checked {
-    color: ${({ theme, dark }) =>
-      dark ? theme.palette.secondary.light : theme.palette.secondary.main};
-  }
-
-  .Mui-checked + .MuiSwitch-track {
-    background: ${({ theme, dark }) =>
-      dark ? theme.palette.secondary.light : theme.palette.secondary.main};
-  }
-`
-
 export const Switch = ({ name, action, checked }) => {
   const [state, setState] = useState(false)
 
@@ -62,3 +46,19 @@ export const Switch = ({ name, action, checked }) => {
     </Box>
   )
 }
+
+const Label = styled(FormControlLabel)`
+  margin: 0;
+`
+
+const SettingSwitch = styled(MatSwitch)`
+  .Mui-checked {
+    color: ${({ theme, dark }) =>
+      dark ? theme.palette.secondary.light : theme.palette.secondary.main};
+  }
+
+  .Mui-checked + .MuiSwitch-track {
+    background: ${({ theme, dark }) =>
+      dark ? theme.palette.secondary.light : theme.palette.secondary.main};
+  }
+`

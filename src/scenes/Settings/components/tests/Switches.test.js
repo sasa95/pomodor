@@ -3,42 +3,39 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
-import Menu from '@material-ui/core/Menu'
-import { SignIn, TriggerButton } from '../SignIn'
+import { Switches } from '../Switches'
+import { Switch } from '../components/Switch'
 
-describe('<SignIn />', () => {
+describe('<Switches />', () => {
   const mockStore = configureMockStore([thunk])
-
   const storeData = {
-    auth: { uid: null },
+    settings: {
+      showTimerInTitle: true,
+      showNotifications: true,
+      darkMode: false,
+    },
   }
 
   let store
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     store = mockStore(storeData)
-
     mount = createMount()
 
     wrapper = mount(
       <Provider store={store}>
-        <SignIn />
+        <Switches />
       </Provider>
     )
   })
 
-  test('should render <SignIn /> correctly', () => {
+  test('should render <Switches /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  test('menu should be closed initially', () => {
-    expect(wrapper.find(Menu).props().open).toBe(false)
-  })
-
-  test('should open menu on avatar click', () => {
-    wrapper.find(TriggerButton).simulate('click')
-    expect(wrapper.find(Menu).props().open).toBe(true)
+  test('should render 3 switches', () => {
+    expect(wrapper.find(Switch).length).toBe(3)
   })
 })

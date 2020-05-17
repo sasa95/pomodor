@@ -140,3 +140,4 @@ const Link = styled(NavLink)`
     color: #fff;
   }
 `
+export { NavListItem }

@@ -65,7 +65,7 @@ export const Slider = ({
   )
 }
 
-const SettingSlider = styled(MatSlider)`
+export const SettingSlider = styled(MatSlider)`
   color: ${({ theme, dark }) =>
     dark ? theme.palette.secondary.light : theme.palette.secondary.main};
 `
