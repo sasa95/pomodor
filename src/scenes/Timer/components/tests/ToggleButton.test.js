@@ -39,6 +39,10 @@ describe('<ToggleButton />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <ToggleButton /> correctly', () => {
     expect(wrapper()).toMatchSnapshot()
   })

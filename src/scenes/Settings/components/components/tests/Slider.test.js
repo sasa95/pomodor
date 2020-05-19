@@ -49,6 +49,10 @@ describe('<Slider />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <Slider /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

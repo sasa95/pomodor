@@ -26,6 +26,10 @@ describe('<Label />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <Label /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

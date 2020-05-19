@@ -32,6 +32,10 @@ describe('<SaveSessionAlert />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <SaveSessionAlert /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

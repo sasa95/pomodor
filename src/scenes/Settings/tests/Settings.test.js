@@ -30,6 +30,10 @@ describe('<Settings />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <Settings /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

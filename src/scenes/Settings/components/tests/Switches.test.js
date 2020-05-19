@@ -31,6 +31,10 @@ describe('<Switches />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <Switches /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

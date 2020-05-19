@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ResetButton /> should render <SaveSessionAlert /> correctly 1`] = `
+exports[`<SaveSessionAlert /> should render <SaveSessionAlert /> correctly 1`] = `
 <Provider
   store={
     Object {

@@ -54,6 +54,10 @@ describe('<DeleteAlert />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <DeleteAlert /> correctly', () => {
     expect(wrapper()).toMatchSnapshot()
   })

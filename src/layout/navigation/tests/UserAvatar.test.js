@@ -19,7 +19,7 @@ describe('<UserAvatar />', () => {
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     store = mockStore(storeData)
 
     mount = createMount()
@@ -29,6 +29,10 @@ describe('<UserAvatar />', () => {
         <UserAvatar />
       </Provider>
     )
+  })
+
+  afterEach(() => {
+    mount.cleanUp()
   })
 
   test('should render <UserAvatar /> correctly', () => {

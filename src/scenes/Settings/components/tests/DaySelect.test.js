@@ -5,7 +5,6 @@ import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
 import Select from '@material-ui/core/Select'
 import { DaySelect } from '../DaySelect'
-import { startSetFirstDayOfTheWeek } from '../../../../data/settings/actions'
 
 describe('<DaySelect />', () => {
   const mockStore = configureMockStore([thunk])
@@ -24,6 +23,10 @@ describe('<DaySelect />', () => {
         <DaySelect />
       </Provider>
     )
+  })
+
+  afterEach(() => {
+    mount.cleanUp()
   })
 
   test('should render <DaySelect /> correctly', () => {

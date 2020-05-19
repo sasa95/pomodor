@@ -47,6 +47,10 @@ describe('<CountdownCircle />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <CountdownCircle /> correctly', () => {
     expect(wrapper()).toMatchSnapshot()
   })

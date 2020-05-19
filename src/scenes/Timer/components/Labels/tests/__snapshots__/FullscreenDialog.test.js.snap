@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DesktopDialog /> should render <FullscreenDialog /> correctly 1`] = `
+exports[`<FullscreenDialog /> should render <FullscreenDialog /> correctly 1`] = `
 <Provider
   store={
     Object {

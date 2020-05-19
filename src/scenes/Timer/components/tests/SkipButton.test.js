@@ -31,6 +31,10 @@ describe('<SkipButton />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <SkipButton /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

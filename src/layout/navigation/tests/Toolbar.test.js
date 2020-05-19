@@ -13,7 +13,7 @@ describe('<Toolbar />', () => {
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     mount = createMount()
 
     wrapper = (name = null) => {
@@ -25,6 +25,10 @@ describe('<Toolbar />', () => {
         </Provider>
       )
     }
+  })
+
+  afterEach(() => {
+    mount.cleanUp()
   })
 
   test('should render <Toolbar /> correctly when the user is online', () => {

@@ -13,7 +13,7 @@ describe('<NavList />', () => {
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     mount = createMount()
 
     wrapper = (status = STATUSES.onHold) => {
@@ -27,6 +27,10 @@ describe('<NavList />', () => {
         </Provider>
       )
     }
+  })
+
+  afterEach(() => {
+    mount.cleanUp()
   })
 
   test('should render <NavList/> correctly', () => {

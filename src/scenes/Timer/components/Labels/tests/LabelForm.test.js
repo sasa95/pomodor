@@ -33,6 +33,10 @@ describe('<LabelForm />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <LabelForm /> correctly', () => {
     expect(wrapper()).toMatchSnapshot()
   })

@@ -30,6 +30,10 @@ describe('<RoundsCounter />', () => {
     )
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <RoundsCounter /> correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

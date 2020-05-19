@@ -1,11 +1,11 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
 import { AppBar } from '../AppBar'
 import { STATUSES } from '../../../scenes/Timer/data/timer/reducer'
-import { BrowserRouter } from 'react-router-dom'
 
 describe('<AppBar />', () => {
   const mockStore = configureMockStore([thunk])
@@ -19,7 +19,7 @@ describe('<AppBar />', () => {
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     store = mockStore(storedData)
 
     mount = createMount({ dive: true })
@@ -31,6 +31,10 @@ describe('<AppBar />', () => {
         </BrowserRouter>
       </Provider>
     )
+  })
+
+  afterEach(() => {
+    mount.cleanUp()
   })
 
   test('should render <AppBar /> correctly', () => {

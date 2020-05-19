@@ -59,6 +59,10 @@ describe('<FullscreenDialog />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <FullscreenDialog /> correctly', () => {
     const wrapperRendered = wrapper()
 

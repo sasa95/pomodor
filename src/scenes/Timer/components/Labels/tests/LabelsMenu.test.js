@@ -36,6 +36,10 @@ describe('<LabelsMenu />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <LabelsMenu /> correctly', () => {
     expect(wrapper()).toMatchSnapshot()
   })

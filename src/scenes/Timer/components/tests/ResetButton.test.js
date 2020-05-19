@@ -47,6 +47,10 @@ describe('<ResetButton />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <ResetButton /> correctly', () => {
     expect(wrapper()).toMatchSnapshot()
   })

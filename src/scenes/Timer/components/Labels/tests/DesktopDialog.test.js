@@ -58,6 +58,10 @@ describe('<DesktopDialog />', () => {
     }
   })
 
+  afterEach(() => {
+    mount.cleanUp()
+  })
+
   test('should render <DesktopDialog /> correctly', () => {
     const wrapperRendered = wrapper(null, {
       name: 'Play Piano',

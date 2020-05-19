@@ -17,7 +17,7 @@ describe('<SignIn />', () => {
   let mount
   let wrapper
 
-  beforeAll(() => {
+  beforeEach(() => {
     store = mockStore(storeData)
 
     mount = createMount()
@@ -27,6 +27,10 @@ describe('<SignIn />', () => {
         <SignIn />
       </Provider>
     )
+  })
+
+  afterEach(() => {
+    mount.cleanUp()
   })
 
   test('should render <SignIn /> correctly', () => {
