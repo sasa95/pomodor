@@ -15,21 +15,6 @@ import {
   setDesktopDialog,
 } from '../../../../data/labels/actions.js'
 
-const ColorIndicator = styled.span`
-  background: ${({ color }) => color};
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  margin-right: 20px;
-`
-
-const ActionButton = styled(IconButton)`
-  color: ${grey[400]};
-
-  display: ${({ hide }) => (hide ? 'none' : 'inherit')};
-`
-
 export const Label = ({ label }) => {
   const theme = useTheme()
   const isMediumScreen = useMediaQuery(theme.breakpoints.up('md'))
@@ -85,3 +70,18 @@ export const Label = ({ label }) => {
     </Box>
   )
 }
+
+export const ColorIndicator = styled.span`
+  background: ${({ color }) => color};
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 20px;
+`
+
+export const ActionButton = styled(IconButton)`
+  color: ${grey[400]};
+
+  display: ${({ hide }) => (hide ? 'none' : 'inherit')};
+`

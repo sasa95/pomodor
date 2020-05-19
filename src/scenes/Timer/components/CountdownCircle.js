@@ -107,3 +107,5 @@ const TimerTypeContainer = styled(Box)`
 const TimerType = styled(Typography)`
   letter-spacing: 1px;
 `
+
+export { Time, TimerType }

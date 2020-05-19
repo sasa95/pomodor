@@ -39,6 +39,7 @@ export const DeleteAlert = () => {
       onClose={closeAlert}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      id="delete-alert"
     >
       <DialogTitle id="alert-dialog-title">
         Delete

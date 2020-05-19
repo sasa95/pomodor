@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SkipButton /> should render <Timer /> correctly 1`] = `
+<Styled(MuiBox)
+  m="auto"
+  pt={3}
+  width={300}
+>
+  <LabelButton />
+  <CountdownCircle />
+  <ToggleButton />
+  <Styled(MuiBox)
+    alignItems="center"
+    display="flex"
+    justifyContent="space-between"
+    mt={2}
+  >
+    <RoundsCounter />
+    <Styled(MuiBox)
+      display="flex"
+    >
+      <ResetButton />
+      <SkipButton />
+    </Styled(MuiBox)>
+  </Styled(MuiBox)>
+  <FullscreenDialog />
+  <DesktopDialog />
+</Styled(MuiBox)>
+`;

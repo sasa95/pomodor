@@ -13,6 +13,6 @@ export const RoundsCounter = () => {
   )
 }
 
-const CounterLabel = styled.span`
+export const CounterLabel = styled.span`
   font-weight: bold;
 `

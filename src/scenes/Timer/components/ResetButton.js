@@ -20,20 +20,22 @@ export const ResetButton = () => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    const secondsTotal = workDuration * 60
-    const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
-    const secondsDiff = secondsTotal - secondsLeft
+    if (type === TYPES.work) {
+      const secondsTotal = workDuration * 60
+      const secondsLeft = timeLeft.minutes * 60 + timeLeft.seconds
+      const secondsDiff = secondsTotal - secondsLeft
 
-    const minutesToSave = Math.floor(secondsDiff / 60)
-    const secondsToSave = secondsDiff % 60
+      const minutesToSave = Math.floor(secondsDiff / 60)
+      const secondsToSave = secondsDiff % 60
 
-    if (minutesToSave) {
-      setTimeToSave({
-        minutes: minutesToSave,
-        seconds: secondsToSave,
-      })
+      if (minutesToSave) {
+        setTimeToSave({
+          minutes: minutesToSave,
+          seconds: secondsToSave,
+        })
 
-      dispatch(setSaveSessionAlert(true))
+        dispatch(setSaveSessionAlert(true))
+      }
     }
 
     let duration

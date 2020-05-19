@@ -115,3 +115,5 @@ const ColorIndicator = styled.span`
   border-radius: 50%;
   margin-right: 20px;
 `
+
+export { ColorTextField }

@@ -72,6 +72,6 @@ export const LabelButton = () => {
   )
 }
 
-const Button = styled(MatButton)`
+export const Button = styled(MatButton)`
   color: ${({ labelcolor }) => labelcolor};
 `

@@ -13,22 +13,6 @@ import {
   setLabelSelected,
 } from '../../../../data/labels/actions'
 
-const LabelMenuItem = styled(MenuItem)`
-  .MuiIconButton-root {
-    visibility: ${({ touchscreen }) => (touchscreen ? 'unset' : 'hidden')};
-  }
-
-  &:hover .MuiIconButton-root {
-    visibility: ${({ touchscreen }) => (touchscreen ? 'unset' : 'visible')};
-  }
-`
-
-const AddLabelIcon = styled(AddIcon)`
-  width: 20px;
-  height: 20px;
-  margin-right: 20px;
-`
-
 export const LabelsMenu = ({ anchor }) => {
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -91,3 +75,21 @@ export const LabelsMenu = ({ anchor }) => {
     </Menu>
   )
 }
+
+const LabelMenuItem = styled(MenuItem)`
+  .MuiIconButton-root {
+    visibility: ${({ touchscreen }) => (touchscreen ? 'unset' : 'hidden')};
+  }
+
+  &:hover .MuiIconButton-root {
+    visibility: ${({ touchscreen }) => (touchscreen ? 'unset' : 'visible')};
+  }
+`
+
+const AddLabelIcon = styled(AddIcon)`
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+`
+
+export { LabelMenuItem }
