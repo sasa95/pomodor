@@ -8,7 +8,7 @@ import labels from './fixtures/labels'
 import fs from '../../../../../firebase/firebase'
 import { FullscreenDialog } from '../FullscreenDialog'
 
-describe('<DesktopDialog />', () => {
+describe('<FullscreenDialog />', () => {
   const mockStore = configureMockStore([thunk])
 
   const uid = 'asdf3333'

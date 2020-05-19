@@ -7,7 +7,6 @@ import IconButton from '@material-ui/core/IconButton'
 import { ResetButton } from '../ResetButton'
 import { TYPES, STATUSES } from '../../data/timer/reducer'
 import { SaveSessionAlert } from '../SaveSessionAlert'
-import { Dialog } from '@material-ui/core'
 
 describe('<ResetButton />', () => {
   const mockStore = configureMockStore([thunk])

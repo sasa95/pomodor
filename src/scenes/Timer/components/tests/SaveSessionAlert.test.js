@@ -7,7 +7,7 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import Button from '@material-ui/core/Button'
 import { SaveSessionAlert } from '../SaveSessionAlert'
 
-describe('<ResetButton />', () => {
+describe('<SaveSessionAlert />', () => {
   const mockStore = configureMockStore([thunk])
 
   let store
