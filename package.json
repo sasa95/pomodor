@@ -26,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start --host 0.0.0.0",
     "build": "react-scripts build",
-    "test": "react-scripts test --silent --snapshotSerializers enzyme-to-json/serializer",
+    "test": "react-scripts test  --snapshotSerializers enzyme-to-json/serializer",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

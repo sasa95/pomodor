@@ -14,7 +14,7 @@ import {
 } from '../../../../data/labels/actions'
 
 export const LabelsMenu = ({ anchor }) => {
-  const [anchorEl, setAnchorEl] = useState(null)
+  const [anchorEl, setAnchorEl] = useState(anchor || null)
 
   const { data, labelSelected, menuOpened } = useSelector(
     (state) => state.labels

@@ -13,9 +13,11 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
     }
   }
 >
-  <LabelsMenu>
+  <LabelsMenu
+    anchor={<div />}
+  >
     <WithStyles(ForwardRef(Menu))
-      anchorEl={null}
+      anchorEl={<div />}
       id="long-menu"
       keepMounted={true}
       margin="dense"
@@ -23,7 +25,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
       open={true}
     >
       <ForwardRef(Menu)
-        anchorEl={null}
+        anchorEl={<div />}
         classes={
           Object {
             "list": "MuiMenu-list",
@@ -44,7 +46,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
               },
             }
           }
-          anchorEl={null}
+          anchorEl={<div />}
           anchorOrigin={
             Object {
               "horizontal": "left",
@@ -74,7 +76,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                 },
               }
             }
-            anchorEl={null}
+            anchorEl={<div />}
             anchorOrigin={
               Object {
                 "horizontal": "left",
@@ -109,6 +111,310 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                 }
               }
               className="MuiPopover-root"
+              container={
+                <body
+                  style="padding-right: 0px; overflow: hidden;"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="app"
+                    id="app"
+                  />
+                  <div
+                    class="MuiPopover-root"
+                    id="long-menu"
+                    margin="dense"
+                    role="presentation"
+                    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: transparent;"
+                    />
+                    <div
+                      data-test="sentinelStart"
+                      tabindex="0"
+                    />
+                    <div
+                      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                      style="opacity: 1; transform: scale(1, 1); transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+                      tabindex="-1"
+                    >
+                      <ul
+                        class="MuiList-root MuiMenu-list MuiList-padding"
+                        role="menu"
+                        tabindex="-1"
+                      >
+                        <li
+                          aria-disabled="false"
+                          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root sc-AxiKw huBLQ MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button Mui-focusVisible Mui-focusVisible"
+                          px="0"
+                          role="menuitem"
+                          tabindex="0"
+                          touchscreen="0"
+                        >
+                          <div
+                            class="MuiBox-root MuiBox-root-56"
+                          >
+                            <div
+                              class="MuiBox-root MuiBox-root-57"
+                            >
+                              <span
+                                class="sc-AxjAm dcpLPx"
+                                color="#f00"
+                              />
+                              <span>
+                                Coding
+                              </span>
+                            </div>
+                            <div
+                              class="MuiBox-root MuiBox-root-58"
+                            >
+                              <button
+                                aria-label="Edit label"
+                                class="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                              <button
+                                aria-label="Delete label"
+                                class="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
+                                hide="1"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </li>
+                        <li
+                          aria-disabled="false"
+                          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root sc-AxiKw huBLQ MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                          px="0"
+                          role="menuitem"
+                          tabindex="-1"
+                          touchscreen="0"
+                        >
+                          <div
+                            class="MuiBox-root MuiBox-root-77"
+                          >
+                            <div
+                              class="MuiBox-root MuiBox-root-78"
+                            >
+                              <span
+                                class="sc-AxjAm gWmHzx"
+                                color="#0f0"
+                              />
+                              <span>
+                                Reading
+                              </span>
+                            </div>
+                            <div
+                              class="MuiBox-root MuiBox-root-79"
+                            >
+                              <button
+                                aria-label="Edit label"
+                                class="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                              <button
+                                aria-label="Delete label"
+                                class="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
+                                hide="1"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </li>
+                        <li
+                          aria-disabled="false"
+                          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root sc-AxiKw huBLQ MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                          px="0"
+                          role="menuitem"
+                          tabindex="-1"
+                          touchscreen="0"
+                        >
+                          <div
+                            class="MuiBox-root MuiBox-root-80"
+                          >
+                            <div
+                              class="MuiBox-root MuiBox-root-81"
+                            >
+                              <span
+                                class="sc-AxjAm iJybWR"
+                                color="#00f"
+                              />
+                              <span>
+                                Playing a guitar
+                              </span>
+                            </div>
+                            <div
+                              class="MuiBox-root MuiBox-root-82"
+                            >
+                              <button
+                                aria-label="Edit label"
+                                class="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                              <button
+                                aria-label="Delete label"
+                                class="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
+                                hide="1"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </li>
+                        <li
+                          aria-disabled="false"
+                          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                          role="menuitem"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root sc-AxhCb cdoERD"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                            />
+                          </svg>
+                          Add new label
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      data-test="sentinelEnd"
+                      tabindex="0"
+                    />
+                  </div>
+                </body>
+              }
               id="long-menu"
               keepMounted={true}
               margin="dense"
@@ -116,6 +422,310 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
               open={true}
             >
               <ForwardRef(Portal)
+                container={
+                  <body
+                    style="padding-right: 0px; overflow: hidden;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      class="app"
+                      id="app"
+                    />
+                    <div
+                      class="MuiPopover-root"
+                      id="long-menu"
+                      margin="dense"
+                      role="presentation"
+                      style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+                    >
+                      <div
+                        aria-hidden="true"
+                        style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: transparent;"
+                      />
+                      <div
+                        data-test="sentinelStart"
+                        tabindex="0"
+                      />
+                      <div
+                        class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+                        style="opacity: 1; transform: scale(1, 1); transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+                        tabindex="-1"
+                      >
+                        <ul
+                          class="MuiList-root MuiMenu-list MuiList-padding"
+                          role="menu"
+                          tabindex="-1"
+                        >
+                          <li
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root sc-AxiKw huBLQ MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button Mui-focusVisible Mui-focusVisible"
+                            px="0"
+                            role="menuitem"
+                            tabindex="0"
+                            touchscreen="0"
+                          >
+                            <div
+                              class="MuiBox-root MuiBox-root-56"
+                            >
+                              <div
+                                class="MuiBox-root MuiBox-root-57"
+                              >
+                                <span
+                                  class="sc-AxjAm dcpLPx"
+                                  color="#f00"
+                                />
+                                <span>
+                                  Coding
+                                </span>
+                              </div>
+                              <div
+                                class="MuiBox-root MuiBox-root-58"
+                              >
+                                <button
+                                  aria-label="Edit label"
+                                  class="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    class="MuiIconButton-label"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </button>
+                                <button
+                                  aria-label="Delete label"
+                                  class="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
+                                  hide="1"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    class="MuiIconButton-label"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </li>
+                          <li
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root sc-AxiKw huBLQ MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                            px="0"
+                            role="menuitem"
+                            tabindex="-1"
+                            touchscreen="0"
+                          >
+                            <div
+                              class="MuiBox-root MuiBox-root-77"
+                            >
+                              <div
+                                class="MuiBox-root MuiBox-root-78"
+                              >
+                                <span
+                                  class="sc-AxjAm gWmHzx"
+                                  color="#0f0"
+                                />
+                                <span>
+                                  Reading
+                                </span>
+                              </div>
+                              <div
+                                class="MuiBox-root MuiBox-root-79"
+                              >
+                                <button
+                                  aria-label="Edit label"
+                                  class="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    class="MuiIconButton-label"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </button>
+                                <button
+                                  aria-label="Delete label"
+                                  class="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
+                                  hide="1"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    class="MuiIconButton-label"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </li>
+                          <li
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root sc-AxiKw huBLQ MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                            px="0"
+                            role="menuitem"
+                            tabindex="-1"
+                            touchscreen="0"
+                          >
+                            <div
+                              class="MuiBox-root MuiBox-root-80"
+                            >
+                              <div
+                                class="MuiBox-root MuiBox-root-81"
+                              >
+                                <span
+                                  class="sc-AxjAm iJybWR"
+                                  color="#00f"
+                                />
+                                <span>
+                                  Playing a guitar
+                                </span>
+                              </div>
+                              <div
+                                class="MuiBox-root MuiBox-root-82"
+                              >
+                                <button
+                                  aria-label="Edit label"
+                                  class="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    class="MuiIconButton-label"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </button>
+                                <button
+                                  aria-label="Delete label"
+                                  class="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
+                                  hide="1"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    class="MuiIconButton-label"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </li>
+                          <li
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+                            role="menuitem"
+                            tabindex="-1"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root sc-AxhCb cdoERD"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                              />
+                            </svg>
+                            Add new label
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </li>
+                        </ul>
+                      </div>
+                      <div
+                        data-test="sentinelEnd"
+                        tabindex="0"
+                      />
+                    </div>
+                  </body>
+                }
                 disablePortal={false}
               >
                 <Portal

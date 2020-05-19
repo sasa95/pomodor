@@ -30,7 +30,7 @@ describe('<LabelsMenu />', () => {
 
       return mount(
         <Provider store={store}>
-          <LabelsMenu />
+          <LabelsMenu anchor={document.createElement('div')} />
         </Provider>
       )
     }

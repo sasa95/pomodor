@@ -12,6 +12,10 @@ describe('<Settings />', () => {
       showTimerInTitle: true,
       showNotifications: true,
       darkMode: false,
+      workDuration: 25,
+      shortBreakDuration: 5,
+      longBreakDuration: 20,
+      rounds: 4,
     },
   }
 

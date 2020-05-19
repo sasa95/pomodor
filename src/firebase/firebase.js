@@ -17,7 +17,7 @@ firebase
   .firestore()
   .enablePersistence({ synchronizeTabs: true })
   // eslint-disable-next-line no-console
-  .catch((e) => console.error(e))
+  .catch((e) => console.warn(e))
 
 const fs = firebase.firestore()
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()

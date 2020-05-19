@@ -44,6 +44,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
             name="Work duration"
             step={5}
             unit="minutes"
+            value={25}
           >
             <Styled(MuiBox)
               mt={2}
@@ -416,6 +417,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                       },
                     }
                   }
+                  value={25}
                   valueLabelDisplay="auto"
                 >
                   <WithStyles(ForwardRef(Slider))
@@ -734,6 +736,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         },
                       }
                     }
+                    value={25}
                     valueLabelDisplay="auto"
                   >
                     <ForwardRef(Slider)
@@ -1076,6 +1079,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           },
                         }
                       }
+                      value={25}
                       valueLabelDisplay="auto"
                     >
                       <span
@@ -1381,16 +1385,16 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           style={
                             Object {
                               "left": "0%",
-                              "width": "NaN%",
+                              "width": "36.36363636363637%",
                             }
                           }
                         />
                         <input
                           type="hidden"
-                          value="NaN"
+                          value="25"
                         />
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={0}
                           style={
                             Object {
@@ -1400,7 +1404,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={0}
                           style={
                             Object {
@@ -1411,7 +1415,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           5 min
                         </span>
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={1}
                           style={
                             Object {
@@ -1421,7 +1425,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={1}
                           style={
                             Object {
@@ -1458,7 +1462,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           index={0}
                           key="0"
                           open={false}
-                          value={NaN}
+                          value={25}
                           valueLabelDisplay="auto"
                           valueLabelFormat={[Function]}
                         >
@@ -1476,7 +1480,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                             disabled={false}
                             index={0}
                             open={false}
-                            value={NaN}
+                            value={25}
                             valueLabelDisplay="auto"
                             valueLabelFormat={[Function]}
                           >
@@ -1485,8 +1489,8 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               aria-orientation="horizontal"
                               aria-valuemax={60}
                               aria-valuemin={5}
-                              aria-valuenow={NaN}
-                              aria-valuetext="NaN minutes"
+                              aria-valuenow={25}
+                              aria-valuetext="25 minutes"
                               className="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                               data-index={0}
                               onBlur={[Function]}
@@ -1497,7 +1501,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               role="slider"
                               style={
                                 Object {
-                                  "left": "NaN%",
+                                  "left": "36.36363636363637%",
                                 }
                               }
                               tabIndex={0}
@@ -1511,7 +1515,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                   <span
                                     className="PrivateValueLabel-label-57"
                                   >
-                                    NaN
+                                    25
                                   </span>
                                 </span>
                               </span>
@@ -1544,6 +1548,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
             name="Short break duration"
             step={5}
             unit="minutes"
+            value={5}
           >
             <Styled(MuiBox)
               mt={2}
@@ -1912,6 +1917,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                       },
                     }
                   }
+                  value={5}
                   valueLabelDisplay="auto"
                 >
                   <WithStyles(ForwardRef(Slider))
@@ -2226,6 +2232,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         },
                       }
                     }
+                    value={5}
                     valueLabelDisplay="auto"
                   >
                     <ForwardRef(Slider)
@@ -2564,6 +2571,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           },
                         }
                       }
+                      value={5}
                       valueLabelDisplay="auto"
                     >
                       <span
@@ -2869,16 +2877,16 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           style={
                             Object {
                               "left": "0%",
-                              "width": "NaN%",
+                              "width": "0%",
                             }
                           }
                         />
                         <input
                           type="hidden"
-                          value="NaN"
+                          value="5"
                         />
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={0}
                           style={
                             Object {
@@ -2888,7 +2896,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={0}
                           style={
                             Object {
@@ -2925,7 +2933,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           index={0}
                           key="0"
                           open={false}
-                          value={NaN}
+                          value={5}
                           valueLabelDisplay="auto"
                           valueLabelFormat={[Function]}
                         >
@@ -2943,7 +2951,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                             disabled={false}
                             index={0}
                             open={false}
-                            value={NaN}
+                            value={5}
                             valueLabelDisplay="auto"
                             valueLabelFormat={[Function]}
                           >
@@ -2952,8 +2960,8 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               aria-orientation="horizontal"
                               aria-valuemax={30}
                               aria-valuemin={5}
-                              aria-valuenow={NaN}
-                              aria-valuetext="NaN minutes"
+                              aria-valuenow={5}
+                              aria-valuetext="5 minutes"
                               className="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                               data-index={0}
                               onBlur={[Function]}
@@ -2964,7 +2972,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               role="slider"
                               style={
                                 Object {
-                                  "left": "NaN%",
+                                  "left": "0%",
                                 }
                               }
                               tabIndex={0}
@@ -2978,7 +2986,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                   <span
                                     className="PrivateValueLabel-label-57"
                                   >
-                                    NaN
+                                    5
                                   </span>
                                 </span>
                               </span>
@@ -3015,6 +3023,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
             name="Long break duration"
             step={5}
             unit="minutes"
+            value={20}
           >
             <Styled(MuiBox)
               mt={2}
@@ -3387,6 +3396,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                       },
                     }
                   }
+                  value={20}
                   valueLabelDisplay="auto"
                 >
                   <WithStyles(ForwardRef(Slider))
@@ -3705,6 +3715,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         },
                       }
                     }
+                    value={20}
                     valueLabelDisplay="auto"
                   >
                     <ForwardRef(Slider)
@@ -4047,6 +4058,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           },
                         }
                       }
+                      value={20}
                       valueLabelDisplay="auto"
                     >
                       <span
@@ -4352,16 +4364,16 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           style={
                             Object {
                               "left": "0%",
-                              "width": "NaN%",
+                              "width": "37.5%",
                             }
                           }
                         />
                         <input
                           type="hidden"
-                          value="NaN"
+                          value="20"
                         />
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={0}
                           style={
                             Object {
@@ -4371,7 +4383,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={0}
                           style={
                             Object {
@@ -4382,7 +4394,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           5 min
                         </span>
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={1}
                           style={
                             Object {
@@ -4392,7 +4404,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={1}
                           style={
                             Object {
@@ -4429,7 +4441,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           index={0}
                           key="0"
                           open={false}
-                          value={NaN}
+                          value={20}
                           valueLabelDisplay="auto"
                           valueLabelFormat={[Function]}
                         >
@@ -4447,7 +4459,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                             disabled={false}
                             index={0}
                             open={false}
-                            value={NaN}
+                            value={20}
                             valueLabelDisplay="auto"
                             valueLabelFormat={[Function]}
                           >
@@ -4456,8 +4468,8 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               aria-orientation="horizontal"
                               aria-valuemax={45}
                               aria-valuemin={5}
-                              aria-valuenow={NaN}
-                              aria-valuetext="NaN minutes"
+                              aria-valuenow={20}
+                              aria-valuetext="20 minutes"
                               className="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                               data-index={0}
                               onBlur={[Function]}
@@ -4468,7 +4480,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               role="slider"
                               style={
                                 Object {
-                                  "left": "NaN%",
+                                  "left": "37.5%",
                                 }
                               }
                               tabIndex={0}
@@ -4482,7 +4494,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                   <span
                                     className="PrivateValueLabel-label-57"
                                   >
-                                    NaN
+                                    20
                                   </span>
                                 </span>
                               </span>
@@ -4519,6 +4531,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
             name="Rounds"
             step={1}
             unit="rounds"
+            value={4}
           >
             <Styled(MuiBox)
               mt={2}
@@ -4891,6 +4904,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                       },
                     }
                   }
+                  value={4}
                   valueLabelDisplay="auto"
                 >
                   <WithStyles(ForwardRef(Slider))
@@ -5209,6 +5223,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         },
                       }
                     }
+                    value={4}
                     valueLabelDisplay="auto"
                   >
                     <ForwardRef(Slider)
@@ -5551,6 +5566,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           },
                         }
                       }
+                      value={4}
                       valueLabelDisplay="auto"
                     >
                       <span
@@ -5856,16 +5872,16 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           style={
                             Object {
                               "left": "0%",
-                              "width": "NaN%",
+                              "width": "15.384615384615385%",
                             }
                           }
                         />
                         <input
                           type="hidden"
-                          value="NaN"
+                          value="4"
                         />
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={0}
                           style={
                             Object {
@@ -5875,7 +5891,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={0}
                           style={
                             Object {
@@ -5886,7 +5902,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           2
                         </span>
                         <span
-                          className="MuiSlider-mark"
+                          className="MuiSlider-mark MuiSlider-markActive"
                           data-index={1}
                           style={
                             Object {
@@ -5896,7 +5912,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                         />
                         <span
                           aria-hidden={true}
-                          className="MuiSlider-markLabel"
+                          className="MuiSlider-markLabel MuiSlider-markLabelActive"
                           data-index={1}
                           style={
                             Object {
@@ -5933,7 +5949,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                           index={0}
                           key="0"
                           open={false}
-                          value={NaN}
+                          value={4}
                           valueLabelDisplay="auto"
                           valueLabelFormat={[Function]}
                         >
@@ -5951,7 +5967,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                             disabled={false}
                             index={0}
                             open={false}
-                            value={NaN}
+                            value={4}
                             valueLabelDisplay="auto"
                             valueLabelFormat={[Function]}
                           >
@@ -5960,8 +5976,8 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               aria-orientation="horizontal"
                               aria-valuemax={15}
                               aria-valuemin={2}
-                              aria-valuenow={NaN}
-                              aria-valuetext="NaN rounds"
+                              aria-valuenow={4}
+                              aria-valuetext="4 rounds"
                               className="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                               data-index={0}
                               onBlur={[Function]}
@@ -5972,7 +5988,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                               role="slider"
                               style={
                                 Object {
-                                  "left": "NaN%",
+                                  "left": "15.384615384615385%",
                                 }
                               }
                               tabIndex={0}
@@ -5986,7 +6002,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                   <span
                                     className="PrivateValueLabel-label-57"
                                   >
-                                    NaN
+                                    4
                                   </span>
                                 </span>
                               </span>
@@ -6872,33 +6888,33 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                             />
                                                             <span
                                                               class="MuiSlider-track"
-                                                              style="left: 0%;"
+                                                              style="left: 0%; width: 36.36363636363637%;"
                                                             />
                                                             <input
                                                               type="hidden"
-                                                              value="NaN"
+                                                              value="25"
                                                             />
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             >
                                                               5 min
                                                             </span>
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="1"
                                                               style="left: 36.36363636363637%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="1"
                                                               style="left: 36.36363636363637%;"
                                                             >
@@ -6922,11 +6938,12 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                               aria-orientation="horizontal"
                                                               aria-valuemax="60"
                                                               aria-valuemin="5"
-                                                              aria-valuenow="NaN"
-                                                              aria-valuetext="NaN minutes"
+                                                              aria-valuenow="25"
+                                                              aria-valuetext="25 minutes"
                                                               class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                                                               data-index="0"
                                                               role="slider"
+                                                              style="left: 36.36363636363637%;"
                                                               tabindex="0"
                                                             >
                                                               <span
@@ -6938,7 +6955,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                                   <span
                                                                     class="PrivateValueLabel-label-57"
                                                                   >
-                                                                    NaN
+                                                                    25
                                                                   </span>
                                                                 </span>
                                                               </span>
@@ -6964,20 +6981,20 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                             />
                                                             <span
                                                               class="MuiSlider-track"
-                                                              style="left: 0%;"
+                                                              style="left: 0%; width: 0%;"
                                                             />
                                                             <input
                                                               type="hidden"
-                                                              value="NaN"
+                                                              value="5"
                                                             />
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             >
@@ -7001,11 +7018,12 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                               aria-orientation="horizontal"
                                                               aria-valuemax="30"
                                                               aria-valuemin="5"
-                                                              aria-valuenow="NaN"
-                                                              aria-valuetext="NaN minutes"
+                                                              aria-valuenow="5"
+                                                              aria-valuetext="5 minutes"
                                                               class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                                                               data-index="0"
                                                               role="slider"
+                                                              style="left: 0%;"
                                                               tabindex="0"
                                                             >
                                                               <span
@@ -7017,7 +7035,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                                   <span
                                                                     class="PrivateValueLabel-label-57"
                                                                   >
-                                                                    NaN
+                                                                    5
                                                                   </span>
                                                                 </span>
                                                               </span>
@@ -7043,33 +7061,33 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                             />
                                                             <span
                                                               class="MuiSlider-track"
-                                                              style="left: 0%;"
+                                                              style="left: 0%; width: 37.5%;"
                                                             />
                                                             <input
                                                               type="hidden"
-                                                              value="NaN"
+                                                              value="20"
                                                             />
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             >
                                                               5 min
                                                             </span>
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="1"
                                                               style="left: 37.5%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="1"
                                                               style="left: 37.5%;"
                                                             >
@@ -7093,11 +7111,12 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                               aria-orientation="horizontal"
                                                               aria-valuemax="45"
                                                               aria-valuemin="5"
-                                                              aria-valuenow="NaN"
-                                                              aria-valuetext="NaN minutes"
+                                                              aria-valuenow="20"
+                                                              aria-valuetext="20 minutes"
                                                               class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                                                               data-index="0"
                                                               role="slider"
+                                                              style="left: 37.5%;"
                                                               tabindex="0"
                                                             >
                                                               <span
@@ -7109,7 +7128,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                                   <span
                                                                     class="PrivateValueLabel-label-57"
                                                                   >
-                                                                    NaN
+                                                                    20
                                                                   </span>
                                                                 </span>
                                                               </span>
@@ -7135,33 +7154,33 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                             />
                                                             <span
                                                               class="MuiSlider-track"
-                                                              style="left: 0%;"
+                                                              style="left: 0%; width: 15.384615384615385%;"
                                                             />
                                                             <input
                                                               type="hidden"
-                                                              value="NaN"
+                                                              value="4"
                                                             />
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="0"
                                                               style="left: 0%;"
                                                             >
                                                               2
                                                             </span>
                                                             <span
-                                                              class="MuiSlider-mark"
+                                                              class="MuiSlider-mark MuiSlider-markActive"
                                                               data-index="1"
                                                               style="left: 15.384615384615385%;"
                                                             />
                                                             <span
                                                               aria-hidden="true"
-                                                              class="MuiSlider-markLabel"
+                                                              class="MuiSlider-markLabel MuiSlider-markLabelActive"
                                                               data-index="1"
                                                               style="left: 15.384615384615385%;"
                                                             >
@@ -7185,11 +7204,12 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                               aria-orientation="horizontal"
                                                               aria-valuemax="15"
                                                               aria-valuemin="2"
-                                                              aria-valuenow="NaN"
-                                                              aria-valuetext="NaN rounds"
+                                                              aria-valuenow="4"
+                                                              aria-valuetext="4 rounds"
                                                               class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-53"
                                                               data-index="0"
                                                               role="slider"
+                                                              style="left: 15.384615384615385%;"
                                                               tabindex="0"
                                                             >
                                                               <span
@@ -7201,7 +7221,7 @@ exports[`<Settings /> should render <Settings /> correctly 1`] = `
                                                                   <span
                                                                     class="PrivateValueLabel-label-57"
                                                                   >
-                                                                    NaN
+                                                                    4
                                                                   </span>
                                                                 </span>
                                                               </span>

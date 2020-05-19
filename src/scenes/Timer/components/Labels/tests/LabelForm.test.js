@@ -1,4 +1,5 @@
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -79,8 +80,10 @@ describe('<LabelForm />', () => {
   test('should call dispatch on color value change', () => {
     const wrapperRendered = wrapper(labels[0])
 
-    wrapperRendered.find(ColorTextField).prop('onChange')({
-      target: { value: '#ffeb3b' },
+    act(() => {
+      wrapperRendered.find(ColorTextField).prop('onChange')({
+        target: { value: '#ffeb3b' },
+      })
     })
 
     expect(store.dispatch).toHaveBeenCalledTimes(1)

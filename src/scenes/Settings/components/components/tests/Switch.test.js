@@ -1,4 +1,5 @@
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -41,8 +42,10 @@ describe('<Switch />', () => {
   })
 
   test('should call passed action with the right data when onChange is triggered', () => {
-    wrapper.find(MatSwitch).prop('onChange')({
-      target: { checked: true },
+    act(() => {
+      wrapper.find(MatSwitch).prop('onChange')({
+        target: { checked: true },
+      })
     })
 
     expect(startSetShowNotifications).toHaveBeenCalledWith(true)

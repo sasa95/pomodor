@@ -23,7 +23,7 @@ describe('<LabelButton />', () => {
       timerStatus = STATUSES.onHold
     ) => {
       const storeData = {
-        labels: { data: labelsData, labelSelected },
+        labels: { data: labelsData, labelSelected, menuOpened: false },
         timer: { status: timerStatus },
       }
 
