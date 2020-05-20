@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SkipButton /> should render <NoData /> correctly 1`] = `
+<Styled(Styled(MuiBox))
+  alignItems="center"
+  alignSelf="center"
+  display="flex"
+  flexDirection="column"
+  justifyContent="center"
+  maxWidth="600px"
+  width="90%"
+>
+  <img
+    alt="Statistics and charts"
+    src="no-data.svg"
+  />
+  <WithStyles(ForwardRef(Typography))
+    align="center"
+  >
+    Nothing to show here. Come back after you
+     
+    <Styled(Link)
+      color="#f50057"
+      to="/timer"
+    >
+      complete a few sessions
+    </Styled(Link)>
+    .
+  </WithStyles(ForwardRef(Typography))>
+</Styled(Styled(MuiBox))>
+`;

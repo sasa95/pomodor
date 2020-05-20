@@ -6,7 +6,7 @@ import {
   startSetSessions,
   startAddSession,
 } from '../actions'
-import sessions from './fixtures/sessions'
+import sessions from './mock-data/sessions'
 import fs from '../../../firebase/firebase'
 
 const uid = 'asdf1234'

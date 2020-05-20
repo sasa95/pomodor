@@ -1,5 +1,5 @@
 import { reducer } from '../reducer'
-import sessions from './fixtures/sessions'
+import sessions from './mock-data/sessions'
 
 test('should setup default sessions state', () => {
   const state = reducer(undefined, { type: '@@INIT' })

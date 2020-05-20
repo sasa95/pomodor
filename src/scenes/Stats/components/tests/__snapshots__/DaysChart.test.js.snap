@@ -1,0 +1,2577 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DaysChart>
+    <Styled(WithStyles(ForwardRef(Card)))
+      theme={
+        Object {
+          "breakpoints": Object {
+            "between": [Function],
+            "down": [Function],
+            "keys": Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ],
+            "only": [Function],
+            "up": [Function],
+            "values": Object {
+              "lg": 1280,
+              "md": 960,
+              "sm": 600,
+              "xl": 1920,
+              "xs": 0,
+            },
+            "width": [Function],
+          },
+          "direction": "ltr",
+          "mixins": Object {
+            "gutters": [Function],
+            "toolbar": Object {
+              "@media (min-width:0px) and (orientation: landscape)": Object {
+                "minHeight": 48,
+              },
+              "@media (min-width:600px)": Object {
+                "minHeight": 64,
+              },
+              "minHeight": 56,
+            },
+          },
+          "overrides": Object {},
+          "palette": Object {
+            "action": Object {
+              "activatedOpacity": 0.12,
+              "active": "rgba(0, 0, 0, 0.54)",
+              "disabled": "rgba(0, 0, 0, 0.26)",
+              "disabledBackground": "rgba(0, 0, 0, 0.12)",
+              "disabledOpacity": 0.38,
+              "focus": "rgba(0, 0, 0, 0.12)",
+              "focusOpacity": 0.12,
+              "hover": "rgba(0, 0, 0, 0.04)",
+              "hoverOpacity": 0.04,
+              "selected": "rgba(0, 0, 0, 0.08)",
+              "selectedOpacity": 0.08,
+            },
+            "augmentColor": [Function],
+            "background": Object {
+              "default": "#fafafa",
+              "paper": "#fff",
+            },
+            "common": Object {
+              "black": "#000",
+              "white": "#fff",
+            },
+            "contrastThreshold": 3,
+            "divider": "rgba(0, 0, 0, 0.12)",
+            "error": Object {
+              "contrastText": "#fff",
+              "dark": "#d32f2f",
+              "light": "#e57373",
+              "main": "#f44336",
+            },
+            "getContrastText": [Function],
+            "grey": Object {
+              "100": "#f5f5f5",
+              "200": "#eeeeee",
+              "300": "#e0e0e0",
+              "400": "#bdbdbd",
+              "50": "#fafafa",
+              "500": "#9e9e9e",
+              "600": "#757575",
+              "700": "#616161",
+              "800": "#424242",
+              "900": "#212121",
+              "A100": "#d5d5d5",
+              "A200": "#aaaaaa",
+              "A400": "#303030",
+              "A700": "#616161",
+            },
+            "info": Object {
+              "contrastText": "#fff",
+              "dark": "#1976d2",
+              "light": "#64b5f6",
+              "main": "#2196f3",
+            },
+            "primary": Object {
+              "contrastText": "#fff",
+              "dark": "#303f9f",
+              "light": "#7986cb",
+              "main": "#3f51b5",
+            },
+            "secondary": Object {
+              "contrastText": "#fff",
+              "dark": "#c51162",
+              "light": "#ff4081",
+              "main": "#f50057",
+            },
+            "success": Object {
+              "contrastText": "rgba(0, 0, 0, 0.87)",
+              "dark": "#388e3c",
+              "light": "#81c784",
+              "main": "#4caf50",
+            },
+            "text": Object {
+              "disabled": "rgba(0, 0, 0, 0.38)",
+              "hint": "rgba(0, 0, 0, 0.38)",
+              "primary": "rgba(0, 0, 0, 0.87)",
+              "secondary": "rgba(0, 0, 0, 0.54)",
+            },
+            "tonalOffset": 0.2,
+            "type": "light",
+            "warning": Object {
+              "contrastText": "rgba(0, 0, 0, 0.87)",
+              "dark": "#f57c00",
+              "light": "#ffb74d",
+              "main": "#ff9800",
+            },
+          },
+          "props": Object {},
+          "shadows": Array [
+            "none",
+            "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+            "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+            "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+            "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+            "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+            "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+            "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+            "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+            "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+            "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+            "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+            "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+            "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+            "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+            "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+            "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+            "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+            "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+            "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+            "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+            "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+            "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+            "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+            "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+          ],
+          "shape": Object {
+            "borderRadius": 4,
+          },
+          "spacing": [Function],
+          "transitions": Object {
+            "create": [Function],
+            "duration": Object {
+              "complex": 375,
+              "enteringScreen": 225,
+              "leavingScreen": 195,
+              "short": 250,
+              "shorter": 200,
+              "shortest": 150,
+              "standard": 300,
+            },
+            "easing": Object {
+              "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+              "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+              "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+              "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+            },
+            "getAutoHeightDuration": [Function],
+          },
+          "typography": Object {
+            "body1": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "1rem",
+              "fontWeight": 400,
+              "letterSpacing": "0.00938em",
+              "lineHeight": 1.5,
+            },
+            "body2": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "0.875rem",
+              "fontWeight": 400,
+              "letterSpacing": "0.01071em",
+              "lineHeight": 1.43,
+            },
+            "button": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "0.875rem",
+              "fontWeight": 500,
+              "letterSpacing": "0.02857em",
+              "lineHeight": 1.75,
+              "textTransform": "uppercase",
+            },
+            "caption": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "0.75rem",
+              "fontWeight": 400,
+              "letterSpacing": "0.03333em",
+              "lineHeight": 1.66,
+            },
+            "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+            "fontSize": 14,
+            "fontWeightBold": 700,
+            "fontWeightLight": 300,
+            "fontWeightMedium": 500,
+            "fontWeightRegular": 400,
+            "h1": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "6rem",
+              "fontWeight": 300,
+              "letterSpacing": "-0.01562em",
+              "lineHeight": 1.167,
+            },
+            "h2": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "3.75rem",
+              "fontWeight": 300,
+              "letterSpacing": "-0.00833em",
+              "lineHeight": 1.2,
+            },
+            "h3": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "3rem",
+              "fontWeight": 400,
+              "letterSpacing": "0em",
+              "lineHeight": 1.167,
+            },
+            "h4": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "2.125rem",
+              "fontWeight": 400,
+              "letterSpacing": "0.00735em",
+              "lineHeight": 1.235,
+            },
+            "h5": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "1.5rem",
+              "fontWeight": 400,
+              "letterSpacing": "0em",
+              "lineHeight": 1.334,
+            },
+            "h6": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "1.25rem",
+              "fontWeight": 500,
+              "letterSpacing": "0.0075em",
+              "lineHeight": 1.6,
+            },
+            "htmlFontSize": 16,
+            "overline": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "0.75rem",
+              "fontWeight": 400,
+              "letterSpacing": "0.08333em",
+              "lineHeight": 2.66,
+              "textTransform": "uppercase",
+            },
+            "pxToRem": [Function],
+            "round": [Function],
+            "subtitle1": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "1rem",
+              "fontWeight": 400,
+              "letterSpacing": "0.00938em",
+              "lineHeight": 1.75,
+            },
+            "subtitle2": Object {
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": "0.875rem",
+              "fontWeight": 500,
+              "letterSpacing": "0.00714em",
+              "lineHeight": 1.57,
+            },
+          },
+          "zIndex": Object {
+            "appBar": 1100,
+            "drawer": 1200,
+            "mobileStepper": 1000,
+            "modal": 1300,
+            "snackbar": 1400,
+            "speedDial": 1050,
+            "tooltip": 1500,
+          },
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Card))
+        className="sc-AxjAm gLaiHB"
+        theme={
+          Object {
+            "breakpoints": Object {
+              "between": [Function],
+              "down": [Function],
+              "keys": Array [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+              ],
+              "only": [Function],
+              "up": [Function],
+              "values": Object {
+                "lg": 1280,
+                "md": 960,
+                "sm": 600,
+                "xl": 1920,
+                "xs": 0,
+              },
+              "width": [Function],
+            },
+            "direction": "ltr",
+            "mixins": Object {
+              "gutters": [Function],
+              "toolbar": Object {
+                "@media (min-width:0px) and (orientation: landscape)": Object {
+                  "minHeight": 48,
+                },
+                "@media (min-width:600px)": Object {
+                  "minHeight": 64,
+                },
+                "minHeight": 56,
+              },
+            },
+            "overrides": Object {},
+            "palette": Object {
+              "action": Object {
+                "activatedOpacity": 0.12,
+                "active": "rgba(0, 0, 0, 0.54)",
+                "disabled": "rgba(0, 0, 0, 0.26)",
+                "disabledBackground": "rgba(0, 0, 0, 0.12)",
+                "disabledOpacity": 0.38,
+                "focus": "rgba(0, 0, 0, 0.12)",
+                "focusOpacity": 0.12,
+                "hover": "rgba(0, 0, 0, 0.04)",
+                "hoverOpacity": 0.04,
+                "selected": "rgba(0, 0, 0, 0.08)",
+                "selectedOpacity": 0.08,
+              },
+              "augmentColor": [Function],
+              "background": Object {
+                "default": "#fafafa",
+                "paper": "#fff",
+              },
+              "common": Object {
+                "black": "#000",
+                "white": "#fff",
+              },
+              "contrastThreshold": 3,
+              "divider": "rgba(0, 0, 0, 0.12)",
+              "error": Object {
+                "contrastText": "#fff",
+                "dark": "#d32f2f",
+                "light": "#e57373",
+                "main": "#f44336",
+              },
+              "getContrastText": [Function],
+              "grey": Object {
+                "100": "#f5f5f5",
+                "200": "#eeeeee",
+                "300": "#e0e0e0",
+                "400": "#bdbdbd",
+                "50": "#fafafa",
+                "500": "#9e9e9e",
+                "600": "#757575",
+                "700": "#616161",
+                "800": "#424242",
+                "900": "#212121",
+                "A100": "#d5d5d5",
+                "A200": "#aaaaaa",
+                "A400": "#303030",
+                "A700": "#616161",
+              },
+              "info": Object {
+                "contrastText": "#fff",
+                "dark": "#1976d2",
+                "light": "#64b5f6",
+                "main": "#2196f3",
+              },
+              "primary": Object {
+                "contrastText": "#fff",
+                "dark": "#303f9f",
+                "light": "#7986cb",
+                "main": "#3f51b5",
+              },
+              "secondary": Object {
+                "contrastText": "#fff",
+                "dark": "#c51162",
+                "light": "#ff4081",
+                "main": "#f50057",
+              },
+              "success": Object {
+                "contrastText": "rgba(0, 0, 0, 0.87)",
+                "dark": "#388e3c",
+                "light": "#81c784",
+                "main": "#4caf50",
+              },
+              "text": Object {
+                "disabled": "rgba(0, 0, 0, 0.38)",
+                "hint": "rgba(0, 0, 0, 0.38)",
+                "primary": "rgba(0, 0, 0, 0.87)",
+                "secondary": "rgba(0, 0, 0, 0.54)",
+              },
+              "tonalOffset": 0.2,
+              "type": "light",
+              "warning": Object {
+                "contrastText": "rgba(0, 0, 0, 0.87)",
+                "dark": "#f57c00",
+                "light": "#ffb74d",
+                "main": "#ff9800",
+              },
+            },
+            "props": Object {},
+            "shadows": Array [
+              "none",
+              "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+              "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+              "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+              "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+              "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+              "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+              "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+              "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+              "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+              "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+              "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+              "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+              "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+              "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+              "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+              "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+              "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+              "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+              "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+              "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+              "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+              "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+              "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+              "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+            ],
+            "shape": Object {
+              "borderRadius": 4,
+            },
+            "spacing": [Function],
+            "transitions": Object {
+              "create": [Function],
+              "duration": Object {
+                "complex": 375,
+                "enteringScreen": 225,
+                "leavingScreen": 195,
+                "short": 250,
+                "shorter": 200,
+                "shortest": 150,
+                "standard": 300,
+              },
+              "easing": Object {
+                "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+                "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+                "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+              },
+              "getAutoHeightDuration": [Function],
+            },
+            "typography": Object {
+              "body1": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "1rem",
+                "fontWeight": 400,
+                "letterSpacing": "0.00938em",
+                "lineHeight": 1.5,
+              },
+              "body2": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "0.875rem",
+                "fontWeight": 400,
+                "letterSpacing": "0.01071em",
+                "lineHeight": 1.43,
+              },
+              "button": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "0.875rem",
+                "fontWeight": 500,
+                "letterSpacing": "0.02857em",
+                "lineHeight": 1.75,
+                "textTransform": "uppercase",
+              },
+              "caption": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "0.75rem",
+                "fontWeight": 400,
+                "letterSpacing": "0.03333em",
+                "lineHeight": 1.66,
+              },
+              "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+              "fontSize": 14,
+              "fontWeightBold": 700,
+              "fontWeightLight": 300,
+              "fontWeightMedium": 500,
+              "fontWeightRegular": 400,
+              "h1": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "6rem",
+                "fontWeight": 300,
+                "letterSpacing": "-0.01562em",
+                "lineHeight": 1.167,
+              },
+              "h2": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "3.75rem",
+                "fontWeight": 300,
+                "letterSpacing": "-0.00833em",
+                "lineHeight": 1.2,
+              },
+              "h3": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "3rem",
+                "fontWeight": 400,
+                "letterSpacing": "0em",
+                "lineHeight": 1.167,
+              },
+              "h4": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "2.125rem",
+                "fontWeight": 400,
+                "letterSpacing": "0.00735em",
+                "lineHeight": 1.235,
+              },
+              "h5": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "1.5rem",
+                "fontWeight": 400,
+                "letterSpacing": "0em",
+                "lineHeight": 1.334,
+              },
+              "h6": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "1.25rem",
+                "fontWeight": 500,
+                "letterSpacing": "0.0075em",
+                "lineHeight": 1.6,
+              },
+              "htmlFontSize": 16,
+              "overline": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "0.75rem",
+                "fontWeight": 400,
+                "letterSpacing": "0.08333em",
+                "lineHeight": 2.66,
+                "textTransform": "uppercase",
+              },
+              "pxToRem": [Function],
+              "round": [Function],
+              "subtitle1": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "1rem",
+                "fontWeight": 400,
+                "letterSpacing": "0.00938em",
+                "lineHeight": 1.75,
+              },
+              "subtitle2": Object {
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": "0.875rem",
+                "fontWeight": 500,
+                "letterSpacing": "0.00714em",
+                "lineHeight": 1.57,
+              },
+            },
+            "zIndex": Object {
+              "appBar": 1100,
+              "drawer": 1200,
+              "mobileStepper": 1000,
+              "modal": 1300,
+              "snackbar": 1400,
+              "speedDial": 1050,
+              "tooltip": 1500,
+            },
+          }
+        }
+      >
+        <ForwardRef(Card)
+          className="sc-AxjAm gLaiHB"
+          classes={
+            Object {
+              "root": "MuiCard-root",
+            }
+          }
+          theme={
+            Object {
+              "breakpoints": Object {
+                "between": [Function],
+                "down": [Function],
+                "keys": Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ],
+                "only": [Function],
+                "up": [Function],
+                "values": Object {
+                  "lg": 1280,
+                  "md": 960,
+                  "sm": 600,
+                  "xl": 1920,
+                  "xs": 0,
+                },
+                "width": [Function],
+              },
+              "direction": "ltr",
+              "mixins": Object {
+                "gutters": [Function],
+                "toolbar": Object {
+                  "@media (min-width:0px) and (orientation: landscape)": Object {
+                    "minHeight": 48,
+                  },
+                  "@media (min-width:600px)": Object {
+                    "minHeight": 64,
+                  },
+                  "minHeight": 56,
+                },
+              },
+              "overrides": Object {},
+              "palette": Object {
+                "action": Object {
+                  "activatedOpacity": 0.12,
+                  "active": "rgba(0, 0, 0, 0.54)",
+                  "disabled": "rgba(0, 0, 0, 0.26)",
+                  "disabledBackground": "rgba(0, 0, 0, 0.12)",
+                  "disabledOpacity": 0.38,
+                  "focus": "rgba(0, 0, 0, 0.12)",
+                  "focusOpacity": 0.12,
+                  "hover": "rgba(0, 0, 0, 0.04)",
+                  "hoverOpacity": 0.04,
+                  "selected": "rgba(0, 0, 0, 0.08)",
+                  "selectedOpacity": 0.08,
+                },
+                "augmentColor": [Function],
+                "background": Object {
+                  "default": "#fafafa",
+                  "paper": "#fff",
+                },
+                "common": Object {
+                  "black": "#000",
+                  "white": "#fff",
+                },
+                "contrastThreshold": 3,
+                "divider": "rgba(0, 0, 0, 0.12)",
+                "error": Object {
+                  "contrastText": "#fff",
+                  "dark": "#d32f2f",
+                  "light": "#e57373",
+                  "main": "#f44336",
+                },
+                "getContrastText": [Function],
+                "grey": Object {
+                  "100": "#f5f5f5",
+                  "200": "#eeeeee",
+                  "300": "#e0e0e0",
+                  "400": "#bdbdbd",
+                  "50": "#fafafa",
+                  "500": "#9e9e9e",
+                  "600": "#757575",
+                  "700": "#616161",
+                  "800": "#424242",
+                  "900": "#212121",
+                  "A100": "#d5d5d5",
+                  "A200": "#aaaaaa",
+                  "A400": "#303030",
+                  "A700": "#616161",
+                },
+                "info": Object {
+                  "contrastText": "#fff",
+                  "dark": "#1976d2",
+                  "light": "#64b5f6",
+                  "main": "#2196f3",
+                },
+                "primary": Object {
+                  "contrastText": "#fff",
+                  "dark": "#303f9f",
+                  "light": "#7986cb",
+                  "main": "#3f51b5",
+                },
+                "secondary": Object {
+                  "contrastText": "#fff",
+                  "dark": "#c51162",
+                  "light": "#ff4081",
+                  "main": "#f50057",
+                },
+                "success": Object {
+                  "contrastText": "rgba(0, 0, 0, 0.87)",
+                  "dark": "#388e3c",
+                  "light": "#81c784",
+                  "main": "#4caf50",
+                },
+                "text": Object {
+                  "disabled": "rgba(0, 0, 0, 0.38)",
+                  "hint": "rgba(0, 0, 0, 0.38)",
+                  "primary": "rgba(0, 0, 0, 0.87)",
+                  "secondary": "rgba(0, 0, 0, 0.54)",
+                },
+                "tonalOffset": 0.2,
+                "type": "light",
+                "warning": Object {
+                  "contrastText": "rgba(0, 0, 0, 0.87)",
+                  "dark": "#f57c00",
+                  "light": "#ffb74d",
+                  "main": "#ff9800",
+                },
+              },
+              "props": Object {},
+              "shadows": Array [
+                "none",
+                "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+                "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+                "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+                "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+                "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+                "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+                "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+                "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+                "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+                "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+                "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+                "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+                "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+                "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+                "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+                "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+                "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+                "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+                "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+                "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+                "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+                "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+                "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+              ],
+              "shape": Object {
+                "borderRadius": 4,
+              },
+              "spacing": [Function],
+              "transitions": Object {
+                "create": [Function],
+                "duration": Object {
+                  "complex": 375,
+                  "enteringScreen": 225,
+                  "leavingScreen": 195,
+                  "short": 250,
+                  "shorter": 200,
+                  "shortest": 150,
+                  "standard": 300,
+                },
+                "easing": Object {
+                  "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+                  "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+                  "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+                  "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+                },
+                "getAutoHeightDuration": [Function],
+              },
+              "typography": Object {
+                "body1": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "1rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0.00938em",
+                  "lineHeight": 1.5,
+                },
+                "body2": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "0.875rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0.01071em",
+                  "lineHeight": 1.43,
+                },
+                "button": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "0.875rem",
+                  "fontWeight": 500,
+                  "letterSpacing": "0.02857em",
+                  "lineHeight": 1.75,
+                  "textTransform": "uppercase",
+                },
+                "caption": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "0.75rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0.03333em",
+                  "lineHeight": 1.66,
+                },
+                "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                "fontSize": 14,
+                "fontWeightBold": 700,
+                "fontWeightLight": 300,
+                "fontWeightMedium": 500,
+                "fontWeightRegular": 400,
+                "h1": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "6rem",
+                  "fontWeight": 300,
+                  "letterSpacing": "-0.01562em",
+                  "lineHeight": 1.167,
+                },
+                "h2": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "3.75rem",
+                  "fontWeight": 300,
+                  "letterSpacing": "-0.00833em",
+                  "lineHeight": 1.2,
+                },
+                "h3": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "3rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0em",
+                  "lineHeight": 1.167,
+                },
+                "h4": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "2.125rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0.00735em",
+                  "lineHeight": 1.235,
+                },
+                "h5": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "1.5rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0em",
+                  "lineHeight": 1.334,
+                },
+                "h6": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "1.25rem",
+                  "fontWeight": 500,
+                  "letterSpacing": "0.0075em",
+                  "lineHeight": 1.6,
+                },
+                "htmlFontSize": 16,
+                "overline": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "0.75rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0.08333em",
+                  "lineHeight": 2.66,
+                  "textTransform": "uppercase",
+                },
+                "pxToRem": [Function],
+                "round": [Function],
+                "subtitle1": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "1rem",
+                  "fontWeight": 400,
+                  "letterSpacing": "0.00938em",
+                  "lineHeight": 1.75,
+                },
+                "subtitle2": Object {
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": "0.875rem",
+                  "fontWeight": 500,
+                  "letterSpacing": "0.00714em",
+                  "lineHeight": 1.57,
+                },
+              },
+              "zIndex": Object {
+                "appBar": 1100,
+                "drawer": 1200,
+                "mobileStepper": 1000,
+                "modal": 1300,
+                "snackbar": 1400,
+                "speedDial": 1050,
+                "tooltip": 1500,
+              },
+            }
+          }
+        >
+          <WithStyles(ForwardRef(Paper))
+            className="MuiCard-root sc-AxjAm gLaiHB"
+            elevation={1}
+            theme={
+              Object {
+                "breakpoints": Object {
+                  "between": [Function],
+                  "down": [Function],
+                  "keys": Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ],
+                  "only": [Function],
+                  "up": [Function],
+                  "values": Object {
+                    "lg": 1280,
+                    "md": 960,
+                    "sm": 600,
+                    "xl": 1920,
+                    "xs": 0,
+                  },
+                  "width": [Function],
+                },
+                "direction": "ltr",
+                "mixins": Object {
+                  "gutters": [Function],
+                  "toolbar": Object {
+                    "@media (min-width:0px) and (orientation: landscape)": Object {
+                      "minHeight": 48,
+                    },
+                    "@media (min-width:600px)": Object {
+                      "minHeight": 64,
+                    },
+                    "minHeight": 56,
+                  },
+                },
+                "overrides": Object {},
+                "palette": Object {
+                  "action": Object {
+                    "activatedOpacity": 0.12,
+                    "active": "rgba(0, 0, 0, 0.54)",
+                    "disabled": "rgba(0, 0, 0, 0.26)",
+                    "disabledBackground": "rgba(0, 0, 0, 0.12)",
+                    "disabledOpacity": 0.38,
+                    "focus": "rgba(0, 0, 0, 0.12)",
+                    "focusOpacity": 0.12,
+                    "hover": "rgba(0, 0, 0, 0.04)",
+                    "hoverOpacity": 0.04,
+                    "selected": "rgba(0, 0, 0, 0.08)",
+                    "selectedOpacity": 0.08,
+                  },
+                  "augmentColor": [Function],
+                  "background": Object {
+                    "default": "#fafafa",
+                    "paper": "#fff",
+                  },
+                  "common": Object {
+                    "black": "#000",
+                    "white": "#fff",
+                  },
+                  "contrastThreshold": 3,
+                  "divider": "rgba(0, 0, 0, 0.12)",
+                  "error": Object {
+                    "contrastText": "#fff",
+                    "dark": "#d32f2f",
+                    "light": "#e57373",
+                    "main": "#f44336",
+                  },
+                  "getContrastText": [Function],
+                  "grey": Object {
+                    "100": "#f5f5f5",
+                    "200": "#eeeeee",
+                    "300": "#e0e0e0",
+                    "400": "#bdbdbd",
+                    "50": "#fafafa",
+                    "500": "#9e9e9e",
+                    "600": "#757575",
+                    "700": "#616161",
+                    "800": "#424242",
+                    "900": "#212121",
+                    "A100": "#d5d5d5",
+                    "A200": "#aaaaaa",
+                    "A400": "#303030",
+                    "A700": "#616161",
+                  },
+                  "info": Object {
+                    "contrastText": "#fff",
+                    "dark": "#1976d2",
+                    "light": "#64b5f6",
+                    "main": "#2196f3",
+                  },
+                  "primary": Object {
+                    "contrastText": "#fff",
+                    "dark": "#303f9f",
+                    "light": "#7986cb",
+                    "main": "#3f51b5",
+                  },
+                  "secondary": Object {
+                    "contrastText": "#fff",
+                    "dark": "#c51162",
+                    "light": "#ff4081",
+                    "main": "#f50057",
+                  },
+                  "success": Object {
+                    "contrastText": "rgba(0, 0, 0, 0.87)",
+                    "dark": "#388e3c",
+                    "light": "#81c784",
+                    "main": "#4caf50",
+                  },
+                  "text": Object {
+                    "disabled": "rgba(0, 0, 0, 0.38)",
+                    "hint": "rgba(0, 0, 0, 0.38)",
+                    "primary": "rgba(0, 0, 0, 0.87)",
+                    "secondary": "rgba(0, 0, 0, 0.54)",
+                  },
+                  "tonalOffset": 0.2,
+                  "type": "light",
+                  "warning": Object {
+                    "contrastText": "rgba(0, 0, 0, 0.87)",
+                    "dark": "#f57c00",
+                    "light": "#ffb74d",
+                    "main": "#ff9800",
+                  },
+                },
+                "props": Object {},
+                "shadows": Array [
+                  "none",
+                  "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+                  "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+                  "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+                  "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+                  "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+                  "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+                  "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+                  "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+                  "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+                  "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+                  "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+                  "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+                  "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+                  "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+                  "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                  "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+                  "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+                  "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+                  "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+                  "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+                  "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+                  "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+                  "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+                  "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+                ],
+                "shape": Object {
+                  "borderRadius": 4,
+                },
+                "spacing": [Function],
+                "transitions": Object {
+                  "create": [Function],
+                  "duration": Object {
+                    "complex": 375,
+                    "enteringScreen": 225,
+                    "leavingScreen": 195,
+                    "short": 250,
+                    "shorter": 200,
+                    "shortest": 150,
+                    "standard": 300,
+                  },
+                  "easing": Object {
+                    "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+                    "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+                    "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+                    "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+                  },
+                  "getAutoHeightDuration": [Function],
+                },
+                "typography": Object {
+                  "body1": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "1rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0.00938em",
+                    "lineHeight": 1.5,
+                  },
+                  "body2": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "0.875rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0.01071em",
+                    "lineHeight": 1.43,
+                  },
+                  "button": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "0.875rem",
+                    "fontWeight": 500,
+                    "letterSpacing": "0.02857em",
+                    "lineHeight": 1.75,
+                    "textTransform": "uppercase",
+                  },
+                  "caption": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "0.75rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0.03333em",
+                    "lineHeight": 1.66,
+                  },
+                  "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                  "fontSize": 14,
+                  "fontWeightBold": 700,
+                  "fontWeightLight": 300,
+                  "fontWeightMedium": 500,
+                  "fontWeightRegular": 400,
+                  "h1": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "6rem",
+                    "fontWeight": 300,
+                    "letterSpacing": "-0.01562em",
+                    "lineHeight": 1.167,
+                  },
+                  "h2": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "3.75rem",
+                    "fontWeight": 300,
+                    "letterSpacing": "-0.00833em",
+                    "lineHeight": 1.2,
+                  },
+                  "h3": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "3rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0em",
+                    "lineHeight": 1.167,
+                  },
+                  "h4": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "2.125rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0.00735em",
+                    "lineHeight": 1.235,
+                  },
+                  "h5": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "1.5rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0em",
+                    "lineHeight": 1.334,
+                  },
+                  "h6": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "1.25rem",
+                    "fontWeight": 500,
+                    "letterSpacing": "0.0075em",
+                    "lineHeight": 1.6,
+                  },
+                  "htmlFontSize": 16,
+                  "overline": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "0.75rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0.08333em",
+                    "lineHeight": 2.66,
+                    "textTransform": "uppercase",
+                  },
+                  "pxToRem": [Function],
+                  "round": [Function],
+                  "subtitle1": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "1rem",
+                    "fontWeight": 400,
+                    "letterSpacing": "0.00938em",
+                    "lineHeight": 1.75,
+                  },
+                  "subtitle2": Object {
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": "0.875rem",
+                    "fontWeight": 500,
+                    "letterSpacing": "0.00714em",
+                    "lineHeight": 1.57,
+                  },
+                },
+                "zIndex": Object {
+                  "appBar": 1100,
+                  "drawer": 1200,
+                  "mobileStepper": 1000,
+                  "modal": 1300,
+                  "snackbar": 1400,
+                  "speedDial": 1050,
+                  "tooltip": 1500,
+                },
+              }
+            }
+          >
+            <ForwardRef(Paper)
+              className="MuiCard-root sc-AxjAm gLaiHB"
+              classes={
+                Object {
+                  "elevation0": "MuiPaper-elevation0",
+                  "elevation1": "MuiPaper-elevation1",
+                  "elevation10": "MuiPaper-elevation10",
+                  "elevation11": "MuiPaper-elevation11",
+                  "elevation12": "MuiPaper-elevation12",
+                  "elevation13": "MuiPaper-elevation13",
+                  "elevation14": "MuiPaper-elevation14",
+                  "elevation15": "MuiPaper-elevation15",
+                  "elevation16": "MuiPaper-elevation16",
+                  "elevation17": "MuiPaper-elevation17",
+                  "elevation18": "MuiPaper-elevation18",
+                  "elevation19": "MuiPaper-elevation19",
+                  "elevation2": "MuiPaper-elevation2",
+                  "elevation20": "MuiPaper-elevation20",
+                  "elevation21": "MuiPaper-elevation21",
+                  "elevation22": "MuiPaper-elevation22",
+                  "elevation23": "MuiPaper-elevation23",
+                  "elevation24": "MuiPaper-elevation24",
+                  "elevation3": "MuiPaper-elevation3",
+                  "elevation4": "MuiPaper-elevation4",
+                  "elevation5": "MuiPaper-elevation5",
+                  "elevation6": "MuiPaper-elevation6",
+                  "elevation7": "MuiPaper-elevation7",
+                  "elevation8": "MuiPaper-elevation8",
+                  "elevation9": "MuiPaper-elevation9",
+                  "outlined": "MuiPaper-outlined",
+                  "root": "MuiPaper-root",
+                  "rounded": "MuiPaper-rounded",
+                }
+              }
+              elevation={1}
+              theme={
+                Object {
+                  "breakpoints": Object {
+                    "between": [Function],
+                    "down": [Function],
+                    "keys": Array [
+                      "xs",
+                      "sm",
+                      "md",
+                      "lg",
+                      "xl",
+                    ],
+                    "only": [Function],
+                    "up": [Function],
+                    "values": Object {
+                      "lg": 1280,
+                      "md": 960,
+                      "sm": 600,
+                      "xl": 1920,
+                      "xs": 0,
+                    },
+                    "width": [Function],
+                  },
+                  "direction": "ltr",
+                  "mixins": Object {
+                    "gutters": [Function],
+                    "toolbar": Object {
+                      "@media (min-width:0px) and (orientation: landscape)": Object {
+                        "minHeight": 48,
+                      },
+                      "@media (min-width:600px)": Object {
+                        "minHeight": 64,
+                      },
+                      "minHeight": 56,
+                    },
+                  },
+                  "overrides": Object {},
+                  "palette": Object {
+                    "action": Object {
+                      "activatedOpacity": 0.12,
+                      "active": "rgba(0, 0, 0, 0.54)",
+                      "disabled": "rgba(0, 0, 0, 0.26)",
+                      "disabledBackground": "rgba(0, 0, 0, 0.12)",
+                      "disabledOpacity": 0.38,
+                      "focus": "rgba(0, 0, 0, 0.12)",
+                      "focusOpacity": 0.12,
+                      "hover": "rgba(0, 0, 0, 0.04)",
+                      "hoverOpacity": 0.04,
+                      "selected": "rgba(0, 0, 0, 0.08)",
+                      "selectedOpacity": 0.08,
+                    },
+                    "augmentColor": [Function],
+                    "background": Object {
+                      "default": "#fafafa",
+                      "paper": "#fff",
+                    },
+                    "common": Object {
+                      "black": "#000",
+                      "white": "#fff",
+                    },
+                    "contrastThreshold": 3,
+                    "divider": "rgba(0, 0, 0, 0.12)",
+                    "error": Object {
+                      "contrastText": "#fff",
+                      "dark": "#d32f2f",
+                      "light": "#e57373",
+                      "main": "#f44336",
+                    },
+                    "getContrastText": [Function],
+                    "grey": Object {
+                      "100": "#f5f5f5",
+                      "200": "#eeeeee",
+                      "300": "#e0e0e0",
+                      "400": "#bdbdbd",
+                      "50": "#fafafa",
+                      "500": "#9e9e9e",
+                      "600": "#757575",
+                      "700": "#616161",
+                      "800": "#424242",
+                      "900": "#212121",
+                      "A100": "#d5d5d5",
+                      "A200": "#aaaaaa",
+                      "A400": "#303030",
+                      "A700": "#616161",
+                    },
+                    "info": Object {
+                      "contrastText": "#fff",
+                      "dark": "#1976d2",
+                      "light": "#64b5f6",
+                      "main": "#2196f3",
+                    },
+                    "primary": Object {
+                      "contrastText": "#fff",
+                      "dark": "#303f9f",
+                      "light": "#7986cb",
+                      "main": "#3f51b5",
+                    },
+                    "secondary": Object {
+                      "contrastText": "#fff",
+                      "dark": "#c51162",
+                      "light": "#ff4081",
+                      "main": "#f50057",
+                    },
+                    "success": Object {
+                      "contrastText": "rgba(0, 0, 0, 0.87)",
+                      "dark": "#388e3c",
+                      "light": "#81c784",
+                      "main": "#4caf50",
+                    },
+                    "text": Object {
+                      "disabled": "rgba(0, 0, 0, 0.38)",
+                      "hint": "rgba(0, 0, 0, 0.38)",
+                      "primary": "rgba(0, 0, 0, 0.87)",
+                      "secondary": "rgba(0, 0, 0, 0.54)",
+                    },
+                    "tonalOffset": 0.2,
+                    "type": "light",
+                    "warning": Object {
+                      "contrastText": "rgba(0, 0, 0, 0.87)",
+                      "dark": "#f57c00",
+                      "light": "#ffb74d",
+                      "main": "#ff9800",
+                    },
+                  },
+                  "props": Object {},
+                  "shadows": Array [
+                    "none",
+                    "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+                    "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+                    "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+                    "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+                    "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+                    "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+                    "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+                    "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+                    "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+                    "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+                    "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+                    "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+                    "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+                    "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+                    "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                    "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+                    "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+                    "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+                    "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+                    "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+                    "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+                    "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+                    "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+                    "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+                  ],
+                  "shape": Object {
+                    "borderRadius": 4,
+                  },
+                  "spacing": [Function],
+                  "transitions": Object {
+                    "create": [Function],
+                    "duration": Object {
+                      "complex": 375,
+                      "enteringScreen": 225,
+                      "leavingScreen": 195,
+                      "short": 250,
+                      "shorter": 200,
+                      "shortest": 150,
+                      "standard": 300,
+                    },
+                    "easing": Object {
+                      "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+                      "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+                      "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+                      "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+                    },
+                    "getAutoHeightDuration": [Function],
+                  },
+                  "typography": Object {
+                    "body1": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "1rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0.00938em",
+                      "lineHeight": 1.5,
+                    },
+                    "body2": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "0.875rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0.01071em",
+                      "lineHeight": 1.43,
+                    },
+                    "button": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "0.875rem",
+                      "fontWeight": 500,
+                      "letterSpacing": "0.02857em",
+                      "lineHeight": 1.75,
+                      "textTransform": "uppercase",
+                    },
+                    "caption": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "0.75rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0.03333em",
+                      "lineHeight": 1.66,
+                    },
+                    "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                    "fontSize": 14,
+                    "fontWeightBold": 700,
+                    "fontWeightLight": 300,
+                    "fontWeightMedium": 500,
+                    "fontWeightRegular": 400,
+                    "h1": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "6rem",
+                      "fontWeight": 300,
+                      "letterSpacing": "-0.01562em",
+                      "lineHeight": 1.167,
+                    },
+                    "h2": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "3.75rem",
+                      "fontWeight": 300,
+                      "letterSpacing": "-0.00833em",
+                      "lineHeight": 1.2,
+                    },
+                    "h3": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "3rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0em",
+                      "lineHeight": 1.167,
+                    },
+                    "h4": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "2.125rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0.00735em",
+                      "lineHeight": 1.235,
+                    },
+                    "h5": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "1.5rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0em",
+                      "lineHeight": 1.334,
+                    },
+                    "h6": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "1.25rem",
+                      "fontWeight": 500,
+                      "letterSpacing": "0.0075em",
+                      "lineHeight": 1.6,
+                    },
+                    "htmlFontSize": 16,
+                    "overline": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "0.75rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0.08333em",
+                      "lineHeight": 2.66,
+                      "textTransform": "uppercase",
+                    },
+                    "pxToRem": [Function],
+                    "round": [Function],
+                    "subtitle1": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "1rem",
+                      "fontWeight": 400,
+                      "letterSpacing": "0.00938em",
+                      "lineHeight": 1.75,
+                    },
+                    "subtitle2": Object {
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": "0.875rem",
+                      "fontWeight": 500,
+                      "letterSpacing": "0.00714em",
+                      "lineHeight": 1.57,
+                    },
+                  },
+                  "zIndex": Object {
+                    "appBar": 1100,
+                    "drawer": 1200,
+                    "mobileStepper": 1000,
+                    "modal": 1300,
+                    "snackbar": 1400,
+                    "speedDial": 1050,
+                    "tooltip": 1500,
+                  },
+                }
+              }
+            >
+              <div
+                className="MuiPaper-root MuiCard-root sc-AxjAm gLaiHB MuiPaper-elevation1 MuiPaper-rounded"
+                theme={
+                  Object {
+                    "breakpoints": Object {
+                      "between": [Function],
+                      "down": [Function],
+                      "keys": Array [
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                      ],
+                      "only": [Function],
+                      "up": [Function],
+                      "values": Object {
+                        "lg": 1280,
+                        "md": 960,
+                        "sm": 600,
+                        "xl": 1920,
+                        "xs": 0,
+                      },
+                      "width": [Function],
+                    },
+                    "direction": "ltr",
+                    "mixins": Object {
+                      "gutters": [Function],
+                      "toolbar": Object {
+                        "@media (min-width:0px) and (orientation: landscape)": Object {
+                          "minHeight": 48,
+                        },
+                        "@media (min-width:600px)": Object {
+                          "minHeight": 64,
+                        },
+                        "minHeight": 56,
+                      },
+                    },
+                    "overrides": Object {},
+                    "palette": Object {
+                      "action": Object {
+                        "activatedOpacity": 0.12,
+                        "active": "rgba(0, 0, 0, 0.54)",
+                        "disabled": "rgba(0, 0, 0, 0.26)",
+                        "disabledBackground": "rgba(0, 0, 0, 0.12)",
+                        "disabledOpacity": 0.38,
+                        "focus": "rgba(0, 0, 0, 0.12)",
+                        "focusOpacity": 0.12,
+                        "hover": "rgba(0, 0, 0, 0.04)",
+                        "hoverOpacity": 0.04,
+                        "selected": "rgba(0, 0, 0, 0.08)",
+                        "selectedOpacity": 0.08,
+                      },
+                      "augmentColor": [Function],
+                      "background": Object {
+                        "default": "#fafafa",
+                        "paper": "#fff",
+                      },
+                      "common": Object {
+                        "black": "#000",
+                        "white": "#fff",
+                      },
+                      "contrastThreshold": 3,
+                      "divider": "rgba(0, 0, 0, 0.12)",
+                      "error": Object {
+                        "contrastText": "#fff",
+                        "dark": "#d32f2f",
+                        "light": "#e57373",
+                        "main": "#f44336",
+                      },
+                      "getContrastText": [Function],
+                      "grey": Object {
+                        "100": "#f5f5f5",
+                        "200": "#eeeeee",
+                        "300": "#e0e0e0",
+                        "400": "#bdbdbd",
+                        "50": "#fafafa",
+                        "500": "#9e9e9e",
+                        "600": "#757575",
+                        "700": "#616161",
+                        "800": "#424242",
+                        "900": "#212121",
+                        "A100": "#d5d5d5",
+                        "A200": "#aaaaaa",
+                        "A400": "#303030",
+                        "A700": "#616161",
+                      },
+                      "info": Object {
+                        "contrastText": "#fff",
+                        "dark": "#1976d2",
+                        "light": "#64b5f6",
+                        "main": "#2196f3",
+                      },
+                      "primary": Object {
+                        "contrastText": "#fff",
+                        "dark": "#303f9f",
+                        "light": "#7986cb",
+                        "main": "#3f51b5",
+                      },
+                      "secondary": Object {
+                        "contrastText": "#fff",
+                        "dark": "#c51162",
+                        "light": "#ff4081",
+                        "main": "#f50057",
+                      },
+                      "success": Object {
+                        "contrastText": "rgba(0, 0, 0, 0.87)",
+                        "dark": "#388e3c",
+                        "light": "#81c784",
+                        "main": "#4caf50",
+                      },
+                      "text": Object {
+                        "disabled": "rgba(0, 0, 0, 0.38)",
+                        "hint": "rgba(0, 0, 0, 0.38)",
+                        "primary": "rgba(0, 0, 0, 0.87)",
+                        "secondary": "rgba(0, 0, 0, 0.54)",
+                      },
+                      "tonalOffset": 0.2,
+                      "type": "light",
+                      "warning": Object {
+                        "contrastText": "rgba(0, 0, 0, 0.87)",
+                        "dark": "#f57c00",
+                        "light": "#ffb74d",
+                        "main": "#ff9800",
+                      },
+                    },
+                    "props": Object {},
+                    "shadows": Array [
+                      "none",
+                      "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+                      "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+                      "0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)",
+                      "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+                      "0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)",
+                      "0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)",
+                      "0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)",
+                      "0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)",
+                      "0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)",
+                      "0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)",
+                      "0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)",
+                      "0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)",
+                      "0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)",
+                      "0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)",
+                      "0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)",
+                      "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)",
+                      "0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)",
+                      "0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)",
+                      "0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)",
+                      "0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)",
+                      "0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)",
+                      "0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)",
+                      "0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)",
+                      "0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)",
+                    ],
+                    "shape": Object {
+                      "borderRadius": 4,
+                    },
+                    "spacing": [Function],
+                    "transitions": Object {
+                      "create": [Function],
+                      "duration": Object {
+                        "complex": 375,
+                        "enteringScreen": 225,
+                        "leavingScreen": 195,
+                        "short": 250,
+                        "shorter": 200,
+                        "shortest": 150,
+                        "standard": 300,
+                      },
+                      "easing": Object {
+                        "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+                        "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+                        "easeOut": "cubic-bezier(0.0, 0, 0.2, 1)",
+                        "sharp": "cubic-bezier(0.4, 0, 0.6, 1)",
+                      },
+                      "getAutoHeightDuration": [Function],
+                    },
+                    "typography": Object {
+                      "body1": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "1rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0.00938em",
+                        "lineHeight": 1.5,
+                      },
+                      "body2": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "0.875rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0.01071em",
+                        "lineHeight": 1.43,
+                      },
+                      "button": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "0.875rem",
+                        "fontWeight": 500,
+                        "letterSpacing": "0.02857em",
+                        "lineHeight": 1.75,
+                        "textTransform": "uppercase",
+                      },
+                      "caption": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "0.75rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0.03333em",
+                        "lineHeight": 1.66,
+                      },
+                      "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                      "fontSize": 14,
+                      "fontWeightBold": 700,
+                      "fontWeightLight": 300,
+                      "fontWeightMedium": 500,
+                      "fontWeightRegular": 400,
+                      "h1": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "6rem",
+                        "fontWeight": 300,
+                        "letterSpacing": "-0.01562em",
+                        "lineHeight": 1.167,
+                      },
+                      "h2": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "3.75rem",
+                        "fontWeight": 300,
+                        "letterSpacing": "-0.00833em",
+                        "lineHeight": 1.2,
+                      },
+                      "h3": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "3rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0em",
+                        "lineHeight": 1.167,
+                      },
+                      "h4": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "2.125rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0.00735em",
+                        "lineHeight": 1.235,
+                      },
+                      "h5": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "1.5rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0em",
+                        "lineHeight": 1.334,
+                      },
+                      "h6": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "1.25rem",
+                        "fontWeight": 500,
+                        "letterSpacing": "0.0075em",
+                        "lineHeight": 1.6,
+                      },
+                      "htmlFontSize": 16,
+                      "overline": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "0.75rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0.08333em",
+                        "lineHeight": 2.66,
+                        "textTransform": "uppercase",
+                      },
+                      "pxToRem": [Function],
+                      "round": [Function],
+                      "subtitle1": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "1rem",
+                        "fontWeight": 400,
+                        "letterSpacing": "0.00938em",
+                        "lineHeight": 1.75,
+                      },
+                      "subtitle2": Object {
+                        "fontFamily": "\\"Roboto\\", \\"Helvetica\\", \\"Arial\\", sans-serif",
+                        "fontSize": "0.875rem",
+                        "fontWeight": 500,
+                        "letterSpacing": "0.00714em",
+                        "lineHeight": 1.57,
+                      },
+                    },
+                    "zIndex": Object {
+                      "appBar": 1100,
+                      "drawer": 1200,
+                      "mobileStepper": 1000,
+                      "modal": 1300,
+                      "snackbar": 1400,
+                      "speedDial": 1050,
+                      "tooltip": 1500,
+                    },
+                  }
+                }
+              >
+                <WithStyles(ForwardRef(CardHeader))
+                  action={
+                    <ForwardRef(WithStyles)
+                      aria-label="filtering options"
+                      onClick={[Function]}
+                    >
+                      <UNDEFINED />
+                    </ForwardRef(WithStyles)>
+                  }
+                  title="Days of week"
+                >
+                  <ForwardRef(CardHeader)
+                    action={
+                      <ForwardRef(WithStyles)
+                        aria-label="filtering options"
+                        onClick={[Function]}
+                      >
+                        <UNDEFINED />
+                      </ForwardRef(WithStyles)>
+                    }
+                    classes={
+                      Object {
+                        "action": "MuiCardHeader-action",
+                        "avatar": "MuiCardHeader-avatar",
+                        "content": "MuiCardHeader-content",
+                        "root": "MuiCardHeader-root",
+                        "subheader": "MuiCardHeader-subheader",
+                        "title": "MuiCardHeader-title",
+                      }
+                    }
+                    title="Days of week"
+                  >
+                    <div
+                      className="MuiCardHeader-root"
+                    >
+                      <div
+                        className="MuiCardHeader-content"
+                      >
+                        <WithStyles(ForwardRef(Typography))
+                          className="MuiCardHeader-title"
+                          component="span"
+                          display="block"
+                          variant="h5"
+                        >
+                          <ForwardRef(Typography)
+                            className="MuiCardHeader-title"
+                            classes={
+                              Object {
+                                "alignCenter": "MuiTypography-alignCenter",
+                                "alignJustify": "MuiTypography-alignJustify",
+                                "alignLeft": "MuiTypography-alignLeft",
+                                "alignRight": "MuiTypography-alignRight",
+                                "body1": "MuiTypography-body1",
+                                "body2": "MuiTypography-body2",
+                                "button": "MuiTypography-button",
+                                "caption": "MuiTypography-caption",
+                                "colorError": "MuiTypography-colorError",
+                                "colorInherit": "MuiTypography-colorInherit",
+                                "colorPrimary": "MuiTypography-colorPrimary",
+                                "colorSecondary": "MuiTypography-colorSecondary",
+                                "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                                "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                                "displayBlock": "MuiTypography-displayBlock",
+                                "displayInline": "MuiTypography-displayInline",
+                                "gutterBottom": "MuiTypography-gutterBottom",
+                                "h1": "MuiTypography-h1",
+                                "h2": "MuiTypography-h2",
+                                "h3": "MuiTypography-h3",
+                                "h4": "MuiTypography-h4",
+                                "h5": "MuiTypography-h5",
+                                "h6": "MuiTypography-h6",
+                                "noWrap": "MuiTypography-noWrap",
+                                "overline": "MuiTypography-overline",
+                                "paragraph": "MuiTypography-paragraph",
+                                "root": "MuiTypography-root",
+                                "srOnly": "MuiTypography-srOnly",
+                                "subtitle1": "MuiTypography-subtitle1",
+                                "subtitle2": "MuiTypography-subtitle2",
+                              }
+                            }
+                            component="span"
+                            display="block"
+                            variant="h5"
+                          >
+                            <span
+                              className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                            >
+                              Days of week
+                            </span>
+                          </ForwardRef(Typography)>
+                        </WithStyles(ForwardRef(Typography))>
+                      </div>
+                      <div
+                        className="MuiCardHeader-action"
+                      >
+                        <WithStyles(ForwardRef(IconButton))
+                          aria-label="filtering options"
+                          onClick={[Function]}
+                        >
+                          <ForwardRef(IconButton)
+                            aria-label="filtering options"
+                            classes={
+                              Object {
+                                "colorInherit": "MuiIconButton-colorInherit",
+                                "colorPrimary": "MuiIconButton-colorPrimary",
+                                "colorSecondary": "MuiIconButton-colorSecondary",
+                                "disabled": "Mui-disabled",
+                                "edgeEnd": "MuiIconButton-edgeEnd",
+                                "edgeStart": "MuiIconButton-edgeStart",
+                                "label": "MuiIconButton-label",
+                                "root": "MuiIconButton-root",
+                                "sizeSmall": "MuiIconButton-sizeSmall",
+                              }
+                            }
+                            onClick={[Function]}
+                          >
+                            <WithStyles(ForwardRef(ButtonBase))
+                              aria-label="filtering options"
+                              centerRipple={true}
+                              className="MuiIconButton-root"
+                              disabled={false}
+                              focusRipple={true}
+                              onClick={[Function]}
+                            >
+                              <ForwardRef(ButtonBase)
+                                aria-label="filtering options"
+                                centerRipple={true}
+                                className="MuiIconButton-root"
+                                classes={
+                                  Object {
+                                    "disabled": "Mui-disabled",
+                                    "focusVisible": "Mui-focusVisible",
+                                    "root": "MuiButtonBase-root",
+                                  }
+                                }
+                                disabled={false}
+                                focusRipple={true}
+                                onClick={[Function]}
+                              >
+                                <button
+                                  aria-label="filtering options"
+                                  className="MuiButtonBase-root MuiIconButton-root"
+                                  disabled={false}
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onDragLeave={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onMouseDown={[Function]}
+                                  onMouseLeave={[Function]}
+                                  onMouseUp={[Function]}
+                                  onTouchEnd={[Function]}
+                                  onTouchMove={[Function]}
+                                  onTouchStart={[Function]}
+                                  tabIndex={0}
+                                  type="button"
+                                >
+                                  <span
+                                    className="MuiIconButton-label"
+                                  >
+                                    <ForwardRef>
+                                      <WithStyles(ForwardRef(SvgIcon))>
+                                        <ForwardRef(SvgIcon)
+                                          classes={
+                                            Object {
+                                              "colorAction": "MuiSvgIcon-colorAction",
+                                              "colorDisabled": "MuiSvgIcon-colorDisabled",
+                                              "colorError": "MuiSvgIcon-colorError",
+                                              "colorPrimary": "MuiSvgIcon-colorPrimary",
+                                              "colorSecondary": "MuiSvgIcon-colorSecondary",
+                                              "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                                              "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                                              "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                                              "root": "MuiSvgIcon-root",
+                                            }
+                                          }
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            className="MuiSvgIcon-root"
+                                            focusable="false"
+                                            viewBox="0 0 24 24"
+                                          >
+                                            <path
+                                              d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                                            />
+                                          </svg>
+                                        </ForwardRef(SvgIcon)>
+                                      </WithStyles(ForwardRef(SvgIcon))>
+                                    </ForwardRef>
+                                  </span>
+                                  <WithStyles(memo)
+                                    center={true}
+                                  >
+                                    <ForwardRef(TouchRipple)
+                                      center={true}
+                                      classes={
+                                        Object {
+                                          "child": "MuiTouchRipple-child",
+                                          "childLeaving": "MuiTouchRipple-childLeaving",
+                                          "childPulsate": "MuiTouchRipple-childPulsate",
+                                          "ripple": "MuiTouchRipple-ripple",
+                                          "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                          "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                          "root": "MuiTouchRipple-root",
+                                        }
+                                      }
+                                    >
+                                      <span
+                                        className="MuiTouchRipple-root"
+                                      >
+                                        <TransitionGroup
+                                          childFactory={[Function]}
+                                          component={null}
+                                          exit={true}
+                                        />
+                                      </span>
+                                    </ForwardRef(TouchRipple)>
+                                  </WithStyles(memo)>
+                                </button>
+                              </ForwardRef(ButtonBase)>
+                            </WithStyles(ForwardRef(ButtonBase))>
+                          </ForwardRef(IconButton)>
+                        </WithStyles(ForwardRef(IconButton))>
+                      </div>
+                    </div>
+                  </ForwardRef(CardHeader)>
+                </WithStyles(ForwardRef(CardHeader))>
+                <WithStyles(ForwardRef(Menu))
+                  anchorEl={null}
+                  id="long-menu"
+                  margin="dense"
+                  onClose={[Function]}
+                  open={false}
+                >
+                  <ForwardRef(Menu)
+                    anchorEl={null}
+                    classes={
+                      Object {
+                        "list": "MuiMenu-list",
+                        "paper": "MuiMenu-paper",
+                      }
+                    }
+                    id="long-menu"
+                    margin="dense"
+                    onClose={[Function]}
+                    open={false}
+                  >
+                    <WithStyles(ForwardRef(Popover))
+                      PaperProps={
+                        Object {
+                          "classes": Object {
+                            "root": "MuiMenu-paper",
+                          },
+                        }
+                      }
+                      anchorEl={null}
+                      anchorOrigin={
+                        Object {
+                          "horizontal": "left",
+                          "vertical": "top",
+                        }
+                      }
+                      getContentAnchorEl={[Function]}
+                      id="long-menu"
+                      margin="dense"
+                      onClose={[Function]}
+                      onEntering={[Function]}
+                      open={false}
+                      transformOrigin={
+                        Object {
+                          "horizontal": "left",
+                          "vertical": "top",
+                        }
+                      }
+                      transitionDuration="auto"
+                    >
+                      <ForwardRef(Popover)
+                        PaperProps={
+                          Object {
+                            "classes": Object {
+                              "root": "MuiMenu-paper",
+                            },
+                          }
+                        }
+                        anchorEl={null}
+                        anchorOrigin={
+                          Object {
+                            "horizontal": "left",
+                            "vertical": "top",
+                          }
+                        }
+                        classes={
+                          Object {
+                            "paper": "MuiPopover-paper",
+                            "root": "MuiPopover-root",
+                          }
+                        }
+                        getContentAnchorEl={[Function]}
+                        id="long-menu"
+                        margin="dense"
+                        onClose={[Function]}
+                        onEntering={[Function]}
+                        open={false}
+                        transformOrigin={
+                          Object {
+                            "horizontal": "left",
+                            "vertical": "top",
+                          }
+                        }
+                        transitionDuration="auto"
+                      >
+                        <ForwardRef(Modal)
+                          BackdropProps={
+                            Object {
+                              "invisible": true,
+                            }
+                          }
+                          className="MuiPopover-root"
+                          id="long-menu"
+                          margin="dense"
+                          onClose={[Function]}
+                          open={false}
+                        />
+                      </ForwardRef(Popover)>
+                    </WithStyles(ForwardRef(Popover))>
+                  </ForwardRef(Menu)>
+                </WithStyles(ForwardRef(Menu))>
+                <Styled(WithStyles(ForwardRef(CardContent)))>
+                  <WithStyles(ForwardRef(CardContent))
+                    className="sc-AxirZ hciENk"
+                  >
+                    <ForwardRef(CardContent)
+                      className="sc-AxirZ hciENk"
+                      classes={
+                        Object {
+                          "root": "MuiCardContent-root",
+                        }
+                      }
+                    >
+                      <div
+                        className="MuiCardContent-root sc-AxirZ hciENk"
+                      >
+                        <WithStyles(ForwardRef(Typography))
+                          color="textSecondary"
+                          variant="caption"
+                        >
+                          <ForwardRef(Typography)
+                            classes={
+                              Object {
+                                "alignCenter": "MuiTypography-alignCenter",
+                                "alignJustify": "MuiTypography-alignJustify",
+                                "alignLeft": "MuiTypography-alignLeft",
+                                "alignRight": "MuiTypography-alignRight",
+                                "body1": "MuiTypography-body1",
+                                "body2": "MuiTypography-body2",
+                                "button": "MuiTypography-button",
+                                "caption": "MuiTypography-caption",
+                                "colorError": "MuiTypography-colorError",
+                                "colorInherit": "MuiTypography-colorInherit",
+                                "colorPrimary": "MuiTypography-colorPrimary",
+                                "colorSecondary": "MuiTypography-colorSecondary",
+                                "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                                "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                                "displayBlock": "MuiTypography-displayBlock",
+                                "displayInline": "MuiTypography-displayInline",
+                                "gutterBottom": "MuiTypography-gutterBottom",
+                                "h1": "MuiTypography-h1",
+                                "h2": "MuiTypography-h2",
+                                "h3": "MuiTypography-h3",
+                                "h4": "MuiTypography-h4",
+                                "h5": "MuiTypography-h5",
+                                "h6": "MuiTypography-h6",
+                                "noWrap": "MuiTypography-noWrap",
+                                "overline": "MuiTypography-overline",
+                                "paragraph": "MuiTypography-paragraph",
+                                "root": "MuiTypography-root",
+                                "srOnly": "MuiTypography-srOnly",
+                                "subtitle1": "MuiTypography-subtitle1",
+                                "subtitle2": "MuiTypography-subtitle2",
+                              }
+                            }
+                            color="textSecondary"
+                            variant="caption"
+                          >
+                            <span
+                              className="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
+                            >
+                              LAST 30 DAYS
+                            </span>
+                          </ForwardRef(Typography)>
+                        </WithStyles(ForwardRef(Typography))>
+                        <styled.div>
+                          <div
+                            className="sc-AxiKw hUtZHH"
+                          >
+                            <Doughnut
+                              data={
+                                Object {
+                                  "datasets": Array [
+                                    Object {
+                                      "backgroundColor": Array [
+                                        "#f44336",
+                                        "#4caf50",
+                                        "#673ab7",
+                                        "#4dd0e1",
+                                        "#ff9800",
+                                        "#2196f3",
+                                        "#ffeb3b",
+                                      ],
+                                      "data": Array [
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                        0,
+                                      ],
+                                    },
+                                  ],
+                                  "labels": Array [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday",
+                                    "Sunday",
+                                  ],
+                                }
+                              }
+                              options={
+                                Object {
+                                  "legend": Object {
+                                    "labels": Object {
+                                      "fontColor": "rgba(0, 0, 0, 0.54)",
+                                    },
+                                  },
+                                  "maintainAspectRatio": false,
+                                  "tooltips": Object {
+                                    "callbacks": Object {
+                                      "label": [Function],
+                                      "title": [Function],
+                                    },
+                                  },
+                                }
+                              }
+                            />
+                          </div>
+                        </styled.div>
+                      </div>
+                    </ForwardRef(CardContent)>
+                  </WithStyles(ForwardRef(CardContent))>
+                </Styled(WithStyles(ForwardRef(CardContent)))>
+                <WithStyles(ForwardRef(Divider))
+                  variant="middle"
+                >
+                  <ForwardRef(Divider)
+                    classes={
+                      Object {
+                        "absolute": "MuiDivider-absolute",
+                        "flexItem": "MuiDivider-flexItem",
+                        "inset": "MuiDivider-inset",
+                        "light": "MuiDivider-light",
+                        "middle": "MuiDivider-middle",
+                        "root": "MuiDivider-root",
+                        "vertical": "MuiDivider-vertical",
+                      }
+                    }
+                    variant="middle"
+                  >
+                    <hr
+                      className="MuiDivider-root MuiDivider-middle"
+                    />
+                  </ForwardRef(Divider)>
+                </WithStyles(ForwardRef(Divider))>
+                <WithStyles(ForwardRef(CardActions))>
+                  <ForwardRef(CardActions)
+                    classes={
+                      Object {
+                        "root": "MuiCardActions-root",
+                        "spacing": "MuiCardActions-spacing",
+                      }
+                    }
+                  >
+                    <div
+                      className="MuiCardActions-root MuiCardActions-spacing"
+                    >
+                      <div>
+                        <Styled(MuiBox)
+                          display="inline-block"
+                          mr={1}
+                        >
+                          <div
+                            className="MuiBox-root MuiBox-root-102"
+                          >
+                            <WithStyles(ForwardRef(Chip))
+                              clickable={true}
+                              color="secondary"
+                              label="Time"
+                              onClick={[Function]}
+                            >
+                              <ForwardRef(Chip)
+                                classes={
+                                  Object {
+                                    "avatar": "MuiChip-avatar",
+                                    "avatarColorPrimary": "MuiChip-avatarColorPrimary",
+                                    "avatarColorSecondary": "MuiChip-avatarColorSecondary",
+                                    "avatarSmall": "MuiChip-avatarSmall",
+                                    "clickable": "MuiChip-clickable",
+                                    "clickableColorPrimary": "MuiChip-clickableColorPrimary",
+                                    "clickableColorSecondary": "MuiChip-clickableColorSecondary",
+                                    "colorPrimary": "MuiChip-colorPrimary",
+                                    "colorSecondary": "MuiChip-colorSecondary",
+                                    "deletable": "MuiChip-deletable",
+                                    "deletableColorPrimary": "MuiChip-deletableColorPrimary",
+                                    "deletableColorSecondary": "MuiChip-deletableColorSecondary",
+                                    "deleteIcon": "MuiChip-deleteIcon",
+                                    "deleteIconColorPrimary": "MuiChip-deleteIconColorPrimary",
+                                    "deleteIconColorSecondary": "MuiChip-deleteIconColorSecondary",
+                                    "deleteIconOutlinedColorPrimary": "MuiChip-deleteIconOutlinedColorPrimary",
+                                    "deleteIconOutlinedColorSecondary": "MuiChip-deleteIconOutlinedColorSecondary",
+                                    "deleteIconSmall": "MuiChip-deleteIconSmall",
+                                    "disabled": "Mui-disabled",
+                                    "icon": "MuiChip-icon",
+                                    "iconColorPrimary": "MuiChip-iconColorPrimary",
+                                    "iconColorSecondary": "MuiChip-iconColorSecondary",
+                                    "iconSmall": "MuiChip-iconSmall",
+                                    "label": "MuiChip-label",
+                                    "labelSmall": "MuiChip-labelSmall",
+                                    "outlined": "MuiChip-outlined",
+                                    "outlinedPrimary": "MuiChip-outlinedPrimary",
+                                    "outlinedSecondary": "MuiChip-outlinedSecondary",
+                                    "root": "MuiChip-root",
+                                    "sizeSmall": "MuiChip-sizeSmall",
+                                  }
+                                }
+                                clickable={true}
+                                color="secondary"
+                                label="Time"
+                                onClick={[Function]}
+                              >
+                                <WithStyles(ForwardRef(ButtonBase))
+                                  className="MuiChip-root MuiChip-colorSecondary MuiChip-clickableColorSecondary MuiChip-clickable"
+                                  component="div"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <ForwardRef(ButtonBase)
+                                    className="MuiChip-root MuiChip-colorSecondary MuiChip-clickableColorSecondary MuiChip-clickable"
+                                    classes={
+                                      Object {
+                                        "disabled": "Mui-disabled",
+                                        "focusVisible": "Mui-focusVisible",
+                                        "root": "MuiButtonBase-root",
+                                      }
+                                    }
+                                    component="div"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    onKeyUp={[Function]}
+                                    role="button"
+                                    tabIndex={0}
+                                  >
+                                    <div
+                                      className="MuiButtonBase-root MuiChip-root MuiChip-colorSecondary MuiChip-clickableColorSecondary MuiChip-clickable"
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onDragLeave={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyDown={[Function]}
+                                      onKeyUp={[Function]}
+                                      onMouseDown={[Function]}
+                                      onMouseLeave={[Function]}
+                                      onMouseUp={[Function]}
+                                      onTouchEnd={[Function]}
+                                      onTouchMove={[Function]}
+                                      onTouchStart={[Function]}
+                                      role="button"
+                                      tabIndex={0}
+                                    >
+                                      <span
+                                        className="MuiChip-label"
+                                      >
+                                        Time
+                                      </span>
+                                      <WithStyles(memo)
+                                        center={false}
+                                      >
+                                        <ForwardRef(TouchRipple)
+                                          center={false}
+                                          classes={
+                                            Object {
+                                              "child": "MuiTouchRipple-child",
+                                              "childLeaving": "MuiTouchRipple-childLeaving",
+                                              "childPulsate": "MuiTouchRipple-childPulsate",
+                                              "ripple": "MuiTouchRipple-ripple",
+                                              "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                              "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                              "root": "MuiTouchRipple-root",
+                                            }
+                                          }
+                                        >
+                                          <span
+                                            className="MuiTouchRipple-root"
+                                          >
+                                            <TransitionGroup
+                                              childFactory={[Function]}
+                                              component={null}
+                                              exit={true}
+                                            />
+                                          </span>
+                                        </ForwardRef(TouchRipple)>
+                                      </WithStyles(memo)>
+                                    </div>
+                                  </ForwardRef(ButtonBase)>
+                                </WithStyles(ForwardRef(ButtonBase))>
+                              </ForwardRef(Chip)>
+                            </WithStyles(ForwardRef(Chip))>
+                          </div>
+                        </Styled(MuiBox)>
+                        <WithStyles(ForwardRef(Chip))
+                          clickable={true}
+                          color="default"
+                          label="Sessions"
+                          onClick={[Function]}
+                        >
+                          <ForwardRef(Chip)
+                            classes={
+                              Object {
+                                "avatar": "MuiChip-avatar",
+                                "avatarColorPrimary": "MuiChip-avatarColorPrimary",
+                                "avatarColorSecondary": "MuiChip-avatarColorSecondary",
+                                "avatarSmall": "MuiChip-avatarSmall",
+                                "clickable": "MuiChip-clickable",
+                                "clickableColorPrimary": "MuiChip-clickableColorPrimary",
+                                "clickableColorSecondary": "MuiChip-clickableColorSecondary",
+                                "colorPrimary": "MuiChip-colorPrimary",
+                                "colorSecondary": "MuiChip-colorSecondary",
+                                "deletable": "MuiChip-deletable",
+                                "deletableColorPrimary": "MuiChip-deletableColorPrimary",
+                                "deletableColorSecondary": "MuiChip-deletableColorSecondary",
+                                "deleteIcon": "MuiChip-deleteIcon",
+                                "deleteIconColorPrimary": "MuiChip-deleteIconColorPrimary",
+                                "deleteIconColorSecondary": "MuiChip-deleteIconColorSecondary",
+                                "deleteIconOutlinedColorPrimary": "MuiChip-deleteIconOutlinedColorPrimary",
+                                "deleteIconOutlinedColorSecondary": "MuiChip-deleteIconOutlinedColorSecondary",
+                                "deleteIconSmall": "MuiChip-deleteIconSmall",
+                                "disabled": "Mui-disabled",
+                                "icon": "MuiChip-icon",
+                                "iconColorPrimary": "MuiChip-iconColorPrimary",
+                                "iconColorSecondary": "MuiChip-iconColorSecondary",
+                                "iconSmall": "MuiChip-iconSmall",
+                                "label": "MuiChip-label",
+                                "labelSmall": "MuiChip-labelSmall",
+                                "outlined": "MuiChip-outlined",
+                                "outlinedPrimary": "MuiChip-outlinedPrimary",
+                                "outlinedSecondary": "MuiChip-outlinedSecondary",
+                                "root": "MuiChip-root",
+                                "sizeSmall": "MuiChip-sizeSmall",
+                              }
+                            }
+                            clickable={true}
+                            color="default"
+                            label="Sessions"
+                            onClick={[Function]}
+                          >
+                            <WithStyles(ForwardRef(ButtonBase))
+                              className="MuiChip-root MuiChip-clickable"
+                              component="div"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                              onKeyUp={[Function]}
+                              role="button"
+                              tabIndex={0}
+                            >
+                              <ForwardRef(ButtonBase)
+                                className="MuiChip-root MuiChip-clickable"
+                                classes={
+                                  Object {
+                                    "disabled": "Mui-disabled",
+                                    "focusVisible": "Mui-focusVisible",
+                                    "root": "MuiButtonBase-root",
+                                  }
+                                }
+                                component="div"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                onKeyUp={[Function]}
+                                role="button"
+                                tabIndex={0}
+                              >
+                                <div
+                                  className="MuiButtonBase-root MuiChip-root MuiChip-clickable"
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onDragLeave={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onMouseDown={[Function]}
+                                  onMouseLeave={[Function]}
+                                  onMouseUp={[Function]}
+                                  onTouchEnd={[Function]}
+                                  onTouchMove={[Function]}
+                                  onTouchStart={[Function]}
+                                  role="button"
+                                  tabIndex={0}
+                                >
+                                  <span
+                                    className="MuiChip-label"
+                                  >
+                                    Sessions
+                                  </span>
+                                  <WithStyles(memo)
+                                    center={false}
+                                  >
+                                    <ForwardRef(TouchRipple)
+                                      center={false}
+                                      classes={
+                                        Object {
+                                          "child": "MuiTouchRipple-child",
+                                          "childLeaving": "MuiTouchRipple-childLeaving",
+                                          "childPulsate": "MuiTouchRipple-childPulsate",
+                                          "ripple": "MuiTouchRipple-ripple",
+                                          "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                          "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                          "root": "MuiTouchRipple-root",
+                                        }
+                                      }
+                                    >
+                                      <span
+                                        className="MuiTouchRipple-root"
+                                      >
+                                        <TransitionGroup
+                                          childFactory={[Function]}
+                                          component={null}
+                                          exit={true}
+                                        />
+                                      </span>
+                                    </ForwardRef(TouchRipple)>
+                                  </WithStyles(memo)>
+                                </div>
+                              </ForwardRef(ButtonBase)>
+                            </WithStyles(ForwardRef(ButtonBase))>
+                          </ForwardRef(Chip)>
+                        </WithStyles(ForwardRef(Chip))>
+                      </div>
+                    </div>
+                  </ForwardRef(CardActions)>
+                </WithStyles(ForwardRef(CardActions))>
+              </div>
+            </ForwardRef(Paper)>
+          </WithStyles(ForwardRef(Paper))>
+        </ForwardRef(Card)>
+      </WithStyles(ForwardRef(Card))>
+    </Styled(WithStyles(ForwardRef(Card)))>
+  </DaysChart>
+</Provider>
+`;

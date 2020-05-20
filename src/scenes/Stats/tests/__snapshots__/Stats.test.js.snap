@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Stats /> should render <Stats /> correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Stats>
+        <div>
+          <NoData>
+            <Styled(Styled(MuiBox))
+              alignItems="center"
+              alignSelf="center"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              maxWidth="600px"
+              width="90%"
+            >
+              <Styled(MuiBox)
+                alignItems="center"
+                alignSelf="center"
+                className="sc-fzpans itosWR"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                maxWidth="600px"
+                width="90%"
+              >
+                <div
+                  className="MuiBox-root MuiBox-root-2 sc-fzpans itosWR"
+                >
+                  <img
+                    alt="Statistics and charts"
+                    src="no-data.svg"
+                  />
+                  <WithStyles(ForwardRef(Typography))
+                    align="center"
+                  >
+                    <ForwardRef(Typography)
+                      align="center"
+                      classes={
+                        Object {
+                          "alignCenter": "MuiTypography-alignCenter",
+                          "alignJustify": "MuiTypography-alignJustify",
+                          "alignLeft": "MuiTypography-alignLeft",
+                          "alignRight": "MuiTypography-alignRight",
+                          "body1": "MuiTypography-body1",
+                          "body2": "MuiTypography-body2",
+                          "button": "MuiTypography-button",
+                          "caption": "MuiTypography-caption",
+                          "colorError": "MuiTypography-colorError",
+                          "colorInherit": "MuiTypography-colorInherit",
+                          "colorPrimary": "MuiTypography-colorPrimary",
+                          "colorSecondary": "MuiTypography-colorSecondary",
+                          "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                          "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                          "displayBlock": "MuiTypography-displayBlock",
+                          "displayInline": "MuiTypography-displayInline",
+                          "gutterBottom": "MuiTypography-gutterBottom",
+                          "h1": "MuiTypography-h1",
+                          "h2": "MuiTypography-h2",
+                          "h3": "MuiTypography-h3",
+                          "h4": "MuiTypography-h4",
+                          "h5": "MuiTypography-h5",
+                          "h6": "MuiTypography-h6",
+                          "noWrap": "MuiTypography-noWrap",
+                          "overline": "MuiTypography-overline",
+                          "paragraph": "MuiTypography-paragraph",
+                          "root": "MuiTypography-root",
+                          "srOnly": "MuiTypography-srOnly",
+                          "subtitle1": "MuiTypography-subtitle1",
+                          "subtitle2": "MuiTypography-subtitle2",
+                        }
+                      }
+                    >
+                      <p
+                        className="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter"
+                      >
+                        Nothing to show here. Come back after you
+                         
+                        <Styled(Link)
+                          color="#f50057"
+                          to="/timer"
+                        >
+                          <Link
+                            className="sc-fzplWN cOTjdd"
+                            color="#f50057"
+                            to="/timer"
+                          >
+                            <LinkAnchor
+                              className="sc-fzplWN cOTjdd"
+                              color="#f50057"
+                              href="/timer"
+                              navigate={[Function]}
+                            >
+                              <a
+                                className="sc-fzplWN cOTjdd"
+                                color="#f50057"
+                                href="/timer"
+                                onClick={[Function]}
+                              >
+                                complete a few sessions
+                              </a>
+                            </LinkAnchor>
+                          </Link>
+                        </Styled(Link)>
+                        .
+                      </p>
+                    </ForwardRef(Typography)>
+                  </WithStyles(ForwardRef(Typography))>
+                </div>
+              </Styled(MuiBox)>
+            </Styled(Styled(MuiBox))>
+          </NoData>
+        </div>
+      </Stats>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

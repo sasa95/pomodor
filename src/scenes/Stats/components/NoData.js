@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import MatBox from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import illustration from '../no-data.svg'
+import illustration from './assets/no-data.svg'
 
 export const NoData = () => {
   const theme = useTheme()

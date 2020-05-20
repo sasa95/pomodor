@@ -14,16 +14,16 @@ import MatCardContent from '@material-ui/core/CardContent'
 import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
+import grey from '@material-ui/core/colors/grey'
 import { Doughnut } from 'react-chartjs-2'
+import dayjs from 'dayjs'
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import { filters, getFilterFn } from '../data/filters'
 import {
   generateChartTitle,
   generateChartTimeLabel,
   generateChartSessionsLabel,
 } from '../data/chartFunctions'
-import * as dayjs from 'dayjs'
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
-import grey from '@material-ui/core/colors/grey'
 
 dayjs.extend(isSameOrAfter)
 require('dayjs/locale/en-gb')

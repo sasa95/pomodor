@@ -1,5 +1,5 @@
 import { reducer, initialState } from '../reducer'
-import labels from './fixtures/labels'
+import labels from './mock-data/labels'
 
 test('should setup default labels state', () => {
   const state = reducer(undefined, { type: '@@INIT' })

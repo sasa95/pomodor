@@ -16,7 +16,7 @@ exports[`<Label /> should render <Label /> correctly 1`] = `
   <Label
     label={
       Object {
-        "color": "#f00",
+        "color": "#f44336",
         "id": "1",
         "name": "Coding",
       }
@@ -39,11 +39,11 @@ exports[`<Label /> should render <Label /> correctly 1`] = `
             className="MuiBox-root MuiBox-root-3"
           >
             <styled.span
-              color="#f00"
+              color="#f44336"
             >
               <span
-                className="sc-AxjAm dcpLPx"
-                color="#f00"
+                className="sc-AxjAm ccnopb"
+                color="#f44336"
               />
             </styled.span>
             <span>

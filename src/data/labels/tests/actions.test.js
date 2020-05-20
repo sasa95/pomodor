@@ -17,7 +17,7 @@ import {
   startDeleteLabel,
   startSetLabels,
 } from '../actions'
-import labels from './fixtures/labels'
+import labels from './mock-data/labels'
 import fs from '../../../firebase/firebase'
 
 const uid = 'asdf1234'

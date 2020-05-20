@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 require('dayjs/locale/en-gb')
@@ -130,6 +130,8 @@ export const Overview = () => {
   const calculateTime = (time) => {
     const hours = Math.floor(time / 3600)
     const minutes = Math.floor((time % 3600) / 60)
+
+    if (!hours && !minutes) return '-'
 
     return `${hours}h ${minutes}m`
   }
@@ -283,3 +285,5 @@ const Avg = styled.span`
   font-size: 0.7rem;
   color: ${({ color }) => color};
 `
+
+export { Sum, Avg }

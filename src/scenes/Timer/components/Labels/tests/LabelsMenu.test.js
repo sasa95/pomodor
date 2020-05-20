@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
-import labels from './fixtures/labels'
+import labels from '../../../../../data/labels/tests/mock-data/labels'
 import { LabelsMenu, LabelMenuItem } from '../LabelsMenu'
 
 describe('<LabelsMenu />', () => {

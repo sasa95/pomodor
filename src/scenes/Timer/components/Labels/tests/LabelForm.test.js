@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
 import TextField from '@material-ui/core/TextField'
-import labels from './fixtures/labels'
+import labels from '../../../../../data/labels/tests/mock-data/labels'
 import { LabelForm, ColorTextField } from '../LabelForm'
 
 describe('<LabelForm />', () => {

@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
 import { Label, ColorIndicator, ActionButton } from '../Label'
-import labels from './fixtures/labels'
+import labels from '../../../../../data/labels/tests/mock-data/labels'
 
 describe('<Label />', () => {
   const mockStore = configureMockStore([thunk])

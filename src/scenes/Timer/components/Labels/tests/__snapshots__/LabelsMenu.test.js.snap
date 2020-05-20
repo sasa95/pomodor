@@ -160,8 +160,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                               class="MuiBox-root MuiBox-root-57"
                             >
                               <span
-                                class="sc-AxjAm dcpLPx"
-                                color="#f00"
+                                class="sc-AxjAm ccnopb"
+                                color="#f44336"
                               />
                               <span>
                                 Coding
@@ -240,8 +240,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                               class="MuiBox-root MuiBox-root-78"
                             >
                               <span
-                                class="sc-AxjAm gWmHzx"
-                                color="#0f0"
+                                class="sc-AxjAm fDbhCB"
+                                color="#673ab7"
                               />
                               <span>
                                 Reading
@@ -320,8 +320,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                               class="MuiBox-root MuiBox-root-81"
                             >
                               <span
-                                class="sc-AxjAm iJybWR"
-                                color="#00f"
+                                class="sc-AxjAm esblgC"
+                                color="#2196f3"
                               />
                               <span>
                                 Playing a guitar
@@ -471,8 +471,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                 class="MuiBox-root MuiBox-root-57"
                               >
                                 <span
-                                  class="sc-AxjAm dcpLPx"
-                                  color="#f00"
+                                  class="sc-AxjAm ccnopb"
+                                  color="#f44336"
                                 />
                                 <span>
                                   Coding
@@ -551,8 +551,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                 class="MuiBox-root MuiBox-root-78"
                               >
                                 <span
-                                  class="sc-AxjAm gWmHzx"
-                                  color="#0f0"
+                                  class="sc-AxjAm fDbhCB"
+                                  color="#673ab7"
                                 />
                                 <span>
                                   Reading
@@ -631,8 +631,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                 class="MuiBox-root MuiBox-root-81"
                               >
                                 <span
-                                  class="sc-AxjAm iJybWR"
-                                  color="#00f"
+                                  class="sc-AxjAm esblgC"
+                                  color="#2196f3"
                                 />
                                 <span>
                                   Playing a guitar
@@ -778,8 +778,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                   class="MuiBox-root MuiBox-root-57"
                                 >
                                   <span
-                                    class="sc-AxjAm dcpLPx"
-                                    color="#f00"
+                                    class="sc-AxjAm ccnopb"
+                                    color="#f44336"
                                   />
                                   <span>
                                     Coding
@@ -858,8 +858,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                   class="MuiBox-root MuiBox-root-78"
                                 >
                                   <span
-                                    class="sc-AxjAm gWmHzx"
-                                    color="#0f0"
+                                    class="sc-AxjAm fDbhCB"
+                                    color="#673ab7"
                                   />
                                   <span>
                                     Reading
@@ -938,8 +938,8 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                   class="MuiBox-root MuiBox-root-81"
                                 >
                                   <span
-                                    class="sc-AxjAm iJybWR"
-                                    color="#00f"
+                                    class="sc-AxjAm esblgC"
+                                    color="#2196f3"
                                   />
                                   <span>
                                     Playing a guitar
@@ -1357,7 +1357,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                                           key=".0"
                                                           label={
                                                             Object {
-                                                              "color": "#f00",
+                                                              "color": "#f44336",
                                                               "id": "1",
                                                               "name": "Coding",
                                                             }
@@ -1380,11 +1380,11 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                                                   className="MuiBox-root MuiBox-root-57"
                                                                 >
                                                                   <styled.span
-                                                                    color="#f00"
+                                                                    color="#f44336"
                                                                   >
                                                                     <span
-                                                                      className="sc-AxjAm dcpLPx"
-                                                                      color="#f00"
+                                                                      className="sc-AxjAm ccnopb"
+                                                                      color="#f44336"
                                                                     />
                                                                   </styled.span>
                                                                   <span>
@@ -1851,7 +1851,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                                           key=".0"
                                                           label={
                                                             Object {
-                                                              "color": "#0f0",
+                                                              "color": "#673ab7",
                                                               "id": "2",
                                                               "name": "Reading",
                                                             }
@@ -1874,11 +1874,11 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                                                   className="MuiBox-root MuiBox-root-78"
                                                                 >
                                                                   <styled.span
-                                                                    color="#0f0"
+                                                                    color="#673ab7"
                                                                   >
                                                                     <span
-                                                                      className="sc-AxjAm gWmHzx"
-                                                                      color="#0f0"
+                                                                      className="sc-AxjAm fDbhCB"
+                                                                      color="#673ab7"
                                                                     />
                                                                   </styled.span>
                                                                   <span>
@@ -2345,7 +2345,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                                           key=".0"
                                                           label={
                                                             Object {
-                                                              "color": "#00f",
+                                                              "color": "#2196f3",
                                                               "id": "3",
                                                               "name": "Playing a guitar",
                                                             }
@@ -2368,11 +2368,11 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
                                                                   className="MuiBox-root MuiBox-root-81"
                                                                 >
                                                                   <styled.span
-                                                                    color="#00f"
+                                                                    color="#2196f3"
                                                                   >
                                                                     <span
-                                                                      className="sc-AxjAm iJybWR"
-                                                                      color="#00f"
+                                                                      className="sc-AxjAm esblgC"
+                                                                      color="#2196f3"
                                                                     />
                                                                   </styled.span>
                                                                   <span>

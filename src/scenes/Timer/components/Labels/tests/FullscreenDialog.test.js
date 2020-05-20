@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { createMount } from '@material-ui/core/test-utils'
 import IconButton from '@material-ui/core/IconButton'
-import labels from './fixtures/labels'
+import labels from '../../../../../data/labels/tests/mock-data/labels'
 import fs from '../../../../../firebase/firebase'
 import { FullscreenDialog } from '../FullscreenDialog'
 
