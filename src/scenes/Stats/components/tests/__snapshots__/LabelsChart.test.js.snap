@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Overview /> should render <LabelsChart /> correctly 1`] = `
+exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
 <Provider
   store={
     Object {

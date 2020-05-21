@@ -2,7 +2,7 @@ import React from 'react'
 import { createShallow } from '@material-ui/core/test-utils'
 import { NoData } from '../NoData'
 
-describe('<SkipButton />', () => {
+describe('<NoData />', () => {
   let shallow
   let wrapper
 

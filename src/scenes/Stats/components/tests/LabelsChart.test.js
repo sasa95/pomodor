@@ -14,7 +14,7 @@ jest.mock('react-chartjs-2', () => ({
   Doughnut: () => null,
 }))
 
-describe('<Overview />', () => {
+describe('<LabelsChart />', () => {
   const mockStore = configureMockStore([thunk])
   let store
   let mount

@@ -10,7 +10,7 @@ import MatLinearProgress from '@material-ui/core/LinearProgress'
 import { Timer } from '../scenes/Timer/Timer'
 import { Stats } from '../scenes/Stats/Stats'
 import { Settings } from '../scenes/Settings/Settings'
-import { ScrollToTop } from '../ScrollToTop'
+import { ScrollToTop } from './navigation/ScrollToTop'
 import { Page404 } from '../Page404'
 
 export const MainContainer = () => {

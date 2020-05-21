@@ -2331,7 +2331,7 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
                                             className="sc-AxhUy eQwOMe"
                                             color="rgba(0, 0, 0, 0.54)"
                                           >
-                                            0h 27m
+                                            0h 26m
                                              
                                             avg
                                           </span>
@@ -2490,7 +2490,7 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
                                             className="sc-AxhUy eQwOMe"
                                             color="rgba(0, 0, 0, 0.54)"
                                           >
-                                            1h 58m
+                                            1h 52m
                                              
                                             avg
                                           </span>

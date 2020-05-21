@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SkipButton /> should render <NoData /> correctly 1`] = `
+exports[`<NoData /> should render <NoData /> correctly 1`] = `
 <Styled(Styled(MuiBox))
   alignItems="center"
   alignSelf="center"
