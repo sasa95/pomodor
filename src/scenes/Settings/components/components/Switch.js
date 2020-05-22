@@ -47,11 +47,11 @@ export const Switch = ({ name, action, checked }) => {
   )
 }
 
-const Label = styled(FormControlLabel)`
+export const Label = styled(FormControlLabel)`
   margin: 0;
 `
 
-const SettingSwitch = styled(MatSwitch)`
+export const SettingSwitch = styled(MatSwitch)`
   .Mui-checked {
     color: ${({ theme, dark }) =>
       dark ? theme.palette.secondary.light : theme.palette.secondary.main};

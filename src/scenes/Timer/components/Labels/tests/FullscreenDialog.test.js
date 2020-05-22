@@ -1,118 +1,142 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import IconButton from '@material-ui/core/IconButton'
 import labels from '../../../../../data/labels/tests/mock-data/labels'
-import fs from '../../../../../firebase/firebase'
 import { FullscreenDialog } from '../FullscreenDialog'
+import * as labelsActions from '../../../../../data/labels/actions'
 
 describe('<FullscreenDialog />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<FullscreenDialog />)
+  }
 
-  const uid = 'asdf3333'
-  let store
-  let storeData
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
-  beforeEach(async (done) => {
-    const batch = fs.batch()
-
-    const labelsRef = await fs.collection(`users/${uid}/labels`).get()
-
-    labelsRef.docs.forEach(({ id }) => {
-      batch.delete(fs.doc(`users/${uid}/labels/${id}`))
-    })
-
-    labels.forEach(({ id, name, color }) => {
-      const ref = fs.collection(`users/${uid}/labels`).doc(id)
-      batch.set(ref, { name, color })
-    })
-
-    await batch.commit()
-    done()
-
-    mount = createMount()
-
-    wrapper = (labelEditting = null, formValue = null) => {
-      storeData = {
-        auth: { uid },
-        labels: {
-          fullscreenDialog: true,
-          labelEditting,
-          formValue,
-          data: labels,
-          deleteAlert: false,
-        },
-      }
-
-      store = mockStore(storeData)
-      store.dispatch = jest.fn()
-
-      return mount(
-        <Provider store={store}>
-          <FullscreenDialog />
-        </Provider>
-      )
+  const createStore = (labelEditting = null, formValue = null) => {
+    const store = {
+      labels: {
+        fullscreenDialog: true,
+        labelEditting,
+        formValue,
+      },
     }
-  })
 
-  afterEach(() => {
-    mount.cleanUp()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
+
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   test('should render <FullscreenDialog /> correctly', () => {
-    const wrapperRendered = wrapper()
-
-    expect(wrapperRendered).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
-  test('Should display 2 IconButton-s if there is no labelEditing data provided', () => {
-    const wrapperRendered = wrapper(null, {
+  test('Should display 2 IconButton-s in add mode', () => {
+    createStore(null, {
       name: 'Play Piano',
       color: '#123123',
     })
 
-    expect(wrapperRendered.find(IconButton).length).toBe(2)
+    expect(createWrapper().find(IconButton).length).toBe(2)
   })
 
-  test('Should display 3 IconButton-s if there is labelEditing data provided', () => {
-    const wrapperRendered = wrapper(labels[0], {
+  test('Should display 3 IconButton-s in edit mode', () => {
+    createStore(labels[0], {
       name: 'Play Piano',
       color: '#123123',
     })
 
-    expect(wrapperRendered.find(IconButton).length).toBe(3)
+    expect(createWrapper().find(IconButton).length).toBe(3)
   })
 
   test('Confirm button should be disabled when incomplete data is provided', () => {
-    const wrapperRendered = wrapper(null, {
+    createStore(null, {
       name: 'Play Piano',
     })
 
-    expect(wrapperRendered.find(IconButton).at(1).prop('disabled')).toBe(true)
+    expect(createWrapper().find(IconButton).at(1).prop('disabled')).toBe(true)
   })
 
-  test('Confirm button should be enabled when complete data is provided and should call dispatch 4 times on confirm button click', () => {
-    const wrapperRendered = wrapper(null, {
+  test('should call startAddLabel in add mode on confirm button click', () => {
+    const startAddLabelMocked = jest
+      .spyOn(labelsActions, 'startAddLabel')
+      .mockImplementation(() => jest.fn())
+
+    const formValue = {
       name: 'Play Piano',
       color: '#123123',
-    })
+    }
 
-    expect(wrapperRendered.find(IconButton).at(1).prop('disabled')).toBe(false)
-    wrapperRendered.find(IconButton).at(1).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(4)
+    createStore(null, formValue)
+
+    const wrapper = createWrapper()
+    expect(wrapper.find(IconButton).at(1).prop('disabled')).toBe(false)
+
+    wrapper.find(IconButton).at(1).simulate('click')
+    expect(startAddLabelMocked).toHaveBeenCalledWith(formValue)
   })
 
-  test('Delete button should call dispatch once', () => {
-    const wrapperRendered = wrapper(labels[0], {
-      name: 'Play Piano',
+  test('should call startEditLabel in edit mode on confirm button click', () => {
+    const startEditLabelMocked = jest
+      .spyOn(labelsActions, 'startEditLabel')
+      .mockImplementation(() => jest.fn())
+
+    const labelEditting = labels[0]
+    const formValue = {
+      name: labelEditting.name,
       color: '#123123',
+    }
+
+    createStore(labelEditting, formValue)
+
+    const wrapper = createWrapper()
+    expect(wrapper.find(IconButton).at(2).prop('disabled')).toBe(false)
+
+    wrapper.find(IconButton).at(2).simulate('click')
+
+    expect(startEditLabelMocked).toHaveBeenCalledWith(
+      labelEditting.id,
+      formValue
+    )
+  })
+
+  test('should call setDeleteAlert on confirm button click', () => {
+    const setDeleteAlertMocked = jest
+      .spyOn(labelsActions, 'setDeleteAlert')
+      .mockImplementation(() => jest.fn())
+
+    const labelEditting = labels[0]
+
+    createStore(labelEditting, {
+      name: labelEditting.name,
+      color: labelEditting.color,
     })
 
-    wrapperRendered.find(IconButton).at(1).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
+    const wrapper = createWrapper()
+
+    wrapper.find(IconButton).at(1).simulate('click')
+    expect(setDeleteAlertMocked).toHaveBeenCalledWith(true)
+  })
+
+  test('should handle close dialog', () => {
+    const setFullscreenDialogMocked = jest
+      .spyOn(labelsActions, 'setFullscreenDialog')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+
+    const wrapper = createWrapper()
+    wrapper.find(IconButton).at(0).simulate('click')
+
+    expect(setFullscreenDialogMocked).toHaveBeenCalledWith(false)
   })
 })

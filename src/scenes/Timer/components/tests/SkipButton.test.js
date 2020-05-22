@@ -1,46 +1,49 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import IconButton from '@material-ui/core/IconButton'
 import { SkipButton } from '../SkipButton'
+import * as timerActions from '../../data/timer/actions'
 
 describe('<SkipButton />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<SkipButton />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
-  beforeEach(() => {
-    mount = createMount()
-
-    const storeData = {
+  const createStore = () => {
+    const store = {
       timer: { timeLeft: { minutes: 25, seconds: 0 } },
       settings: {},
     }
 
-    store = mockStore(storeData)
-    store.dispatch = jest.fn()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
 
-    wrapper = mount(
-      <Provider store={store}>
-        <SkipButton />
-      </Provider>
-    )
-  })
+    return store
+  }
 
-  afterEach(() => {
-    mount.cleanUp()
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   test('should render <SkipButton /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
-  test('should call dispatch once on button click', () => {
-    wrapper.find(IconButton).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
+  test('should handle skip button click', () => {
+    const setNextTimerMocked = jest
+      .spyOn(timerActions, 'setNextTimer')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+
+    createWrapper().find(IconButton).simulate('click')
+    expect(setNextTimerMocked).toHaveBeenCalled()
   })
 })

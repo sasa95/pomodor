@@ -1,352 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Label /> should render <Label /> correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
+<Styled(MuiBox)
+  alignItems="center"
+  display="flex"
+  justifyContent="space-between"
+  width="100%"
 >
-  <Label
-    label={
-      Object {
-        "color": "#f44336",
-        "id": "1",
-        "name": "Coding",
-      }
-    }
+  <Styled(MuiBox)
+    alignItems="center"
+    display="flex"
   >
-    <Styled(MuiBox)
-      alignItems="center"
-      display="flex"
-      justifyContent="space-between"
-      width="100%"
+    <styled.span
+      color="#f44336"
+    />
+    <span>
+      Coding
+    </span>
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    display="flex"
+  >
+    <Styled(WithStyles(ForwardRef(IconButton)))
+      aria-label="Edit label"
+      onClick={[Function]}
+      size="small"
     >
-      <div
-        className="MuiBox-root MuiBox-root-2"
-      >
-        <Styled(MuiBox)
-          alignItems="center"
-          display="flex"
-        >
-          <div
-            className="MuiBox-root MuiBox-root-3"
-          >
-            <styled.span
-              color="#f44336"
-            >
-              <span
-                className="sc-AxjAm ccnopb"
-                color="#f44336"
-              />
-            </styled.span>
-            <span>
-              Coding
-            </span>
-          </div>
-        </Styled(MuiBox)>
-        <Styled(MuiBox)
-          display="flex"
-        >
-          <div
-            className="MuiBox-root MuiBox-root-4"
-          >
-            <Styled(WithStyles(ForwardRef(IconButton)))
-              aria-label="Edit label"
-              onClick={[Function]}
-              size="small"
-            >
-              <WithStyles(ForwardRef(IconButton))
-                aria-label="Edit label"
-                className="sc-AxirZ fYxHqd"
-                onClick={[Function]}
-                size="small"
-              >
-                <ForwardRef(IconButton)
-                  aria-label="Edit label"
-                  className="sc-AxirZ fYxHqd"
-                  classes={
-                    Object {
-                      "colorInherit": "MuiIconButton-colorInherit",
-                      "colorPrimary": "MuiIconButton-colorPrimary",
-                      "colorSecondary": "MuiIconButton-colorSecondary",
-                      "disabled": "Mui-disabled",
-                      "edgeEnd": "MuiIconButton-edgeEnd",
-                      "edgeStart": "MuiIconButton-edgeStart",
-                      "label": "MuiIconButton-label",
-                      "root": "MuiIconButton-root",
-                      "sizeSmall": "MuiIconButton-sizeSmall",
-                    }
-                  }
-                  onClick={[Function]}
-                  size="small"
-                >
-                  <WithStyles(ForwardRef(ButtonBase))
-                    aria-label="Edit label"
-                    centerRipple={true}
-                    className="MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
-                    disabled={false}
-                    focusRipple={true}
-                    onClick={[Function]}
-                  >
-                    <ForwardRef(ButtonBase)
-                      aria-label="Edit label"
-                      centerRipple={true}
-                      className="MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
-                      classes={
-                        Object {
-                          "disabled": "Mui-disabled",
-                          "focusVisible": "Mui-focusVisible",
-                          "root": "MuiButtonBase-root",
-                        }
-                      }
-                      disabled={false}
-                      focusRipple={true}
-                      onClick={[Function]}
-                    >
-                      <button
-                        aria-label="Edit label"
-                        className="MuiButtonBase-root MuiIconButton-root sc-AxirZ fYxHqd MuiIconButton-sizeSmall"
-                        disabled={false}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onDragLeave={[Function]}
-                        onFocus={[Function]}
-                        onKeyDown={[Function]}
-                        onKeyUp={[Function]}
-                        onMouseDown={[Function]}
-                        onMouseLeave={[Function]}
-                        onMouseUp={[Function]}
-                        onTouchEnd={[Function]}
-                        onTouchMove={[Function]}
-                        onTouchStart={[Function]}
-                        tabIndex={0}
-                        type="button"
-                      >
-                        <span
-                          className="MuiIconButton-label"
-                        >
-                          <ForwardRef>
-                            <WithStyles(ForwardRef(SvgIcon))>
-                              <ForwardRef(SvgIcon)
-                                classes={
-                                  Object {
-                                    "colorAction": "MuiSvgIcon-colorAction",
-                                    "colorDisabled": "MuiSvgIcon-colorDisabled",
-                                    "colorError": "MuiSvgIcon-colorError",
-                                    "colorPrimary": "MuiSvgIcon-colorPrimary",
-                                    "colorSecondary": "MuiSvgIcon-colorSecondary",
-                                    "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
-                                    "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
-                                    "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
-                                    "root": "MuiSvgIcon-root",
-                                  }
-                                }
-                              >
-                                <svg
-                                  aria-hidden={true}
-                                  className="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
-                                  />
-                                </svg>
-                              </ForwardRef(SvgIcon)>
-                            </WithStyles(ForwardRef(SvgIcon))>
-                          </ForwardRef>
-                        </span>
-                        <WithStyles(memo)
-                          center={true}
-                        >
-                          <ForwardRef(TouchRipple)
-                            center={true}
-                            classes={
-                              Object {
-                                "child": "MuiTouchRipple-child",
-                                "childLeaving": "MuiTouchRipple-childLeaving",
-                                "childPulsate": "MuiTouchRipple-childPulsate",
-                                "ripple": "MuiTouchRipple-ripple",
-                                "ripplePulsate": "MuiTouchRipple-ripplePulsate",
-                                "rippleVisible": "MuiTouchRipple-rippleVisible",
-                                "root": "MuiTouchRipple-root",
-                              }
-                            }
-                          >
-                            <span
-                              className="MuiTouchRipple-root"
-                            >
-                              <TransitionGroup
-                                childFactory={[Function]}
-                                component={null}
-                                exit={true}
-                              />
-                            </span>
-                          </ForwardRef(TouchRipple)>
-                        </WithStyles(memo)>
-                      </button>
-                    </ForwardRef(ButtonBase)>
-                  </WithStyles(ForwardRef(ButtonBase))>
-                </ForwardRef(IconButton)>
-              </WithStyles(ForwardRef(IconButton))>
-            </Styled(WithStyles(ForwardRef(IconButton)))>
-            <Styled(WithStyles(ForwardRef(IconButton)))
-              aria-label="Delete label"
-              hide={1}
-              onClick={[Function]}
-              size="small"
-            >
-              <WithStyles(ForwardRef(IconButton))
-                aria-label="Delete label"
-                className="sc-AxirZ faiIQu"
-                hide={1}
-                onClick={[Function]}
-                size="small"
-              >
-                <ForwardRef(IconButton)
-                  aria-label="Delete label"
-                  className="sc-AxirZ faiIQu"
-                  classes={
-                    Object {
-                      "colorInherit": "MuiIconButton-colorInherit",
-                      "colorPrimary": "MuiIconButton-colorPrimary",
-                      "colorSecondary": "MuiIconButton-colorSecondary",
-                      "disabled": "Mui-disabled",
-                      "edgeEnd": "MuiIconButton-edgeEnd",
-                      "edgeStart": "MuiIconButton-edgeStart",
-                      "label": "MuiIconButton-label",
-                      "root": "MuiIconButton-root",
-                      "sizeSmall": "MuiIconButton-sizeSmall",
-                    }
-                  }
-                  hide={1}
-                  onClick={[Function]}
-                  size="small"
-                >
-                  <WithStyles(ForwardRef(ButtonBase))
-                    aria-label="Delete label"
-                    centerRipple={true}
-                    className="MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
-                    disabled={false}
-                    focusRipple={true}
-                    hide={1}
-                    onClick={[Function]}
-                  >
-                    <ForwardRef(ButtonBase)
-                      aria-label="Delete label"
-                      centerRipple={true}
-                      className="MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
-                      classes={
-                        Object {
-                          "disabled": "Mui-disabled",
-                          "focusVisible": "Mui-focusVisible",
-                          "root": "MuiButtonBase-root",
-                        }
-                      }
-                      disabled={false}
-                      focusRipple={true}
-                      hide={1}
-                      onClick={[Function]}
-                    >
-                      <button
-                        aria-label="Delete label"
-                        className="MuiButtonBase-root MuiIconButton-root sc-AxirZ faiIQu MuiIconButton-sizeSmall"
-                        disabled={false}
-                        hide={1}
-                        onBlur={[Function]}
-                        onClick={[Function]}
-                        onDragLeave={[Function]}
-                        onFocus={[Function]}
-                        onKeyDown={[Function]}
-                        onKeyUp={[Function]}
-                        onMouseDown={[Function]}
-                        onMouseLeave={[Function]}
-                        onMouseUp={[Function]}
-                        onTouchEnd={[Function]}
-                        onTouchMove={[Function]}
-                        onTouchStart={[Function]}
-                        tabIndex={0}
-                        type="button"
-                      >
-                        <span
-                          className="MuiIconButton-label"
-                        >
-                          <ForwardRef>
-                            <WithStyles(ForwardRef(SvgIcon))>
-                              <ForwardRef(SvgIcon)
-                                classes={
-                                  Object {
-                                    "colorAction": "MuiSvgIcon-colorAction",
-                                    "colorDisabled": "MuiSvgIcon-colorDisabled",
-                                    "colorError": "MuiSvgIcon-colorError",
-                                    "colorPrimary": "MuiSvgIcon-colorPrimary",
-                                    "colorSecondary": "MuiSvgIcon-colorSecondary",
-                                    "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
-                                    "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
-                                    "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
-                                    "root": "MuiSvgIcon-root",
-                                  }
-                                }
-                              >
-                                <svg
-                                  aria-hidden={true}
-                                  className="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                                  />
-                                </svg>
-                              </ForwardRef(SvgIcon)>
-                            </WithStyles(ForwardRef(SvgIcon))>
-                          </ForwardRef>
-                        </span>
-                        <WithStyles(memo)
-                          center={true}
-                        >
-                          <ForwardRef(TouchRipple)
-                            center={true}
-                            classes={
-                              Object {
-                                "child": "MuiTouchRipple-child",
-                                "childLeaving": "MuiTouchRipple-childLeaving",
-                                "childPulsate": "MuiTouchRipple-childPulsate",
-                                "ripple": "MuiTouchRipple-ripple",
-                                "ripplePulsate": "MuiTouchRipple-ripplePulsate",
-                                "rippleVisible": "MuiTouchRipple-rippleVisible",
-                                "root": "MuiTouchRipple-root",
-                              }
-                            }
-                          >
-                            <span
-                              className="MuiTouchRipple-root"
-                            >
-                              <TransitionGroup
-                                childFactory={[Function]}
-                                component={null}
-                                exit={true}
-                              />
-                            </span>
-                          </ForwardRef(TouchRipple)>
-                        </WithStyles(memo)>
-                      </button>
-                    </ForwardRef(ButtonBase)>
-                  </WithStyles(ForwardRef(ButtonBase))>
-                </ForwardRef(IconButton)>
-              </WithStyles(ForwardRef(IconButton))>
-            </Styled(WithStyles(ForwardRef(IconButton)))>
-          </div>
-        </Styled(MuiBox)>
-      </div>
-    </Styled(MuiBox)>
-  </Label>
-</Provider>
+      <EditIcon />
+    </Styled(WithStyles(ForwardRef(IconButton)))>
+    <Styled(WithStyles(ForwardRef(IconButton)))
+      aria-label="Delete label"
+      hide={1}
+      onClick={[Function]}
+      size="small"
+    >
+      <DeleteIcon />
+    </Styled(WithStyles(ForwardRef(IconButton)))>
+  </Styled(MuiBox)>
+</Styled(MuiBox)>
 `;

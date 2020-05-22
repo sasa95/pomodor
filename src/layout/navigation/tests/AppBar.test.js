@@ -1,43 +1,32 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import { AppBar } from '../AppBar'
-import { STATUSES } from '../../../scenes/Timer/data/timer/reducer'
 
 describe('<AppBar />', () => {
-  const mockStore = configureMockStore([thunk])
-  const storedData = {
-    settings: { darkMode: false },
-    timer: { status: STATUSES.onHold },
-    auth: { name: 'Sasha' },
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<AppBar />)
   }
 
-  let store
-  let mount
-  let wrapper
+  const createStore = () => {
+    const store = {
+      settings: { darkMode: false },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    store = mockStore(storedData)
-
-    mount = createMount({ dive: true })
-
-    wrapper = mount(
-      <Provider store={store}>
-        <BrowserRouter>
-          <AppBar />
-        </BrowserRouter>
-      </Provider>
-    )
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <AppBar /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 })

@@ -142,6 +142,6 @@ export const ToggleButton = () => {
   )
 }
 
-const ActionIcon = styled(IconButton)`
+export const ActionIcon = styled(IconButton)`
   border: 1px solid #bababa;
 `

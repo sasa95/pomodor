@@ -1,48 +1,34 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import Menu from '@material-ui/core/Menu'
 import { SignIn, TriggerButton } from '../SignIn'
 
 describe('<SignIn />', () => {
-  const mockStore = configureMockStore([thunk])
-
-  const storeData = {
-    auth: { uid: null },
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<SignIn />)
   }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
   beforeEach(() => {
-    store = mockStore(storeData)
-
-    mount = createMount()
-
-    wrapper = mount(
-      <Provider store={store}>
-        <SignIn />
-      </Provider>
-    )
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <SignIn /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('menu should be closed initially', () => {
-    expect(wrapper.find(Menu).props().open).toBe(false)
+    expect(createWrapper().find(Menu).props().open).toBe(false)
   })
 
   test('should open menu on avatar click', () => {
-    wrapper.find(TriggerButton).simulate('click')
+    const wrapper = createWrapper()
+
+    wrapper.find(TriggerButton).simulate('click', { currentTarget: {} })
     expect(wrapper.find(Menu).props().open).toBe(true)
   })
 })

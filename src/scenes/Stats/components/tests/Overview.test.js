@@ -1,56 +1,56 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import Chip from '@material-ui/core/Chip'
 import { Overview, Sum, Avg } from '../Overview'
 import sessions from '../../../../data/sessions/tests/mock-data/sessions'
 
 describe('<Overview />', () => {
-  const mockStore = configureMockStore([thunk])
-  const sumTimeRegex = /^(\d+h\s\d+m)|-$/
-  const avgTimeRegex = /^(\d+h\s\d+m\savg)|-$/
-  const sumCountRegex = /^(\d+(\.\d)?)|-$/
-  const avgCountRegex = /^(\d+(\.\d)?\savg)|-$/
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<Overview />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
-  beforeEach(() => {
-    store = mockStore({
+  const createStore = () => {
+    const store = {
       auth: {
         uid: 's3sns123',
         creationTime: new Date('05/01/2020'),
-        name: null,
-        photo: null,
       },
       settings: {
         firstDayOfTheWeek: 'Monday',
       },
       sessions,
-    })
+    }
 
-    store.dispatch = jest.fn()
-    mount = createMount()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
 
-    wrapper = mount(
-      <Provider store={store}>
-        <Overview />
-      </Provider>
-    )
-  })
+    return store
+  }
 
-  afterEach(() => {
-    mount.cleanUp()
+  const sumTimeRegex = /^(\d+h\s\d+m)|-$/
+  const avgTimeRegex = /^(\d+h\s\d+m\savg)|-$/
+  const sumCountRegex = /^(\d+(\.\d)?)|-$/
+  const avgCountRegex = /^(\d+(\.\d)?\savg)|-$/
+
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   test('should render <Overview /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render total/average time in [NUMh MINm]/[NUMh MINm avg] format by default', () => {
+    createStore()
+    const wrapper = createWrapper()
+
     const sums = wrapper.find(Sum)
 
     sums.forEach((sum) => {
@@ -65,6 +65,9 @@ describe('<Overview />', () => {
   })
 
   test('should render total/average time in [NUMh MINm]/[NUMh MINm avg] format by on time button click', () => {
+    createStore()
+    const wrapper = createWrapper()
+
     wrapper.find(Chip).at(1).simulate('click')
     wrapper.find(Chip).at(0).simulate('click')
 
@@ -82,6 +85,9 @@ describe('<Overview />', () => {
   })
 
   test('should render total/average sessions count in [NUM]/[NUM avg] format by on sessions button click', () => {
+    createStore()
+    const wrapper = createWrapper()
+
     wrapper.find(Chip).at(1).simulate('click')
 
     const sums = wrapper.find(Sum)

@@ -1,92 +1,97 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import Button from '@material-ui/core/Button'
-import labels from '../../../../../data/labels/tests/mock-data/labels'
-import fs from '../../../../../firebase/firebase'
 import { DesktopDialog } from '../DesktopDialog'
+import labels from '../../../../../data/labels/tests/mock-data/labels'
+import * as labelsActions from '../../../../../data/labels/actions'
 
 describe('<DesktopDialog />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<DesktopDialog />)
+  }
 
-  const uid = 'asdf2222'
-  let store
-  let storeData
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
-  beforeEach(async (done) => {
-    const batch = fs.batch()
-
-    const labelsRef = await fs.collection(`users/${uid}/labels`).get()
-
-    labelsRef.docs.forEach(({ id }) => {
-      batch.delete(fs.doc(`users/${uid}/labels/${id}`))
-    })
-
-    labels.forEach(({ id, name, color }) => {
-      const ref = fs.collection(`users/${uid}/labels`).doc(id)
-      batch.set(ref, { name, color })
-    })
-
-    await batch.commit()
-    done()
-
-    mount = createMount()
-
-    wrapper = (labelEditting = null, formValue = null) => {
-      storeData = {
-        auth: { uid },
-        labels: {
-          desktopDialog: true,
-          labelEditting,
-          formValue,
-          data: labels,
-        },
-      }
-
-      store = mockStore(storeData)
-      store.dispatch = jest.fn()
-
-      return mount(
-        <Provider store={store}>
-          <DesktopDialog />
-        </Provider>
-      )
+  const createStore = (
+    labelEditting = null,
+    formValue = { name: 'Play Piano', color: '#123123' }
+  ) => {
+    const store = {
+      labels: {
+        desktopDialog: true,
+        labelEditting,
+        formValue,
+      },
     }
-  })
 
-  afterEach(() => {
-    mount.cleanUp()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
+
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   test('should render <DesktopDialog /> correctly', () => {
-    const wrapperRendered = wrapper(null, {
-      name: 'Play Piano',
-      color: '#123123',
-    })
-
-    expect(wrapperRendered).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
-  test('Confirm button should be disable when incomplete data is provided', () => {
-    const wrapperRendered = wrapper(null, {
-      name: 'Play Piano',
-    })
-
-    expect(wrapperRendered.find(Button).at(1).prop('disabled')).toBe(true)
+  test('Confirm button should be disabled when incomplete data is provided', () => {
+    createStore(null, { name: 'Play Piano' })
+    expect(createWrapper().find(Button).at(1).prop('disabled')).toBe(true)
   })
 
-  test('Confirm button should be enabled when complete data is provided and should call dispatch 4 times on confirm button click', () => {
-    const wrapperRendered = wrapper(null, {
-      name: 'Play Piano',
-      color: '#123123',
-    })
+  test('Confirm button should be enabled when complete data is provided', () => {
+    createStore()
+    expect(createWrapper().find(Button).at(1).prop('disabled')).toBe(false)
+  })
 
-    expect(wrapperRendered.find(Button).at(1).prop('disabled')).toBe(false)
-    wrapperRendered.find(Button).at(1).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(4)
+  test('should call startAddLabel with correct data on confirm button click', () => {
+    const startAddLabelMocked = jest
+      .spyOn(labelsActions, 'startAddLabel')
+      .mockImplementation(() => jest.fn())
+
+    const store = createStore()
+    const wrapper = createWrapper()
+
+    wrapper.find(Button).at(1).simulate('click')
+    expect(startAddLabelMocked).toHaveBeenCalledWith(store.labels.formValue)
+  })
+
+  test('should call startEditLabel with correct data on confirm button click', () => {
+    const startEditLabelMocked = jest
+      .spyOn(labelsActions, 'startEditLabel')
+      .mockImplementation(() => jest.fn())
+
+    const labelEditting = labels[0]
+    const store = createStore(labelEditting)
+
+    const wrapper = createWrapper()
+    wrapper.find(Button).at(1).simulate('click')
+
+    expect(startEditLabelMocked).toHaveBeenCalledWith(
+      labelEditting.id,
+      store.labels.formValue
+    )
+  })
+
+  test('should handle close button', () => {
+    const setDesktopDialogMocked = jest
+      .spyOn(labelsActions, 'setDesktopDialog')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+
+    const wrapper = createWrapper()
+    wrapper.find(Button).at(0).simulate('click')
+
+    expect(setDesktopDialogMocked).toHaveBeenCalledWith(false)
   })
 })

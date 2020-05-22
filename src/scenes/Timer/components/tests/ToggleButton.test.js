@@ -1,62 +1,57 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
-import IconButton from '@material-ui/core/IconButton'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import { ToggleButton } from '../ToggleButton'
 import { STATUSES, TYPES } from '../../data/timer/reducer'
 
 describe('<ToggleButton />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<ToggleButton />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
+
+  const createStore = (status = STATUSES.onHold) => {
+    const store = {
+      timer: {
+        status,
+        type: TYPES.work,
+        timeLeft: { minutes: 25, seconds: 0 },
+      },
+      settings: {},
+      labels: { labelSelected: null },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
+
+  const buttonSelector = 'Styled(WithStyles(ForwardRef(IconButton)))'
 
   beforeEach(() => {
-    mount = createMount()
-
-    wrapper = (status = STATUSES.onHold) => {
-      const storeData = {
-        timer: {
-          status,
-          type: TYPES.work,
-          timeLeft: { minutes: 25, seconds: 0 },
-        },
-        settings: {},
-        labels: { labelSelected: null },
-      }
-
-      store = mockStore(storeData)
-      store.dispatch = jest.fn()
-
-      return mount(
-        <Provider store={store}>
-          <ToggleButton />
-        </Provider>
-      )
-    }
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <ToggleButton /> correctly', () => {
-    expect(wrapper()).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render Pause button if the timer is running', () => {
-    const wrapperRendered = wrapper(STATUSES.running)
-    expect(wrapperRendered.find(IconButton).prop('aria-label')).toBe(
+    createStore(STATUSES.running)
+    expect(createWrapper().find(buttonSelector).prop('aria-label')).toBe(
       'pause timer'
     )
   })
 
   test('should render Start button if the timer not running', () => {
-    const wrapperRendered = wrapper()
-    expect(wrapperRendered.find(IconButton).prop('aria-label')).toBe(
+    createStore()
+    expect(createWrapper().find(buttonSelector).prop('aria-label')).toBe(
       'start timer'
     )
   })

@@ -1,56 +1,58 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import { Label, ColorIndicator, ActionButton } from '../Label'
 import labels from '../../../../../data/labels/tests/mock-data/labels'
+import * as labelsActions from '../../../../../data/labels/actions'
 
 describe('<Label />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<Label label={labels[0]} />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
   beforeEach(() => {
-    store = mockStore()
-    store.dispatch = jest.fn()
-
-    mount = createMount()
-
-    wrapper = mount(
-      <Provider store={store}>
-        <Label label={labels[0]} />
-      </Provider>
-    )
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <Label /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should display label name', () => {
     const { name } = labels[0]
-    expect(wrapper.contains(name)).toBe(true)
+    expect(createWrapper().contains(name)).toBe(true)
   })
 
   test('should display color indicator with correct color', () => {
     const { color } = labels[0]
-    expect(wrapper.find(ColorIndicator).prop('color')).toBe(color)
+    expect(createWrapper().find(ColorIndicator).prop('color')).toBe(color)
   })
 
-  test('should call dispatch twice when delete button is clicked', () => {
-    wrapper.find(ActionButton).at(1).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(2)
+  test('should handle edit button click', () => {
+    const setFullscreenDialogMocked = jest
+      .spyOn(labelsActions, 'setFullscreenDialog')
+      .mockImplementation(() => jest.fn())
+
+    createWrapper()
+      .find(ActionButton)
+      .at(0)
+      .simulate('click', { stopPropagation: jest.fn() })
+    expect(setFullscreenDialogMocked).toHaveBeenCalledWith(true)
   })
 
-  test('should call dispatch three times when edit button is clicked', () => {
-    wrapper.find(ActionButton).at(0).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(3)
+  test('should handle delete button click', () => {
+    const setDeleteAlertMocked = jest
+      .spyOn(labelsActions, 'setDeleteAlert')
+      .mockImplementation(() => jest.fn())
+
+    createWrapper()
+      .find(ActionButton)
+      .at(1)
+      .simulate('click', { stopPropagation: jest.fn() })
+    expect(setDeleteAlertMocked).toHaveBeenCalledWith(true)
   })
 })

@@ -1,44 +1,41 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import { RoundsCounter, CounterLabel } from '../RoundsCounter'
 
 describe('<RoundsCounter />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<RoundsCounter />)
+  }
 
-  let store
-  let mount
-  let wrapper
-
-  beforeEach(() => {
-    mount = createMount()
-
-    const storeData = {
-      timer: { currentRound: 3, timeLeft: { minutes: 25, seconds: 0 } },
+  const createStore = () => {
+    const store = {
+      timer: {
+        currentRound: 3,
+        timeLeft: { minutes: 25, seconds: 0 },
+      },
       settings: { rounds: 4 },
     }
 
-    store = mockStore(storeData)
-    store.dispatch = jest.fn()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
 
-    wrapper = mount(
-      <Provider store={store}>
-        <RoundsCounter />
-      </Provider>
-    )
-  })
+    return store
+  }
 
-  afterEach(() => {
-    mount.cleanUp()
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   test('should render <RoundsCounter /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render current rounds/total rounds', () => {
-    expect(wrapper.find(CounterLabel).text()).toBe('3/4')
+    createStore()
+    expect(createWrapper().find(CounterLabel).text()).toBe('3/4')
   })
 })

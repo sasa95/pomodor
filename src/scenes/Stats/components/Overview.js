@@ -165,9 +165,10 @@ export const Overview = () => {
 
               <Avg color={theme.palette.text.secondary}>
                 {dataType === 'time'
-                  ? todayStats.avgTime || '-'
-                  : todayStats.avgSessions || '-'}{' '}
-                avg
+                  ? todayStats.avgTime
+                    ? todayStats.avgTime + ' avg'
+                    : '-'
+                  : todayStats.avgSessions || '-'}
               </Avg>
             </Box>
           </Grid>
@@ -184,9 +185,10 @@ export const Overview = () => {
 
               <Avg color={theme.palette.text.secondary}>
                 {dataType === 'time'
-                  ? weekStats.avgTime || '-'
-                  : weekStats.avgSessions || '-'}{' '}
-                avg
+                  ? weekStats.avgTime
+                    ? weekStats.avgTime + ' avg'
+                    : '-'
+                  : weekStats.avgSessions || '-'}
               </Avg>
             </Box>
           </Grid>
@@ -203,9 +205,10 @@ export const Overview = () => {
 
               <Avg color={theme.palette.text.secondary}>
                 {dataType === 'time'
-                  ? monthStats.avgTime || '-'
-                  : monthStats.avgSessions || '-'}{' '}
-                avg
+                  ? monthStats.avgTime
+                    ? monthStats.avgTime + ' avg'
+                    : '-'
+                  : monthStats.avgSessions || '-'}
               </Avg>
             </Box>
           </Grid>

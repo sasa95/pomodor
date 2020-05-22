@@ -1,44 +1,50 @@
 import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import Select from '@material-ui/core/Select'
 import { DaySelect } from '../DaySelect'
+import * as settingsActions from '../../../../data/settings/actions'
 
 describe('<DaySelect />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<DaySelect />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
+
+  const createStore = () => {
+    const store = {
+      settings: { firstDayOfTheWeek: 'Monday' },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    store = mockStore({ settings: { firstDayOfTheWeek: 'Monday' } })
-    store.dispatch = jest.fn()
-    mount = createMount()
-
-    wrapper = mount(
-      <Provider store={store}>
-        <DaySelect />
-      </Provider>
-    )
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <DaySelect /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should dispatch action when onChange event is triggered', () => {
-    act(() => {
-      wrapper.find(Select).prop('onChange')({ target: { value: 'Sunday' } })
+    const startSetFirstDayOfTheWeekMocked = jest
+      .spyOn(settingsActions, 'startSetFirstDayOfTheWeek')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+    createWrapper().find(Select).prop('onChange')({
+      target: { value: 'Sunday' },
     })
 
-    expect(store.dispatch).toHaveBeenCalled()
+    expect(startSetFirstDayOfTheWeekMocked).toHaveBeenCalledWith('Sunday')
   })
 })

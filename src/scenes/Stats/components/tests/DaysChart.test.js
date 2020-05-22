@@ -1,60 +1,61 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import Menu from '@material-ui/core/Menu'
-import IconButton from '@material-ui/core/IconButton'
 import { Doughnut } from 'react-chartjs-2'
 import { DaysChart } from '../DaysChart'
 import sessions from '../../../../data/sessions/tests/mock-data/sessions'
+import CardHeader from '@material-ui/core/CardHeader'
 
 jest.mock('react-chartjs-2', () => ({
   Doughnut: () => null,
 }))
 
 describe('<DaysChart />', () => {
-  const mockStore = configureMockStore([thunk])
-  let store
-  let mount
-  let wrapper
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<DaysChart />)
+  }
 
-  beforeEach(() => {
-    store = mockStore({
+  const createStore = () => {
+    const store = {
       settings: {
         firstDayOfTheWeek: 'Monday',
       },
       sessions,
-    })
+    }
 
-    store.dispatch = jest.fn()
-    mount = createMount()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
 
-    wrapper = mount(
-      <Provider store={store}>
-        <DaysChart />
-      </Provider>
-    )
-  })
+    return store
+  }
 
-  afterEach(() => {
-    mount.cleanUp()
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   test('should render <DaysChart /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render <Doughnut /> correctly', () => {
-    expect(wrapper.find(Doughnut).exists()).toBe(true)
+    createStore()
+    expect(createWrapper().find(Doughnut).exists()).toBe(true)
   })
 
   test('there should be 7 chart labels', () => {
-    expect(wrapper.find(Doughnut).prop('data').labels.length).toBe(7)
+    createStore()
+    expect(createWrapper().find(Doughnut).prop('data').labels.length).toBe(7)
   })
 
   test('should open menu on button click', () => {
-    wrapper.find(IconButton).simulate('click')
+    createStore()
+    const wrapper = createWrapper()
+
+    wrapper.find(CardHeader).prop('action').props.onClick({ currentTarget: {} })
     expect(wrapper.find(Menu).prop('open')).toBe(true)
   })
 })

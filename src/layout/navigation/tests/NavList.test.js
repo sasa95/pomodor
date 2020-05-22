@@ -1,53 +1,47 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import { NavList, NavListItem } from '../NavList'
 import { STATUSES } from '../../../scenes/Timer/data/timer/reducer'
 
 describe('<NavList />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<NavList />)
+  }
 
-  let mount
-  let wrapper
+  const createStore = (status = STATUSES.onHold) => {
+    const store = {
+      timer: { status },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    mount = createMount()
-
-    wrapper = (status = STATUSES.onHold) => {
-      const store = mockStore({ timer: { status } })
-
-      return mount(
-        <Provider store={store}>
-          <BrowserRouter>
-            <NavList />
-          </BrowserRouter>
-        </Provider>
-      )
-    }
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <NavList/> correctly', () => {
-    expect(wrapper()).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render 3 Nav List Items', () => {
-    expect(wrapper().find(NavListItem)).toHaveLength(3)
+    createStore()
+    expect(createWrapper().find(NavListItem)).toHaveLength(3)
   })
 
   test('Second and third menu items should be disabled if the timer is running', () => {
-    expect(
-      wrapper(STATUSES.running).find(NavListItem).at(1).prop('disabled')
-    ).toBeTruthy()
+    createStore(STATUSES.running)
+    const wrapper = createWrapper()
 
-    expect(
-      wrapper(STATUSES).find(NavListItem).at(2).prop('disabled')
-    ).toBeTruthy()
+    expect(wrapper.find(NavListItem).at(1).prop('disabled')).toBeTruthy()
+
+    expect(wrapper.find(NavListItem).at(2).prop('disabled')).toBeTruthy()
   })
 })

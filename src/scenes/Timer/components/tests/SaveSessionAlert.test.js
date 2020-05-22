@@ -1,58 +1,77 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import Button from '@material-ui/core/Button'
 import { SaveSessionAlert } from '../SaveSessionAlert'
+import * as timerActions from '../../data/timer/actions'
+import * as sessionsActions from '../../../../data/sessions/actions'
 
 describe('<SaveSessionAlert />', () => {
-  const mockStore = configureMockStore([thunk])
+  const time = { minutes: 4, seconds: 11 }
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<SaveSessionAlert time={time} />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
-  beforeEach(() => {
-    mount = createMount()
-
-    const storeData = {
+  const createStore = () => {
+    const store = {
       timer: { saveSessionAlert: true },
       labels: { labelSelected: null },
     }
 
-    store = mockStore(storeData)
-    store.dispatch = jest.fn()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
 
-    wrapper = mount(
-      <Provider store={store}>
-        <SaveSessionAlert time={{ minutes: 4, seconds: 11 }} />
-      </Provider>
-    )
+    return store
+  }
+  beforeEach(() => {
+    jest.clearAllMocks()
   })
 
   afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <SaveSessionAlert /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render correct message', () => {
-    expect(wrapper.find(DialogContentText).text()).toBe(
+    expect(createWrapper().find(DialogContentText).text()).toBe(
       'Do you want to save 04:11 to the statistics?'
     )
   })
 
-  test('should call dispatch once on cancel button click', () => {
-    wrapper.find(Button).at(0).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
+  test('should handle cancel button click', () => {
+    const setSaveSessionAlertMocked = jest
+      .spyOn(timerActions, 'setSaveSessionAlert')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+
+    createWrapper().find(Button).at(0).simulate('click')
+    expect(setSaveSessionAlertMocked).toHaveBeenCalledWith(false)
   })
 
-  test('should call dispatch twice on confirm button click', () => {
-    wrapper.find(Button).at(1).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(2)
+  test('should call confirm button click', () => {
+    const startAddSessionMocked = jest
+      .spyOn(sessionsActions, 'startAddSession')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+
+    createWrapper().find(Button).at(1).simulate('click')
+
+    expect(startAddSessionMocked).toHaveBeenCalledWith({
+      duration: time,
+      label: null,
+      createdAt: expect.any(Number),
+    })
   })
 })

@@ -1,53 +1,52 @@
 import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
-import MatSwitch from '@material-ui/core/Switch'
-import { Switch } from '../Switch'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
+import { Switch, Label } from '../Switch'
 
 describe('<Switch />', () => {
-  const mockStore = configureMockStore([thunk])
-  const startSetShowNotifications = jest.fn()
-
   const props = {
     name: 'Notifications',
     checked: false,
-    action: startSetShowNotifications,
+    action: jest.fn(),
   }
 
-  let store
-  let mount
-  let wrapper
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<Switch {...props} />)
+  }
+
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
+
+  const createStore = () => {
+    const store = {
+      settings: { darkMode: true },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    store = mockStore({ settings: { darkMode: true } })
-    store.dispatch = jest.fn()
-    mount = createMount()
-
-    wrapper = mount(
-      <Provider store={store}>
-        <Switch {...props} />
-      </Provider>
-    )
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <Switch /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should call passed action with the right data when onChange is triggered', () => {
-    act(() => {
-      wrapper.find(MatSwitch).prop('onChange')({
-        target: { checked: true },
-      })
-    })
+    createStore()
 
-    expect(startSetShowNotifications).toHaveBeenCalledWith(true)
+    createWrapper()
+      .find(Label)
+      .prop('control')
+      .props.onChange({ target: { checked: true } })
+
+    expect(props.action).toHaveBeenCalledWith(true)
   })
 })

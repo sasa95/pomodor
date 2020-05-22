@@ -1,91 +1,108 @@
 import React from 'react'
-import { act } from 'react-dom/test-utils'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import TextField from '@material-ui/core/TextField'
 import labels from '../../../../../data/labels/tests/mock-data/labels'
 import { LabelForm, ColorTextField } from '../LabelForm'
+import * as labelsActions from '../../../../../data/labels/actions'
 
 describe('<LabelForm />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<LabelForm />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
+
+  const createStore = (labelEditting = null) => {
+    const store = {
+      labels: { labelEditting },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    mount = createMount()
-
-    wrapper = (labelEditting = null) => {
-      const storeData = {
-        labels: { labelEditting },
-      }
-
-      store = mockStore(storeData)
-      store.dispatch = jest.fn()
-
-      return mount(
-        <Provider store={store}>
-          <LabelForm />
-        </Provider>
-      )
-    }
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <LabelForm /> correctly', () => {
-    expect(wrapper()).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should display error message if name field is invalid', () => {
-    const wrapperRendered = wrapper(labels[0])
+    const labelEditting = labels[0]
+    createStore(labelEditting)
 
-    wrapperRendered
-      .find('input')
+    const wrapper = createWrapper()
+
+    wrapper
+      .find(TextField)
       .at(0)
       .simulate('change', { target: { value: '' } })
 
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
-    expect(wrapperRendered.find(TextField).at(0).prop('error')).toBe(true)
+    expect(wrapper.find(TextField).at(0).prop('error')).toBe(true)
   })
 
-  test('should not display error message if name field is valid', () => {
-    const wrapperRendered = wrapper(labels[0])
+  test('should call setFormValue and should not display error message if name field is valid', () => {
+    const setFormValueMocked = jest
+      .spyOn(labelsActions, 'setFormValue')
+      .mockImplementation(() => jest.fn())
 
-    wrapperRendered
-      .find('input')
+    const labelEditting = labels[0]
+    createStore(labelEditting)
+
+    const wrapper = createWrapper()
+
+    wrapper
+      .find(TextField)
       .at(0)
-      .simulate('change', { target: { value: `${labels[0].name} ` } })
+      .simulate('change', { target: { value: `${labelEditting.name} -` } })
 
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
-    expect(wrapperRendered.find(TextField).at(0).prop('error')).toBe(false)
+    expect(wrapper.find(TextField).at(0).prop('error')).toBe(false)
+
+    expect(setFormValueMocked).toHaveBeenCalledWith({
+      name: `${labelEditting.name} -`,
+      color: labelEditting.color,
+    })
   })
 
   test('should display error message on blur if name field is empty', () => {
-    const wrapperRendered = wrapper()
+    createStore()
 
-    wrapperRendered
-      .find('input')
+    const wrapper = createWrapper()
+
+    wrapper
+      .find(TextField)
       .at(0)
       .simulate('blur', { target: { value: '' } })
 
-    expect(wrapperRendered.find(TextField).at(0).prop('error')).toBe(true)
+    expect(wrapper.find(TextField).at(0).prop('error')).toBe(true)
   })
 
-  test('should call dispatch on color value change', () => {
-    const wrapperRendered = wrapper(labels[0])
+  test('should call setFormValue on color value change', () => {
+    const setFormValueMocked = jest
+      .spyOn(labelsActions, 'setFormValue')
+      .mockImplementation(() => jest.fn())
 
-    act(() => {
-      wrapperRendered.find(ColorTextField).prop('onChange')({
-        target: { value: '#ffeb3b' },
-      })
+    const labelEditting = labels[0]
+    createStore(labelEditting)
+
+    const wrapper = createWrapper()
+
+    wrapper.find(ColorTextField).prop('onChange')({
+      target: { value: '#ffeb3b' },
     })
 
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
+    expect(setFormValueMocked).toHaveBeenCalledWith({
+      name: labelEditting.name,
+      color: '#ffeb3b',
+    })
   })
 })

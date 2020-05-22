@@ -1,240 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CountdownCircle /> should render <CountdownCircle /> correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "timeLeft": Object {
-                "minutes": 25,
-                "seconds": 0,
-              },
-              "type": "SET_TIME_LEFT",
-            },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      },
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <CountdownCircle>
-    <styled.div>
-      <div
-        className="sc-AxjAm XZSDE"
-      >
-        <Styled(WithStyles(ForwardRef(CircularProgress)))
-          color="secondary"
-          size={200}
-          value={100}
-          variant="static"
-        >
-          <WithStyles(ForwardRef(CircularProgress))
-            className="sc-AxirZ cvoqFd"
-            color="secondary"
-            size={200}
-            value={100}
-            variant="static"
-          >
-            <ForwardRef(CircularProgress)
-              className="sc-AxirZ cvoqFd"
-              classes={
-                Object {
-                  "circle": "MuiCircularProgress-circle",
-                  "circleDisableShrink": "MuiCircularProgress-circleDisableShrink",
-                  "circleIndeterminate": "MuiCircularProgress-circleIndeterminate",
-                  "circleStatic": "MuiCircularProgress-circleStatic",
-                  "colorPrimary": "MuiCircularProgress-colorPrimary",
-                  "colorSecondary": "MuiCircularProgress-colorSecondary",
-                  "indeterminate": "MuiCircularProgress-indeterminate",
-                  "root": "MuiCircularProgress-root",
-                  "static": "MuiCircularProgress-static",
-                  "svg": "MuiCircularProgress-svg",
-                }
-              }
-              color="secondary"
-              size={200}
-              value={100}
-              variant="static"
-            >
-              <div
-                aria-valuenow={100}
-                className="MuiCircularProgress-root sc-AxirZ cvoqFd MuiCircularProgress-colorSecondary MuiCircularProgress-static"
-                role="progressbar"
-                style={
-                  Object {
-                    "height": 200,
-                    "transform": "rotate(-90deg)",
-                    "width": 200,
-                  }
-                }
-              >
-                <svg
-                  className="MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    className="MuiCircularProgress-circle MuiCircularProgress-circleStatic"
-                    cx={44}
-                    cy={44}
-                    fill="none"
-                    r={20.2}
-                    strokeWidth={3.6}
-                    style={
-                      Object {
-                        "strokeDasharray": "126.920",
-                        "strokeDashoffset": "0.000px",
-                      }
-                    }
-                  />
-                </svg>
-              </div>
-            </ForwardRef(CircularProgress)>
-          </WithStyles(ForwardRef(CircularProgress))>
-        </Styled(WithStyles(ForwardRef(CircularProgress)))>
-        <Styled(WithStyles(ForwardRef(CircularProgress)))
-          color="primary"
-          size={200}
-          value={100}
-          variant="indeterminate"
-        >
-          <WithStyles(ForwardRef(CircularProgress))
-            className="sc-AxirZ cvoqFd"
-            color="primary"
-            size={200}
-            value={100}
-            variant="indeterminate"
-          >
-            <ForwardRef(CircularProgress)
-              className="sc-AxirZ cvoqFd"
-              classes={
-                Object {
-                  "circle": "MuiCircularProgress-circle",
-                  "circleDisableShrink": "MuiCircularProgress-circleDisableShrink",
-                  "circleIndeterminate": "MuiCircularProgress-circleIndeterminate",
-                  "circleStatic": "MuiCircularProgress-circleStatic",
-                  "colorPrimary": "MuiCircularProgress-colorPrimary",
-                  "colorSecondary": "MuiCircularProgress-colorSecondary",
-                  "indeterminate": "MuiCircularProgress-indeterminate",
-                  "root": "MuiCircularProgress-root",
-                  "static": "MuiCircularProgress-static",
-                  "svg": "MuiCircularProgress-svg",
-                }
-              }
-              color="primary"
-              size={200}
-              value={100}
-              variant="indeterminate"
-            >
-              <div
-                className="MuiCircularProgress-root sc-AxirZ cvoqFd MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-                role="progressbar"
-                style={
-                  Object {
-                    "height": 200,
-                    "width": 200,
-                  }
-                }
-              >
-                <svg
-                  className="MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-                    cx={44}
-                    cy={44}
-                    fill="none"
-                    r={20.2}
-                    strokeWidth={3.6}
-                    style={Object {}}
-                  />
-                </svg>
-              </div>
-            </ForwardRef(CircularProgress)>
-          </WithStyles(ForwardRef(CircularProgress))>
-        </Styled(WithStyles(ForwardRef(CircularProgress)))>
-        <Styled(Styled(MuiBox))>
-          <Styled(MuiBox)
-            className="sc-AxhCb hiabUt"
-          >
-            <div
-              className="MuiBox-root MuiBox-root-14 sc-AxhCb hiabUt"
-            >
-              <Styled(WithStyles(ForwardRef(Typography)))
-                color="textSecondary"
-                variant="subtitle2"
-              >
-                <WithStyles(ForwardRef(Typography))
-                  className="sc-AxhUy RAsMN"
-                  color="textSecondary"
-                  variant="subtitle2"
-                >
-                  <ForwardRef(Typography)
-                    className="sc-AxhUy RAsMN"
-                    classes={
-                      Object {
-                        "alignCenter": "MuiTypography-alignCenter",
-                        "alignJustify": "MuiTypography-alignJustify",
-                        "alignLeft": "MuiTypography-alignLeft",
-                        "alignRight": "MuiTypography-alignRight",
-                        "body1": "MuiTypography-body1",
-                        "body2": "MuiTypography-body2",
-                        "button": "MuiTypography-button",
-                        "caption": "MuiTypography-caption",
-                        "colorError": "MuiTypography-colorError",
-                        "colorInherit": "MuiTypography-colorInherit",
-                        "colorPrimary": "MuiTypography-colorPrimary",
-                        "colorSecondary": "MuiTypography-colorSecondary",
-                        "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                        "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                        "displayBlock": "MuiTypography-displayBlock",
-                        "displayInline": "MuiTypography-displayInline",
-                        "gutterBottom": "MuiTypography-gutterBottom",
-                        "h1": "MuiTypography-h1",
-                        "h2": "MuiTypography-h2",
-                        "h3": "MuiTypography-h3",
-                        "h4": "MuiTypography-h4",
-                        "h5": "MuiTypography-h5",
-                        "h6": "MuiTypography-h6",
-                        "noWrap": "MuiTypography-noWrap",
-                        "overline": "MuiTypography-overline",
-                        "paragraph": "MuiTypography-paragraph",
-                        "root": "MuiTypography-root",
-                        "srOnly": "MuiTypography-srOnly",
-                        "subtitle1": "MuiTypography-subtitle1",
-                        "subtitle2": "MuiTypography-subtitle2",
-                      }
-                    }
-                    color="textSecondary"
-                    variant="subtitle2"
-                  >
-                    <h6
-                      className="MuiTypography-root sc-AxhUy RAsMN MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
-                    >
-                      FOCUS
-                    </h6>
-                  </ForwardRef(Typography)>
-                </WithStyles(ForwardRef(Typography))>
-              </Styled(WithStyles(ForwardRef(Typography)))>
-            </div>
-          </Styled(MuiBox)>
-        </Styled(Styled(MuiBox))>
-      </div>
-    </styled.div>
-  </CountdownCircle>
-</Provider>
+<styled.div>
+  <Styled(WithStyles(ForwardRef(CircularProgress)))
+    color="secondary"
+    size={200}
+    value={100}
+    variant="static"
+  />
+  <Styled(WithStyles(ForwardRef(CircularProgress)))
+    color="primary"
+    size={200}
+    value={100}
+    variant="indeterminate"
+  />
+  <Styled(Styled(MuiBox))>
+    <Styled(WithStyles(ForwardRef(Typography)))
+      color="textSecondary"
+      variant="subtitle2"
+    >
+      FOCUS
+    </Styled(WithStyles(ForwardRef(Typography)))>
+  </Styled(Styled(MuiBox))>
+</styled.div>
 `;

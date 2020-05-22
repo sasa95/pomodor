@@ -1,7 +1,5 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import * as redux from 'react-redux'
 import { createMount } from '@material-ui/core/test-utils'
 import Menu from '@material-ui/core/Menu'
 import IconButton from '@material-ui/core/IconButton'
@@ -15,13 +13,13 @@ jest.mock('react-chartjs-2', () => ({
 }))
 
 describe('<LabelsChart />', () => {
-  const mockStore = configureMockStore([thunk])
-  let store
   let mount
-  let wrapper
+  const createWrapper = () => {
+    return mount(<LabelsChart />)
+  }
 
-  beforeEach(() => {
-    store = mockStore({
+  const createStore = () => {
+    const store = {
       settings: {
         firstDayOfTheWeek: 'Monday',
       },
@@ -29,16 +27,18 @@ describe('<LabelsChart />', () => {
         data: labels,
       },
       sessions,
-    })
+    }
 
-    store.dispatch = jest.fn()
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
+
+  beforeEach(() => {
     mount = createMount()
-
-    wrapper = mount(
-      <Provider store={store}>
-        <LabelsChart />
-      </Provider>
-    )
+    jest.clearAllMocks()
   })
 
   afterEach(() => {
@@ -46,20 +46,27 @@ describe('<LabelsChart />', () => {
   })
 
   test('should render <LabelsChart /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render <Doughnut /> correctly', () => {
-    expect(wrapper.find(Doughnut).exists()).toBe(true)
+    createStore()
+    expect(createWrapper().find(Doughnut).exists()).toBe(true)
   })
 
   test('there should be labels.length + 1 labels', () => {
-    expect(wrapper.find(Doughnut).prop('data').labels.length).toBe(
+    createStore()
+
+    expect(createWrapper().find(Doughnut).prop('data').labels.length).toBe(
       labels.length + 1
     )
   })
 
   test('should open menu on button click', () => {
+    createStore()
+    const wrapper = createWrapper()
+
     wrapper.find(IconButton).simulate('click')
     expect(wrapper.find(Menu).prop('open')).toBe(true)
   })

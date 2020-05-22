@@ -1,82 +1,98 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import labels from '../../../../../data/labels/tests/mock-data/labels'
 import { LabelButton, Button } from '../LabelButton'
 import { STATUSES } from '../../../data/timer/reducer'
+import * as labelsActions from '../../../../../data/labels/actions'
 
 describe('<LabelButton />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<LabelButton />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
+
+  const createStore = (
+    labelsData = [],
+    labelSelected = null,
+    timerStatus = STATUSES.onHold
+  ) => {
+    const store = {
+      labels: {
+        data: labelsData,
+        labelSelected,
+        menuOpened: false,
+      },
+      timer: {
+        status: timerStatus,
+      },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    mount = createMount()
-
-    wrapper = (
-      labelsData = [],
-      labelSelected = null,
-      timerStatus = STATUSES.onHold
-    ) => {
-      const storeData = {
-        labels: { data: labelsData, labelSelected, menuOpened: false },
-        timer: { status: timerStatus },
-      }
-
-      store = mockStore(storeData)
-      store.dispatch = jest.fn()
-
-      return mount(
-        <Provider store={store}>
-          <LabelButton />
-        </Provider>
-      )
-    }
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <LabelButton /> correctly', () => {
-    expect(wrapper()).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('button should be enabled if timer status is ON_HOLD', () => {
-    expect(wrapper().find(Button).prop('disabled')).toBe(false)
+    createStore()
+    expect(createWrapper().find(Button).prop('disabled')).toBe(false)
   })
 
   test('button should be disabled if timer status is not ON_HOLD', () => {
-    expect(
-      wrapper([], null, STATUSES.running).find(Button).prop('disabled')
-    ).toBe(true)
+    createStore([], null, STATUSES.running)
+    expect(createWrapper().find(Button).prop('disabled')).toBe(true)
   })
 
   test('button should have text ADD LABEL if there are no labels created', () => {
-    expect(wrapper().find(Button).text().toUpperCase()).toBe('ADD LABEL')
+    createStore()
+    expect(createWrapper().find(Button).text().toUpperCase()).toBe('ADD LABEL')
   })
 
   test('button should have text SELECT LABEL if there are some labels created', () => {
-    expect(wrapper(labels).find(Button).text().toUpperCase()).toBe(
+    createStore(labels)
+    expect(createWrapper().find(Button).text().toUpperCase()).toBe(
       'SELECT LABEL'
     )
   })
 
   test('button should display the text of the selected label if a label is selected', () => {
-    expect(wrapper(labels, labels[0]).find(Button).text()).toBe(labels[0].name)
+    createStore(labels, labels[0])
+    expect(createWrapper().find(Button).text()).toBe(labels[0].name)
   })
 
-  test('should call dispatch once on button click if there are no labels created', () => {
-    wrapper().find(Button).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
+  test('should display dialog on button click if there are no labels created', () => {
+    const setFullscreenDialogMocked = jest
+      .spyOn(labelsActions, 'setFullscreenDialog')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+
+    createWrapper().find(Button).simulate('click')
+    expect(setFullscreenDialogMocked).toHaveBeenCalledWith(true)
   })
 
-  test('should call dispatch once on button click if there are some labels created', () => {
-    wrapper(labels).find(Button).simulate('click')
-    expect(store.dispatch).toHaveBeenCalledTimes(1)
+  test('should open menu on button click if there are some labels created', () => {
+    const setMenuOpenedMocked = jest
+      .spyOn(labelsActions, 'setMenuOpened')
+      .mockImplementation(() => jest.fn())
+
+    createStore(labels)
+
+    createWrapper().find(Button).simulate('click')
+    expect(setMenuOpenedMocked).toHaveBeenCalledWith(true)
   })
 })

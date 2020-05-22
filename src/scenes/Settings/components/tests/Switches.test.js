@@ -1,45 +1,42 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
 import { Switches } from '../Switches'
 import { Switch } from '../components/Switch'
 
 describe('<Switches />', () => {
-  const mockStore = configureMockStore([thunk])
-  const storeData = {
-    settings: {
-      showTimerInTitle: true,
-      showNotifications: true,
-      darkMode: false,
-    },
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<Switches />)
   }
 
-  let store
-  let mount
-  let wrapper
+  const createStore = () => {
+    const store = {
+      settings: {
+        showTimerInTitle: true,
+        showNotifications: true,
+        darkMode: false,
+      },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    store = mockStore(storeData)
-    mount = createMount()
-
-    wrapper = mount(
-      <Provider store={store}>
-        <Switches />
-      </Provider>
-    )
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <Switches /> correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('should render 3 switches', () => {
-    expect(wrapper.find(Switch).length).toBe(3)
+    createStore()
+    expect(createWrapper().find(Switch).length).toBe(3)
   })
 })

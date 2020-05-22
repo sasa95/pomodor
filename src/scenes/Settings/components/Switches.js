@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { Switch } from './components/Switch'
 import { useSelector } from 'react-redux'
+import { Switch } from './components/Switch'
 import {
   startSetShowTimerInTitle,
   startSetShowNotifications,

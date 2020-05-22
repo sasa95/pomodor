@@ -1,62 +1,70 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import { createMount } from '@material-ui/core/test-utils'
+import * as redux from 'react-redux'
+import { createShallow } from '@material-ui/core/test-utils'
+import MenuItem from '@material-ui/core/MenuItem'
 import labels from '../../../../../data/labels/tests/mock-data/labels'
 import { LabelsMenu, LabelMenuItem } from '../LabelsMenu'
+import * as labelsActions from '../../../../../data/labels/actions'
 
 describe('<LabelsMenu />', () => {
-  const mockStore = configureMockStore([thunk])
+  const shallow = createShallow()
+  const createWrapper = () => {
+    return shallow(<LabelsMenu anchor={document.createElement('div')} />)
+  }
 
-  let store
-  let mount
-  let wrapper
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
+
+  const createStore = (labelSelected = null) => {
+    const store = {
+      labels: {
+        labelSelected,
+        data: labels,
+        menuOpened: true,
+      },
+    }
+
+    jest
+      .spyOn(redux, 'useSelector')
+      .mockImplementation((callback) => callback(store))
+
+    return store
+  }
 
   beforeEach(() => {
-    mount = createMount()
-
-    wrapper = (labelSelected = null) => {
-      const storeData = {
-        labels: {
-          labelSelected,
-          data: labels,
-          menuOpened: true,
-        },
-      }
-
-      store = mockStore(storeData)
-      store.dispatch = jest.fn()
-
-      return mount(
-        <Provider store={store}>
-          <LabelsMenu anchor={document.createElement('div')} />
-        </Provider>
-      )
-    }
-  })
-
-  afterEach(() => {
-    mount.cleanUp()
+    jest.clearAllMocks()
   })
 
   test('should render <LabelsMenu /> correctly', () => {
-    expect(wrapper()).toMatchSnapshot()
+    createStore()
+    expect(createWrapper()).toMatchSnapshot()
   })
 
   test('only third menu item should be selected', () => {
-    const wrapperRendered = wrapper(labels[2])
+    createStore(labels[2])
+    const wrapper = createWrapper()
 
-    expect(
-      wrapperRendered.find(LabelMenuItem).at(0).prop('selected')
-    ).toBeFalsy()
+    expect(wrapper.find(LabelMenuItem).at(0).prop('selected')).toBe(false)
 
-    expect(
-      wrapperRendered.find(LabelMenuItem).at(1).prop('selected')
-    ).toBeFalsy()
+    expect(wrapper.find(LabelMenuItem).at(1).prop('selected')).toBe(false)
 
-    expect(
-      wrapperRendered.find(LabelMenuItem).at(2).prop('selected')
-    ).toBeTruthy()
+    expect(wrapper.find(LabelMenuItem).at(2).prop('selected')).toBe(true)
+  })
+
+  test('should render correct number of menu items', () => {
+    createStore()
+    expect(createWrapper().find(LabelMenuItem).length).toBe(labels.length)
+  })
+
+  test('should handle add button', () => {
+    const setFullscreenDialogMocked = jest
+      .spyOn(labelsActions, 'setFullscreenDialog')
+      .mockImplementation(() => jest.fn())
+
+    createStore()
+    createWrapper()
+      .find(MenuItem)
+      .simulate('click', { stopPropagation: jest.fn() })
+    expect(setFullscreenDialogMocked).toHaveBeenCalledWith(true)
   })
 })

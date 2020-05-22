@@ -1,28 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RoundsCounter /> should render <RoundsCounter /> correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [MockFunction],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <RoundsCounter>
-    <styled.span>
-      <span
-        className="sc-AxjAm gfJUZX"
-      >
-        3
-        /
-        4
-      </span>
-    </styled.span>
-  </RoundsCounter>
-</Provider>
+<styled.span>
+  3
+  /
+  4
+</styled.span>
 `;
