@@ -11,7 +11,7 @@ import { LabelButton } from './components/Labels/LabelButton'
 
 export const Timer = () => {
   return (
-    <Box width={300} m="auto" pt={3}>
+    <Box width={300} m="auto">
       <LabelButton />
       <CountdownCircle />
 

@@ -597,6 +597,7 @@ exports[`<MainContainer /> should render <MainContainer /> correctly 1`] = `
     <WithStyles(ForwardRef(Container))>
       <Styled(MuiBox)
         pb={2}
+        pt={5}
       >
         <Switch>
           <Route

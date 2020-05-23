@@ -77,7 +77,6 @@ export const LabelButton = () => {
 
 export const Button = styled(MatButton)`
   color: ${({ labelcolor, dark, theme }) =>
-    labelcolor || dark
-      ? theme.palette.primary.light
-      : theme.palette.primary.main};
+    labelcolor ||
+    (dark ? theme.palette.primary.light : theme.palette.primary.main)};
 `

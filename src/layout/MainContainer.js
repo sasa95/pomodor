@@ -27,7 +27,7 @@ export const MainContainer = () => {
         {progress && <LinearProgress color="secondary" />}
         <ScrollToTop container={mainRef} />
         <Container>
-          <Box pb={2}>
+          <Box pb={2} pt={5}>
             <Switch>
               <Route exact path="/">
                 <Redirect to="/timer" />
