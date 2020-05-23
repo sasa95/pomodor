@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import ReplayIcon from '@material-ui/icons/Replay'
 import { useDispatch, useSelector } from 'react-redux'
@@ -58,14 +59,19 @@ export const ResetButton = () => {
 
   return (
     <>
-      <IconButton
+      <ActionIcon
         disabled={status === STATUSES.onHold}
         aria-label="Reset timer"
         onClick={handleClick}
+        size="small"
       >
         <ReplayIcon />
-      </IconButton>
+      </ActionIcon>
       <SaveSessionAlert time={timeToSave} />
     </>
   )
 }
+
+export const ActionIcon = styled(IconButton)`
+  border: 1px solid #bababa;
+`

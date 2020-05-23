@@ -2,6 +2,7 @@
 
 exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
 <Styled(WithStyles(ForwardRef(Card)))
+  dark={0}
   theme={
     Object {
       "breakpoints": Object {
@@ -382,13 +383,13 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
             "datasets": Array [
               Object {
                 "backgroundColor": Array [
-                  "#f44336",
-                  "#4caf50",
-                  "#673ab7",
-                  "#4dd0e1",
-                  "#ff9800",
                   "#2196f3",
-                  "#ffeb3b",
+                  "#3f51b5",
+                  "#f06292",
+                  "#9c27b0",
+                  "#8bc34a",
+                  "#009688",
+                  "#ff9800",
                 ],
                 "data": Array [
                   1,
@@ -442,7 +443,7 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
       >
         <WithStyles(ForwardRef(Chip))
           clickable={true}
-          color="secondary"
+          color="primary"
           label="Time"
           onClick={[Function]}
         />

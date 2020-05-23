@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Dialog from '@material-ui/core/Dialog'
-import DialogContent from '@material-ui/core/DialogContent'
+import MatDialogContent from '@material-ui/core/DialogContent'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -24,6 +24,7 @@ import {
 
 export const FullscreenDialog = () => {
   const { formValue } = useSelector((state) => state.labels)
+  const darkMode = useSelector((state) => +state.settings.darkMode)
 
   const { fullscreenDialog, labelEditting } = useSelector(
     (state) => state.labels
@@ -59,6 +60,7 @@ export const FullscreenDialog = () => {
         onClose={handleClose}
         TransitionComponent={Transition}
         aria-describedby="alert-dialog-description"
+        dark={darkMode}
       >
         <LabelDialogAppBar>
           <Toolbar>
@@ -103,6 +105,14 @@ export const FullscreenDialog = () => {
     </>
   )
 }
+
+const DialogContent = styled(MatDialogContent)`
+  ${({ dark }) =>
+    dark &&
+    css`
+      background: #252525;
+    `}
+`
 
 const LabelDialogAppBar = styled(AppBar)`
   position: relative;

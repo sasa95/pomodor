@@ -1,8 +1,8 @@
 import React from 'react'
 import * as redux from 'react-redux'
 import { createShallow } from '@material-ui/core/test-utils'
-import IconButton from '@material-ui/core/IconButton'
-import { SkipButton } from '../SkipButton'
+import Button from '@material-ui/core/Button'
+import { SkipButton, ActionButton } from '../SkipButton'
 import * as timerActions from '../../data/timer/actions'
 
 describe('<SkipButton />', () => {
@@ -31,7 +31,7 @@ describe('<SkipButton />', () => {
     jest.clearAllMocks()
   })
 
-  test('should render <SkipButton /> correctly', () => {
+  test.only('should render <SkipButton /> correctly', () => {
     createStore()
     expect(createWrapper()).toMatchSnapshot()
   })
@@ -43,7 +43,7 @@ describe('<SkipButton />', () => {
 
     createStore()
 
-    createWrapper().find(IconButton).simulate('click')
+    createWrapper().find(Button).simulate('click')
     expect(setNextTimerMocked).toHaveBeenCalled()
   })
 })

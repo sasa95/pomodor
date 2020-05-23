@@ -10,6 +10,7 @@ exports[`<FullscreenDialog /> should render <FullscreenDialog /> correctly 1`] =
       }
     }
     aria-describedby="alert-dialog-description"
+    dark={0}
     fullScreen={true}
     onClose={[Function]}
     open={true}
@@ -40,9 +41,9 @@ exports[`<FullscreenDialog /> should render <FullscreenDialog /> correctly 1`] =
         </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(Toolbar))>
     </Styled(WithStyles(ForwardRef(AppBar)))>
-    <WithStyles(ForwardRef(DialogContent))>
+    <Styled(WithStyles(ForwardRef(DialogContent)))>
       <LabelForm />
-    </WithStyles(ForwardRef(DialogContent))>
+    </Styled(WithStyles(ForwardRef(DialogContent)))>
   </WithStyles(ForwardRef(Dialog))>
   <DeleteAlert />
 </Fragment>

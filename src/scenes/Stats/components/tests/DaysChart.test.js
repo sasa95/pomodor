@@ -21,6 +21,7 @@ describe('<DaysChart />', () => {
     const store = {
       settings: {
         firstDayOfTheWeek: 'Monday',
+        darkMode: false,
       },
       sessions,
     }

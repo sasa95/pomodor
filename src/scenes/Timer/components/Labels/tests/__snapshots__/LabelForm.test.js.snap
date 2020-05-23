@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
-<form
+<styled.form
   autoComplete="off"
+  color="#7986cb"
+  darkMode={0}
   noValidate={true}
 >
   <WithStyles(ForwardRef(TextField))
@@ -33,7 +35,7 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
     variant="filled"
   >
     <WithStyles(ForwardRef(MenuItem))
-      key="111"
+      key="1"
       value="#f44336"
     >
       <styled.span
@@ -44,7 +46,29 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="222"
+      key="2"
+      value="#e91e63"
+    >
+      <styled.span
+        color="#e91e63"
+      />
+      <span>
+        Pink
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="3"
+      value="#9c27b0"
+    >
+      <styled.span
+        color="#9c27b0"
+      />
+      <span>
+        Purple
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="4"
       value="#673ab7"
     >
       <styled.span
@@ -55,7 +79,18 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="333"
+      key="5"
+      value="#3f51b5"
+    >
+      <styled.span
+        color="#3f51b5"
+      />
+      <span>
+        Indigo
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="6"
       value="#2196f3"
     >
       <styled.span
@@ -66,7 +101,18 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="444"
+      key="7"
+      value="#03a9f4"
+    >
+      <styled.span
+        color="#03a9f4"
+      />
+      <span>
+        Light Blue
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="8"
       value="#00bcd4"
     >
       <styled.span
@@ -77,7 +123,7 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="555"
+      key="9"
       value="#009688"
     >
       <styled.span
@@ -88,18 +134,7 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="666"
-      value="#ff5722"
-    >
-      <styled.span
-        color="#ff5722"
-      />
-      <span>
-        Deep Orange
-      </span>
-    </WithStyles(ForwardRef(MenuItem))>
-    <WithStyles(ForwardRef(MenuItem))
-      key="777"
+      key="10"
       value="#4caf50"
     >
       <styled.span
@@ -110,7 +145,29 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="888"
+      key="11"
+      value="#8bc34a"
+    >
+      <styled.span
+        color="#8bc34a"
+      />
+      <span>
+        Light Green
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="12"
+      value="#cddc39"
+    >
+      <styled.span
+        color="#cddc39"
+      />
+      <span>
+        Lime
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="13"
       value="#ffeb3b"
     >
       <styled.span
@@ -120,6 +177,72 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
         Yellow
       </span>
     </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="14"
+      value="#ffc107"
+    >
+      <styled.span
+        color="#ffc107"
+      />
+      <span>
+        Amber
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="15"
+      value="#ff9800"
+    >
+      <styled.span
+        color="#ff9800"
+      />
+      <span>
+        Orange
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="16"
+      value="#ff5722"
+    >
+      <styled.span
+        color="#ff5722"
+      />
+      <span>
+        Deep Orange
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="17"
+      value="#795548"
+    >
+      <styled.span
+        color="#795548"
+      />
+      <span>
+        Brown
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="18"
+      value="#9e9e9e"
+    >
+      <styled.span
+        color="#9e9e9e"
+      />
+      <span>
+        Grey
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="19"
+      value="#607d8b"
+    >
+      <styled.span
+        color="#607d8b"
+      />
+      <span>
+        Blue Grey
+      </span>
+    </WithStyles(ForwardRef(MenuItem))>
   </Styled(WithStyles(ForwardRef(TextField)))>
-</form>
+</styled.form>
 `;

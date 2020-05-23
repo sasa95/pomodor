@@ -2,13 +2,14 @@
 
 exports[`<ResetButton /> should render <ResetButton /> correctly 1`] = `
 <Fragment>
-  <WithStyles(ForwardRef(IconButton))
+  <Styled(WithStyles(ForwardRef(IconButton)))
     aria-label="Reset timer"
     disabled={true}
     onClick={[Function]}
+    size="small"
   >
     <ReplayIcon />
-  </WithStyles(ForwardRef(IconButton))>
+  </Styled(WithStyles(ForwardRef(IconButton)))>
   <SaveSessionAlert
     time={
       Object {

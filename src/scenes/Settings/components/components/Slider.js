@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Typography from '@material-ui/core/Typography'
 import MatSlider from '@material-ui/core/Slider'
 import Box from '@material-ui/core/Box'
@@ -60,12 +60,16 @@ export const Slider = ({
         value={sliderValue}
         theme={theme}
         dark={darkMode || darkModeCached}
+        color="primary"
       />
     </Box>
   )
 }
 
 export const SettingSlider = styled(MatSlider)`
-  color: ${({ theme, dark }) =>
-    dark ? theme.palette.secondary.light : theme.palette.secondary.main};
+  ${({ dark, theme }) =>
+    dark &&
+    css`
+      color: ${theme.palette.primary.light};
+    `}
 `

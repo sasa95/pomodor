@@ -18,6 +18,7 @@ describe('<LabelForm />', () => {
   const createStore = (labelEditting = null) => {
     const store = {
       labels: { labelEditting },
+      settings: { darkMode: false },
     }
 
     jest

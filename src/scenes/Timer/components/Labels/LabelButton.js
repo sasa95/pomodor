@@ -16,6 +16,8 @@ import { STATUSES } from '../../data/timer/reducer'
 export const LabelButton = () => {
   const { labelSelected, data } = useSelector((state) => state.labels)
   const { status } = useSelector((state) => state.timer)
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
 
   const dispatch = useDispatch()
 
@@ -55,14 +57,15 @@ export const LabelButton = () => {
   return (
     <Box display="flex" justifyContent="center">
       <Button
+        variant="outlined"
         disabled={status !== STATUSES.onHold}
-        labelcolor={
-          labelSelected ? labelSelected.color : theme.palette.secondary.main
-        }
+        labelcolor={labelSelected ? labelSelected.color : null}
         size="small"
         startIcon={<LabelIcon />}
         onClick={handleClick}
         ref={buttonRef}
+        dark={darkMode || darkModeCached}
+        theme={theme}
       >
         {getButtonText()}
       </Button>
@@ -73,5 +76,8 @@ export const LabelButton = () => {
 }
 
 export const Button = styled(MatButton)`
-  color: ${({ labelcolor }) => labelcolor};
+  color: ${({ labelcolor, dark, theme }) =>
+    labelcolor || dark
+      ? theme.palette.primary.light
+      : theme.palette.primary.main};
 `

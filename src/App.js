@@ -63,4 +63,9 @@ const GlobalStyle = createGlobalStyle`
   html {
     overflow: hidden;
   }
+
+  .MuiChip-root {
+    border-radius: 8px;
+    width: 80px;
+  }
 `

@@ -2,6 +2,7 @@
 
 exports[`<Overview /> should render <Overview /> correctly 1`] = `
 <Styled(WithStyles(ForwardRef(Card)))
+  dark={NaN}
   theme={
     Object {
       "breakpoints": Object {
@@ -402,7 +403,7 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
       >
         <WithStyles(ForwardRef(Chip))
           clickable={true}
-          color="secondary"
+          color="primary"
           label="Time"
           onClick={[Function]}
         />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import MatSwitch from '@material-ui/core/Switch'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Box from '@material-ui/core/Box'
 import { useTheme } from '@material-ui/core'
 
@@ -37,6 +37,7 @@ export const Switch = ({ name, action, checked }) => {
             onChange={handleChange}
             name={name}
             theme={theme}
+            color="primary"
             dark={darkMode || darkModeCached}
           />
         }
@@ -52,13 +53,12 @@ export const Label = styled(FormControlLabel)`
 `
 
 export const SettingSwitch = styled(MatSwitch)`
-  .Mui-checked {
-    color: ${({ theme, dark }) =>
-      dark ? theme.palette.secondary.light : theme.palette.secondary.main};
-  }
-
-  .Mui-checked + .MuiSwitch-track {
-    background: ${({ theme, dark }) =>
-      dark ? theme.palette.secondary.light : theme.palette.secondary.main};
-  }
+  ${({ dark, theme }) =>
+    dark &&
+    css`
+      .Mui-checked,
+      .Mui-checked + .MuiSwitch-track {
+        color: ${theme.palette.primary.light};
+      }
+    `}
 `

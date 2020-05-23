@@ -19,10 +19,15 @@ import work from '../assets/work.png'
 import alarm from '../assets/alarm.png'
 import coffee from '../assets/coffee.png'
 import { startAddSession } from '../../../data/sessions/actions'
+import { useTheme } from '@material-ui/core'
 
 export const ToggleButton = () => {
   const { status, timeLeft, type } = useSelector((state) => state.timer)
   const settings = useSelector((state) => state.settings)
+
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
+
   const label = useSelector((state) => state.labels.labelSelected)
 
   const dispatch = useDispatch()
@@ -116,13 +121,18 @@ export const ToggleButton = () => {
     return 100 / (secondsTotal / secondsLeft)
   }
 
+  const theme = useTheme()
+
   return (
-    <Box display="flex" justifyContent="center" mt={2}>
+    <Box display="flex" justifyContent="center">
       {status !== STATUSES.running && (
         <ActionIcon
           disabled={!timeLeft}
           aria-label="start timer"
           onClick={startTimer}
+          color="primary"
+          dark={darkMode || darkModeCached}
+          theme={theme}
         >
           <PlayArrowIcon />
         </ActionIcon>
@@ -130,7 +140,10 @@ export const ToggleButton = () => {
 
       {status === STATUSES.running && (
         <ActionIcon
+          color="primary"
           aria-label="pause timer"
+          dark={darkMode || darkModeCached}
+          theme={theme}
           onClick={() => {
             dispatch(pauseTimer())
           }}
@@ -143,5 +156,10 @@ export const ToggleButton = () => {
 }
 
 export const ActionIcon = styled(IconButton)`
-  border: 1px solid #bababa;
+  color: ${({ dark, theme }) =>
+    dark ? theme.palette.primary.light : theme.palette.primary.main};
+
+  border: 1px solid
+    ${({ dark, theme }) =>
+      dark ? theme.palette.primary.light : theme.palette.primary.main};
 `

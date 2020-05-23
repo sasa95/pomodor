@@ -8,20 +8,28 @@ exports[`<SkipButton /> should render <Timer /> correctly 1`] = `
 >
   <LabelButton />
   <CountdownCircle />
-  <ToggleButton />
   <Styled(MuiBox)
     alignItems="center"
     display="flex"
-    justifyContent="space-between"
-    mt={2}
+    justifyContent="center"
+    my={3}
+  >
+    <ResetButton />
+    <Styled(MuiBox)
+      alignItems="center"
+      display="flex"
+      flexDirection="column"
+      mx={3}
+    >
+      <ToggleButton />
+    </Styled(MuiBox)>
+    <SkipButton />
+  </Styled(MuiBox)>
+  <Styled(MuiBox)
+    display="flex"
+    justifyContent="center"
   >
     <RoundsCounter />
-    <Styled(MuiBox)
-      display="flex"
-    >
-      <ResetButton />
-      <SkipButton />
-    </Styled(MuiBox)>
   </Styled(MuiBox)>
   <FullscreenDialog />
   <DesktopDialog />

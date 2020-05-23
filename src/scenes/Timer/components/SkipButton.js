@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import SkipNext from '@material-ui/icons/SkipNext'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,12 +11,17 @@ export const SkipButton = () => {
   const dispatch = useDispatch()
 
   return (
-    <IconButton
+    <ActionIcon
       disabled={!timeLeft}
       aria-label="Skip current timer"
       onClick={() => dispatch(setNextTimer(settings))}
+      size="small"
     >
       <SkipNext />
-    </IconButton>
+    </ActionIcon>
   )
 }
+
+export const ActionIcon = styled(IconButton)`
+  border: 1px solid #bababa;
+`

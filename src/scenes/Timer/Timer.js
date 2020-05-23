@@ -14,20 +14,19 @@ export const Timer = () => {
     <Box width={300} m="auto" pt={3}>
       <LabelButton />
       <CountdownCircle />
-      <ToggleButton />
 
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        mt={2}
-      >
-        <RoundsCounter />
+      <Box display="flex" justifyContent="center" alignItems="center" my={3}>
+        <ResetButton />
 
-        <Box display="flex">
-          <ResetButton />
-          <SkipButton />
+        <Box display="flex" flexDirection="column" alignItems="center" mx={3}>
+          <ToggleButton />
         </Box>
+
+        <SkipButton />
+      </Box>
+
+      <Box display="flex" justifyContent="center">
+        <RoundsCounter />
       </Box>
 
       <FullscreenDialog />

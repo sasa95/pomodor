@@ -12,6 +12,7 @@ exports[`<Slider /> should render <Slider /> correctly 1`] = `
   </WithStyles(ForwardRef(Typography))>
   <Styled(WithStyles(ForwardRef(Slider)))
     aria-labelledby="Work duration-slider"
+    color="primary"
     dark={0}
     getAriaValueText={[Function]}
     marks={

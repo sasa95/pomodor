@@ -29,6 +29,9 @@ describe('<LabelButton />', () => {
       timer: {
         status: timerStatus,
       },
+      settings: {
+        darkMode: false,
+      },
     }
 
     jest

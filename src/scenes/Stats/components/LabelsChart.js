@@ -32,6 +32,8 @@ require('dayjs/locale/en')
 export const LabelsChart = () => {
   const labels = useSelector((state) => state.labels.data)
   const sessions = useSelector((state) => state.sessions)
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+
   const firstDayOfTheWeek = useSelector(
     (state) => state.settings.firstDayOfTheWeek
   )
@@ -157,7 +159,7 @@ export const LabelsChart = () => {
   const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
   return (
-    <Card theme={theme}>
+    <Card theme={theme} dark={darkMode}>
       <CardHeader
         title="Labels"
         action={
@@ -203,7 +205,7 @@ export const LabelsChart = () => {
             <Chip
               onClick={() => onChipClicked('time')}
               label="Time"
-              color={dataType === 'time' ? 'secondary' : 'default'}
+              color={dataType === 'time' ? 'primary' : 'default'}
               clickable
             />
           </Box>
@@ -211,7 +213,7 @@ export const LabelsChart = () => {
           <Chip
             onClick={() => onChipClicked('sessions')}
             label="Sessions"
-            color={dataType === 'sessions' ? 'secondary' : 'default'}
+            color={dataType === 'sessions' ? 'primary' : 'default'}
             clickable
           />
         </div>
@@ -223,6 +225,7 @@ export const LabelsChart = () => {
 const Card = styled(MatCard)`
   margin: 10px auto auto;
   max-width: 350px;
+  background: ${({ dark }) => (dark ? '#252525' : '#fff')};
 
   @media (min-width: 768px) {
     max-width: 450px;

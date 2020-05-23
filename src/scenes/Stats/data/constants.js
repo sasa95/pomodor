@@ -1,10 +1,12 @@
-import red from '@material-ui/core/colors/red'
-import deepPurple from '@material-ui/core/colors/deepPurple'
-import blue from '@material-ui/core/colors/blue'
-import cyan from '@material-ui/core/colors/cyan'
-import green from '@material-ui/core/colors/green'
-import yellow from '@material-ui/core/colors/yellow'
-import orange from '@material-ui/core/colors/orange'
+import {
+  indigo,
+  teal,
+  lightGreen,
+  purple,
+  pink,
+  blue,
+  orange,
+} from '@material-ui/core/colors'
 
 export const daysOfWeek = [
   'Monday',
@@ -17,11 +19,11 @@ export const daysOfWeek = [
 ]
 
 export const colors = [
-  red[500],
-  green[500],
-  deepPurple[500],
-  cyan[300],
-  orange[500],
   blue[500],
-  yellow[500],
+  indigo[500],
+  pink[300],
+  purple[500],
+  lightGreen[500],
+  teal[500],
+  orange[500],
 ]

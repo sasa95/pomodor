@@ -22,6 +22,7 @@ describe('<LabelsChart />', () => {
     const store = {
       settings: {
         firstDayOfTheWeek: 'Monday',
+        darkMode: false,
       },
       labels: {
         data: labels,

@@ -25,6 +25,9 @@ describe('<DesktopDialog />', () => {
         labelEditting,
         formValue,
       },
+      settings: {
+        darkMode: false,
+      },
     }
 
     jest

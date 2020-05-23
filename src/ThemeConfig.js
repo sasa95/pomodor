@@ -13,12 +13,14 @@ export const ThemeConfig = ({ children }) => {
         type: dark ? 'dark' : 'light',
         primary: {
           main: indigo[500],
+          light: indigo[200],
+          dark: '#272727',
         },
         secondary: {
           main: pink[300],
         },
         background: {
-          default: dark ? '#212121' : '#fafafa',
+          default: dark ? '#121212' : '#fafafa',
         },
       },
     })

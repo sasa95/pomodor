@@ -44,6 +44,8 @@ export const Overview = () => {
 
   const sessions = useSelector((state) => state.sessions)
   const userCreationTime = useSelector((state) => state.auth.creationTime)
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+
   const firstDayOfTheWeek = useSelector(
     (state) => state.settings.firstDayOfTheWeek
   )
@@ -149,7 +151,7 @@ export const Overview = () => {
   }
 
   return (
-    <Card theme={theme}>
+    <Card theme={theme} dark={darkMode}>
       <CardHeader title="Overview"></CardHeader>
       <CardContent>
         <Grid container spacing={1}>
@@ -235,7 +237,7 @@ export const Overview = () => {
             <Chip
               onClick={() => onChipClicked('time')}
               label="Time"
-              color={dataType === 'time' ? 'secondary' : 'default'}
+              color={dataType === 'time' ? 'primary' : 'default'}
               clickable
             />
           </Box>
@@ -243,7 +245,7 @@ export const Overview = () => {
           <Chip
             onClick={() => onChipClicked('sessions')}
             label="Sessions"
-            color={dataType === 'sessions' ? 'secondary' : 'default'}
+            color={dataType === 'sessions' ? 'primary' : 'default'}
             clickable
           />
         </div>
@@ -253,6 +255,7 @@ export const Overview = () => {
 }
 
 const Card = styled(MatCard)`
+  background: ${({ dark }) => (dark ? '#252525' : '#fff')};
   margin: 10px auto auto;
   max-width: 350px;
 

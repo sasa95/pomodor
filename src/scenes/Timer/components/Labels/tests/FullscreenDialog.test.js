@@ -22,6 +22,9 @@ describe('<FullscreenDialog />', () => {
         labelEditting,
         formValue,
       },
+      settings: {
+        darkMode: false,
+      },
     }
 
     jest

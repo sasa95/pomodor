@@ -1,8 +1,7 @@
 import React from 'react'
 import * as redux from 'react-redux'
 import { createShallow } from '@material-ui/core/test-utils'
-import IconButton from '@material-ui/core/IconButton'
-import { ResetButton } from '../ResetButton'
+import { ResetButton, ActionIcon } from '../ResetButton'
 import { TYPES, STATUSES } from '../../data/timer/reducer'
 import { SaveSessionAlert } from '../SaveSessionAlert'
 
@@ -51,7 +50,7 @@ describe('<ResetButton />', () => {
 
   test('should be disabled if the timer is on hold', () => {
     createStore()
-    expect(createWrapper().find(IconButton).prop('disabled')).toBe(true)
+    expect(createWrapper().find(ActionIcon).prop('disabled')).toBe(true)
   })
 
   test('should be enabled if the timer is running', () => {
@@ -60,7 +59,7 @@ describe('<ResetButton />', () => {
       seconds: 10,
     })
 
-    expect(createWrapper().find(IconButton).prop('disabled')).toBe(false)
+    expect(createWrapper().find(ActionIcon).prop('disabled')).toBe(false)
   })
 
   test('should be enabled if the timer is paused', () => {
@@ -69,7 +68,7 @@ describe('<ResetButton />', () => {
       seconds: 10,
     })
 
-    expect(createWrapper().find(IconButton).prop('disabled')).toBe(false)
+    expect(createWrapper().find(ActionIcon).prop('disabled')).toBe(false)
   })
 
   test('should display save session alert with the remaining time if the work timer has been running for 1 or more minutes', () => {
@@ -80,7 +79,7 @@ describe('<ResetButton />', () => {
 
     const wrapper = createWrapper()
 
-    wrapper.find(IconButton).simulate('click')
+    wrapper.find(ActionIcon).simulate('click')
 
     expect(wrapper.find(SaveSessionAlert).prop('time')).toEqual({
       minutes: 2,
@@ -96,7 +95,7 @@ describe('<ResetButton />', () => {
 
     const wrapper = createWrapper()
 
-    wrapper.find(IconButton).simulate('click')
+    wrapper.find(ActionIcon).simulate('click')
 
     expect(wrapper.find(SaveSessionAlert).prop('time')).toEqual({
       minutes: 0,
@@ -112,7 +111,7 @@ describe('<ResetButton />', () => {
 
     const wrapper = createWrapper()
 
-    wrapper.find(IconButton).simulate('click')
+    wrapper.find(ActionIcon).simulate('click')
 
     expect(wrapper.find(SaveSessionAlert).prop('time')).toEqual({
       minutes: 0,
@@ -128,7 +127,7 @@ describe('<ResetButton />', () => {
 
     const wrapper = createWrapper()
 
-    wrapper.find(IconButton).simulate('click')
+    wrapper.find(ActionIcon).simulate('click')
 
     expect(wrapper.find(SaveSessionAlert).prop('time')).toEqual({
       minutes: 0,

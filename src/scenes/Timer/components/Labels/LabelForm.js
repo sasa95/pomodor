@@ -2,19 +2,14 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-import styled from 'styled-components'
-import red from '@material-ui/core/colors/red'
-import deepPurple from '@material-ui/core/colors/deepPurple'
-import blue from '@material-ui/core/colors/blue'
-import cyan from '@material-ui/core/colors/cyan'
-import teal from '@material-ui/core/colors/teal'
-import green from '@material-ui/core/colors/green'
-import yellow from '@material-ui/core/colors/yellow'
-import deepOrange from '@material-ui/core/colors/deepOrange'
+import styled, { css } from 'styled-components'
+import colors from './Fixtures/colors'
 import { setFormValue } from '../../../../data/labels/actions'
+import { useTheme } from '@material-ui/core'
 
 export const LabelForm = () => {
   const { labelEditting } = useSelector((state) => state.labels)
+  const darkMode = useSelector((state) => +state.settings.darkMode)
 
   const [name, setName] = useState(labelEditting ? labelEditting.name : '')
   const [nameValid, setNameValid] = useState(true)
@@ -48,8 +43,15 @@ export const LabelForm = () => {
     }
   }
 
+  const theme = useTheme()
+
   return (
-    <form noValidate autoComplete="off">
+    <Form
+      noValidate
+      autoComplete="off"
+      darkMode={darkMode}
+      color={theme.palette.primary.light}
+    >
       <TextField
         error={!nameValid}
         helperText={!nameValid ? nameHelperText : ' '}
@@ -78,27 +80,30 @@ export const LabelForm = () => {
         onChange={onColorChange}
         fullWidth
       >
-        {COLORS.map((color) => (
+        {colors.map((color) => (
           <MenuItem key={color.id} value={color.hex}>
             <ColorIndicator color={color.hex} />
             <span>{color.name}</span>
           </MenuItem>
         ))}
       </ColorTextField>
-    </form>
+    </Form>
   )
 }
 
-const COLORS = [
-  { name: 'Red', hex: red[500], id: '111' },
-  { name: 'Deep Purple', hex: deepPurple[500], id: '222' },
-  { name: 'Blue', hex: blue[500], id: '333' },
-  { name: 'Cyan', hex: cyan[500], id: '444' },
-  { name: 'Teal', hex: teal[500], id: '555' },
-  { name: 'Deep Orange', hex: deepOrange[500], id: '666' },
-  { name: 'Green', hex: green[500], id: '777' },
-  { name: 'Yellow', hex: yellow[500], id: '888' },
-]
+const Form = styled.form`
+  ${({ darkMode, color }) =>
+    darkMode &&
+    css`
+      & label.Mui-focused:not(.Mui-error) {
+        color: ${color};
+      }
+
+      & .MuiFilledInput-underline.Mui-focused:not(.Mui-error):after {
+        border-bottom-color: ${color};
+      }
+    `}
+`
 
 const ColorTextField = styled(TextField)`
   #label-color {

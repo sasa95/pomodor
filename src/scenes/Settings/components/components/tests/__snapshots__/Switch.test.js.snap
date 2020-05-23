@@ -6,6 +6,7 @@ exports[`<Switch /> should render <Switch /> correctly 1`] = `
     control={
       <ForwardRef(Styled(WithStyles(ForwardRef(Switch))))
         checked={false}
+        color="primary"
         dark={1}
         name="Notifications"
         onChange={[Function]}

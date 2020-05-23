@@ -3,6 +3,7 @@
 exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
 <LabelsChart>
   <Styled(WithStyles(ForwardRef(Card)))
+    dark={0}
     theme={
       Object {
         "breakpoints": Object {
@@ -295,7 +296,8 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
     }
   >
     <WithStyles(ForwardRef(Card))
-      className="sc-AxjAm gLaiHB"
+      className="sc-AxjAm bMPcru"
+      dark={0}
       theme={
         Object {
           "breakpoints": Object {
@@ -588,12 +590,13 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
       }
     >
       <ForwardRef(Card)
-        className="sc-AxjAm gLaiHB"
+        className="sc-AxjAm bMPcru"
         classes={
           Object {
             "root": "MuiCard-root",
           }
         }
+        dark={0}
         theme={
           Object {
             "breakpoints": Object {
@@ -886,7 +889,8 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
         }
       >
         <WithStyles(ForwardRef(Paper))
-          className="MuiCard-root sc-AxjAm gLaiHB"
+          className="MuiCard-root sc-AxjAm bMPcru"
+          dark={0}
           elevation={1}
           theme={
             Object {
@@ -1180,7 +1184,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
           }
         >
           <ForwardRef(Paper)
-            className="MuiCard-root sc-AxjAm gLaiHB"
+            className="MuiCard-root sc-AxjAm bMPcru"
             classes={
               Object {
                 "elevation0": "MuiPaper-elevation0",
@@ -1213,6 +1217,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                 "rounded": "MuiPaper-rounded",
               }
             }
+            dark={0}
             elevation={1}
             theme={
               Object {
@@ -1506,7 +1511,8 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
             }
           >
             <div
-              className="MuiPaper-root MuiCard-root sc-AxjAm gLaiHB MuiPaper-elevation1 MuiPaper-rounded"
+              className="MuiPaper-root MuiCard-root sc-AxjAm bMPcru MuiPaper-elevation1 MuiPaper-rounded"
+              dark={0}
               theme={
                 Object {
                   "breakpoints": Object {
@@ -2289,7 +2295,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                         >
                           <WithStyles(ForwardRef(Chip))
                             clickable={true}
-                            color="secondary"
+                            color="primary"
                             label="Time"
                             onClick={[Function]}
                           >
@@ -2329,12 +2335,12 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                                 }
                               }
                               clickable={true}
-                              color="secondary"
+                              color="primary"
                               label="Time"
                               onClick={[Function]}
                             >
                               <WithStyles(ForwardRef(ButtonBase))
-                                className="MuiChip-root MuiChip-colorSecondary MuiChip-clickableColorSecondary MuiChip-clickable"
+                                className="MuiChip-root MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                                 component="div"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -2343,7 +2349,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                                 tabIndex={0}
                               >
                                 <ForwardRef(ButtonBase)
-                                  className="MuiChip-root MuiChip-colorSecondary MuiChip-clickableColorSecondary MuiChip-clickable"
+                                  className="MuiChip-root MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                                   classes={
                                     Object {
                                       "disabled": "Mui-disabled",
@@ -2359,7 +2365,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                                   tabIndex={0}
                                 >
                                   <div
-                                    className="MuiButtonBase-root MuiChip-root MuiChip-colorSecondary MuiChip-clickableColorSecondary MuiChip-clickable"
+                                    className="MuiButtonBase-root MuiChip-root MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
                                     onBlur={[Function]}
                                     onClick={[Function]}
                                     onDragLeave={[Function]}
