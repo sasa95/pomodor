@@ -22,6 +22,9 @@ export const ThemeConfig = ({ children }) => {
         background: {
           default: dark ? '#121212' : '#fafafa',
         },
+        text: {
+          primary: dark ? '#DDE0F4' : '#424242',
+        },
       },
     })
   }
