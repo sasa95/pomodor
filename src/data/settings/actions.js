@@ -109,7 +109,7 @@ export const startSetDarkMode = (darkMode) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid
 
-    localStorage.setItem('darkMode', darkMode)
+    localStorage.setItem('darkMode', +darkMode)
 
     dispatch(setDarkMode(darkMode))
 

@@ -4,45 +4,41 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core'
 import indigo from '@material-ui/core/colors/indigo'
 import pink from '@material-ui/core/colors/pink'
-import useMounted from './helpers/useMounted'
 
 export const ThemeConfig = ({ children }) => {
-  const getTheme = (dark) => {
-    return createMuiTheme({
-      palette: {
-        type: dark ? 'dark' : 'light',
-        primary: {
-          main: indigo[500],
-          light: indigo[200],
-          dark: '#272727',
-        },
-        secondary: {
-          main: pink[300],
-        },
-        background: {
-          default: dark ? '#121212' : '#fafafa',
-        },
-        text: {
-          primary: dark ? '#DDE0F4' : '#424242',
-          secondary: dark ? '#fff9' : '#575757',
-        },
-      },
-    })
-  }
+  const darkModeCached = +localStorage.getItem('darkMode')
+  const [darkTheme, setDarkTheme] = useState(darkModeCached)
 
-  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
-  const [themeSelected, setThemeSelected] = useState(getTheme(darkModeCached))
   const darkMode = useSelector((state) => +state.settings.darkMode)
+  const progress = useSelector((state) => state.progress)
 
-  const isMounted = useMounted()
+  const userTheme = createMuiTheme({
+    palette: {
+      type: darkTheme ? 'dark' : 'light',
+      primary: {
+        main: indigo[500],
+        light: indigo[200],
+        dark: '#272727',
+      },
+      secondary: {
+        main: pink[300],
+      },
+      background: {
+        default: darkTheme ? '#121212' : '#fafafa',
+      },
+      text: {
+        primary: darkTheme ? '#DDE0F4' : '#424242',
+        secondary: darkTheme ? '#fff9' : '#575757',
+      },
+    },
+  })
 
   useEffect(() => {
-    if (!isMounted) return
+    if (!progress) {
+      localStorage.setItem('darkMode', darkMode)
+      setDarkTheme(darkMode)
+    }
+  }, [darkMode, progress])
 
-    setThemeSelected(getTheme(darkModeCached))
-  }, [darkMode, darkModeCached, isMounted])
-
-  return (
-    <ThemeProvider theme={themeSelected}>{children || <></>}</ThemeProvider>
-  )
+  return <ThemeProvider theme={userTheme}>{children || <></>}</ThemeProvider>
 }
