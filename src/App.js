@@ -68,4 +68,12 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 8px;
     width: 80px;
   }
+
+  .MuiCard-root {
+    border-radius: 8px;
+  }
+
+  .MuiCardHeader-title {
+    font-weight: bold;
+  }
 `

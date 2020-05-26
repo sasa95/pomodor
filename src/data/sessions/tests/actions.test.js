@@ -13,6 +13,8 @@ const uid = 'asdf1234'
 const defaultAuthState = { auth: { uid } }
 const createMockStore = configureMockStore([thunk])
 
+jest.setTimeout(15000)
+
 beforeEach(async (done) => {
   const batch = fs.batch()
 

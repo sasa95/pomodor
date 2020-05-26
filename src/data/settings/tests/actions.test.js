@@ -27,6 +27,8 @@ const uid = 'asdf1234'
 const defaultAuthState = { auth: { uid }, settings: initialState }
 const createMockStore = configureMockStore([thunk])
 
+jest.setTimeout(15000)
+
 beforeEach(async (done) => {
   await fs.doc(`users/${uid}`).set({ settings: initialState })
   done()

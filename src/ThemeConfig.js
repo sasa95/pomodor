@@ -24,6 +24,7 @@ export const ThemeConfig = ({ children }) => {
         },
         text: {
           primary: dark ? '#DDE0F4' : '#424242',
+          secondary: dark ? '#fff9' : '#575757',
         },
       },
     })

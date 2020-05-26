@@ -296,7 +296,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
     }
   >
     <WithStyles(ForwardRef(Card))
-      className="sc-AxjAm bMPcru"
+      className="sc-AxjAm bccgmo"
       dark={0}
       theme={
         Object {
@@ -590,7 +590,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
       }
     >
       <ForwardRef(Card)
-        className="sc-AxjAm bMPcru"
+        className="sc-AxjAm bccgmo"
         classes={
           Object {
             "root": "MuiCard-root",
@@ -889,7 +889,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
         }
       >
         <WithStyles(ForwardRef(Paper))
-          className="MuiCard-root sc-AxjAm bMPcru"
+          className="MuiCard-root sc-AxjAm bccgmo"
           dark={0}
           elevation={1}
           theme={
@@ -1184,7 +1184,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
           }
         >
           <ForwardRef(Paper)
-            className="MuiCard-root sc-AxjAm bMPcru"
+            className="MuiCard-root sc-AxjAm bccgmo"
             classes={
               Object {
                 "elevation0": "MuiPaper-elevation0",
@@ -1511,7 +1511,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
             }
           >
             <div
-              className="MuiPaper-root MuiCard-root sc-AxjAm bMPcru MuiPaper-elevation1 MuiPaper-rounded"
+              className="MuiPaper-root MuiCard-root sc-AxjAm bccgmo MuiPaper-elevation1 MuiPaper-rounded"
               dark={0}
               theme={
                 Object {
@@ -2135,10 +2135,10 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
               </WithStyles(ForwardRef(Menu))>
               <Styled(WithStyles(ForwardRef(CardContent)))>
                 <WithStyles(ForwardRef(CardContent))
-                  className="sc-AxirZ hciENk"
+                  className="sc-AxirZ hEFncW"
                 >
                   <ForwardRef(CardContent)
-                    className="sc-AxirZ hciENk"
+                    className="sc-AxirZ hEFncW"
                     classes={
                       Object {
                         "root": "MuiCardContent-root",
@@ -2146,11 +2146,10 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                     }
                   >
                     <div
-                      className="MuiCardContent-root sc-AxirZ hciENk"
+                      className="MuiCardContent-root sc-AxirZ hEFncW"
                     >
                       <WithStyles(ForwardRef(Typography))
                         color="textSecondary"
-                        variant="caption"
                       >
                         <ForwardRef(Typography)
                           classes={
@@ -2188,18 +2187,17 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                             }
                           }
                           color="textSecondary"
-                          variant="caption"
                         >
-                          <span
-                            className="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
+                          <p
+                            className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
                           >
-                            LAST 30 DAYS
-                          </span>
+                            Last 30 days
+                          </p>
                         </ForwardRef(Typography)>
                       </WithStyles(ForwardRef(Typography))>
                       <styled.div>
                         <div
-                          className="sc-AxiKw hUtZHH"
+                          className="sc-AxiKw fbCRig"
                         >
                           <Doughnut
                             data={
@@ -2232,6 +2230,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                               Object {
                                 "legend": Object {
                                   "labels": Object {
+                                    "boxWidth": 20,
                                     "fontColor": "rgba(0, 0, 0, 0.54)",
                                   },
                                 },
@@ -2251,28 +2250,6 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                   </ForwardRef(CardContent)>
                 </WithStyles(ForwardRef(CardContent))>
               </Styled(WithStyles(ForwardRef(CardContent)))>
-              <WithStyles(ForwardRef(Divider))
-                variant="middle"
-              >
-                <ForwardRef(Divider)
-                  classes={
-                    Object {
-                      "absolute": "MuiDivider-absolute",
-                      "flexItem": "MuiDivider-flexItem",
-                      "inset": "MuiDivider-inset",
-                      "light": "MuiDivider-light",
-                      "middle": "MuiDivider-middle",
-                      "root": "MuiDivider-root",
-                      "vertical": "MuiDivider-vertical",
-                    }
-                  }
-                  variant="middle"
-                >
-                  <hr
-                    className="MuiDivider-root MuiDivider-middle"
-                  />
-                </ForwardRef(Divider)>
-              </WithStyles(ForwardRef(Divider))>
               <WithStyles(ForwardRef(CardActions))>
                 <ForwardRef(CardActions)
                   classes={
@@ -2291,7 +2268,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                         mr={1}
                       >
                         <div
-                          className="MuiBox-root MuiBox-root-102"
+                          className="MuiBox-root MuiBox-root-95"
                         >
                           <WithStyles(ForwardRef(Chip))
                             clickable={true}

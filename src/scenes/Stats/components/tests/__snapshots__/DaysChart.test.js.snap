@@ -372,9 +372,8 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
   <Styled(WithStyles(ForwardRef(CardContent)))>
     <WithStyles(ForwardRef(Typography))
       color="textSecondary"
-      variant="caption"
     >
-      LAST 30 DAYS
+      Last 30 days
     </WithStyles(ForwardRef(Typography))>
     <styled.div>
       <Doughnut
@@ -417,6 +416,7 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
           Object {
             "legend": Object {
               "labels": Object {
+                "boxWidth": 20,
                 "fontColor": "rgba(0, 0, 0, 0.54)",
               },
             },
@@ -432,9 +432,6 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
       />
     </styled.div>
   </Styled(WithStyles(ForwardRef(CardContent)))>
-  <WithStyles(ForwardRef(Divider))
-    variant="middle"
-  />
   <WithStyles(ForwardRef(CardActions))>
     <div>
       <Styled(MuiBox)

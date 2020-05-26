@@ -11,7 +11,6 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Typography from '@material-ui/core/Typography'
 import MatCardContent from '@material-ui/core/CardContent'
-import Divider from '@material-ui/core/Divider'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
 import { Doughnut } from 'react-chartjs-2'
@@ -49,6 +48,7 @@ export const DaysChart = () => {
     legend: {
       labels: {
         fontColor: theme.palette.text.secondary,
+        boxWidth: 20,
       },
     },
     tooltips: {
@@ -175,16 +175,14 @@ export const DaysChart = () => {
       </Menu>
 
       <CardContent>
-        <Typography variant="caption" color="textSecondary">
-          {(filter.displayName || filter.name || '').toUpperCase()}
+        <Typography color="textSecondary">
+          {filter.displayName || filter.name || ''}
         </Typography>
 
         <ChartContainer>
           <Doughnut data={chartData} options={chartOptions} />
         </ChartContainer>
       </CardContent>
-
-      <Divider variant="middle" />
 
       <CardActions>
         <div>
@@ -210,23 +208,20 @@ export const DaysChart = () => {
 }
 
 const Card = styled(MatCard)`
-  margin: 10px auto auto;
-  max-width: 350px;
   background: ${({ dark }) => (dark ? '#252525' : '#fff')};
-
-  @media (min-width: 768px) {
-    max-width: 450px;
-  }
-
-  ${({ theme }) => theme.breakpoints.up('md')} {
-    max-width: 550px;
-  }
 `
 
 const CardContent = styled(MatCardContent)`
   padding-top: 0;
+
+  .MuiTypography-colorTextSecondary {
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
 `
 
 const ChartContainer = styled.div`
   height: 250px;
+  max-width: 500px;
+  margin: auto;
 `

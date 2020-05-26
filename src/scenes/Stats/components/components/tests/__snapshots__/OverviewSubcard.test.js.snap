@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OverviewSubcard /> should render <OverviewSubcard /> correctly 1`] = `
+<Styled(WithStyles(ForwardRef(Card)))
+  dark={0}
+  md={0}
+>
+  <Styled(WithStyles(ForwardRef(CardContent)))
+    md={0}
+  >
+    <Styled(WithStyles(ForwardRef(Grid)))
+      alignItems="center"
+      container={true}
+      direction="row"
+      spacing={2}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        lg={9}
+        md={5}
+        xs={2}
+      >
+        <styled.img
+          alt="Today Icon"
+          max-width="100%"
+          md={0}
+          src="week-light.svg"
+        />
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        md={12}
+        xs={4}
+      >
+        <styled.span
+          dark={0}
+          md={0}
+        >
+          13h 5m
+        </styled.span>
+        <styled.span
+          color="rgba(0, 0, 0, 0.54)"
+          md={0}
+        >
+          Week
+        </styled.span>
+        <Styled(MuiBox)
+          alignItems="center"
+          display="flex"
+          justifyContent="flex-start"
+        >
+          <TrendIcon
+            fill="rgba(0,0,0,0)"
+          />
+          <styled.span
+            color="rgba(0,0,0,0)"
+            md={0}
+          >
+            9
+            %
+          </styled.span>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </Styled(WithStyles(ForwardRef(Grid)))>
+  </Styled(WithStyles(ForwardRef(CardContent)))>
+</Styled(WithStyles(ForwardRef(Card)))>
+`;
