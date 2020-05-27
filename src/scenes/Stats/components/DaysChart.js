@@ -31,6 +31,7 @@ require('dayjs/locale/en')
 export const DaysChart = () => {
   const sessions = useSelector((state) => state.sessions)
   const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +localStorage.getItem('darkMode')
 
   const firstDayOfTheWeek = useSelector(
     (state) => state.settings.firstDayOfTheWeek
@@ -38,7 +39,12 @@ export const DaysChart = () => {
 
   const [chartData, setChartData] = useState({
     labels: daysOfWeek,
-    datasets: [{ data: Array(7).fill(1), backgroundColor: colors }],
+    datasets: [
+      {
+        data: Array(7).fill(1),
+        backgroundColor: [],
+      },
+    ],
   })
 
   const theme = useTheme()
@@ -63,6 +69,22 @@ export const DaysChart = () => {
   const [dataType, setDataType] = useState('time')
   const [anchorEl, setAnchorEl] = useState(null)
   const [filter, setFilter] = useState(filters.find((f) => f.default))
+
+  useEffect(() => {
+    setChartOptions((prev) => {
+      const newData = { ...prev }
+      newData.legend.labels.fontColor = theme.palette.text.secondary
+      return newData
+    })
+
+    setChartData((prev) => {
+      const newData = { ...prev }
+      newData.datasets[0].backgroundColor = colors.map((c) =>
+        darkModeCached ? c.darkMode : c.normal
+      )
+      return newData
+    })
+  }, [darkModeCached, theme.palette.text.secondary])
 
   useEffect(() => {
     if (sessions && sessions.length && firstDayOfTheWeek) {

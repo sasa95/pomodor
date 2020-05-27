@@ -381,15 +381,7 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
           Object {
             "datasets": Array [
               Object {
-                "backgroundColor": Array [
-                  "#2196f3",
-                  "#3f51b5",
-                  "#f06292",
-                  "#9c27b0",
-                  "#8bc34a",
-                  "#009688",
-                  "#ff9800",
-                ],
+                "backgroundColor": Array [],
                 "data": Array [
                   1,
                   1,

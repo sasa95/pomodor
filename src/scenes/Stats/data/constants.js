@@ -19,11 +19,32 @@ export const daysOfWeek = [
 ]
 
 export const colors = [
-  blue[500],
-  indigo[500],
-  pink[300],
-  purple[500],
-  lightGreen[500],
-  teal[500],
-  orange[500],
+  {
+    normal: blue[500],
+    darkMode: blue[200],
+  },
+  {
+    normal: indigo[500],
+    darkMode: indigo[200],
+  },
+  {
+    normal: pink[500],
+    darkMode: pink[200],
+  },
+  {
+    normal: purple[500],
+    darkMode: purple[200],
+  },
+  {
+    normal: lightGreen[500],
+    darkMode: lightGreen[200],
+  },
+  {
+    normal: teal[500],
+    darkMode: teal[200],
+  },
+  {
+    normal: orange[500],
+    darkMode: orange[200],
+  },
 ]
