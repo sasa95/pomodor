@@ -4,6 +4,7 @@ import { createShallow } from '@material-ui/core/test-utils'
 import { Label, ColorIndicator, ActionButton } from '../Label'
 import labels from '../../../../../data/labels/tests/mock-data/labels'
 import * as labelsActions from '../../../../../data/labels/actions'
+import * as materialColors from '@material-ui/core/colors'
 
 describe('<Label />', () => {
   const shallow = createShallow()
@@ -29,7 +30,9 @@ describe('<Label />', () => {
 
   test('should display color indicator with correct color', () => {
     const { color } = labels[0]
-    expect(createWrapper().find(ColorIndicator).prop('color')).toBe(color)
+    expect(createWrapper().find(ColorIndicator).prop('color')).toBe(
+      materialColors[color][500]
+    )
   })
 
   test('should handle edit button click', () => {

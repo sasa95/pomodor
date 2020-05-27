@@ -12,6 +12,7 @@ import {
 } from '../../../../data/labels/actions'
 import { LabelsMenu } from './LabelsMenu'
 import { STATUSES } from '../../data/timer/reducer'
+import * as materialColors from '@material-ui/core/colors'
 
 export const LabelButton = () => {
   const { labelSelected, data } = useSelector((state) => state.labels)
@@ -77,6 +78,9 @@ export const LabelButton = () => {
 
 export const Button = styled(MatButton)`
   color: ${({ labelcolor, dark, theme }) =>
-    labelcolor ||
+    (labelcolor &&
+      (dark
+        ? materialColors[labelcolor][200]
+        : materialColors[labelcolor][500])) ||
     (dark ? theme.palette.primary.light : theme.palette.primary.main)};
 `

@@ -20,6 +20,13 @@ const extractChartData = (tooltipItem, data) => {
   const dataset = data.datasets[tooltipItem.datasetIndex]
   const meta = dataset._meta[Object.keys(dataset._meta)[0]]
   const total = meta.total
+
+  if (!total)
+    return {
+      currentValue: 0,
+      percentage: 0,
+    }
+
   const currentValue = dataset.data[tooltipItem.index]
   const percentage = parseFloat(((currentValue / total) * 100).toFixed(1))
 

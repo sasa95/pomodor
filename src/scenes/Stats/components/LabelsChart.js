@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography'
 import MatCardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
-import grey from '@material-ui/core/colors/grey'
+import * as materialColors from '@material-ui/core/colors'
 import { Doughnut } from 'react-chartjs-2'
 import dayjs from 'dayjs'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
@@ -32,6 +32,7 @@ export const LabelsChart = () => {
   const labels = useSelector((state) => state.labels.data)
   const sessions = useSelector((state) => state.sessions)
   const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +localStorage.getItem('darkMode')
 
   const firstDayOfTheWeek = useSelector(
     (state) => state.settings.firstDayOfTheWeek
@@ -66,6 +67,24 @@ export const LabelsChart = () => {
   const [filter, setFilter] = useState(filters.find((f) => f.default))
 
   useEffect(() => {
+    setChartOptions((prev) => {
+      const newData = { ...prev }
+      newData.legend.labels.fontColor = theme.palette.text.secondary
+      return newData
+    })
+
+    setChartData((prev) => {
+      const newData = { ...prev }
+
+      newData.datasets[0].backgroundColor = [
+        ...newData.datasets[0].backgroundColor,
+      ]
+
+      return newData
+    })
+  }, [darkModeCached, theme.palette.text.secondary])
+
+  useEffect(() => {
     if (sessions && sessions.length && firstDayOfTheWeek) {
       if (firstDayOfTheWeek === 'Monday') {
         dayjs.locale('en-gb')
@@ -83,7 +102,7 @@ export const LabelsChart = () => {
 
       labelsData.push({
         id: null,
-        color: grey[500],
+        color: 'grey',
         name: 'Unlabeled',
         sessions: 0,
         time: 0,
@@ -110,13 +129,17 @@ export const LabelsChart = () => {
       setChartData((prev) => {
         const newData = { ...prev }
         newData.datasets[0].data = labelsData.map((d) => d[dataType])
-        newData.datasets[0].backgroundColor = labelsData.map((l) => l.color)
+        newData.datasets[0].backgroundColor = labelsData.map((l) =>
+          darkModeCached
+            ? materialColors[l.color][200]
+            : materialColors[l.color][500]
+        )
         newData.labels = labelsData.map((l) => l.name)
 
         return newData
       })
     }
-  }, [sessions, firstDayOfTheWeek, filter, dataType, labels])
+  }, [sessions, firstDayOfTheWeek, filter, dataType, labels, darkModeCached])
 
   const onChipClicked = (typeSelected) => {
     if (typeSelected === dataType) return
@@ -155,7 +178,6 @@ export const LabelsChart = () => {
     setFilter(filter)
     closeMenu()
   }
-
   const getSeconds = ({ minutes, seconds }) => minutes * 60 + seconds
 
   return (

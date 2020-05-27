@@ -35,8 +35,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
     variant="filled"
   >
     <WithStyles(ForwardRef(MenuItem))
-      key="1"
-      value="#f44336"
+      key="red"
+      value="red"
     >
       <styled.span
         color="#f44336"
@@ -46,8 +46,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="2"
-      value="#e91e63"
+      key="pink"
+      value="pink"
     >
       <styled.span
         color="#e91e63"
@@ -57,8 +57,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="3"
-      value="#9c27b0"
+      key="purple"
+      value="purple"
     >
       <styled.span
         color="#9c27b0"
@@ -68,8 +68,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="4"
-      value="#673ab7"
+      key="deepPurple"
+      value="deepPurple"
     >
       <styled.span
         color="#673ab7"
@@ -79,8 +79,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="5"
-      value="#3f51b5"
+      key="indigo"
+      value="indigo"
     >
       <styled.span
         color="#3f51b5"
@@ -90,8 +90,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="6"
-      value="#2196f3"
+      key="blue"
+      value="blue"
     >
       <styled.span
         color="#2196f3"
@@ -101,8 +101,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="7"
-      value="#03a9f4"
+      key="lightBlue"
+      value="lightBlue"
     >
       <styled.span
         color="#03a9f4"
@@ -112,8 +112,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="8"
-      value="#00bcd4"
+      key="cyan"
+      value="cyan"
     >
       <styled.span
         color="#00bcd4"
@@ -123,8 +123,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="9"
-      value="#009688"
+      key="teal"
+      value="teal"
     >
       <styled.span
         color="#009688"
@@ -134,8 +134,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="10"
-      value="#4caf50"
+      key="green"
+      value="green"
     >
       <styled.span
         color="#4caf50"
@@ -145,8 +145,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="11"
-      value="#8bc34a"
+      key="lightGreen"
+      value="lightGreen"
     >
       <styled.span
         color="#8bc34a"
@@ -156,8 +156,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="12"
-      value="#cddc39"
+      key="lime"
+      value="lime"
     >
       <styled.span
         color="#cddc39"
@@ -167,8 +167,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="13"
-      value="#ffeb3b"
+      key="yellow"
+      value="yellow"
     >
       <styled.span
         color="#ffeb3b"
@@ -178,8 +178,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="14"
-      value="#ffc107"
+      key="amber"
+      value="amber"
     >
       <styled.span
         color="#ffc107"
@@ -189,8 +189,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="15"
-      value="#ff9800"
+      key="orange"
+      value="orange"
     >
       <styled.span
         color="#ff9800"
@@ -200,8 +200,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="16"
-      value="#ff5722"
+      key="deepOrange"
+      value="deepOrange"
     >
       <styled.span
         color="#ff5722"
@@ -211,8 +211,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="17"
-      value="#795548"
+      key="brown"
+      value="brown"
     >
       <styled.span
         color="#795548"
@@ -222,8 +222,8 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="18"
-      value="#9e9e9e"
+      key="grey"
+      value="grey"
     >
       <styled.span
         color="#9e9e9e"
@@ -233,14 +233,14 @@ exports[`<LabelForm /> should render <LabelForm /> correctly 1`] = `
       </span>
     </WithStyles(ForwardRef(MenuItem))>
     <WithStyles(ForwardRef(MenuItem))
-      key="19"
-      value="#607d8b"
+      key="blueGrey"
+      value="blueGrey"
     >
       <styled.span
         color="#607d8b"
       />
       <span>
-        Blue Grey
+        Blue Gray
       </span>
     </WithStyles(ForwardRef(MenuItem))>
   </Styled(WithStyles(ForwardRef(TextField)))>

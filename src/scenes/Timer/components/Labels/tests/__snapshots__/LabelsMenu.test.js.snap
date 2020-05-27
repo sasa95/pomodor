@@ -19,7 +19,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
     <Label
       label={
         Object {
-          "color": "#f44336",
+          "color": "red",
           "id": "1",
           "name": "Coding",
         }
@@ -36,7 +36,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
     <Label
       label={
         Object {
-          "color": "#673ab7",
+          "color": "blue",
           "id": "2",
           "name": "Reading",
         }
@@ -53,7 +53,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
     <Label
       label={
         Object {
-          "color": "#2196f3",
+          "color": "green",
           "id": "3",
           "name": "Playing a guitar",
         }

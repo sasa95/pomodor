@@ -81,8 +81,10 @@ export const LabelForm = () => {
         fullWidth
       >
         {colors.map((color) => (
-          <MenuItem key={color.id} value={color.hex}>
-            <ColorIndicator color={color.hex} />
+          <MenuItem key={color.id} value={color.id}>
+            <ColorIndicator
+              color={darkMode ? color.hex.darkMode : color.hex.normal}
+            />
             <span>{color.name}</span>
           </MenuItem>
         ))}
