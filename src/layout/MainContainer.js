@@ -12,6 +12,7 @@ import { Stats } from '../scenes/Stats/Stats'
 import { Settings } from '../scenes/Settings/Settings'
 import { ScrollToTop } from './navigation/ScrollToTop'
 import { Page404 } from '../Page404'
+import { Footer } from './footer/Footer'
 
 export const MainContainer = () => {
   const darkMode = useSelector((state) => +state.settings.darkMode)
@@ -24,21 +25,24 @@ export const MainContainer = () => {
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
       <FrontLayer sidenav={sidenav} theme={theme} ref={mainRef}>
-        {progress && <LinearProgress color="secondary" />}
-        <ScrollToTop container={mainRef} />
-        <Container>
-          <Box pb={2} pt={5}>
-            <Switch>
-              <Route exact path="/">
-                <Redirect to="/timer" />
-              </Route>
-              <Route path="/timer" component={Timer} />
-              <Route path="/stats" component={Stats} />
-              <Route path="/settings" component={Settings} />
-              <Route component={Page404} />
-            </Switch>
-          </Box>
-        </Container>
+        <div>
+          {progress && <LinearProgress color="secondary" />}
+          <ScrollToTop container={mainRef} />
+          <Container>
+            <Box pb={2} pt={5}>
+              <Switch>
+                <Route exact path="/">
+                  <Redirect to="/timer" />
+                </Route>
+                <Route path="/timer" component={Timer} />
+                <Route path="/stats" component={Stats} />
+                <Route path="/settings" component={Settings} />
+                <Route component={Page404} />
+              </Switch>
+            </Box>
+          </Container>
+        </div>
+        <Footer />
       </FrontLayer>
     </BackLayer>
   )
@@ -51,13 +55,17 @@ const BackLayer = styled.div`
 `
 
 const FrontLayer = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   top: 127px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   height: calc(100% - 127px);
   background: ${({ theme }) => theme.palette.background.default};
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px,
     rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
 
