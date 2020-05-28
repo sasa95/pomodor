@@ -6,7 +6,6 @@ exports[`<App /> should render <App /> correctly 1`] = `
   <Memo(GlobalStyleComponent) />
   <BrowserRouter>
     <AppBar />
-    <ThemeConfig />
     <MainContainer />
   </BrowserRouter>
 </ThemeConfig>

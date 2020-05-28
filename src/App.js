@@ -50,7 +50,6 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <AppBar />
-        <ThemeConfig />
         <MainContainer />
       </BrowserRouter>
     </ThemeConfig>
