@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import { useSelector, useDispatch } from 'react-redux'
 import { setTimeLeft } from '../data/timer/actions'
 import { STATUSES, TYPES } from '../data/timer/reducer'
-import { Typography } from '@material-ui/core'
+import { Typography, useMediaQuery, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 
 export const CountdownCircle = () => {
@@ -52,24 +52,42 @@ export const CountdownCircle = () => {
     }
   }, [longBreakDuration])
 
+  const theme = useTheme()
+  const isMD = useMediaQuery(theme.breakpoints.up('md'))
+  const isLG = useMediaQuery(theme.breakpoints.up('lg'))
+  const isXL = useMediaQuery(theme.breakpoints.up('xl'))
+
+  const getCircleSize = () => {
+    if (isXL) return 350
+    if (isLG) return 300
+    if (isMD) return 250
+
+    return 200
+  }
+
   return (
-    <CircleContainer>
-      <Circle variant="static" value={100} size={200} color="secondary" />
+    <CircleContainer size={getCircleSize() + 'px'}>
+      <Circle
+        variant="static"
+        value={100}
+        size={getCircleSize()}
+        color="secondary"
+      />
       <Circle
         variant={timeLeft ? 'static' : 'indeterminate'}
         value={progress}
-        size={200}
+        size={getCircleSize()}
         color="primary"
       />
       {timeLeft && (
-        <Time>
+        <Time theme={theme}>
           {timeLeft.minutes < 10 ? '0' + timeLeft.minutes : timeLeft.minutes}:
           {timeLeft.seconds < 10 ? '0' + timeLeft.seconds : timeLeft.seconds}
         </Time>
       )}
 
-      <TimerTypeContainer>
-        <TimerType variant="subtitle2" color="textSecondary">
+      <TimerTypeContainer theme={theme}>
+        <TimerType variant="subtitle2" color="textSecondary" theme={theme}>
           {type === 'WORK' ? 'FOCUS' : 'BREAK'}
         </TimerType>
       </TimerTypeContainer>
@@ -80,8 +98,8 @@ export const CountdownCircle = () => {
 const CircleContainer = styled.div`
   position: relative;
   margin: 20px auto 0;
-  height: 200px;
-  width: 200px;
+  height: ${({ size }) => size};
+  width: ${({ size }) => size};
 `
 
 const Circle = styled(CircularProgress)`
@@ -96,16 +114,41 @@ const Time = styled.span`
   transform: translate(-50%, -50%);
   font-size: 3rem;
   white-space: pre;
+
+  ${({ theme }) => theme.breakpoints.up('md')} {
+    font-size: 3.6rem;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    font-size: 4.2rem;
+  }
+
+  ${({ theme }) => theme.breakpoints.up('xl')} {
+    font-size: 5rem;
+  }
 `
 const TimerTypeContainer = styled(Box)`
   position: absolute;
   bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
+
+  ${({ theme }) => theme.breakpoints.up('md')} {
+    top: 70%;
+    transform: translate(-50%, -70%);
+  }
+
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    top: 72%;
+  }
 `
 
 const TimerType = styled(Typography)`
   letter-spacing: 1px;
+
+  ${({ theme }) => theme.breakpoints.up('lg')} {
+    font-size: 1rem;
+  }
 `
 
 export { Time, TimerType }

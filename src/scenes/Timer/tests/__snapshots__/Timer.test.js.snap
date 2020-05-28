@@ -3,7 +3,7 @@
 exports[`<SkipButton /> should render <Timer /> correctly 1`] = `
 <Styled(MuiBox)
   m="auto"
-  width={300}
+  width={200}
 >
   <LabelButton />
   <CountdownCircle />

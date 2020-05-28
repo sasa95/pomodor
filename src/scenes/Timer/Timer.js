@@ -8,10 +8,25 @@ import { SkipButton } from './components/SkipButton'
 import { FullscreenDialog } from './components/Labels/FullscreenDialog'
 import { DesktopDialog } from './components/Labels/DesktopDialog'
 import { LabelButton } from './components/Labels/LabelButton'
+import { useMediaQuery, useTheme } from '@material-ui/core'
 
 export const Timer = () => {
+  const theme = useTheme()
+
+  const isMD = useMediaQuery(theme.breakpoints.up('md'))
+  const isLG = useMediaQuery(theme.breakpoints.up('lg'))
+  const isXL = useMediaQuery(theme.breakpoints.up('xl'))
+
+  const getCircleSize = () => {
+    if (isXL) return 350
+    if (isLG) return 300
+    if (isMD) return 250
+
+    return 200
+  }
+
   return (
-    <Box width={300} m="auto">
+    <Box width={getCircleSize()} m="auto">
       <LabelButton />
       <CountdownCircle />
 
