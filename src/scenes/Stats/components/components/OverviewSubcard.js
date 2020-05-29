@@ -60,7 +60,7 @@ export const OverviewSubcard = ({ icon, sum, label, trend = 0 }) => {
               md={isMediumScreen}
             />
           </Grid>
-          <Grid item xs={4} md={12}>
+          <Grid item xs={10} md={12}>
             <Sum dark={darkMode} md={isMediumScreen}>
               {sum}
             </Sum>
@@ -110,8 +110,7 @@ const CardContent = styled(MatCardContent)`
   ${({ md }) =>
     !md &&
     css`
-      padding: 0;
-      padding-bottom: 8px !important;
+      padding: 8px 0 !important;
     `}
 `
 

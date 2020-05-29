@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useTheme, useMediaQuery } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import MatCard from '@material-ui/core/Card'
@@ -8,7 +8,7 @@ import CardHeader from '@material-ui/core/CardHeader'
 import MatCardContent from '@material-ui/core/CardContent'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
-import MatCardActions from '@material-ui/core/CardActions'
+import CardActions from '@material-ui/core/CardActions'
 import Chip from '@material-ui/core/Chip'
 import dayjs from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
@@ -168,6 +168,8 @@ export const Overview = () => {
   }
 
   const calculateTrend = (total, period, divider) => {
+    if (total === period) return
+
     const d = divider || 1
     const avgSeconds = total / d
 
@@ -194,10 +196,10 @@ export const Overview = () => {
         <Grid
           container
           direction={isMediumScreen ? 'row' : 'column'}
-          spacing={3}
+          spacing={0}
           justify="space-between"
         >
-          <Grid item xs={12} md={5} lg={3} data-class="subcard-container">
+          <SubcardContainer item xs={12} md={5} lg={3} ismd={isMediumScreen}>
             <OverviewSubcard
               icon={darkMode ? todayIconDark : todayIconLight}
               label="Today"
@@ -214,9 +216,9 @@ export const Overview = () => {
             />
 
             {!isMediumScreen && <Divider />}
-          </Grid>
+          </SubcardContainer>
 
-          <Grid item xs={12} md={5} lg={3} data-class="subcard-container">
+          <SubcardContainer item xs={12} md={5} lg={3} ismd={isMediumScreen}>
             <OverviewSubcard
               icon={darkMode ? weekIconDark : weekIconLight}
               label="Week"
@@ -232,9 +234,9 @@ export const Overview = () => {
               }
             />
             {!isMediumScreen && <Divider />}
-          </Grid>
+          </SubcardContainer>
 
-          <Grid item xs={12} md={5} lg={3} data-class="subcard-container">
+          <SubcardContainer item xs={12} md={5} lg={3} ismd={isMediumScreen}>
             <OverviewSubcard
               icon={darkMode ? monthIconDark : monthIconLight}
               label="Month"
@@ -250,9 +252,9 @@ export const Overview = () => {
               }
             />
             {!isMediumScreen && <Divider />}
-          </Grid>
+          </SubcardContainer>
 
-          <Grid item xs={12} md={5} lg={3} data-class="subcard-container">
+          <SubcardContainer item xs={12} md={5} lg={3} ismd={isMediumScreen}>
             <OverviewSubcard
               icon={darkMode ? totalIconDark : totalIconLight}
               label="Total"
@@ -263,7 +265,7 @@ export const Overview = () => {
               }
             />
             {!isMediumScreen && <Divider />}
-          </Grid>
+          </SubcardContainer>
         </Grid>
       </CardContent>
 
@@ -315,6 +317,11 @@ const CardContent = styled(MatCardContent)`
   }
 `
 
-const CardActions = styled(MatCardActions)`
-  padding-top: 0;
+const SubcardContainer = styled(Grid)`
+  ${({ ismd }) =>
+    ismd &&
+    css`
+      display: flex;
+      justify-content: center;
+    `}
 `

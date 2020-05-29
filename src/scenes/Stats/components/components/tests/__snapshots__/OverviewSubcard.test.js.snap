@@ -30,7 +30,7 @@ exports[`<OverviewSubcard /> should render <OverviewSubcard /> correctly 1`] = `
       <WithStyles(ForwardRef(Grid))
         item={true}
         md={12}
-        xs={4}
+        xs={10}
       >
         <styled.span
           dark={0}

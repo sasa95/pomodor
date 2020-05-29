@@ -593,10 +593,10 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
       container={true}
       direction="column"
       justify="space-between"
-      spacing={3}
+      spacing={0}
     >
-      <WithStyles(ForwardRef(Grid))
-        data-class="subcard-container"
+      <Styled(WithStyles(ForwardRef(Grid)))
+        ismd={0}
         item={true}
         lg={3}
         md={5}
@@ -609,9 +609,9 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
           trend={null}
         />
         <WithStyles(ForwardRef(Divider)) />
-      </WithStyles(ForwardRef(Grid))>
-      <WithStyles(ForwardRef(Grid))
-        data-class="subcard-container"
+      </Styled(WithStyles(ForwardRef(Grid)))>
+      <Styled(WithStyles(ForwardRef(Grid)))
+        ismd={0}
         item={true}
         lg={3}
         md={5}
@@ -624,9 +624,9 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
           trend={null}
         />
         <WithStyles(ForwardRef(Divider)) />
-      </WithStyles(ForwardRef(Grid))>
-      <WithStyles(ForwardRef(Grid))
-        data-class="subcard-container"
+      </Styled(WithStyles(ForwardRef(Grid)))>
+      <Styled(WithStyles(ForwardRef(Grid)))
+        ismd={0}
         item={true}
         lg={3}
         md={5}
@@ -639,9 +639,9 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
           trend={null}
         />
         <WithStyles(ForwardRef(Divider)) />
-      </WithStyles(ForwardRef(Grid))>
-      <WithStyles(ForwardRef(Grid))
-        data-class="subcard-container"
+      </Styled(WithStyles(ForwardRef(Grid)))>
+      <Styled(WithStyles(ForwardRef(Grid)))
+        ismd={0}
         item={true}
         lg={3}
         md={5}
@@ -653,10 +653,10 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
           sum="-"
         />
         <WithStyles(ForwardRef(Divider)) />
-      </WithStyles(ForwardRef(Grid))>
+      </Styled(WithStyles(ForwardRef(Grid)))>
     </WithStyles(ForwardRef(Grid))>
   </Styled(WithStyles(ForwardRef(CardContent)))>
-  <Styled(WithStyles(ForwardRef(CardActions)))
+  <WithStyles(ForwardRef(CardActions))
     md={0}
   >
     <div>
@@ -678,6 +678,6 @@ exports[`<Overview /> should render <Overview /> correctly 1`] = `
         onClick={[Function]}
       />
     </div>
-  </Styled(WithStyles(ForwardRef(CardActions)))>
+  </WithStyles(ForwardRef(CardActions))>
 </Styled(WithStyles(ForwardRef(Card)))>
 `;
