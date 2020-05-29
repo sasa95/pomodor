@@ -71,32 +71,12 @@ export const DaysChart = () => {
   const [filter, setFilter] = useState(filters.find((f) => f.default))
 
   useEffect(() => {
-    setChartOptions((prev) => {
-      const newData = { ...prev }
-      newData.legend.labels.fontColor = theme.palette.text.secondary
-      return newData
-    })
-
-    setChartData((prev) => {
-      const newData = { ...prev }
-      newData.datasets[0].backgroundColor = colors.map((c) =>
-        darkModeCached ? c.darkMode : c.normal
-      )
-      return newData
-    })
-  }, [darkModeCached, theme.palette.text.secondary])
-
-  useEffect(() => {
     if (sessions && sessions.length && firstDayOfTheWeek) {
       let week = [...daysOfWeek]
 
       if (firstDayOfTheWeek === 'Monday') {
         dayjs.locale('en-gb')
       } else {
-        week = daysOfWeek.slice(1, daysOfWeek.length - 1)
-
-        week.unshift('Sunday')
-        week.push('Monday')
         dayjs.locale('en')
       }
 
@@ -117,11 +97,22 @@ export const DaysChart = () => {
         }
       })
 
+      if (firstDayOfTheWeek === 'Monday') {
+        const sunday = data[0]
+        data.splice(0, 1)
+        data.push(sunday)
+
+        week.splice(0, 1)
+        week.push('Sunday')
+      }
+
       setCalculatedData(data)
 
       setChartData((prev) => {
         const newData = { ...prev }
         newData.datasets[0].data = data.map((d) => d[dataType])
+
+        newData.labels = week
         return newData
       })
     }
@@ -151,6 +142,22 @@ export const DaysChart = () => {
       return newOptions
     })
   }
+
+  useEffect(() => {
+    setChartOptions((prev) => {
+      const newData = { ...prev }
+      newData.legend.labels.fontColor = theme.palette.text.secondary
+      return newData
+    })
+
+    setChartData((prev) => {
+      const newData = { ...prev }
+      newData.datasets[0].backgroundColor = colors.map((c) =>
+        darkModeCached ? c.darkMode : c.normal
+      )
+      return newData
+    })
+  }, [darkModeCached, theme.palette.text.secondary])
 
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget)

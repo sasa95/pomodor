@@ -9,13 +9,13 @@ import {
 } from '@material-ui/core/colors'
 
 export const daysOfWeek = [
+  'Sunday',
   'Monday',
   'Tuesday',
   'Wednesday',
   'Thursday',
   'Friday',
   'Saturday',
-  'Sunday',
 ]
 
 export const colors = [
