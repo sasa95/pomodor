@@ -1,16 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NoData /> should render <NoData /> correctly 1`] = `
-<Styled(Styled(MuiBox))
+<Styled(MuiBox)
   alignItems="center"
   alignSelf="center"
   display="flex"
   flexDirection="column"
   justifyContent="center"
+  m="auto"
   maxWidth="600px"
   width="90%"
 >
-  <img
+  <styled.img
     alt="Statistics and charts"
     src="no-data.svg"
   />
@@ -27,5 +28,5 @@ exports[`<NoData /> should render <NoData /> correctly 1`] = `
     </Styled(Link)>
     .
   </WithStyles(ForwardRef(Typography))>
-</Styled(Styled(MuiBox))>
+</Styled(MuiBox)>
 `;

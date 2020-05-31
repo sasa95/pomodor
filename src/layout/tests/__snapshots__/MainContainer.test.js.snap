@@ -587,47 +587,44 @@ exports[`<MainContainer /> should render <MainContainer /> correctly 1`] = `
       }
     }
   >
-    <div>
-      <ScrollToTop
-        container={
-          Object {
-            "current": undefined,
-          }
+    <ScrollToTop
+      container={
+        Object {
+          "current": undefined,
         }
-      />
-      <WithStyles(ForwardRef(Container))>
-        <Styled(MuiBox)
-          pb={2}
-          pt={5}
+      }
+    />
+    <Styled(MuiBox)
+      flex={1}
+      pb={2}
+      pt={5}
+    >
+      <Switch>
+        <Route
+          exact={true}
+          path="/"
         >
-          <Switch>
-            <Route
-              exact={true}
-              path="/"
-            >
-              <Redirect
-                to="/timer"
-              />
-            </Route>
-            <Route
-              component={[Function]}
-              path="/timer"
-            />
-            <Route
-              component={[Function]}
-              path="/stats"
-            />
-            <Route
-              component={[Function]}
-              path="/settings"
-            />
-            <Route
-              component={[Function]}
-            />
-          </Switch>
-        </Styled(MuiBox)>
-      </WithStyles(ForwardRef(Container))>
-    </div>
+          <Redirect
+            to="/timer"
+          />
+        </Route>
+        <Route
+          component={[Function]}
+          path="/timer"
+        />
+        <Route
+          component={[Function]}
+          path="/stats"
+        />
+        <Route
+          component={[Function]}
+          path="/settings"
+        />
+        <Route
+          component={[Function]}
+        />
+      </Switch>
+    </Styled(MuiBox)>
     <Footer />
   </styled.main>
 </styled.div>

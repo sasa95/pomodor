@@ -63,6 +63,10 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
+  html, body, #root {
+    height: 100%;
+  }
+
   .MuiChip-root {
     border-radius: 8px;
     width: 80px;

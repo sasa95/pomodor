@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
-import MatBox from '@material-ui/core/Box'
+import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import illustration from './assets/no-data.svg'
 
@@ -18,8 +18,9 @@ export const NoData = () => {
       alignSelf="center"
       width="90%"
       maxWidth="600px"
+      m="auto"
     >
-      <img src={illustration} alt="Statistics and charts" />
+      <Illustration src={illustration} alt="Statistics and charts" />
       <Typography align="center">
         Nothing to show here. Come back after you{' '}
         <LinkStyled to="/timer" color={theme.palette.secondary.main}>
@@ -31,11 +32,10 @@ export const NoData = () => {
   )
 }
 
-const Box = styled(MatBox)`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+const Illustration = styled.img`
+  display: block;
+  width: 90%;
+  margin: auto;
 `
 
 const LinkStyled = styled(Link)`

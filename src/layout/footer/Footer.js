@@ -45,9 +45,11 @@ export const Footer = () => {
 
 const Container = styled.footer`
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   justify-content: center;
   padding-bottom: 5px;
+  padding-top: 20px;
 `
 
 const Text = styled.p`
@@ -55,6 +57,7 @@ const Text = styled.p`
   justify-content: center;
   align-items: center;
   margin: 5px 0;
+  flex: 0 0 auto;
 `
 
 const Heart = styled(FavoriteIcon)`

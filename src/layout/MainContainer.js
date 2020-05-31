@@ -4,7 +4,6 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import MatLinearProgress from '@material-ui/core/LinearProgress'
 import { Timer } from '../scenes/Timer/Timer'
@@ -25,23 +24,19 @@ export const MainContainer = () => {
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
       <FrontLayer sidenav={sidenav} theme={theme} ref={mainRef}>
-        <div>
-          {progress && <LinearProgress color="secondary" />}
-          <ScrollToTop container={mainRef} />
-          <Container>
-            <Box pb={2} pt={5}>
-              <Switch>
-                <Route exact path="/">
-                  <Redirect to="/timer" />
-                </Route>
-                <Route path="/timer" component={Timer} />
-                <Route path="/stats" component={Stats} />
-                <Route path="/settings" component={Settings} />
-                <Route component={Page404} />
-              </Switch>
-            </Box>
-          </Container>
-        </div>
+        {progress && <LinearProgress color="secondary" />}
+        <ScrollToTop container={mainRef} />
+        <Box pb={2} pt={5} flex={1}>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/timer" />
+            </Route>
+            <Route path="/timer" component={Timer} />
+            <Route path="/stats" component={Stats} />
+            <Route path="/settings" component={Settings} />
+            <Route component={Page404} />
+          </Switch>
+        </Box>
         <Footer />
       </FrontLayer>
     </BackLayer>
@@ -49,7 +44,7 @@ export const MainContainer = () => {
 }
 
 const BackLayer = styled.div`
-  height: 100vh;
+  height: 100%;
   background: ${({ theme, dark }) =>
     dark ? theme.palette.primary.dark : theme.palette.primary.main};
 `
@@ -79,7 +74,7 @@ const FrontLayer = styled.main`
       border-top-left-radius: 33px;
       border-top-right-radius: 0;
       width: calc(100% - 92px);
-      min-height: calc(100vh - 64px);
+      min-height: calc(100% - 64px);
     `}
 `
 
