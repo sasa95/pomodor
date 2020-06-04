@@ -34,11 +34,10 @@ If Pomodor adds any value to your life, you might consider [donation][donate]. B
 
 Feel free to create pull requests and open some issues.
 
-[pomodor logo]: https://drive.google.com/uc?export=view&id=1UzbLxFBhZv0DRFwSt-G4EITYbAaElBPx
+[image 1]: screenshots/1.svg?raw=true&sanitize=true
+[image 2]: screenshots/2.svg?raw=true&sanitize=true
+[image 3]: screenshots/3.svg?raw=true&sanitize=true
+[image 4]: screenshots/4.svg?raw=true&sanitize=true
+[image 5]: screenshots/5.svg?raw=true&sanitize=true
 [pomodor.app]: https://pomodor.app
-[image 1]: https://drive.google.com/uc?export=view&id=1m159Q_i6kO1KrGerYTMyqW1bbt-1f8JQ
-[image 2]: https://drive.google.com/uc?export=view&id=11FCjbW51Yvax65YSL4ll-JG49bGpyISI
-[image 3]: https://drive.google.com/uc?export=view&id=122dxJR2NvGUdb9J_q4aEZw0-4BRVNYWz
-[image 4]: https://drive.google.com/uc?export=view&id=1-vqgz1Bj__3cftHCvu_Y6cQyHfan1SY-
-[image 5]: https://drive.google.com/uc?export=view&id=1YthxXBXoW8NHc9ZpTVpm7O17ZXMfV21s
 [donate]: https://www.buymeacoffee.com/sashadrmic
