@@ -47,7 +47,7 @@ export const ToggleButton = () => {
       new Date().getTime() + timeLeft.minutes * 60000 + timeLeft.seconds * 1000
     )
 
-    const duration = timeLeft.minutes
+    const duration = getTimerDuration()
 
     const interval = setInterval(() => {
       const calculatedTimeLeft = calculateTimeLeft(endTime)
@@ -121,6 +121,18 @@ export const ToggleButton = () => {
     return 100 / (secondsTotal / secondsLeft)
   }
 
+  const getTimerDuration = () => {
+    switch (type) {
+      case TYPES.work:
+        return settings.workDuration
+      case TYPES.shortBreak:
+        return settings.shortBreakDuration
+      case TYPES.longBreak:
+        return settings.longBreakDuration
+      default:
+        break
+    }
+  }
   const theme = useTheme()
 
   return (
