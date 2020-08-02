@@ -119,6 +119,23 @@ export const startSetDarkMode = (darkMode) => {
   }
 }
 
+export const setAutostart = (autostart) => ({
+  type: 'SET_AUTOSTART',
+  autostart,
+})
+
+export const startSetAutostart = (autostart) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    dispatch(setAutostart(autostart))
+
+    await fs
+      .doc(`users/${uid}`)
+      .set({ settings: { autostart } }, { merge: true })
+  }
+}
+
 export const setFirstDayOfTheWeek = (firstDayOfTheWeek) => ({
   type: 'SET_FIRST_DAY_OF_THE_WEEK',
   firstDayOfTheWeek,

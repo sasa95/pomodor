@@ -5,12 +5,16 @@ import {
   startSetShowTimerInTitle,
   startSetShowNotifications,
   startSetDarkMode,
+  startSetAutostart,
 } from '../../../data/settings/actions'
 
 export const Switches = () => {
-  const { showTimerInTitle, showNotifications, darkMode } = useSelector(
-    (state) => state.settings
-  )
+  const {
+    showTimerInTitle,
+    showNotifications,
+    darkMode,
+    autostart,
+  } = useSelector((state) => state.settings)
 
   useEffect(() => {
     if (!showTimerInTitle) {
@@ -30,6 +34,7 @@ export const Switches = () => {
         action={startSetShowNotifications}
         checked={showNotifications}
       />
+      <Switch name="Autostart" action={startSetAutostart} checked={autostart} />
       <Switch name="Dark mode" action={startSetDarkMode} checked={darkMode} />
     </div>
   )

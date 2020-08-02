@@ -35,8 +35,8 @@ describe('<Switches />', () => {
     expect(createWrapper()).toMatchSnapshot()
   })
 
-  test('should render 3 switches', () => {
+  test('should render 4 switches', () => {
     createStore()
-    expect(createWrapper().find(Switch).length).toBe(3)
+    expect(createWrapper().find(Switch).length).toBe(4)
   })
 })

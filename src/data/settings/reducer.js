@@ -6,6 +6,7 @@ export const initialState = {
   showTimerInTitle: true,
   showNotifications: true,
   darkMode: false,
+  autostart: false,
   firstDayOfTheWeek: 'Monday',
 }
 
@@ -45,6 +46,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         darkMode: action.darkMode,
+      }
+    case 'SET_AUTOSTART':
+      return {
+        ...state,
+        autostart: action.autostart,
       }
     case 'SET_FIRST_DAY_OF_THE_WEEK':
       return {

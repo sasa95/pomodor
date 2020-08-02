@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'
 import styled from 'styled-components'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
+import { useTheme } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setNextTimer,
@@ -19,7 +20,7 @@ import work from '../assets/work.png'
 import alarm from '../assets/alarm.png'
 import coffee from '../assets/coffee.png'
 import { startAddSession } from '../../../data/sessions/actions'
-import { useTheme } from '@material-ui/core'
+import useMounted from '../../../helpers/useMounted'
 
 export const ToggleButton = () => {
   const { status, timeLeft, type } = useSelector((state) => state.timer)
@@ -62,17 +63,18 @@ export const ToggleButton = () => {
 
       if (!calculatedProgress) {
         if (type === TYPES.work) {
-        dispatch(
-          startAddSession({
-            label: label ? label.id : null,
-            duration: { minutes: settings.workDuration, seconds: 0 },
-            createdAt: Date.now(),
-          })
-        )
+          dispatch(
+            startAddSession({
+              label: label ? label.id : null,
+              duration: { minutes: settings.workDuration, seconds: 0 },
+              createdAt: Date.now(),
+            })
+          )
         }
 
         setTimeout(async () => {
           dispatch(setNextTimer(settings))
+
           audio.play()
 
           if (
@@ -135,7 +137,18 @@ export const ToggleButton = () => {
         break
     }
   }
+
   const theme = useTheme()
+  const isMount = useMounted()
+
+  useEffect(() => {
+    if (isMount) return
+
+    if (settings.autostart) {
+      startTimer()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type])
 
   return (
     <Box display="flex" justifyContent="center">
