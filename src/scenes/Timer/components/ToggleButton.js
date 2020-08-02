@@ -61,6 +61,7 @@ export const ToggleButton = () => {
       }
 
       if (!calculatedProgress) {
+        if (type === TYPES.work) {
         dispatch(
           startAddSession({
             label: label ? label.id : null,
@@ -68,6 +69,7 @@ export const ToggleButton = () => {
             createdAt: Date.now(),
           })
         )
+        }
 
         setTimeout(async () => {
           dispatch(setNextTimer(settings))
