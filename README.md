@@ -28,7 +28,7 @@
 
 ## Donating
 
-If Pomodor adds any value to your life, you might consider [donation][donate]. Buy donating you are helping me to invest more time into improving the app. Also, I would smile more often. 😄
+If Pomodor adds any value to your life, you might consider [donation][donate]. By donating you are helping me to invest more time into improving the app. Also, I would smile more often. 😄
 
 ## Contributing
 
