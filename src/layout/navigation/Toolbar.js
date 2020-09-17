@@ -33,7 +33,7 @@ export const Toolbar = () => {
   }, [])
 
   return (
-    <MatToolbar>
+    <MatToolbar style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <Box
         width="100%"
         display="flex"
