@@ -43,8 +43,10 @@ export const MainContainer = () => {
   )
 }
 
+// MUST subtract 1px or else ios does weird double overscroll
 const BackLayer = styled.div`
-  height: 100%;
+  height: calc(100% + env(safe-area-inset-top) - 1px);
+  overflow-y: hidden;
   background: ${({ theme, dark }) =>
     dark ? theme.palette.primary.dark : theme.palette.primary.main};
 `
@@ -54,10 +56,10 @@ const FrontLayer = styled.main`
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  top: 127px;
+  top: calc(133px + env(safe-area-inset-top));
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  height: calc(100% - 127px);
+  height: calc(100% - 133px - env(safe-area-inset-top));
   background: ${({ theme }) => theme.palette.background.default};
   overflow-y: auto;
   overflow-x: hidden;
