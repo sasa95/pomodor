@@ -15,6 +15,7 @@ export const AppBar = () => {
 
   return (
     <Backdrop sidenav={sidenav} theme={theme} dark={darkMode || darkModeCached}>
+      <meta name="theme-color" content={darkMode || darkModeCached ? theme.palette.primary.dark : theme.palette.primary.main} />
       <Toolbar />
       <NavList />
     </Backdrop>
