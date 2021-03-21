@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Toolbar /> should render <Toolbar /> correctly when the user is offline 1`] = `
-<WithStyles(ForwardRef(Toolbar))>
+<WithStyles(ForwardRef(Toolbar))
+  style={
+    Object {
+      "paddingTop": "env(safe-area-inset-top)",
+    }
+  }
+>
   <Styled(MuiBox)
     alignItems="center"
     display="flex"
@@ -13,7 +19,7 @@ exports[`<Toolbar /> should render <Toolbar /> correctly when the user is offlin
       mdscreen={0}
       src="logo.svg"
     />
-    <WifiOffIcon
+    <Memo([object Object])
       data-role="offline-icon"
     />
   </Styled(MuiBox)>
@@ -21,7 +27,13 @@ exports[`<Toolbar /> should render <Toolbar /> correctly when the user is offlin
 `;
 
 exports[`<Toolbar /> should render <Toolbar /> correctly when the user is online 1`] = `
-<WithStyles(ForwardRef(Toolbar))>
+<WithStyles(ForwardRef(Toolbar))
+  style={
+    Object {
+      "paddingTop": "env(safe-area-inset-top)",
+    }
+  }
+>
   <Styled(MuiBox)
     alignItems="center"
     display="flex"

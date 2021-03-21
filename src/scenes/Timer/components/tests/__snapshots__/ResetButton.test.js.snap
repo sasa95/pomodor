@@ -8,7 +8,7 @@ exports[`<ResetButton /> should render <ResetButton /> correctly 1`] = `
     onClick={[Function]}
     size="small"
   >
-    <ReplayIcon />
+    <Memo([object Object]) />
   </Styled(WithStyles(ForwardRef(IconButton)))>
   <SaveSessionAlert
     time={

@@ -7,6 +7,6 @@ exports[`<SkipButton /> should render <SkipButton /> correctly 1`] = `
   onClick={[Function]}
   size="small"
 >
-  <SkipNextIcon />
+  <Memo([object Object]) />
 </Styled(WithStyles(ForwardRef(IconButton)))>
 `;

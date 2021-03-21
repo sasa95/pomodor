@@ -15,7 +15,7 @@ const createMockStore = configureMockStore([thunk])
 
 jest.setTimeout(15000)
 
-beforeEach(async (done) => {
+beforeEach(async () => {
   const batch = fs.batch()
 
   const sessionsRef = await fs.collection(`users/${uid}/sessions`).get()
@@ -30,7 +30,6 @@ beforeEach(async (done) => {
   })
 
   await batch.commit()
-  done()
 })
 
 test('should generate action object for setSessions', () => {
@@ -42,7 +41,7 @@ test('should generate action object for setSessions', () => {
   })
 })
 
-test('should fetch the sessions from database', async (done) => {
+test('should fetch the sessions from database', async () => {
   const store = createMockStore(defaultAuthState)
 
   await store.dispatch(startSetSessions())
@@ -53,8 +52,6 @@ test('should fetch the sessions from database', async (done) => {
     type: 'SET_SESSIONS',
     sessions,
   })
-
-  done()
 })
 
 test('should generate action object for addSession', () => {
@@ -66,7 +63,7 @@ test('should generate action object for addSession', () => {
   })
 })
 
-test('should add a session to store and database', async (done) => {
+test('should add a session to store and database', async () => {
   const store = createMockStore(defaultAuthState)
 
   await store.dispatch(startAddSession(sessions[0]))
@@ -77,6 +74,4 @@ test('should add a session to store and database', async (done) => {
     type: 'ADD_SESSION',
     session: sessions[0],
   })
-
-  done()
 })

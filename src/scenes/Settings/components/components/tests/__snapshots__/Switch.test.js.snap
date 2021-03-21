@@ -4,7 +4,7 @@ exports[`<Switch /> should render <Switch /> correctly 1`] = `
 <Styled(MuiBox)>
   <Styled(WithStyles(ForwardRef(FormControlLabel)))
     control={
-      <ForwardRef(Styled(WithStyles(ForwardRef(Switch))))
+      <Styled(WithStyles(ForwardRef(Switch)))
         checked={false}
         color="primary"
         dark={1}

@@ -63,7 +63,7 @@ exports[`<LabelsMenu /> should render <LabelsMenu /> correctly 1`] = `
   <WithStyles(ForwardRef(MenuItem))
     onClick={[Function]}
   >
-    <Styled(AddIcon) />
+    <Styled(Component) />
     Add new label
   </WithStyles(ForwardRef(MenuItem))>
 </WithStyles(ForwardRef(Menu))>

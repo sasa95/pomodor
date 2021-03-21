@@ -19,10 +19,12 @@ const appReducer = combineReducers({
 
 const composeEnhancers = composeWithDevTools({ trace: true, traceLimit: 25 })
 
-export default () => {
+const storeCreator = () => {
   const store = createStore(
     appReducer,
     composeEnhancers(applyMiddleware(thunk))
   )
   return store
 }
+
+export default storeCreator

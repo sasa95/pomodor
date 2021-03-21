@@ -29,9 +29,8 @@ const createMockStore = configureMockStore([thunk])
 
 jest.setTimeout(15000)
 
-beforeEach(async (done) => {
+beforeEach(async () => {
   await fs.doc(`users/${uid}`).set({ settings: initialState })
-  done()
 })
 
 test('should generate action object for setWorkDuration', () => {
@@ -44,7 +43,7 @@ test('should generate action object for setWorkDuration', () => {
   })
 })
 
-test('should update work duration in database', async (done) => {
+test('should update work duration in database', async () => {
   const store = createMockStore(defaultAuthState)
   const duration = 50
 
@@ -60,8 +59,6 @@ test('should update work duration in database', async (done) => {
   const docRef = await fs.doc(`users/${uid}/`).get()
 
   expect(docRef.data().settings.workDuration).toBe(actions[0].duration)
-
-  done()
 })
 
 test('should generate action object for setShortBreakDuration', () => {
@@ -74,7 +71,7 @@ test('should generate action object for setShortBreakDuration', () => {
   })
 })
 
-test('should update short break duration in database', async (done) => {
+test('should update short break duration in database', async () => {
   const store = createMockStore(defaultAuthState)
   const duration = 10
 
@@ -90,8 +87,6 @@ test('should update short break duration in database', async (done) => {
   const docRef = await fs.doc(`users/${uid}/`).get()
 
   expect(docRef.data().settings.shortBreakDuration).toBe(actions[0].duration)
-
-  done()
 })
 
 test('should generate action object for setLongBreakDuration', () => {
@@ -104,7 +99,7 @@ test('should generate action object for setLongBreakDuration', () => {
   })
 })
 
-test('should update long break duration in database', async (done) => {
+test('should update long break duration in database', async () => {
   const store = createMockStore(defaultAuthState)
   const duration = 15
 
@@ -120,8 +115,6 @@ test('should update long break duration in database', async (done) => {
   const docRef = await fs.doc(`users/${uid}/`).get()
 
   expect(docRef.data().settings.longBreakDuration).toBe(actions[0].duration)
-
-  done()
 })
 
 test('should generate action object for setRounds', () => {
@@ -134,7 +127,7 @@ test('should generate action object for setRounds', () => {
   })
 })
 
-test('should update rounds number in database', async (done) => {
+test('should update rounds number in database', async () => {
   const store = createMockStore(defaultAuthState)
   const rounds = 8
 
@@ -150,8 +143,6 @@ test('should update rounds number in database', async (done) => {
   const docRef = await fs.doc(`users/${uid}/`).get()
 
   expect(docRef.data().settings.rounds).toBe(actions[0].rounds)
-
-  done()
 })
 
 test('should generate action object for setShowTimerInTitle', () => {
@@ -164,7 +155,7 @@ test('should generate action object for setShowTimerInTitle', () => {
   })
 })
 
-test('should update show timer in title option in database', async (done) => {
+test('should update show timer in title option in database', async () => {
   const store = createMockStore(defaultAuthState)
   const showTimerInTitle = false
 
@@ -182,8 +173,6 @@ test('should update show timer in title option in database', async (done) => {
   expect(docRef.data().settings.showTimerInTitle).toBe(
     actions[0].showTimerInTitle
   )
-
-  done()
 })
 
 test('should generate action object for setShowNotifications', () => {
@@ -196,7 +185,7 @@ test('should generate action object for setShowNotifications', () => {
   })
 })
 
-test('should update show notifications option in database', async (done) => {
+test('should update show notifications option in database', async () => {
   const store = createMockStore(defaultAuthState)
   const showNotifications = false
 
@@ -214,8 +203,6 @@ test('should update show notifications option in database', async (done) => {
   expect(docRef.data().settings.showNotifications).toBe(
     actions[0].showNotifications
   )
-
-  done()
 })
 
 test('should generate action object for setDarkMode', () => {
@@ -228,7 +215,7 @@ test('should generate action object for setDarkMode', () => {
   })
 })
 
-test('should update show dark mode option in database', async (done) => {
+test('should update show dark mode option in database', async () => {
   const store = createMockStore(defaultAuthState)
   const darkMode = true
 
@@ -244,8 +231,6 @@ test('should update show dark mode option in database', async (done) => {
   const docRef = await fs.doc(`users/${uid}/`).get()
 
   expect(docRef.data().settings.darkMode).toBe(actions[0].darkMode)
-
-  done()
 })
 
 test('should generate action object for setFirstDayOfTheWeek  ', () => {
@@ -258,7 +243,7 @@ test('should generate action object for setFirstDayOfTheWeek  ', () => {
   })
 })
 
-test('should update first day of the week option in database', async (done) => {
+test('should update first day of the week option in database', async () => {
   const store = createMockStore(defaultAuthState)
   const firstDayOfTheWeek = 'Sunday'
 
@@ -276,8 +261,6 @@ test('should update first day of the week option in database', async (done) => {
   expect(docRef.data().settings.firstDayOfTheWeek).toBe(
     actions[0].firstDayOfTheWeek
   )
-
-  done()
 })
 
 test('should generate action object for setSettings  ', () => {
@@ -300,7 +283,7 @@ test('should generate action object for setSettings  ', () => {
   })
 })
 
-test('should fetch the settings from database', async (done) => {
+test('should fetch the settings from database', async () => {
   const store = createMockStore(defaultAuthState)
 
   await store.dispatch(startSetSettings())
@@ -311,6 +294,4 @@ test('should fetch the settings from database', async (done) => {
     type: 'SET_SETTINGS',
     settings: initialState,
   })
-
-  done()
 })

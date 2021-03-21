@@ -26,7 +26,7 @@ exports[`<Label /> should render <Label /> correctly 1`] = `
       onClick={[Function]}
       size="small"
     >
-      <EditIcon />
+      <Memo([object Object]) />
     </Styled(WithStyles(ForwardRef(IconButton)))>
     <Styled(WithStyles(ForwardRef(IconButton)))
       aria-label="Delete label"
@@ -34,7 +34,7 @@ exports[`<Label /> should render <Label /> correctly 1`] = `
       onClick={[Function]}
       size="small"
     >
-      <DeleteIcon />
+      <Memo([object Object]) />
     </Styled(WithStyles(ForwardRef(IconButton)))>
   </Styled(MuiBox)>
 </Styled(MuiBox)>

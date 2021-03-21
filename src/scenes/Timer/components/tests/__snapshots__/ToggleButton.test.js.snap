@@ -302,7 +302,7 @@ exports[`<ToggleButton /> should render <ToggleButton /> correctly 1`] = `
       }
     }
   >
-    <PlayArrowIcon />
+    <Memo([object Object]) />
   </Styled(WithStyles(ForwardRef(IconButton)))>
 </Styled(MuiBox)>
 `;

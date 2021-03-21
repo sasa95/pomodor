@@ -296,12 +296,12 @@ exports[`<DaysChart /> should render <DaysChart /> correctly 1`] = `
 >
   <WithStyles(ForwardRef(CardHeader))
     action={
-      <ForwardRef(WithStyles)
+      <WithStyles(ForwardRef(IconButton))
         aria-label="filtering options"
         onClick={[Function]}
       >
-        <UNDEFINED />
-      </ForwardRef(WithStyles)>
+        <Memo />
+      </WithStyles(ForwardRef(IconButton))>
     }
     title="Days of week"
   />

@@ -296,7 +296,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
     }
   >
     <WithStyles(ForwardRef(Card))
-      className="sc-AxjAm bccgmo"
+      className="sc-bdfBwQ dXWjmZ"
       dark={0}
       theme={
         Object {
@@ -590,7 +590,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
       }
     >
       <ForwardRef(Card)
-        className="sc-AxjAm bccgmo"
+        className="sc-bdfBwQ dXWjmZ"
         classes={
           Object {
             "root": "MuiCard-root",
@@ -889,7 +889,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
         }
       >
         <WithStyles(ForwardRef(Paper))
-          className="MuiCard-root sc-AxjAm bccgmo"
+          className="MuiCard-root sc-bdfBwQ dXWjmZ"
           dark={0}
           elevation={1}
           theme={
@@ -1184,7 +1184,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
           }
         >
           <ForwardRef(Paper)
-            className="MuiCard-root sc-AxjAm bccgmo"
+            className="MuiCard-root sc-bdfBwQ dXWjmZ"
             classes={
               Object {
                 "elevation0": "MuiPaper-elevation0",
@@ -1511,7 +1511,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
             }
           >
             <div
-              className="MuiPaper-root MuiCard-root sc-AxjAm bccgmo MuiPaper-elevation1 MuiPaper-rounded"
+              className="MuiPaper-root MuiCard-root sc-bdfBwQ dXWjmZ MuiPaper-elevation1 MuiPaper-rounded"
               dark={0}
               theme={
                 Object {
@@ -1806,23 +1806,23 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
             >
               <WithStyles(ForwardRef(CardHeader))
                 action={
-                  <ForwardRef(WithStyles)
+                  <WithStyles(ForwardRef(IconButton))
                     aria-label="filtering options"
                     onClick={[Function]}
                   >
-                    <UNDEFINED />
-                  </ForwardRef(WithStyles)>
+                    <Memo />
+                  </WithStyles(ForwardRef(IconButton))>
                 }
                 title="Labels"
               >
                 <ForwardRef(CardHeader)
                   action={
-                    <ForwardRef(WithStyles)
+                    <WithStyles(ForwardRef(IconButton))
                       aria-label="filtering options"
                       onClick={[Function]}
                     >
-                      <UNDEFINED />
-                    </ForwardRef(WithStyles)>
+                      <Memo />
+                    </WithStyles(ForwardRef(IconButton))>
                   }
                   classes={
                     Object {
@@ -1965,7 +1965,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                                 <span
                                   className="MuiIconButton-label"
                                 >
-                                  <ForwardRef>
+                                  <ForwardRef(MoreVertIcon)>
                                     <WithStyles(ForwardRef(SvgIcon))>
                                       <ForwardRef(SvgIcon)
                                         classes={
@@ -1994,7 +1994,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                                         </svg>
                                       </ForwardRef(SvgIcon)>
                                     </WithStyles(ForwardRef(SvgIcon))>
-                                  </ForwardRef>
+                                  </ForwardRef(MoreVertIcon)>
                                 </span>
                                 <WithStyles(memo)
                                   center={true}
@@ -2135,10 +2135,10 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
               </WithStyles(ForwardRef(Menu))>
               <Styled(WithStyles(ForwardRef(CardContent)))>
                 <WithStyles(ForwardRef(CardContent))
-                  className="sc-AxirZ hEFncW"
+                  className="sc-gsTCUz kAMxNU"
                 >
                   <ForwardRef(CardContent)
-                    className="sc-AxirZ hEFncW"
+                    className="sc-gsTCUz kAMxNU"
                     classes={
                       Object {
                         "root": "MuiCardContent-root",
@@ -2146,7 +2146,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                     }
                   >
                     <div
-                      className="MuiCardContent-root sc-AxirZ hEFncW"
+                      className="MuiCardContent-root sc-gsTCUz kAMxNU"
                     >
                       <WithStyles(ForwardRef(Typography))
                         color="textSecondary"
@@ -2197,7 +2197,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                       </WithStyles(ForwardRef(Typography))>
                       <styled.div>
                         <div
-                          className="sc-AxiKw fbCRig"
+                          className="sc-dlfnbm gzzDDp"
                         >
                           <Doughnut
                             data={
@@ -2268,7 +2268,7 @@ exports[`<LabelsChart /> should render <LabelsChart /> correctly 1`] = `
                         mr={1}
                       >
                         <div
-                          className="MuiBox-root MuiBox-root-95"
+                          className="MuiBox-root MuiBox-root-1"
                         >
                           <WithStyles(ForwardRef(Chip))
                             clickable={true}

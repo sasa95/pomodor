@@ -3,7 +3,7 @@
 exports[`<App /> should render <App /> correctly 1`] = `
 <ThemeConfig>
   <WithStyles(CssBaseline) />
-  <Memo(GlobalStyleComponent) />
+  <Memo(l) />
   <BrowserRouter>
     <AppBar />
     <MainContainer />

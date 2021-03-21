@@ -68,13 +68,13 @@ export const CountdownCircle = () => {
   return (
     <CircleContainer size={getCircleSize() + 'px'}>
       <Circle
-        variant="static"
+        variant="determinate"
         value={100}
         size={getCircleSize()}
         color="secondary"
       />
       <Circle
-        variant={timeLeft ? 'static' : 'indeterminate'}
+        variant={timeLeft ? 'determinate' : 'indeterminate'}
         value={progress}
         size={getCircleSize()}
         color="primary"

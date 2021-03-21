@@ -26,7 +26,7 @@ const createMockStore = configureMockStore([thunk])
 
 jest.setTimeout(15000)
 
-beforeEach(async (done) => {
+beforeEach(async () => {
   const batch = fs.batch()
 
   const labelsRef = await fs.collection(`users/${uid}/labels`).get()
@@ -41,7 +41,6 @@ beforeEach(async (done) => {
   })
 
   await batch.commit()
-  done()
 })
 
 test('should generate action object for setFullscreenDialog', () => {
@@ -133,7 +132,7 @@ test('should generate action object for addLabel', () => {
   })
 })
 
-test('should add label to database and store', async (done) => {
+test('should add label to database and store', async () => {
   const store = createMockStore(defaultAuthState)
   const labelData = {
     name: 'Coding',
@@ -160,8 +159,6 @@ test('should add label to database and store', async (done) => {
     color: actions[0].label.color,
     name: actions[0].label.name,
   })
-
-  done()
 })
 
 test('should generate action object for editLabel', () => {
@@ -180,7 +177,7 @@ test('should generate action object for editLabel', () => {
   })
 })
 
-test('should update label in store and database', async (done) => {
+test('should update label in store and database', async () => {
   const store = createMockStore(defaultAuthState)
   const id = labels[1].id
   const updates = {
@@ -206,8 +203,6 @@ test('should update label in store and database', async (done) => {
     id,
     ...updates,
   })
-
-  done()
 })
 
 test('should generate action object for deleteLabel', () => {
@@ -220,7 +215,7 @@ test('should generate action object for deleteLabel', () => {
   })
 })
 
-test('should delete label from database', async (done) => {
+test('should delete label from database', async () => {
   const store = createMockStore(defaultAuthState)
   const id = labels[0].id
 
@@ -236,8 +231,6 @@ test('should delete label from database', async (done) => {
   const doc = await fs.doc(`users/${uid}/labels/${id}`).get()
 
   expect(doc.exists).toBe(false)
-
-  done()
 })
 
 test('should generate action object for setLabels', () => {
@@ -249,7 +242,7 @@ test('should generate action object for setLabels', () => {
   })
 })
 
-test('should fetch the labels from database', async (done) => {
+test('should fetch the labels from database', async () => {
   const store = createMockStore(defaultAuthState)
 
   await store.dispatch(startSetLabels())
@@ -260,6 +253,4 @@ test('should fetch the labels from database', async (done) => {
     type: 'SET_LABELS',
     labels,
   })
-
-  done()
 })

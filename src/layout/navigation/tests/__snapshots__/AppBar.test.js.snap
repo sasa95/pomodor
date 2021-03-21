@@ -295,6 +295,10 @@ exports[`<AppBar /> should render <AppBar /> correctly 1`] = `
     }
   }
 >
+  <meta
+    content="#3f51b5"
+    name="theme-color"
+  />
   <Toolbar />
   <NavList />
 </Styled(WithStyles(ForwardRef(AppBar)))>

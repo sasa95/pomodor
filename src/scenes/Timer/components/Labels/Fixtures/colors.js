@@ -20,7 +20,7 @@ import {
   deepOrange,
 } from '@material-ui/core/colors'
 
-export default [
+const colors = [
   {
     id: 'red',
     name: 'Red',
@@ -174,3 +174,5 @@ export default [
     },
   },
 ]
+
+export default colors

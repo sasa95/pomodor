@@ -304,7 +304,7 @@ exports[`<NavList /> should render <NavList/> correctly 1`] = `
       button={true}
     >
       <Styled(WithStyles(ForwardRef(ListItemIcon)))>
-        <TimerIcon />
+        <Memo([object Object]) />
       </Styled(WithStyles(ForwardRef(ListItemIcon)))>
       <WithStyles(ForwardRef(ListItemText))
         primary="Timer"
@@ -327,7 +327,7 @@ exports[`<NavList /> should render <NavList/> correctly 1`] = `
         disabled={false}
       >
         <Styled(WithStyles(ForwardRef(ListItemIcon)))>
-          <ShowChartIcon />
+          <Memo([object Object]) />
         </Styled(WithStyles(ForwardRef(ListItemIcon)))>
         <WithStyles(ForwardRef(ListItemText))
           primary="Stats"
@@ -351,7 +351,7 @@ exports[`<NavList /> should render <NavList/> correctly 1`] = `
         disabled={false}
       >
         <Styled(WithStyles(ForwardRef(ListItemIcon)))>
-          <SettingsIcon />
+          <Memo([object Object]) />
         </Styled(WithStyles(ForwardRef(ListItemIcon)))>
         <WithStyles(ForwardRef(ListItemText))
           primary="Settings"

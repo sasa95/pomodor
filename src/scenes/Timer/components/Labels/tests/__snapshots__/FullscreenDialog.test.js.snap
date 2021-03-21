@@ -23,7 +23,7 @@ exports[`<FullscreenDialog /> should render <FullscreenDialog /> correctly 1`] =
           edge="start"
           onClick={[Function]}
         >
-          <CloseIcon />
+          <Memo([object Object]) />
         </WithStyles(ForwardRef(IconButton))>
         <Styled(WithStyles(ForwardRef(Typography)))
           variant="h6"
@@ -37,7 +37,7 @@ exports[`<FullscreenDialog /> should render <FullscreenDialog /> correctly 1`] =
           disabled={true}
           onClick={[Function]}
         >
-          <CheckIcon />
+          <Memo([object Object]) />
         </WithStyles(ForwardRef(IconButton))>
       </WithStyles(ForwardRef(Toolbar))>
     </Styled(WithStyles(ForwardRef(AppBar)))>

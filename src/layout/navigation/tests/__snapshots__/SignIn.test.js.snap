@@ -6,7 +6,7 @@ exports[`<SignIn /> should render <SignIn /> correctly 1`] = `
     aria-controls="sign-in-menu"
     aria-haspopup="true"
     onClick={[Function]}
-    startIcon={<UNDEFINED />}
+    startIcon={<Memo />}
   >
     Sign In
   </Styled(WithStyles(ForwardRef(Button)))>

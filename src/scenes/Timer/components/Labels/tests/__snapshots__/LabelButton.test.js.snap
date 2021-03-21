@@ -11,7 +11,7 @@ exports[`<LabelButton /> should render <LabelButton /> correctly 1`] = `
     labelcolor={null}
     onClick={[Function]}
     size="small"
-    startIcon={<UNDEFINED />}
+    startIcon={<Memo />}
     theme={
       Object {
         "breakpoints": Object {

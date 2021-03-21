@@ -8,7 +8,7 @@ exports[`<CountdownCircle /> should render <CountdownCircle /> correctly 1`] = `
     color="secondary"
     size={200}
     value={100}
-    variant="static"
+    variant="determinate"
   />
   <Styled(WithStyles(ForwardRef(CircularProgress)))
     color="primary"
