@@ -23,7 +23,7 @@ export const MainContainer = () => {
 
   return (
     <BackLayer theme={theme} dark={darkMode || darkModeCached}>
-      <FrontLayer sidenav={sidenav} theme={theme} ref={mainRef}>
+      <Box sidenav={sidenav} theme={theme} ref={mainRef}>
         {progress && <LinearProgress color="secondary" />}
         <ScrollToTop container={mainRef} />
         <Box pb={2} pt={5} flex={1}>
@@ -38,13 +38,14 @@ export const MainContainer = () => {
           </Switch>
         </Box>
         <Footer />
-      </FrontLayer>
+      </Box>
     </BackLayer>
   )
 }
 
 // MUST subtract 1px or else ios does weird double overscroll
 const BackLayer = styled.div`
+  flex: 1;
   height: calc(100% + env(safe-area-inset-top) - 1px);
   overflow-y: hidden;
   background: ${({ theme, dark }) =>

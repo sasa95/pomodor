@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styled, { css } from 'styled-components'
 import { useMediaQuery } from '@material-ui/core'
-import MatToolbar from '@material-ui/core/Toolbar'
-import Box from '@material-ui/core/Box'
 import { SignIn } from './SignIn'
 import { UserAvatar } from './UserAvatar'
 import OfflineIcon from '@material-ui/icons/WifiOff'
-import logo from './assets/logo.svg'
+import Button from '@material-ui/core/Button'
+import { MenuIcon } from './MenuIcon'
+import { Logo } from './Logo'
 
 export const Toolbar = () => {
   const isUserPerm = useSelector((state) => state.auth.name)
   const [isOnline, setIsOnline] = useState(navigator.onLine)
-  const mdScreen = +useMediaQuery('(min-width:600px) and (min-height:500px)')
+
+  const darkMode = useSelector((state) => +state.settings.darkMode)
+  const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
+  const isDesktop = +useMediaQuery('(min-width:600px) and (min-height:500px)')
+  const showBorder = (darkMode || darkModeCached) && !isDesktop
 
   useEffect(() => {
     const handleOnline = () => {
@@ -33,35 +37,40 @@ export const Toolbar = () => {
   }, [])
 
   return (
-    <MatToolbar style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-      <Box
-        width="100%"
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Logo mdscreen={mdScreen} src={logo} alt="Pomodor logo" />
-
-        {isOnline ? (
-          isUserPerm ? (
-            <UserAvatar />
-          ) : (
-            <SignIn />
-          )
+    <Container showBorder={showBorder}>
+      {isOnline ? (
+        isUserPerm ? (
+          <UserAvatar />
         ) : (
-          <OfflineIcon data-role="offline-icon" />
-        )}
-      </Box>
-    </MatToolbar>
+          <SignIn />
+        )
+      ) : (
+        <OfflineIcon data-role="offline-icon" />
+      )}
+
+      <Logo height={30} />
+
+      <HamburgerButton aria-label="menu">
+        <MenuIcon />
+      </HamburgerButton>
+    </Container>
   )
 }
 
-export const Logo = styled.img`
-  height: 26px;
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 71px;
+  padding: 16px 0 16px 16px;
 
-  ${({ mdscreen }) =>
-    mdscreen &&
+  ${({ showBorder }) =>
+    showBorder &&
     css`
-      height: 33px;
+      border-bottom: 1px solid #eee;
     `}
+`
+
+const HamburgerButton = styled(Button)`
+  height: 64px;
 `

@@ -47,14 +47,12 @@ export const UserAvatar = () => {
 }
 
 export const Avatar = styled(MatAvatar)`
-  width: 30px;
-  height: 30px;
   cursor: pointer;
 
   ${({ sidenav }) =>
     sidenav &&
     css`
-      width: 35px;
-      height: 35px;
+      /* width: 72px;
+      height: 72px; */
     `}
 `

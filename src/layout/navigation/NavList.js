@@ -7,9 +7,9 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import TimerIcon from '@material-ui/icons/Timer'
-import ShowChartIcon from '@material-ui/icons/ShowChart'
-import SettingsIcon from '@material-ui/icons/Settings'
+import TimerIcon from '@material-ui/icons/AccessAlarms'
+import ShowChartIcon from '@material-ui/icons/AssessmentOutlined'
+import SettingsIcon from '@material-ui/icons/SettingsOutlined'
 import { useTheme } from '@material-ui/core'
 import Tooltip from '@material-ui/core/Tooltip'
 import { STATUSES } from '../../scenes/Timer/data/timer/reducer'
@@ -71,7 +71,7 @@ export const NavList = () => {
           to={timerRunning ? '#' : '/settings'}
           data-disabled={timerRunning && 'true'}
         >
-          <NavListItem button disabled={timerRunning}>
+          <NavListItem button disabled={timerRunning} data-item="settings">
             <NavItemIcon>
               <SettingsIcon />
             </NavItemIcon>
@@ -85,14 +85,14 @@ export const NavList = () => {
 
 const MatNavList = styled(List)`
   display: flex;
-  justify-content: space-between;
-  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0 0 47px;
+  width: 254px;
+  height: 100%;
 
-  .MuiListItemText-primary {
-    text-transform: uppercase;
-  }
 
-  ${({ sidenav }) =>
+  /* ${({ sidenav }) =>
     sidenav &&
     css`
       flex-direction: column;
@@ -106,16 +106,22 @@ const MatNavList = styled(List)`
       .MuiListItemText-primary {
         text-transform: capitalize;
       }
-    `}
+    `} */
 `
 
 const NavListItem = styled(ListItem)`
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+
+  margin-bottom: 50px;
+
+  &[data-item='settings'] {
+    margin-bottom: 0;
+  }
 
   .MuiListItemText-primary {
     color: rgba(255, 255, 255, 0.75);
-    font-size: 0.85rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     font-weight: 500;
   }
@@ -123,14 +129,17 @@ const NavListItem = styled(ListItem)`
 
 const NavItemIcon = styled(ListItemIcon)`
   color: rgba(255, 255, 255, 0.75);
-  display: flex;
-  justify-content: center;
+  min-width: initial;
+  margin-right: 20px;
+
+  .MuiSvgIcon-root {
+    font-size: 26px;
+  }
 `
 
 const Link = styled(NavLink)`
-  flex: 1;
-  text-align: center;
   text-decoration: none;
+  font-size: 1rem;
 
   &.active:not([data-disabled='true']) ${NavItemIcon} {
     color: #fff;

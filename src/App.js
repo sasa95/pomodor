@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 import { CssBaseline } from '@material-ui/core'
+import Box from '@material-ui/core/Box'
 import { AppBar } from './layout/navigation/AppBar'
 import { MainContainer } from './layout/MainContainer'
 import { firebase } from './firebase/firebase'
@@ -12,6 +13,7 @@ import { ThemeConfig } from './ThemeConfig'
 import { startSetLabels } from './data/labels/actions'
 import { startSetSessions } from './data/sessions/actions'
 import { setProgressVisibility } from './data/progress/actions'
+import { NavDrawer } from './layout/navigation/NavDrawer'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -50,7 +52,10 @@ const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <AppBar />
-        <MainContainer />
+        <Box display="flex">
+          <NavDrawer />
+          <MainContainer />
+        </Box>
       </BrowserRouter>
     </ThemeConfig>
   )
