@@ -24,7 +24,7 @@ export const ThemeConfig = ({ children }) => {
         main: pink[300],
       },
       background: {
-        default: darkTheme ? '#121212' : '#fafafa',
+        default: darkTheme ? '#111' : '#fdfcfe',
       },
       text: {
         primary: darkTheme ? '#DDE0F4' : '#424242',

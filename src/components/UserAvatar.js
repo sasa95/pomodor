@@ -5,9 +5,9 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MatAvatar from '@material-ui/core/Avatar'
-import { startSignOut } from '../../data/auth/actions'
-import { setSettings } from '../../data/settings/actions'
-import { initialState } from '../../data/settings/reducer'
+import { startSignOut } from '../data/auth/actions'
+import { setSettings } from '../data/settings/actions'
+import { initialState } from '../data/settings/reducer'
 
 export const UserAvatar = () => {
   const { name, photo } = useSelector((state) => state.auth)

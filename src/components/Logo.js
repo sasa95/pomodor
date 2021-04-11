@@ -1,14 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-export const Logo = ({ height }) => {
+export const Logo = ({ width = 84, height }) => {
   const darkMode = useSelector((state) => +state.settings.darkMode)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
   const color = darkMode || darkModeCached ? '#543EF6' : '#2D27DC'
 
   return (
     <svg
-      width="84"
+      width={width}
       height={height}
       viewBox="0 0 512 184"
       fill="none"

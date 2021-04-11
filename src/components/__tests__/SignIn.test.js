@@ -2,7 +2,7 @@ import React from 'react'
 import * as redux from 'react-redux'
 import { createShallow } from '@material-ui/core/test-utils'
 import Menu from '@material-ui/core/Menu'
-import { SignIn, TriggerButton } from '../SignIn'
+import { SignIn, TriggerButton } from '../SignIn/SignIn'
 
 describe('<SignIn />', () => {
   const shallow = createShallow()

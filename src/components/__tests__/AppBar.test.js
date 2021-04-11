@@ -1,18 +1,24 @@
 import React from 'react'
 import * as redux from 'react-redux'
 import { createShallow } from '@material-ui/core/test-utils'
-import { MainContainer } from '../MainContainer'
+import { AppBar } from '../../components/Layout/components/AppBar/AppBar'
 
-describe('<MainContainer />', () => {
+describe('<AppBar />', () => {
   const shallow = createShallow()
   const createWrapper = () => {
-    return shallow(<MainContainer />)
+    return shallow(<AppBar />)
   }
+
+  const dispatchMocked = jest.fn()
+  jest.spyOn(redux, 'useDispatch').mockImplementation(() => dispatchMocked)
 
   const createStore = () => {
     const store = {
       settings: { darkMode: false },
-      timer: { progress: 100 },
+      auth: {
+        name: 'Alex',
+        photo: 'https://via.placeholder.com/100',
+      },
     }
 
     jest
@@ -22,13 +28,11 @@ describe('<MainContainer />', () => {
     return store
   }
 
-  Element.prototype.scrollTo = () => {}
-
   beforeEach(() => {
     jest.clearAllMocks()
   })
 
-  test('should render <MainContainer /> correctly', () => {
+  test('should render <AppBar /> correctly', () => {
     createStore()
     expect(createWrapper()).toMatchSnapshot()
   })

@@ -5,8 +5,7 @@ exports[`<App /> should render <App /> correctly 1`] = `
   <WithStyles(CssBaseline) />
   <Memo(l) />
   <BrowserRouter>
-    <AppBar />
-    <MainContainer />
+    <Layout />
   </BrowserRouter>
 </ThemeConfig>
 `;

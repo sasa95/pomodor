@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AppBar /> should render <AppBar /> correctly 1`] = `
-<Styled(WithStyles(ForwardRef(AppBar)))
-  dark={0}
+exports[`<MainContainer /> should render <MainContainer /> correctly 1`] = `
+<Styled(MuiBox)
   sidenav={0}
   theme={
     Object {
@@ -294,12 +293,46 @@ exports[`<AppBar /> should render <AppBar /> correctly 1`] = `
       },
     }
   }
+  width="100%"
 >
-  <meta
-    content="#3f51b5"
-    name="theme-color"
+  <ScrollToTop
+    container={
+      Object {
+        "current": undefined,
+      }
+    }
   />
-  <Toolbar />
-  <NavList />
-</Styled(WithStyles(ForwardRef(AppBar)))>
+  <Styled(MuiBox)
+    flex={1}
+    pb={2}
+    pt={5}
+  >
+    <Switch>
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          to="/timer"
+        />
+      </Route>
+      <Route
+        component={[Function]}
+        path="/timer"
+      />
+      <Route
+        component={[Function]}
+        path="/stats"
+      />
+      <Route
+        component={[Function]}
+        path="/settings"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </Styled(MuiBox)>
+  <Footer />
+</Styled(MuiBox)>
 `;

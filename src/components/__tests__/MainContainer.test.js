@@ -1,17 +1,18 @@
 import React from 'react'
 import * as redux from 'react-redux'
 import { createShallow } from '@material-ui/core/test-utils'
-import { AppBar } from '../AppBar'
+import { MainContainer } from '../../components/Layout/components/MainContainer/MainContainer'
 
-describe('<AppBar />', () => {
+describe('<MainContainer />', () => {
   const shallow = createShallow()
   const createWrapper = () => {
-    return shallow(<AppBar />)
+    return shallow(<MainContainer />)
   }
 
   const createStore = () => {
     const store = {
       settings: { darkMode: false },
+      timer: { progress: 100 },
     }
 
     jest
@@ -21,11 +22,13 @@ describe('<AppBar />', () => {
     return store
   }
 
+  Element.prototype.scrollTo = () => {}
+
   beforeEach(() => {
     jest.clearAllMocks()
   })
 
-  test('should render <AppBar /> correctly', () => {
+  test('should render <MainContainer /> correctly', () => {
     createStore()
     expect(createWrapper()).toMatchSnapshot()
   })

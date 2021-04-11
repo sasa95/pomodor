@@ -1,11 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NavList /> should render <NavList/> correctly 1`] = `
-<Styled(WithStyles(ForwardRef(List)))
-  aria-label="Main navigation"
-  className="NavList"
-  component="nav"
-  sidenav={0}
+exports[`<AppBar /> should render <AppBar /> correctly 1`] = `
+<styled.div
+  showBorder={0}
   theme={
     Object {
       "breakpoints": Object {
@@ -297,67 +294,15 @@ exports[`<NavList /> should render <NavList/> correctly 1`] = `
     }
   }
 >
-  <Styled(NavLink)
-    to="/timer"
+  <UserAvatar />
+  <Logo
+    height={30}
+  />
+  <Styled(WithStyles(ForwardRef(Button)))
+    aria-label="menu"
+    onClick={[Function]}
   >
-    <Styled(WithStyles(ForwardRef(ListItem)))
-      button={true}
-    >
-      <Styled(WithStyles(ForwardRef(ListItemIcon)))>
-        <Memo([object Object]) />
-      </Styled(WithStyles(ForwardRef(ListItemIcon)))>
-      <WithStyles(ForwardRef(ListItemText))
-        primary="Timer"
-      />
-    </Styled(WithStyles(ForwardRef(ListItem)))>
-  </Styled(NavLink)>
-  <WithStyles(ForwardRef(Tooltip))
-    disableFocusListener={true}
-    disableHoverListener={true}
-    disableTouchListener={true}
-    placement="bottom"
-    title="Reset timer to access the stats"
-  >
-    <Styled(NavLink)
-      data-disabled={false}
-      to="/stats"
-    >
-      <Styled(WithStyles(ForwardRef(ListItem)))
-        button={true}
-        disabled={false}
-      >
-        <Styled(WithStyles(ForwardRef(ListItemIcon)))>
-          <Memo([object Object]) />
-        </Styled(WithStyles(ForwardRef(ListItemIcon)))>
-        <WithStyles(ForwardRef(ListItemText))
-          primary="Stats"
-        />
-      </Styled(WithStyles(ForwardRef(ListItem)))>
-    </Styled(NavLink)>
-  </WithStyles(ForwardRef(Tooltip))>
-  <WithStyles(ForwardRef(Tooltip))
-    disableFocusListener={true}
-    disableHoverListener={true}
-    disableTouchListener={true}
-    placement="bottom"
-    title="Reset timer to access the settings"
-  >
-    <Styled(NavLink)
-      data-disabled={false}
-      to="/settings"
-    >
-      <Styled(WithStyles(ForwardRef(ListItem)))
-        button={true}
-        disabled={false}
-      >
-        <Styled(WithStyles(ForwardRef(ListItemIcon)))>
-          <Memo([object Object]) />
-        </Styled(WithStyles(ForwardRef(ListItemIcon)))>
-        <WithStyles(ForwardRef(ListItemText))
-          primary="Settings"
-        />
-      </Styled(WithStyles(ForwardRef(ListItem)))>
-    </Styled(NavLink)>
-  </WithStyles(ForwardRef(Tooltip))>
-</Styled(WithStyles(ForwardRef(List)))>
+    <MenuIcon />
+  </Styled(WithStyles(ForwardRef(Button)))>
+</styled.div>
 `;

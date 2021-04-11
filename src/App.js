@@ -3,9 +3,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { createGlobalStyle } from 'styled-components'
 import { CssBaseline } from '@material-ui/core'
-import Box from '@material-ui/core/Box'
-import { AppBar } from './layout/navigation/AppBar'
-import { MainContainer } from './layout/MainContainer'
 import { firebase } from './firebase/firebase'
 import { setUserInfo } from './data/auth/actions'
 import { startSetSettings } from './data/settings/actions'
@@ -13,7 +10,7 @@ import { ThemeConfig } from './ThemeConfig'
 import { startSetLabels } from './data/labels/actions'
 import { startSetSessions } from './data/sessions/actions'
 import { setProgressVisibility } from './data/progress/actions'
-import { NavDrawer } from './layout/navigation/NavDrawer'
+import { Layout } from './components/Layout/Layout'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -51,11 +48,7 @@ const App = () => {
       <CssBaseline />
       <GlobalStyle />
       <BrowserRouter>
-        <AppBar />
-        <Box display="flex">
-          <NavDrawer />
-          <MainContainer />
-        </Box>
+        <Layout />
       </BrowserRouter>
     </ThemeConfig>
   )
@@ -70,6 +63,7 @@ const GlobalStyle = createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+    overflow-y: auto;
   }
 
   .MuiChip-root {
