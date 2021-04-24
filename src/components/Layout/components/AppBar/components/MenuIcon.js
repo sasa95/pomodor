@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 export const MenuIcon = () => {
   const darkMode = useSelector((state) => +state.settings.darkMode)
   const darkModeCached = +JSON.parse(localStorage.getItem('darkMode'))
-  const color = darkMode || darkModeCached ? '#fff' : '#000'
+  const color = darkMode || darkModeCached ? '#fff' : '#121212'
 
   return (
     <svg
@@ -16,7 +16,7 @@ export const MenuIcon = () => {
     >
       <path
         d="M0 16H24V13.3333H0V16ZM0 9.33333H24V6.66667H0V9.33333ZM0 0V2.66667H24V0H0Z"
-        fill="white"
+        fill={color}
       />
     </svg>
   )

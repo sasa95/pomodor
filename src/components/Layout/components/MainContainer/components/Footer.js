@@ -4,7 +4,7 @@ import { Box, useTheme } from '@material-ui/core'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
-import coffee from '../../../../../assets/coffee.jpg'
+import coffee from '../../../../../assets/images/coffee.jpg'
 
 export const Footer = () => {
   const theme = useTheme()

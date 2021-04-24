@@ -27,9 +27,12 @@ export const ThemeConfig = ({ children }) => {
         default: darkTheme ? '#111' : '#fdfcfe',
       },
       text: {
-        primary: darkTheme ? '#DDE0F4' : '#424242',
+        primary: darkTheme ? '#fff' : '#121212',
         secondary: darkTheme ? '#fff9' : '#575757',
       },
+    },
+    typography: {
+      fontFamily: ['Inter', 'sans-serif'],
     },
   })
 

@@ -6,6 +6,7 @@ import { SignIn } from '../../../SignIn/SignIn'
 import { UserAvatar } from '../../../UserAvatar'
 import OfflineIcon from '@material-ui/icons/WifiOff'
 import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Button'
 import { MenuIcon } from './components/MenuIcon'
 import { Logo } from './../../../Logo'
 import { setDrawerOpened } from '../../../../data/drawer/actions'
@@ -56,7 +57,9 @@ export const AppBar = () => {
         <OfflineIcon data-role="offline-icon" />
       )}
 
-      <Logo height={30} />
+      <LogoContainer>
+        <Logo height={30} />
+      </LogoContainer>
 
       <HamburgerButton aria-label="menu" onClick={openDrawer}>
         <MenuIcon />
@@ -85,4 +88,11 @@ export const Container = styled.div`
 
 const HamburgerButton = styled(Button)`
   height: 64px;
+`
+
+const LogoContainer = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `

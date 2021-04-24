@@ -59,6 +59,7 @@ export default App
 const GlobalStyle = createGlobalStyle`
   html {
     overflow: hidden;
+    font-feature-settings: "salt" 1;
   }
 
   html, body, #root {

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { useTheme } from '@material-ui/core'
 import MatBox from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import illustration from '../../../../../assets/404.svg'
+import illustration from '../../../../../assets/images/404.svg'
 
 export const Page404 = () => {
   const theme = useTheme()
