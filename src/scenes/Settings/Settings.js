@@ -6,7 +6,7 @@ import { Switches } from './components/Switches'
 import { DaySelect } from './components/DaySelect'
 
 export const Settings = () => {
-  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
+  const sidenav = +useMediaQuery('(min-width:900px) and (min-height:600px)')
 
   return (
     <Container sidenav={sidenav}>

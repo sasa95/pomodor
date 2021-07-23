@@ -28,7 +28,7 @@ export const UserAvatar = () => {
     setAnchorEl(null)
   }
 
-  const sidenav = +useMediaQuery('(min-width:600px) and (min-height:500px)')
+  const sidenav = +useMediaQuery('(min-width:900px) and (min-height:600px)')
 
   return (
     <>
@@ -52,7 +52,7 @@ export const Avatar = styled(MatAvatar)`
   ${({ sidenav }) =>
     sidenav &&
     css`
-      /* width: 72px;
-      height: 72px; */
+      width: 72px;
+      height: 72px;
     `}
 `
