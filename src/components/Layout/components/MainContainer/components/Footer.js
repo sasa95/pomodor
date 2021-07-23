@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Box, useTheme } from '@material-ui/core'
-import FavoriteIcon from '@material-ui/icons/Favorite'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import coffee from '../../../../../assets/images/coffee.jpg'
@@ -11,9 +10,7 @@ export const Footer = () => {
 
   return (
     <Container>
-      <Text align="center">
-        Made with <Heart color="secondary" /> by Sasha Drmic
-      </Text>
+      <Text align="center">Made with love by Sasha Drmic</Text>
 
       <CoffeeLink
         href="https://www.buymeacoffee.com/sashadrmic"
@@ -56,20 +53,15 @@ const Text = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px 0;
   flex: 0 0 auto;
-`
-
-const Heart = styled(FavoriteIcon)`
-  margin: 0 2px;
-  position: relative;
-  bottom: 4px;
+  font-weight: 600;
+  margin: 0;
 `
 
 const CoffeeLink = styled.a`
   width: 150px;
-  margin: auto;
   margin-bottom: 5px;
+  margin: 16px auto;
 `
 
 const CoffeeImage = styled.img`

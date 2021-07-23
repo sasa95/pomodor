@@ -34,14 +34,14 @@ export const SignIn = () => {
 
   return (
     <>
-      <TriggerButton
+      <Button
         aria-controls="sign-in-menu"
         aria-haspopup="true"
         onClick={openMenu}
         startIcon={<FaceIcon />}
       >
         Sign In
-      </TriggerButton>
+      </Button>
       <Menu
         id="sign-in-menu"
         anchorEl={anchorEl}
@@ -61,7 +61,3 @@ export const SignIn = () => {
     </>
   )
 }
-
-export const TriggerButton = styled(Button)`
-  color: #fff;
-`
