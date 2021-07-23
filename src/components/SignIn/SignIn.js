@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -34,14 +33,14 @@ export const SignIn = () => {
 
   return (
     <>
-      <TriggerButton
+      <Button
         aria-controls="sign-in-menu"
         aria-haspopup="true"
         onClick={openMenu}
         startIcon={<FaceIcon />}
       >
         Sign In
-      </TriggerButton>
+      </Button>
       <Menu
         id="sign-in-menu"
         anchorEl={anchorEl}
@@ -61,7 +60,3 @@ export const SignIn = () => {
     </>
   )
 }
-
-export const TriggerButton = styled(Button)`
-  color: #fff;
-`

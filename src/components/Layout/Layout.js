@@ -6,13 +6,13 @@ import { NavDrawer } from './components/NavDrawer/NavDrawer'
 import { MainContainer } from './components/MainContainer/MainContainer'
 
 export const Layout = () => {
-  const isDesktop = useMediaQuery('(min-width:900px) and (min-height:500px)')
+  const isDesktop = useMediaQuery('(min-width:900px) and (min-height:600px)')
 
   return (
     <>
       {!isDesktop && <AppBar />}
       <Box display={isDesktop ? 'flex' : 'block'}>
-        <NavDrawer />
+        {isDesktop && <NavDrawer />}
         <MainContainer />
       </Box>
     </>
