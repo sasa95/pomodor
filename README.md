@@ -1,3 +1,8 @@
+🔐 Pomodor.app is now closed-source project. This repo is no longer maintained.
+
+⚠️ The updates to Pomodor.app are still going to be provided from another closed-source repo.
+
+
 [![Image 1][]][pomodor.app]
 
 ## Description
